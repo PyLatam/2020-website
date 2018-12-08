@@ -1,0 +1,266 @@
+@font-face {
+    font-family: 'GT Pressura Bold';
+    src: url('../fonts/gt_pressua_pro/GT-Pressura-Pro-Trial-Bold.otf');
+}
+
+@font-face {
+    font-family: 'GT Pressura Regular';
+    src: url('../fonts/gt_pressua_pro/GT-Pressura-Pro-Trial-Regular.otf');
+}
+
+@font-face {
+    font-family: 'GT Haptik Bold';
+    src: url('../fonts/gt_pressura_pro_m/GT-Haptik-Trial-Bold.otf');
+}
+
+@font-face {
+    font-family: 'GT Haptik Ligth';
+    src: url('../fonts/gt_pressura_pro_m/GT-Haptik-Trial-Light.otf')
+}
+
+@font-face {
+    font-family: 'GT Haptik Trial Bold Oblique';
+    src: url('../fonts/gt_pressura_pro_m/GT-Haptik-Trial-Bold-Oblique.otf');
+}
+
+body {
+    background-image: url("../img/background.png");
+    background-size: cover;
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: 'GT Pressura Regular';
+    letter-spacing: 3px;
+    font-weight: 580; 
+}
+
+.topnav {
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: 'GT Pressura Regular';
+    letter-spacing: 3px;
+    font-weight: 580;  
+}
+
+.topnav-right {
+    float: right;
+}
+
+
+section {
+    padding: 100px;
+    border: 0;
+    margin: 0;
+}
+
+.pycon-title {
+    padding-top: 10px;
+    font-family: 'GT Pressura Bold';
+     font-size: 50px;
+    color: rgb(229, 184, 85);
+    text-shadow: 2px 2px 2px rgb(0, 45, 85);
+}
+
+.mailing-list-title {
+    padding: 0 30px 30px 30px;
+    margin: 0px;
+    font-family: 'GT Pressura Bold';
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px 2px rgb(212, 131, 54);
+}
+
+.sponsors-title {
+    padding: 0 30px 10px 30px;
+    margin: 0px;
+    font-family: 'GT Pressura Bold';
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px 2px rgb(56, 114, 159);
+}
+
+.text {
+    color: white;
+    font-size: 17px;
+    font-family: 'GT Pressura Regular';
+    letter-spacing: 3px;
+    font-weight: 580;  
+}
+
+.sponsor-text {
+    padding-top: 20px;
+    color: white;
+    font-size: 17px;
+    font-family: 'GT Pressura Regular';
+    font-weight: 580;
+    width: 50%;
+    display: inline-grid;
+}
+
+#pycon {
+    padding-bottom: 10%;
+}  
+
+#mailing-list {
+    background-image: url("../img/Wave1.png"), url("../img/Wave2.png"), url("../img/Wave3.png");
+    background-size: cover;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+
+}
+
+#sponsors {
+    background-color: rgb(212, 131, 54);
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.center {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+input[type=text] {
+    padding: 10px 10px;
+    border-radius: 4px;
+    border: 0;
+    color: grey;
+}
+
+.left-icon {
+    float: left;
+    height: 100%;
+    padding: 10px;
+}
+
+.right-icon {
+    float: right;
+    height: 100%;
+    padding: 10px;
+}
+
+.subscribe-submit-sect {
+    padding-top: 20px;  
+    display: inline-flex;
+    align-items: center;
+}
+.subscribe-button {
+    background:url("../img/right_arrow.png");
+    cursor:pointer;
+    border:none;
+    width:138px;
+    height:66px;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'GT Haptik Trial Bold Oblique';
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.sponsor-logos img {
+    padding: 10px;
+}
+
+.sponsor-button {
+    margin-top: 30px;
+    background-color: rgb(48, 175, 189);
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.sponsor-button a:hover, a:active {
+    background-color: rgb(48, 175, 189);;
+}
+
+.divider {
+    display: block;
+    padding: 10px;
+    margin: auto;
+}
+
+.divider-logo {
+    padding-bottom: 10px;
+}
+
+.scroll-x {
+    text-align: center;
+    width: 100%;
+    height: 34px;
+    font-size: 34px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    padding-bottom: 30px;
+}
+
+.scroll-down {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    z-index: 100;
+    width: 100%;
+    height: 34px;
+    font-size: 34px;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    -moz-animation: bounce 4s 2s infinite;
+    -webkit-animation: bounce 4s 2s infinite;
+    animation: bounce 4s 2s infinite;
+}
+  
+.scroll-down:hover {
+    color: #fff;
+    -webkit-animation: none;
+    animation: none;
+    text-decoration: none;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
