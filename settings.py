@@ -5,7 +5,6 @@ INSTALLED_ADDONS = [
     'aldryn-addons',
     'aldryn-django',
     'aldryn-sso',
-    'djangocms-picture',
     'djangocms-snippet',
     'djangocms-style',
     'djangocms-text-ckeditor',
