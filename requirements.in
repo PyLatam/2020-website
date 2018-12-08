@@ -2,7 +2,6 @@
 https://control.divio.com/api/v1/apps/serve/aldryn-addons/1.0.2/24f5d1c8-66fe-43b2-a540-17d61045a72b/aldryn-addons-1.0.2.tar.gz#egg=aldryn-addons==1.0.2
 https://control.divio.com/api/v1/apps/serve/aldryn-django/1.11.15.1/f9e543d2-3127-4458-b0f5-d69d282bf0ac/aldryn-django-1.11.15.1.tar.gz#egg=aldryn-django==1.11.15.1
 https://control.divio.com/api/v1/apps/serve/aldryn-sso/1.3.1/f6351558-64b2-4205-b407-cd49b6372463/aldryn-sso-1.3.1.tar.gz#egg=aldryn-sso==1.3.1
-https://control.divio.com/api/v1/apps/serve/djangocms-link/2.1.2/35b986c1-fafb-46ee-b665-aa36603f233a/djangocms-link-2.1.2.tar.gz#egg=djangocms-link==2.1.2
 https://control.divio.com/api/v1/apps/serve/djangocms-picture/2.0.6/005e8663-d1cc-4667-936c-30709edad076/djangocms-picture-2.0.6.tar.gz#egg=djangocms-picture==2.0.6
 https://control.divio.com/api/v1/apps/serve/djangocms-snippet/2.0.0/03734ae6-5d3e-44aa-8641-8f764dbced64/djangocms-snippet-2.0.0.tar.gz#egg=djangocms-snippet==2.0.0
 https://control.divio.com/api/v1/apps/serve/djangocms-style/2.0.2/51797e49-ec8c-461d-92e0-1cc274eb96af/djangocms-style-2.0.2.tar.gz#egg=djangocms-style==2.0.2
