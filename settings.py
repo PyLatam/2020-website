@@ -10,9 +10,12 @@ INSTALLED_ADDONS = [
 import aldryn_addons.settings
 aldryn_addons.settings.load(locals())
 
-
 # all django settings can be altered here
-
+ENABLE_SYNCING = False
+STATIC_ROOT = '/static'
 INSTALLED_APPS.extend([
     # add your project specific apps here
+    'django.contrib.flatpages',
+    'django.contrib.sitemaps',
+    'flatpages_extended',
 ])
