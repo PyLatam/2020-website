@@ -130,7 +130,7 @@ section {
 }
 
 #pycon .header{
-  max-width: 70%;
+  max-width: 800px;
   height: auto;
 }
 
@@ -288,7 +288,7 @@ section {
     }
   }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 940px) {
   body {
     /* background-color: lightblue; */
   }
