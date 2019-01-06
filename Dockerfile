@@ -38,5 +38,4 @@ COPY . /app
 
 # <STATIC>
 RUN DJANGO_MODE=build python manage.py collectstatic --noinput
-RUN gzip --keep --best --force --recursive /static/
 # </STATIC>
