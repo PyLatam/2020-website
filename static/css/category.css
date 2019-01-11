@@ -1,0 +1,112 @@
+body{
+  background: rgba(58, 122, 171, .3);
+  max-width:1300px;
+  margin: 0 auto;
+  background-image: url("../img/Wave1.svg"), url("../img/Wave2.svg"), url("../img/Wave3.svg");
+  background-size: cover;
+  background-position: center 120px;
+  background-repeat: no-repeat;
+
+}
+
+.navbar-default .navbar-nav>li>a {
+  color:#1f7982;
+}
+
+
+section{
+  padding: 20px 10%;
+  overflow:auto;
+  padding-bottom: 20px;
+}
+
+section:not(:first-child){
+  /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+}
+
+section aside+p{
+  overflow: hidden;
+}
+
+section:nth-child(even){
+  background-color: rgba(1,1,1,.1);
+}
+
+section:nth-child(2){
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+99&0+0,1+60 */
+  background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 60%, rgba(255,255,255,1) 99%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 60%,rgba(255,255,255,1) 99%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 60%,rgba(255,255,255,1) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+  }
+
+section:not(:first-child):nth-child(odd){
+  background-color: white;
+}
+
+section aside{
+  float: right;
+  width: 50%;
+  max-width: 400px;
+  margin-left: 5%;
+  background: #FFE28A;
+  border-top: solid 4px #1f7982;
+}
+
+
+aside{
+  float: left;
+  display: inline-block;
+  background-color: white;
+  padding: 0px 20px;
+}
+
+aside img{
+  padding: 10px;
+}
+
+aside p{
+  font-size: small;
+}
+
+h1{
+  font-family: 'GT Pressura Bold';
+  font-size: 60px;
+  color: #193B54;
+  background: src('/static/img/rombo-line.png');
+  /* text-shadow: 2px 2px 2px #E6B535; */
+}
+
+h1::after{
+  content:"";
+  background: url('/static/img/rombo-line.png') 0 0 no-repeat;
+  width: 161px;
+  height: 17px;
+  display:block;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: 'GT Pressura Bold';
+  font-size: 40px;
+  color: #26B1BE;
+  /* text-shadow: 2px 2px 2px rgb(212, 131, 54); */
+}
+
+p{
+    font-size: 17px;
+    text-align: left;
+    line-height: 1.7em;
+}
+ul{
+  padding-top: 10px;
+}
+li{
+  text-align: left;
+  padding-left: 10px;
+  line-height: 1.7em;
+}
+section:first-of-type p{
+  color:#3A7AAB;
+  font-size: 25px;
+}

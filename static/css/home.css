@@ -1,0 +1,228 @@
+body {
+    background-image: url("../img/background2.jpg");
+    background-size: cover;
+}
+
+h2 {
+  background:
+    url('../img/yellow_asterisc.png') right/25px 25px no-repeat,
+    url('../img/yellow_asterisc.png') left/25px 25px no-repeat;
+  margin: 0px;
+  font-family: 'GT Pressura Bold';
+  font-size: 50px;
+  color: white;
+  text-shadow: 2px 2px 2px rgb(212, 131, 54);
+  padding: 0px 30px;
+  display: inline;
+}
+
+
+.pycon-title {
+    padding-top: 10px;
+    font-family: 'GT Pressura Bold';
+     font-size: 50px;
+    color: rgb(229, 184, 85);
+    text-shadow: 2px 2px 2px rgb(0, 45, 85);
+}
+
+
+
+.sponsors-title {
+    padding: 0 30px 10px 30px;
+    margin: 0px;
+    font-family: 'GT Pressura Bold';
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px 2px rgb(56, 114, 159);
+}
+
+#pycon a:first-of-type {
+    color: white;
+    font-size: 17px;
+    font-family: 'GT Pressura Regular';
+    letter-spacing: 3px;
+    font-weight: 580;
+    display: block;
+}
+
+.sponsor-text {
+    padding-top: 20px;
+    color: white;
+    font-size: 17px;
+    font-family: 'GT Pressura Regular';
+    font-weight: 580;
+    width: 50%;
+    display: inline-grid;
+}
+
+#pycon .header{
+  max-width: 800px;
+  height: auto;
+}
+
+#mc_embed_signup {
+    background-image: url("../img/Wave1.svg"), url("../img/Wave2.svg"), url("../img/Wave3.svg");
+    background-size: cover;
+    background-position: center top;
+    padding: 15% 0 5%;
+    margin-top: -5%;
+}
+
+#sponsors {
+    padding: 5% 0;
+    background-color: rgb(212, 131, 54);
+}
+
+/* TODO erase this center class */
+.center {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#mce-EMAIL {
+    margin: 10px auto;
+    padding: 25px 10px;
+    border-radius: 10px;
+    border: 0;
+    height: 45px;
+    width: 60%;
+    text-align: center;
+    font-size: 2.8em;
+    color: rgba(0, 0, 0, 0.7);
+    box-sizing:content-box;
+}
+
+#mce-EMAIL::placeholder{
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.left-icon {
+    float: left;
+    height: 100%;
+    padding: 10px 0 10px 0;
+}
+
+.right-icon {
+    float: right;
+    height: 100%;
+    padding: 10px 0 10px 0;
+}
+
+.subscribe-submit-sect {
+    padding-top: 20px;
+    display: inline-flex;
+    align-items: center;
+}
+.subscribe-button {
+    background:url("../img/right_arrow.png");
+    background-repeat: no-repeat;
+    cursor:pointer;
+    border:none;
+    width:138px;
+    height:66px;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'GT Haptik Trial Bold Oblique';
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.sponsor-logos img {
+    padding: 10px;
+}
+
+.sponsor-button {
+    margin-top: 10px;
+    background-color: rgb(48, 175, 189);
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.sponsor-button a:hover, a:active {
+    background-color: rgb(48, 175, 189);;
+}
+
+.divider {
+    display: block;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.scroll-x {
+    text-align: center;
+    width: 100%;
+    height: 34px;
+    font-size: 34px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    padding-bottom: 30px;
+}
+
+.scroll-down {
+    margin-top: 10px;
+    z-index: 100;
+    width: 100%;
+    height: 34px;
+    font-size: 34px;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    -moz-animation: bounce 4s 2s infinite;
+    -webkit-animation: bounce 4s 2s infinite;
+    animation: bounce 4s 2s infinite;
+}
+
+.scroll-down:hover {
+    color: #fff;
+    -webkit-animation: none;
+    animation: none;
+    text-decoration: none;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+@media only screen and (max-width: 940px) {
+  #pycon .header{
+    max-width: 90%;
+  }
+  #mce-EMAIL {
+      width: 85%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #mc_embed_signup {
+      padding: 20% 0 5%;
+      margin-top: -10%;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  h2{
+    padding:0;
+    background:none;
+  }
+  #mc_embed_signup {
+      padding: 30% 0 5%;
+  }
+}
