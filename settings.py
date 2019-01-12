@@ -18,6 +18,5 @@ STATIC_ROOT = '/static'
 INSTALLED_APPS.extend([
     # add your project specific apps here
     'django.contrib.flatpages',
-    'django.contrib.sitemaps',
     'flatpages_extended',
 ])
