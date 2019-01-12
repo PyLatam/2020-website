@@ -12,6 +12,12 @@ INSTALLED_ADDONS = [
 import aldryn_addons.settings
 aldryn_addons.settings.load(locals())
 
+CMS_TEMPLATES = (
+    ('home.html', 'Home'),
+    ('category.html', 'Category'),
+)
+CMS_PAGE_CACHE = True
+
 # all django settings can be altered here
 ENABLE_SYNCING = False
 STATIC_ROOT = '/static'
