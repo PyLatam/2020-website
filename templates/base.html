@@ -14,9 +14,10 @@
     <title>{% block title %}{% page_attribute "page_title" %}{% endblock title %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/base.1.css" />
     {% render_block "css" %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/base.1.css" />
     {% block css %}{% endblock css %}
 </head>
 <body>
@@ -42,7 +43,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#mailing-list">SUBSCRIBE</a></li>
                     <li><a href="#sponsors">SPONSORS</a></li>
+                    <li class="translation"><input id="lang" type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
                 </ul>
+
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
@@ -55,7 +58,36 @@
 
   </footer>
   {% render_block "js" %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script>
+      $('input:checkbox').change(
+          function(){
+            animationsTest(function () {
+              if ($(this).is(':checked')) {
+                // alert("English");
+                // window.location.replace("/category.html");
+              }
+              else{
+                // window.location.replace("/category.html");
+                // alert("Spanish");
+              }
+            });
+          });
+
+        function animationsTest (callback) {
+          // Test if ANY/ALL page animations are currently active
+
+          var testAnimationInterval = setInterval(function () {
+            if (! $.timers.length) { // any page animations finished
+              clearInterval(testAnimationInterval);
+              callback();
+            }
+          }, 25);
+        };
+
+
+    </script>
 </body>
 </html>

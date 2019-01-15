@@ -74,6 +74,29 @@
   display: block;
 }
 
+li.translation {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+/* li .btn-default.active{
+  background-color: #16b1bf;
+  color: white;
+}
+
+li .btn-default.active:hover, li .btn-default.active:active{
+  background-color: #3c6367;
+  color: white;
+} */
+
+li .btn-primary {
+    background-color: #d68027;
+}
+
+li .btn-primary:hover, li .btn-primary:active {
+    background-color: #bb6f1f;
+}
+
 section {
   text-align: center;
   display: block;
