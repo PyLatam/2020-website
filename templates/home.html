@@ -1,23 +1,20 @@
 {% extends 'base.html' %}
-
-{% block title %}Pycon Latam 2019{% endblock title %}
+{% load i18n %}
 
 {% block css %}<link rel="stylesheet" type="text/css" href="/static/css/home.1.css" />{% endblock css %}
 
 {% block content %}
-
-
     <section id='pycon'>
       <h1><img class='header' src='/static/img/pylatamheader.svg' alt='PyCon LATAM'/></h1>
-      <time class='pycon-title' datetime='2019-08-13 09:00'>AUGUST 2019<time>
-      <a href='https://www.google.com/maps/place/Puerto+Vallarta'>PUERTO VALLARTA, MEXICO</a>
+      <time class='pycon-title' datetime='2019-08-13 09:00'>{% trans "AUGUST" %} 2019<time>
+      <a href='https://www.google.com/maps/place/Puerto+Vallarta'>PUERTO VALLARTA, MÉXICO</a>
       <a class='scroll-down glyphicon glyphicon-menu-down' href='#mc_embed_signup' data-offset='-45'></a>
     </section>
 
     <!-- Begin Mailchimp Signup Form -->
     <section id='mc_embed_signup'>
         <div class='section-header'>
-            <h2>SUBSCRIBE</h2>
+            <h2>{% trans "SUBSCRIBE" %}</h2>
         </div>
         <img class='divider img-responsive' src='/static/img/Graphic_7.png' alt='divider' />
         <form action='https://pylatam.us19.list-manage.com/subscribe/post?u=6d2b6cf4a47f3089e707833e6&amp;id=4db5cc3f9f' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' class='validate' target='_blank' novalidate>
@@ -26,25 +23,24 @@
                     <div class='response' id='mce-error-response' style='display:none'></div>
                     <div class='response' id='mce-success-response' style='display:none'></div>
                 </div>
-                <input type='email' value='' placeholder='email address' name='EMAIL' class='required email' id='mce-EMAIL'>
+                <input type='email' value='' placeholder='{% trans "email address" %}' name='{% trans "EMAIL" %}' class='required email' id='mce-EMAIL'>
                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                 <div style='position: absolute; left: -5000px;' aria-hidden='true'><input type='text' name='b_6d2b6cf4a47f3089e707833e6_4db5cc3f9f' tabindex='-1' value=''></div>
-                <div class='clear'><input class='subscribe-button' type='submit' value='SUBSCRIBE'></div>
+                <div class='clear'><input class='subscribe-button' type='submit' value='{% trans "SUBSCRIBE" %}'></div>
             </div>
         </form>
     </section>
     <!--End mc_embed_signup-->
 
     <section id='sponsors'>
-      <h2>SPONSORS</h2>
+      <h2>{% trans "SPONSORS" %}</h2>
       <img class='divider' src='/static/img/rombo-line.png'/>
       <p class='sponsor-text'>
-          The companies and organizations who sponsor PyCon make the conference possible,
-          and get the connect with a wide array of Python programmers.
+          {% blocktrans %}The companies and organizations who sponsor PyCon make the conference possible,
+          and get to connect with a wide array of Python programmers.{% endblocktrans %}
       </p>
       <div class='sponsor-logos'>
           <img src='/static/img/Logo_Wizeline.png' alt='WizeLine Logo' />
       </div>
     </section>
-
 {% endblock content %}
