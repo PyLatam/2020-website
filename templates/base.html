@@ -44,7 +44,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#mailing-list">{% trans "SUBSCRIBE" %}</a></li>
                     <li><a href="#sponsors">{% trans "SPONSORS" %}</a></li>
-                    <li class="translation"><input id="lang" type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
+                    <li class="translation"><input {% if LANGUAGE_CODE == 'en' %}checked {% endif %}id="lang" type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
                 </ul>
 
             </div><!-- /.navbar-collapse -->
