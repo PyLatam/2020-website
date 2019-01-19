@@ -23,6 +23,11 @@
 </head>
 <body>
   {% cms_toolbar %}
+  {% if LANGUAGE_CODE == 'en' %}
+      {% page_url request.current_page 'es' as language_switcher_url %}
+  {% else %}
+      {% page_url request.current_page 'en' as language_switcher_url %}
+  {% endif %}
   <header>
     <!-- TODO: remove nav bar from here and import through django -->
     <nav class="navbar navbar-default">
@@ -36,13 +41,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 {% if not request.current_page.is_home %}
-                  <a class='navbar-brand' href='/'><img src='/static/img/pylatamheader.svg'/></a>
+                  <a class='navbar-brand' href='{% page_url request.current_page.get_root %}'><img src='/static/img/pylatamheader.svg'/></a>
                 {% endif %}
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#mailing-list">{% trans "SUBSCRIBE" %}</a></li>
+                    <li><a href="#mc_embed_signup">{% trans "SUBSCRIBE" %}</a></li>
                     <li><a href="#sponsors">{% trans "SPONSORS" %}</a></li>
                     <li class="translation"><input {% if LANGUAGE_CODE == 'en' %}checked {% endif %}id="lang" type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
                 </ul>
@@ -63,15 +68,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script>
-      $('input:checkbox').change(
+      $('#lang').change(
           function(){
             animationsTest(function () {
-              if ($(this).is(':checked')) {
-                window.location.replace("{% page_url request.current_page 'en' %}");
-              }
-              else{
-                window.location.replace("{% page_url request.current_page 'es' %}");
-              }
+              window.location.replace("{{ language_switcher_url }}");
             });
           });
 
