@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 {% if not request.current_page.is_home %}
-                  <a class='navbar-brand' href='{% page_url request.current_page.get_root %}'><img src='/static/img/pylatamheader.svg'/></a>
+                  <a class='navbar-brand' href='{% page_url "home" %}'><img src='/static/img/pylatamheader.svg'/></a>
                 {% endif %}
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
