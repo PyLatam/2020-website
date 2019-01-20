@@ -1,5 +1,4 @@
-{% load cms_tags sekizai_tags %}
-{% load i18n %}
+{% load cms_tags i18n menu_tags sekizai_tags %}
 <!doctype html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
@@ -47,8 +46,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#mc_embed_signup">{% trans "SUBSCRIBE" %}</a></li>
-                    <li><a href="#sponsors">{% trans "SPONSORS" %}</a></li>
+                    {% show_menu 0 1 0 0 'includes/menu/navigation.html' %}
                     <li class="translation"><input {% if LANGUAGE_CODE == 'en' %}checked {% endif %}id="lang" type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
                 </ul>
 
