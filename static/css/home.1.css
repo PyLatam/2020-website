@@ -9,7 +9,7 @@ h2 {
     url('../img/yellow_asterisc.png') left/25px 25px no-repeat;
   margin: 0px;
   font-family: 'GT Pressura Bold';
-  font-size: 50px;
+  font-size: 45px;
   color: white;
   text-shadow: 2px 2px 2px rgb(212, 131, 54);
   padding: 0px 30px;
@@ -90,9 +90,11 @@ h2 {
     height: 45px;
     width: 60%;
     text-align: center;
-    font-size: 2.8em;
+    font-size: 2em;
     color: rgba(0, 0, 0, 0.7);
     box-sizing:content-box;
+    background-color: rgba(255,255,255,0.8);
+    box-shadow: inset 4px 3px 0 rgba(1,1,1,0.1);
 }
 
 #mce-EMAIL::placeholder{
@@ -117,21 +119,30 @@ h2 {
     align-items: center;
 }
 .subscribe-button {
-    background:url("../img/right_arrow.png");
-    background-repeat: no-repeat;
     cursor:pointer;
     border:none;
-    width:138px;
-    height:66px;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 18px 24px;
     text-decoration: none;
     font-size: 13px;
-    font-family: 'GT Haptik Trial Bold Oblique';
     letter-spacing: 2px;
     font-weight: bold;
-    margin-left: 5px;
+    border-radius: 1em;
+    background: orange;
+    border-bottom: 4px solid darkorange;
+    outline:none;
+}
+
+.subscribe-button:hover{
+  margin-top:2px;
+  border-bottom-width:2px;
+}
+
+.subscribe-button:active{
+  margin-top: 2px;
+  border-bottom-width: 0px;
+  border-top: 2px solid rgba(255, 165, 0, .96);
 }
 
 .sponsor-logos img {
