@@ -7,6 +7,7 @@ INSTALLED_ADDONS = [
     'aldryn-django-cms',
     'djangocms-style',
     'djangocms-text-ckeditor',
+    'djangocms-transfer',
     'django-filer',
     # </INSTALLED_ADDONS>
 ]
