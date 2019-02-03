@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load cms_tags i18n static %}
 
-{% block css %}<link rel="stylesheet" type="text/css" href="/static/css/home.1.css" />{% endblock css %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />{% endblock css %}
 
 {% block content %}
     <section id='pycon'>
-      <h1><img class='header' src='/static/img/pylatamheader.svg' alt='PyCon LATAM'/></h1>
-      <time class='pycon-title' datetime='2019-08-13 09:00'>{% trans "AUGUST" %} 2019<time>
-      <a href='https://www.google.com/maps/place/Puerto+Vallarta'>PUERTO VALLARTA, MÉXICO</a>
+      <h1><img class='header' src="{% static 'img/pylatamheader.svg' %}" alt='PyCon LATAM'/></h1>
+      <time class='pycon-title' datetime='2019-08-13 09:00'>29 {% trans "AUGUST" %} - 1 {% trans "SEPTEMBER" %}, 2019<time>
+      <a href='{% page_url "venue" %}'>FRIENDLY HOTEL, PUERTO VALLARTA, MÉXICO</a>
       <a class='scroll-down glyphicon glyphicon-menu-down' href='#mc_embed_signup' data-offset='-45'></a>
     </section>
 
@@ -16,7 +16,7 @@
         <div class='section-header'>
             <h2>{% trans "SUBSCRIBE" %}</h2>
         </div>
-        <img class='divider img-responsive' src='/static/img/Graphic_7.png' alt='divider' />
+        <img class='divider img-responsive' src="{% static 'img/Graphic_7.png' %}" alt='divider' />
         <form action='https://pylatam.us19.list-manage.com/subscribe/post?u=6d2b6cf4a47f3089e707833e6&amp;id=4db5cc3f9f' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' class='validate' target='_blank' novalidate>
             <div id='mc_embed_signup_scroll'>
                 <div id='mce-responses' class='clear'>
@@ -34,13 +34,13 @@
 
     <section id='sponsors'>
       <h2>{% trans "SPONSORS" %}</h2>
-      <img class='divider' src='/static/img/rombo-line.png'/>
+      <img class='divider' src="{% static 'img/rombo-line.png' %}"/>
       <p class='sponsor-text'>
-          {% blocktrans %}The companies and organizations who sponsor PyCon make the conference possible,
+          {% blocktrans %}The companies and organizations who sponsor PyCon Latam make the conference possible,
           and get to connect with a wide array of Python programmers.{% endblocktrans %}
       </p>
       <div class='sponsor-logos'>
-          <img src='/static/img/Logo_Wizeline.png' alt='WizeLine Logo' />
+          <img src="{% static 'img/Logo_Wizeline.png' %}" alt='WizeLine Logo' />
       </div>
     </section>
 {% endblock content %}

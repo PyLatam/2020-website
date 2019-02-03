@@ -25,6 +25,7 @@ CMS_PAGE_CACHE = True
 # all django settings can be altered here
 ENABLE_SYNCING = False
 STATIC_ROOT = '/static'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 INSTALLED_APPS.extend([
     # add your project specific apps here
     'django.contrib.flatpages',

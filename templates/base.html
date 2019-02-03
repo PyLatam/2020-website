@@ -1,4 +1,4 @@
-{% load cms_tags i18n menu_tags sekizai_tags %}
+{% load cms_tags i18n menu_tags sekizai_tags static %}
 <!doctype html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
@@ -17,7 +17,7 @@
     {% render_block "css" %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/base.1.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
     {% block css %}{% endblock css %}
 </head>
 <body>
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 {% if not request.current_page.is_home %}
-                  <a class='navbar-brand' href='{% page_url "home" %}'><img src='/static/img/pylatamheader.svg'/></a>
+                  <a class='navbar-brand' href='{% page_url "home" %}'><img src="{% static 'img/pylatamheader.svg' %}"/></a>
                 {% endif %}
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->

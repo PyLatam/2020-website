@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% load cms_tags %}
+{% load cms_tags static %}
 
-{% block css %}<link rel="stylesheet" type="text/css" href="/static/css/category.css" />{% endblock css %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}" />{% endblock css %}
 
 {% block content %}
     {% placeholder herounit %}
     {% placeholder feature %}
-    <img src="/static/img/TBWave_BGWhite-15.png" width="100%" id="wave" height="30px">
+    <img src="{% static 'img/TBWave_BGWhite-15.png' %}" width="100%" id="wave" height="30px">
     {% placeholder content %}
 {% endblock content %}
