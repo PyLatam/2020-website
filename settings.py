@@ -20,6 +20,18 @@ CMS_TEMPLATES = (
     ('home.html', 'Home'),
     ('category.html', 'Category'),
 )
+CMS_LANGUAGES = {
+    'default': {
+        'fallbacks': ['es', 'en'],
+        'redirect_on_fallback': False,
+        'public': True,
+        'hide_untranslated': True,
+    },
+    1: [
+        {'code': 'es', 'name': 'Spanish', 'fallbacks': [], 'public': True},
+        {'code': 'en', 'name': 'English', 'fallbacks': [], 'public': True},
+    ]
+}
 CMS_PAGE_CACHE = True
 
 # all django settings can be altered here

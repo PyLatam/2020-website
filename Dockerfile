@@ -36,6 +36,8 @@ COPY . /app
 # <GULP>
 # </GULP>
 
+RUN rm -rf /static/*
+
 # <STATIC>
 RUN DJANGO_MODE=build python manage.py collectstatic --noinput
 # </STATIC>
