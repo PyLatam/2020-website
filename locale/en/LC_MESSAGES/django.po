@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-19 01:39+0000\n"
+"POT-Creation-Date: 2019-02-03 18:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,20 +18,51 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/base.html:33
+#: templates/base.html:37
 msgid "Toggle navigation"
 msgstr ""
 
-#: templates/base.html:45 templates/home.html:17 templates/home.html:29
-msgid "SUBSCRIBE"
+#: templates/cms/plugins/widgets/ckeditor.html:25
+#: templates/cms/plugins/widgets/ckeditor.html:28
+msgid "CMS Plugins"
 msgstr ""
 
-#: templates/base.html:46 templates/home.html:36
-msgid "SPONSORS"
+#: templates/cms/plugins/widgets/ckeditor.html:26
+msgid "Add CMS Plugin"
+msgstr ""
+
+#: templates/cms/plugins/widgets/ckeditor.html:27
+msgid "Edit CMS Plugin"
+msgstr ""
+
+#: templates/cms/plugins/widgets/ckeditor.html:33
+msgid "Standard Plugins"
+msgstr ""
+
+#: templates/djangocms_transfer/import_plugins.html:5
+msgid "Import plugins"
+msgstr ""
+
+#: templates/djangocms_transfer/import_plugins.html:8
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/djangocms_transfer/import_plugins.html:31
+msgid "Import"
 msgstr ""
 
 #: templates/home.html:9
 msgid "AUGUST"
+msgstr ""
+
+#: templates/home.html:9
+msgid "SEPTEMBER"
+msgstr ""
+
+#: templates/home.html:17 templates/home.html:29
+msgid "SUBSCRIBE"
 msgstr ""
 
 #: templates/home.html:26
@@ -42,9 +73,13 @@ msgstr ""
 msgid "EMAIL"
 msgstr ""
 
+#: templates/home.html:36
+msgid "SPONSORS"
+msgstr ""
+
 #: templates/home.html:39
 msgid ""
-"The companies and organizations who sponsor PyCon make the conference "
+"The companies and organizations who sponsor PyCon Latam make the conference "
 "possible,\n"
 "          and get to connect with a wide array of Python programmers."
 msgstr ""
