@@ -6,7 +6,7 @@
 {% block content %}
     <section id='pycon'>
       <h1><img class='header' src="{% static 'img/pylatamheader.svg' %}" alt='PyCon LATAM'/></h1>
-      <time class='pycon-title' datetime='2019-08-13 09:00'>{% trans "AUGUST" %} 29, 2019<time>
+      <time class='pycon-title' datetime='2019-08-13 09:00'>{% trans "AUGUST" %} 30, 2019<time>
       <a href='{% page_url "venue" %}'>PUERTO VALLARTA, MÉXICO</a>
       <a class='scroll-down glyphicon glyphicon-menu-down' href='#mc_embed_signup' data-offset='-45'></a>
     </section>
@@ -17,10 +17,10 @@
             <p>
             {% blocktrans %} PyCon Latam is a flavor of the PyCon conference that aims to bring together
             python developers from all latin american countries, and serve as a platform for
-            them to interface with the python community at large.
+            them to interface with the python community at large.{% endblocktrans %}
 
             <span style="color:yellow;">
-            This 3 day conference starts on August 29<sup>th</sup> and ends September 1<sup>st</sup> 2019.{% endblocktrans %}
+            {% blocktrans %}This 3 day conference starts on August 30 and ends September 1.{% endblocktrans %}
             </span>
             </p>
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-03 18:54+0000\n"
+"POT-Creation-Date: 2019-02-04 23:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: templates/base.html:37
-msgid "Toggle navigation"
-msgstr ""
 
 #: templates/cms/plugins/widgets/ckeditor.html:25
 #: templates/cms/plugins/widgets/ckeditor.html:28
@@ -57,27 +53,36 @@ msgstr ""
 msgid "AUGUST"
 msgstr ""
 
-#: templates/home.html:9
-msgid "SEPTEMBER"
+#: templates/home.html:18
+msgid ""
+" PyCon Latam is a flavor of the PyCon conference that aims to bring "
+"together\n"
+"            python developers from all latin american countries, and serve "
+"as a platform for\n"
+"            them to interface with the python community at large."
 msgstr ""
 
-#: templates/home.html:17 templates/home.html:29
+#: templates/home.html:23
+msgid "This 3 day conference starts on August 30 and ends September 1."
+msgstr ""
+
+#: templates/home.html:27 templates/home.html:39
 msgid "SUBSCRIBE"
 msgstr ""
 
-#: templates/home.html:26
+#: templates/home.html:36
 msgid "email address"
 msgstr ""
 
-#: templates/home.html:26
+#: templates/home.html:36
 msgid "EMAIL"
 msgstr ""
 
-#: templates/home.html:36
+#: templates/home.html:46
 msgid "SPONSORS"
 msgstr ""
 
-#: templates/home.html:39
+#: templates/home.html:49
 msgid ""
 "The companies and organizations who sponsor PyCon Latam make the conference "
 "possible,\n"
