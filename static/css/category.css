@@ -8,6 +8,8 @@ body{
   color:#1f7982;
 }
 
+
+
 img#wave {
     background-color: #00b0bf;
     margin-bottom: -1px;
@@ -90,13 +92,11 @@ aside img{
   padding: 10px;
 }
 
-aside p{
-  font-size: small;
-}
 
 h1{
-  font-family: 'GT Pressura Bold';
-  font-size: 60px;
+  font-size: 50px;
+  font-weight: 700;
+  font-style: normal;
   color: #193B54;
   background: src('/static/img/rombo-line.png');
 }
@@ -111,13 +111,14 @@ h1::after{
 }
 
 h2 {
-  font-family: 'GT Pressura Bold';
-  font-size: 40px;
+  font-weight: 700;
+  font-size: 32px;
   color: #1f7982;
 }
 
+
+
 p{
-    font-size: 17px;
     text-align: left;
     line-height: 1.8em;
 }

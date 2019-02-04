@@ -1,3 +1,5 @@
 {% for child in children %}
-    <li><a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a></li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+    </li>
 {% endfor %}

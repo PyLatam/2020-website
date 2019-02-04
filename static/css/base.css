@@ -24,6 +24,66 @@
     src: url('../fonts/gt_pressura_pro_m/GT-Haptik-Trial-Bold-Oblique.otf');
 }
 
+body{
+  font-family: nudista-web,sans-serif;
+  min-width:305px;
+  box-sizing:border-box;
+}
+
+h2{
+  margin-top: 20px;
+}
+
+ul{
+  padding-bottom: 10px;
+}
+
+.nav-link{
+  box-sizing: border-box;
+  color:#1f7982 !important;
+  letter-spacing:1px;
+  text-decoration: none;
+  font-size:17px;
+  background:inherit;
+  transition:0.2s;
+  padding-right:8px !important;
+  padding-left:8px !important;
+}
+
+
+
+.navbar-toggler{
+  border-color: white !important;
+}
+
+.navbar-toggler:focus{
+  outline:none !important;
+}
+
+.navbar-toggler-icon{
+  background-image: url(../img/hamburger-white.svg) !important;
+}
+
+.navbar-collapse{
+  justify-content: flex-end;
+}
+
+.toggle-off.btn{
+  background:#e6e6e6;
+  box-shadow:inset 0 3px 5px rgba(0,0,0,.125);
+}
+
+.toggle-handle{
+  background:white;
+}
+
+
+.nav-link:hover{
+  color:#2796a2 !important;
+  background: rgba(255,255,255,0.2);
+  border-radius:5px;
+
+}
 
 .navbar-default {
     background-color: transparent;

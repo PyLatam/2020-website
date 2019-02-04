@@ -6,14 +6,24 @@
 {% block content %}
     <section id='pycon'>
       <h1><img class='header' src="{% static 'img/pylatamheader.svg' %}" alt='PyCon LATAM'/></h1>
-      <time class='pycon-title' datetime='2019-08-13 09:00'>29 {% trans "AUGUST" %} - 1 {% trans "SEPTEMBER" %}, 2019<time>
-      <a href='{% page_url "venue" %}'>FRIENDLY HOTEL, PUERTO VALLARTA, MÉXICO</a>
+      <time class='pycon-title' datetime='2019-08-13 09:00'>{% trans "AUGUST" %} 29, 2019<time>
+      <a href='{% page_url "venue" %}'>PUERTO VALLARTA, MÉXICO</a>
       <a class='scroll-down glyphicon glyphicon-menu-down' href='#mc_embed_signup' data-offset='-45'></a>
     </section>
-
     <!-- Begin Mailchimp Signup Form -->
     <section id='mc_embed_signup'>
         <div class='section-header'>
+
+            <p>
+            {% blocktrans %} PyCon Latam is a flavor of the PyCon conference that aims to bring together
+            python developers from all latin american countries, and serve as a platform for
+            them to interface with the python community at large.
+
+            <span style="color:yellow;">
+            This 3 day conference starts on August 29<sup>th</sup> and ends September 1<sup>st</sup> 2019.{% endblocktrans %}
+            </span>
+            </p>
+
             <h2>{% trans "SUBSCRIBE" %}</h2>
         </div>
         <img class='divider img-responsive' src="{% static 'img/Graphic_7.png' %}" alt='divider' />

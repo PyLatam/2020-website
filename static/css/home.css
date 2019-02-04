@@ -8,7 +8,7 @@ h2 {
     url('../img/yellow_asterisc.png') right/25px 25px no-repeat,
     url('../img/yellow_asterisc.png') left/25px 25px no-repeat;
   margin: 0px;
-  font-family: 'GT Pressura Bold';
+  font-family: dederon-sans-web, sans-serif; font-weight: 700; font-style: normal;
   font-size: 45px;
   color: white;
   text-shadow: 2px 2px 2px rgb(212, 131, 54);
@@ -16,22 +16,49 @@ h2 {
   display: inline;
 }
 
+.nav-link{
+  color:white !important;
+}
+
+.navbar{
+  justify-content: flex-end;
+}
+
+.navbar-toggler{
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.nav-item{
+  text-align:right;
+}
+
+.translation{
+  align-self: flex-end;
+}
 
 .pycon-title {
     padding-top: 10px;
-    font-family: 'GT Pressura Bold';
-     font-size: 50px;
+    font-weight: 700;
+    font-size: 40px;
     color: rgb(229, 184, 85);
     text-shadow: 2px 2px 2px rgb(0, 45, 85);
+
 }
 
-
+.section-header p {
+    padding: 5% 10%;
+    color: white;
+    font-size: 1.3em;
+    line-height: 2em;
+}
 
 .sponsors-title {
     padding: 0 30px 10px 30px;
     margin: 0px;
     font-family: 'GT Pressura Bold';
     font-size: 50px;
+    line-height: 1em;
     color: white;
     text-shadow: 2px 2px 2px rgb(56, 114, 159);
 }
@@ -39,9 +66,8 @@ h2 {
 #pycon a:first-of-type {
     color: white;
     font-size: 17px;
-    font-family: 'GT Pressura Regular';
-    letter-spacing: 3px;
-    font-weight: 580;
+    letter-spacing: 1px;
+    font-weight: 500;
     display: block;
 }
 
@@ -49,14 +75,12 @@ h2 {
     padding-top: 20px;
     color: white;
     font-size: 17px;
-    font-family: 'GT Pressura Regular';
-    font-weight: 580;
     width: 50%;
     display: inline-grid;
 }
 
 #pycon .header{
-  max-width: 800px;
+  max-width: 600px;
   height: auto;
 }
 
@@ -225,6 +249,9 @@ h2 {
   #mc_embed_signup {
       padding: 20% 0 5%;
       margin-top: -10%;
+  }
+  .section-header p {
+    margin-top: 50px;
   }
 }
 
