@@ -33,7 +33,7 @@ CMS_LANGUAGES = {
         {'code': 'en', 'name': 'English', 'fallbacks': [], 'public': True},
     ]
 }
-CMS_PAGE_CACHE = True
+CMS_PAGE_CACHE = False
 
 # all django settings can be altered here
 ENABLE_SYNCING = False
@@ -44,3 +44,9 @@ INSTALLED_APPS.extend([
     'django.contrib.flatpages',
     'flatpages_extended',
 ])
+
+MIDDLEWARE.insert(
+    MIDDLEWARE.index('django.middleware.locale.LocaleMiddleware') + 1,
+    'cms_extensions.middleware.LanguageCookieMiddleware',
+)
+MIDDLEWARE.remove('cms.middleware.language.LanguageCookieMiddleware')
