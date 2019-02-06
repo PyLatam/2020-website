@@ -15,7 +15,7 @@ class LanguageCookieMiddleware(MiddlewareMixin):
         session_language = request.session.get(LANGUAGE_SESSION_KEY)
 
         if session_language:
-            set_session = session_language == language
+            set_session = session_language != language
         else:
             set_session = cookie_language and cookie_language != language
 
