@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-04 23:34+0000\n"
+"POT-Creation-Date: 2019-02-06 03:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,7 +63,7 @@ msgid ""
 msgstr ""
 
 #: templates/home.html:23
-msgid "This 3 day conference starts on August 30 and ends September 1."
+msgid "This 3 day conference starts on August 29th and ends on the 31st."
 msgstr ""
 
 #: templates/home.html:27 templates/home.html:39
