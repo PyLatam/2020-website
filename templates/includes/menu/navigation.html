@@ -5,7 +5,6 @@
                 {{ child.get_menu_title }}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a>
                 {% for descendant in child.children %}
                     <a class="dropdown-item" href="{{ descendant.attr.redirect_url|default:descendant.get_absolute_url }}">{{ descendant.get_menu_title }}</a>
                 {% endfor %}
