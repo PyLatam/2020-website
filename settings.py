@@ -33,7 +33,7 @@ CMS_LANGUAGES = {
         {'code': 'en', 'name': 'English', 'fallbacks': [], 'public': True},
     ]
 }
-CMS_PAGE_CACHE = False
+CMS_PAGE_CACHE = True
 
 # all django settings can be altered here
 ENABLE_SYNCING = False
