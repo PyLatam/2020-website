@@ -11,3 +11,4 @@ https://control.divio.com/api/v1/apps/serve/django-filer/1.4.4/efa7ef09-9f3d-4a8
 # </INSTALLED_ADDONS>
 click==7.0
 jinja2==2.10
+django-user-accounts==2.1.0
