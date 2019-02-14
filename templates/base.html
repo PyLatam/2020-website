@@ -23,10 +23,18 @@
 </head>
 <body>
   {% cms_toolbar %}
-  {% if LANGUAGE_CODE == 'en' %}
-      {% page_url request.current_page 'es' as language_switcher_url %}
+  {% if request.current_page  %}
+      {% if LANGUAGE_CODE == 'en' %}
+          {% page_url request.current_page|default_if_none:'home' 'es' as language_switcher_url %}
+      {% else %}
+          {% page_url request.current_page|default_if_none:'home' 'en' as language_switcher_url %}
+      {% endif %}
   {% else %}
-      {% page_url request.current_page 'en' as language_switcher_url %}
+      {% if LANGUAGE_CODE == 'en' %}
+          {% page_url 'home' 'es' as language_switcher_url %}
+      {% else %}
+          {% page_url 'home' 'en' as language_switcher_url %}
+      {% endif %}
   {% endif %}
   <header>
     <!-- TODO: remove nav bar from here and import through django -->
