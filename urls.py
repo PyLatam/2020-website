@@ -14,7 +14,7 @@ urlpatterns = [
 ]
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
-    path('account/', include("account.urls")),
+    path('', include('account_extensions.urls')),
     path('', include('cms.urls')),
     prefix_default_language=False,
 )

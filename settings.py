@@ -44,10 +44,18 @@ INSTALLED_APPS.extend([
     'django.contrib.flatpages',
     'flatpages_extended',
     'account',
+    'form_helpers',
 ])
+
+
 
 MIDDLEWARE.insert(
     MIDDLEWARE.index('django.middleware.locale.LocaleMiddleware') + 1,
     'cms_extensions.middleware.LanguageCookieMiddleware',
 )
 MIDDLEWARE.remove('cms.middleware.language.LanguageCookieMiddleware')
+
+ACCOUNT_EMAIL_UNIQUE = True
+ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = True
+ACCOUNT_USER_DISPLAY = lambda user: user.email
+AUTHENTICATION_BACKENDS.append('account.auth_backends.EmailAuthenticationBackend')

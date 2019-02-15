@@ -1,6 +1,6 @@
 {% extends 'account/base.html' %}
 
-{% load account_tags %}
+{% load account_tags form_helpers %}
 {% load i18n %}
 
 {% block title %}{% trans "Log in" %}{% endblock title %}
@@ -8,6 +8,7 @@
 {% block form_area %}
 <form method="POST" action="{% url "account_login" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
   <p>{% trans "Log in to an existing account" %}</p>
+    {% render_field form.email placeholder=_("Enter email") help_text=_("We'll never share your email with anyone else.") %}
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
