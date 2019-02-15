@@ -1,1 +1,63 @@
 {% extends 'account/base.html' %}
+
+{% load account_tags %}
+{% load i18n %}
+
+{% block title %}{% trans "Log in" %}{% endblock title %}
+
+{% block form_area %}
+<form method="POST" action="{% url "account_login" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+  <p>{% trans "Log in to an existing account" %}</p>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <form method="POST" action="{% url "account_login" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+                <legend>{% trans "Log in to an existing account" %}</legend>
+                {% csrf_token %}
+                {{ form.as_table }}
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button type="submit" class="btn btn-primary">{% trans "Log in" %}</button>
+                <a href="{% url "account_password_reset" %}" class="btn btn-link">{% trans "Forgot your password?" %}</a>
+            </form>
+            {% if ACCOUNT_OPEN_SIGNUP %}
+                <p class="login-signup">
+                    <small>
+                        {% trans "Don't have an account?" %}  <strong><a href="{% urlnext 'account_signup' %}">{% trans "Sign up" %}</a></strong>
+                    </small>
+                </p>
+            {% endif %}
+        </div>
+        <div class="col-md-4">
+            <span>this is where the sidebar should go. create one or delete this text/container.</span>
+        </div>
+    </div>
+
+{% endblock form_area %}
+
+{% comment %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#id_username').focus();
+        });
+    </script>
+{% endcomment %}
