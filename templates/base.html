@@ -67,12 +67,12 @@
   <footer>
     <div class='footer__body'>
       <div class='footer__social-media'>
-        <h3>Stay Connected</h3>
+        <h3>{% trans "Stay Connected" %}</h3>
         <ul>
-          <li><a href=''><i class="fa fa-facebook color--facebook" aria-hidden="true"></i></a></li>
-          <li><a href=''><i class="fa fa-twitter color--twitter" aria-hidden="true"></i></a></li>
-          <li><a href=''><i class="fa fa-linkedin color--linkedin" aria-hidden="true"></i></a></li>
-          <li><a href=''><i class="fa fa-instagram color--instagram" aria-hidden="true"></i></a></li>
+          <li><a href='https://www.facebook.com/PyLatam/'><i class="fa fa-facebook color--facebook" aria-hidden="true"></i></a></li>
+          <li><a href='https://twitter.com/PyLatam'><i class="fa fa-twitter color--twitter" aria-hidden="true"></i></a></li>
+          {# <li><a href=''><i class="fa fa-linkedin color--linkedin" aria-hidden="true"></i></a></li> #}
+          {# <li><a href=''><i class="fa fa-instagram color--instagram" aria-hidden="true"></i></a></li> #}
         </ul>
       </div>
       <div class='footer__more-info'>
@@ -81,12 +81,10 @@
     </div>
     <div class='footer__nav-bar'>
       <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Page 1</a></li>
-        <li><a href="">Page 2</a></li>
-        <li><a href="">Page 3</a></li>
-        <li><a href="">Page 4</a></li>
-        <li><a href="">Page 5</a></li>
+        <li><a href="{% page_url 'home' LANGUAGE_CODE %}">{% page_attribute menu_title 'home' %}</a></li>
+        <li><a href="{% page_url 'hotel' LANGUAGE_CODE %}">{% page_attribute menu_title 'hotel' %}</a></li>
+        <li><a href="{% page_url 'speaking' LANGUAGE_CODE %}">{% page_attribute menu_title 'speaking' %}</a></li>
+        <li><a href="{% page_url 'coc' LANGUAGE_CODE %}">{% page_attribute menu_title 'coc' %}</a></li>
       </ul>
       <span>&copy;2019 Pycon Latam. All rights reserved.</span>
     </div>
