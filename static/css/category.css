@@ -156,3 +156,100 @@ li{
     max-width: 100%;
   }
 }
+
+
+/* Hotel Card Begin */
+
+.hotel__line-break, .hotel-card__line-break{
+  height:1px;
+  width:100%;
+  max-width:320px;
+  background:rgba(0,0,0,0.1);
+  margin:16px auto;
+}
+
+.hotel-card__line-break{
+  max-width:none;
+   background:rgba(0,0,0,0.02);
+}
+
+.hotel-card{
+  overflow:hidden;
+  min-height:200px;
+  border: 1px solid rgba(0,0,0,0.02);
+  border-top: 4px solid #ffc721;
+  border-radius: 8px;
+  width:100%;
+  margin:24px 0px;
+  padding-top: 16px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.0), 0 3px 6px rgba(0,0,0,0.03);
+}
+
+.hotel-card h3{
+  margin:16px 0px;
+  letter-spacing:2px;
+  color: rgba(0,0,0,0.8);
+  text-align:center;
+}
+
+.hotel-card__traits-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  padding:8px 0px;
+}
+
+.hotel-card__trait{
+  margin:16px;
+  text-align:center;
+  max-width:200px;
+}
+
+.hotel-card__trait i {
+  color: #ffc721;
+  font-size:36px;
+  margin-bottom:16px;
+}
+
+.hotel-card__trait h4{
+  margin:0px;
+  margin-bottom:8px;
+  font-size:18px;
+  font-weight:bolder;
+  letter-spacing:1px;
+}
+
+
+.hotel-card__description{
+  margin:24px 16px;
+}
+
+.hotel-card__description h4{
+  color:rgba(0,0,0,0.8);
+  margin-top:32px;
+  margin-bottom:8px;
+}
+
+.hotel-card p{
+  color:rgba(0,0,0,0.6);
+  margin:0px;
+  padding:0px;
+  text-align:center;
+}
+
+.hotel-card__banner {
+  background: url('https://static1.squarespace.com/static/5058c827e4b058d273c5e14d/t/57dff16aff7c5017de11cf7e/1474294135599/84965789_thumbnail.jpg?format=1500w');
+  background-position:right bottom;
+  height:60px;
+  border-top:6px solid #ffc721;
+}
+
+
+@media only screen and (max-width: 940px) {
+  .hotel-card__traits-container{
+    justify-content:space-around;
+  }
+  .hotel-card__trait{
+    margin:16px 4px;
+  }
+}
