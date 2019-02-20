@@ -218,7 +218,7 @@ msgid ""
 "commits unyieldingly to the rights of all individuals to mutual respect and "
 "acceptance of others, without biases based on differences of any kind."
 msgstr ""
-"Se compromete a respetar los derechos de todos los individuos, a partir de la "
+"se compromete a respetar los derechos de todos los individuos, a partir de la "
 "tolerancia mutua y la aceptación de los demás sin distinción alguna."
 
 #: templates/cms/plugins/widgets/ckeditor.html:25
