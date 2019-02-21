@@ -21,7 +21,7 @@
     <meta property="og:title" content="{% page_attribute "page_title" %}">
     <meta property="og:description" content="PyCon Latam 2019">
     <meta name="description" content="PyCon Latam 2019">
-    <meta property="og:image" content="{% static 'img/pylatamheader.svg' %}">
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/pylatamheader.svg' %}">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@pylatam">
     <meta name="twitter:creator" content="@pylatam">
