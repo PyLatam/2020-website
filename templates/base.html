@@ -16,6 +16,15 @@
     <title>{% block title %}{% page_attribute "page_title" %}{% endblock title %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{% page_attribute "page_title" %}">
+    <meta property="og:description" content="PyCon Latam 2019">
+    <meta name="description" content="PyCon Latam 2019">
+    <meta property="og:image" content="{% static 'img/pylatamheader.svg' %}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@pylatam">
+    <meta name="twitter:creator" content="@pylatam">
     {% render_block "css" %}
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
