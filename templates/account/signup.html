@@ -5,7 +5,37 @@
 
 {% block title %}{% trans "Sign up" %}{% endblock title %}
 
+{% block form_title %}{% trans "Sign Up" %}{% endblock form_title %}
+
 {% block form_area %}
+  <form action="" autocomplete="off">
+    <div class='prompt__group'>
+      <input type="text" name='Username' placeholder='Username'>
+      <i class="fa fa-user" aria-hidden="true"></i>
+    </div>
+    <div class='prompt__group'>
+      <input type="text" name='Email' placeholder='Email'>
+      <i class="fa fa-envelope" aria-hidden="true"></i>
+    </div>
+    <div class='prompt__group'>
+      <input type="password" name='Password' placeholder='Password'>
+      <i class="fa fa-key" aria-hidden="true"></i>
+    </div>
+    <div class='prompt__group'>
+      <input type="password" name='rePassword' placeholder='Password (again)'>
+      <i class="fa fa-key" aria-hidden="true"></i>
+    </div>
+    <input type="submit" value='Create an account'>
+  </form>
+  <div class='prompt__subtext'>
+    <p>By clicking 'Create an account' you agree to <a href="#">this legal thing</a> </p>
+  </div>
+  <div class='prompt__card-footer'>
+    <p>Already have an account? <a href="#">Login now</a></p>
+  </div>
+{% endblock form_area %}
+
+{% block reference_form_area %}
     <div class="row">
         <div class="col-md-4">
             <form id="signup_form" method="post" action="{% url "account_signup" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
@@ -26,7 +56,7 @@
         <div class="col-md-4">
         </div>
     </div>
-{% endblock form_area %}
+{% endblock reference_form_area %}
 
 {% comment %}
     {{ block.super }}

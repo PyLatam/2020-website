@@ -38,6 +38,31 @@ ul{
   padding-bottom: 10px;
 }
 
+.user_bar{
+    width: 100%;
+    background: linear-gradient(to right, rgba(25,59,84,0.0) 55%, rgba(25,59,84,1) 100%);
+    font-size: 12px;
+    padding:2px 0px;
+    color: white;
+    text-align: right;
+    padding-right: 16px;
+    box-sizing: border-box;
+}
+
+.user_bar a{
+  color:inherit;
+  text-decoration: none;
+  opacity:0.8;
+}
+
+.user_bar a:hover{ opacity: 1; }
+
+@media only screen and (max-width: 640px) {
+  .user_bar{
+    background: linear-gradient(to right, rgba(25,59,84,0.0) 20%, rgba(25,59,84,1) 80%);
+  }
+}
+
 .nav-link{
   box-sizing: border-box;
   color:#1f7982 !important;
@@ -49,8 +74,6 @@ ul{
   padding-right:8px !important;
   padding-left:8px !important;
 }
-
-
 
 .navbar-toggler{
   border-color: white !important;

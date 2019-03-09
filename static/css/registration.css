@@ -1,0 +1,208 @@
+.prompt__card{
+  overflow:hidden;
+  background:white;
+  width:100%;
+  max-width:400px;
+  border-radius:4px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.1);
+  margin:16px auto;
+  padding-bottom:16px;
+}
+
+.prompt__card p{
+  text-align:center !important;
+}
+
+
+
+
+.prompt__logo{
+  background:rgba(0,0,0,0.1);
+  padding:36px 36px 0px 36px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #e8ac53,
+    #e8ac53 10px,
+    #eac488 10px,
+    #eac488 20px
+  );
+  background-size: 200% 200%;
+  animation: barberpole linear 20s infinite;
+  animation-direction: reverse;
+}
+
+.prompt__logo--bar{
+  padding:0px;
+  background:none;
+  border-top:4px solid #e8ac53;
+  animation:none;
+}
+
+@keyframes barberpole {
+  100% {
+    background-position: 100% 100%;
+  }
+}
+.prompt__card h1{
+  box-sizing:border-box;
+  width:100%;
+  max-height:180px;
+  background:white;
+  margin:0 auto;
+  margin-bottom:-24px;
+  padding:24px 24px 38px 24px;
+  border-radius:8px 8px 0px 0px;
+  border:1px solid rgba(0,0,0,0.01);
+  border-bottom:0px;
+  font-size:24px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.2);
+  display:inline-block;
+  position:relative;
+}
+
+.prompt__card h1:after{
+  content: "";
+  position: absolute;
+  bottom:-10px;
+  left: -5px;
+  width:calc(100% + 10px);
+  height:30px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 60%,rgba(255,255,255,1) 100%);
+}
+
+.prompt__card form{
+  display:flex;
+  box-sizing:border-box;
+  flex-direction:column;
+  max-width:400px;
+  margin:0 auto;
+  padding:36px 36px 0px 36px;
+
+}
+
+
+.prompt__group{
+  display:flex;
+  flex-direction:row-reverse;
+  align-items:center;
+  margin-bottom:36px;
+}
+
+.prompt__settings .prompt__group{
+  flex-direction: column;
+}
+
+.prompt__settings p{
+  margin:0 auto;
+}
+
+.prompt__settings h4{
+  font-size:13px;
+  font-weight:500;
+  letter-spacing: 1px;
+  margin-bottom:0px;
+}
+
+.prompt__group i{
+  color: rgba(0,0,0,0.6);
+  transition:0.2s;
+  font-size:18px;
+  margin-right:8px;
+  padding:2px;
+}
+
+.prompt__card input[type='text'], .prompt__card input[type='password'] {
+  border:0px;
+  border-bottom:2px solid rgba(0,0,0,0.1);
+  outline:none;
+  padding:8px 0px;
+  font-weight:bold;
+  font-family:inherit;
+  font-size:16px;
+  letter-spacing:0.4px;
+  -webkit-font-smoothing: antialiased;
+  width:100%;
+}
+
+.prompt__settings input[type='text']{
+  max-width: 190px;
+  text-align: center;
+}
+
+.prompt__card input[type='password']{
+  letter-spacing:3px;
+  transition:0.2s;
+}
+
+.prompt__card input:focus{
+  border-bottom:2px solid #E8AC53;
+}
+
+.prompt__card input:focus+i{
+  color: #E8AC53;
+}
+
+.prompt__card input[type="text"]::-webkit-input-placeholder, .prompt__card input[type="password"]::-webkit-input-placeholder {
+  color: rgba(0,0,0,0.6);
+  font-size:16px;
+  font-weight:bold;
+  font-family:inherit;
+  letter-spacing:0.4px;
+  -webkit-font-smoothing: antialiased;
+}
+
+input[type='submit']{
+  margin-top:16px;
+  background:#E8AC53;
+  border-radius:40px;
+  border:0px;
+  color:white;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:bold;
+  padding:12px 16px;
+  width:100%;
+  max-width:160px;
+  box-sizing:border-box;
+  margin:0 auto;
+  transition:0.2s;
+}
+
+.prompt__card input[type='submit']:hover{
+  opacity:0.8;
+  cursor:pointer;
+}
+
+.prompt__subtext{
+  text-align:center;
+  margin-bottom:64px;
+  margin-top:4px;
+  opacity:0.8;
+  font-size:12px;
+}
+
+.prompt__card-footer{
+  text-align:center;
+}
+
+.prompt__card-footer a{
+  font-weight:bold;
+  opacity:0.4;
+}
+
+
+/* Ignore Below */
+
+.prompt__card a {
+  color:inherit;
+  opacity:0.5;
+  letter-spacing:0.5px;
+  padding:2px 4px;
+  transition:0.1s;
+  text-decoration:none;
+}
+
+.prompt__card a:hover{
+  text-decoration:none;
+  opacity:0.15;
+}

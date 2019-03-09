@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
-{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}" />{% endblock css %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}" />
+{% endblock css %}
 
 {% block content %}
-<section>
+  <div class='prompt__card'>
+    <div class='prompt__logo'>
+      <h1>{% block form_title %}{% endblock form_title %}</h1>
+    </div>
     {% block form_area %} {% endblock form_area %}
-</section>
+  </div>
+
+<h2>REFERENCE FORM</h2>
+{% block reference_form_area %} {% endblock reference_form_area %}
+
 {% endblock content %}

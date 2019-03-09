@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="https://use.typekit.net/rns7ahv.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% block css %}{% endblock css %}
+    {% block favicon %}{% endblock favicon %}
+
 </head>
 <body>
   {% cms_toolbar %}
@@ -47,6 +49,14 @@
           {% page_url 'home' 'en' as language_switcher_url %}
       {% endif %}
   {% endif %}
+
+  <!-- Placeholder user bar -->
+  <div class='user_bar'>
+    <a href="#">Login</a> |
+    <a href="#">Sign Up</a>
+    <!-- and when logged in it reads: Trevor Welch | Setting | Logout -->
+  </div> 
+
   <header>
     <!-- TODO: remove nav bar from here and import through django -->
     <nav class="navbar navbar-expand-lg navbar-light">

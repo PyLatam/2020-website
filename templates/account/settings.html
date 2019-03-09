@@ -1,9 +1,38 @@
 {% extends 'account/base.html' %}
+
 {% load i18n %}
 
 {% block title %}{% trans "Account" %}{% endblock title %}
 
-{% block content %}
+{% block form_title %}{% trans "Account Settings" %}{% endblock form_title %}
+
+{% block form_area %}
+<form action="" autocomplete="off">
+  <div class="prompt__settings">
+    <div class="prompt__group">
+      <h4>First Name</h4>
+      <input type="text" placeholder='fName' value='John'>
+    </div>
+    <div class="prompt__group">
+      <h4>Last Name</h4>
+      <input type="text" placeholder='lName' value='Smith'>
+    </div>
+    <div class="prompt__group">
+      <h4>Email</h4>
+      <p>john.smith@example.com</p>
+    </div>
+    <div class="prompt__group">
+      <h4>Password</h4>
+      <p><a href="#">Change Your Password</a></p>
+    </div>
+    <p><a href="#" class='text-danger'>Delete Account</a></p>
+    <br>
+  </div>
+  <input type="submit" value='Save'> <!-- Enable on form changes -->
+</form>
+{% endblock form_area %}
+
+{% block reference_form_area %}
     <div class="row">
         <div class="col-md-5">
             <form method="POST" action="{% url "account_settings" %}">
@@ -14,4 +43,4 @@
             </form>
         </div>
     </div>
-{% endblock content %}
+{% endblock reference_form_area %}

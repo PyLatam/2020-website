@@ -263,4 +263,11 @@ h2 {
   #mc_embed_signup {
       padding: 30% 0 5%;
   }
+  .pycon-title {
+      font-size: 2em;
+
+  }
+  h2{
+    font-size:1.8em;
+  }
 }

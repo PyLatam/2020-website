@@ -3,6 +3,17 @@
 
 {% block title %}{% trans "Log out" %}{% endblock title %}
 
+{% block form_title %}{% trans "Log Out Confirmation" %}{% endblock form_title %}
+
+{% block form_area %}
+  <form action="" autocomplete="off">
+    <div class='prompt__group'>
+      <p>{% trans "Are you sure you wish to log out?" }</p>
+    </div>
+    <input type="submit" value='Log Out'>
+  </form>
+{% endblock form_area %}
+
 {% block content %}
     <div class="row">
         <div class="col-md-5">
