@@ -1,60 +1,65 @@
 {% extends "base.html" %}
-{% load cms_tags static %}
+{% load cms_tags i18n static %}
 
 {% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}" />{% endblock css %}
 
 {% block content %}
 <div id="dashboard__container">
-  <div class="dashboard__header">
-    <h1>Dashboard</h1>
-  </div>
-  <div class="dashboard">
-    <div class="dashboard__card registration-status">
-      <h2>REGISTRATION STATUS</h2>
-      <i class="fa fa-check" aria-hidden="true"></i>
-      <p><strong>Ready for PyLatam 2019</strong></p>
-      <p>You've registered and paid for this year's attendance.</p>
-      <p><small>Get ready to pack your bags!</small></p>
+    <div class="dashboard__header">
+        <h1>{% trans 'Dashboard' %}</h1>
     </div>
-    <div class="dashboard__card dashboard__card--wide ticket-details">
-      <h2>TICKET DETAILS</h2>
-      <div class="ticket-details__space-between">
-        <div>
-          <h3>John Smith</h3>
-          <p><small>smith.john@example.com</small></p>
+    <div class="dashboard">
+        <div class="dashboard__card registration-status">
+            <h2>{% trans 'REGISTRATION STATUS' %}</h2>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            {% blocktrans %}
+            <p><strong>Ready for PyCon Latam 2019</strong></p>
+            <p>You've registered and paid for this year's attendance.</p>
+            <p><small>Get ready to pack your bags!</small></p>
+            {% endblocktrans %}
         </div>
-        <img src="https://www.pylatam.org/static/img/pylatamheader.c86b316c6a5f.svg" alt="">
-      </div>
-      <h4>Conference</h4>
-      <p>Pycon Latin America 2019</p>
-      <div class="ticket-details__space-between">
-        <div>
-          <h4>Ref</h4>
-          <p>R37G12</p>
+        <div class="dashboard__card dashboard__card--wide ticket-details">
+            <h2>{% trans 'TICKET DETAILS' %}</h2>
+            <div class="ticket-details__space-between">
+                <div>
+                    {% if request.user.get_full_name %}
+                        <h3>{{ request.user.get_full_name }}</h3>
+                    {% else %}
+                        <a href="{% url 'account_settings' %}">Add name</a>
+                    {% endif %}
+                    <p><small>smith.john@example.com</small></p>
+                </div>
+                <img src="{% static 'img/pylatamheader.svg' %}" alt="pylatam">
+            </div>
+            <h4>{% trans 'Conference' %}</h4>
+            <p>PyCon Latam 2019</p>
+            <div class="ticket-details__space-between">
+                <div>
+                  <h4>Ref</h4>
+                  <p>R37G12</p>
+                </div>
+                <div>
+                  <h4>{% trans 'Start Date' %}</h4>
+                  <p>August 29<sup>th</sup>, 2019</p>
+                </div>
+                <div>
+                  <h4>{% trans 'End Date' %}</h4>
+                  <p>August 31<sup>st</sup>, 2019</p>
+                </div>
+            </div>
         </div>
-        <div>
-          <h4>Start Date</h4>
-          <p>August 29<sup>th</sup>, 2019</p>
+        <div id='what-can-i-do' class="dashboard__card dashboard__card--wide">
+            <h2>{% trans 'WHAT CAN I DO?' %}</h2>
+            <button><a href="">Make Changes to Registration</a></button>
+            <button><a href="{% url 'account_settings' %}">Edit Account Settings</a></button>
+            <button><a href="">View Conference Schedule</a></button>
+            <button><a href="">View Hotel Information</a></button>
         </div>
-        <div>
-          <h4>End Date</h4>
-          <p>August 31<sup>st</sup>, 2019</p>
+        <div class="dashboard__card">
+          <h2>{% trans 'DAYS REMAINING' %}</h2>
+          <p class="dashboard__days-left"><span id="dashboard__days-left">176</span><small> days left</small></p>
+          <p>{% trans "PyCon Latam 2019 just can't come any faster!" %}</p>
         </div>
-      </div>
-    </div>
-    <div id='what-can-i-do' class="dashboard__card dashboard__card--wide">
-      <h2>WHAT CAN I DO?</h2>
-      <button><a href="">Make Changes to Registration</a></button>
-      <button><a href="">Edit Account Settings</a></button>
-      <button><a href="">View Conference Schedule</a></button>
-      <button><a href="">View Hotel Information</a></button>
-      <button><a href="">View Local Activities</a></button>
-    </div>
-    <div class="dashboard__card">
-      <h2>DAYS REMAINING</h2>
-      <p class="dashboard__days-left"><span id="dashboard__days-left">176</span><small> days left</small></p>
-      <p>PyLatam 2019 just can't come any faster!</p>
-    </div>
 
     <!--<div class="dashboard__card">
       <h2>PLACEHOLDER CARD</h2>

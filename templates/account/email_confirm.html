@@ -1,5 +1,4 @@
 {% extends 'account/base.html' %}
-
 {% load i18n %}
 
 {% block title %}{% trans "Confirm Email" %}{% endblock title %}
@@ -7,25 +6,11 @@
 {% block form_title %}{% trans "Email Confirmation" %}{% endblock form_title %}
 
 {% block form_area %}
-  <form action="" autocomplete="off">
-    <div class='prompt__group'>
-      <p>{% trans "Is this the email that you want to use to authenticate your account?" }</p>
-    </div>
-    <input type="submit" value='Confirm'>
+  <form method="post" action="{% url "account_confirm_email" key=confirmation.key %}" autocomplete="off">
+        {% csrf_token %}
+        <div class='prompt__group'>
+          <p>{% blocktrans with email=confirmation.email_address.email %}Confirm email address <b>{{ email }}</b>?{% endblocktrans %}</p>
+        </div>
+        <input type="submit" value="{% trans 'Confirm' %}">
   </form>
 {% endblock form_area %}
-
-{% block reference_form_area %}
-    <div class="row">
-        <div class="col-md-5">
-            <form method="post" action="{% url "account_confirm_email" key=confirmation.key %}">
-                <legend>{% trans "Confirm Email" %}</legend>
-                <fieldset>
-                    {% csrf_token %}
-                    <p>{% blocktrans with email=confirmation.email_address.email %}Confirm email address <b>{{ email }}</b>?{% endblocktrans %}</p>
-                    <button type="submit" class="btn btn-primary">{% trans "Confirm" %}</button>
-                </fieldset>
-            </form>
-        </div>
-    </div>
-{% endblock reference_form_area %}

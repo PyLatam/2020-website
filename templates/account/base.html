@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}" />
 {% endblock css %}
 
 {% block content %}
@@ -12,8 +12,4 @@
     </div>
     {% block form_area %} {% endblock form_area %}
   </div>
-
-<h2>REFERENCE FORM</h2>
-{% block reference_form_area %} {% endblock reference_form_area %}
-
 {% endblock content %}

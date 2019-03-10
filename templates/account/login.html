@@ -1,67 +1,33 @@
 {% extends 'account/base.html' %}
-
-{% load account_tags form_helpers %}
-{% load i18n %}
+{% load account_tags i18n form_helpers %}
 
 {% block title %}{% trans "Log in" %}{% endblock title %}
 
 {% block form_title %}{% trans "Log in to an existing account" %}{% endblock form_title %}
 
 {% block form_area %}
-  <form action="" autocomplete="off">
-    <div class='prompt__group'>
-      <input type="text" placeholder='Username / Email'>
-      <i class="fa fa-user" aria-hidden="true"></i>
-    </div>
-    <div class='prompt__group'>
-      <input type="password" placeholder='Password'>
-      <i class="fa fa-key" aria-hidden="true"></i>
-    </div>
-    <input type="submit" value='Login'>
-  </form>
+    <form method="post" action="{% url "account_login" %}"  autocomplete="off">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div class='prompt__group'>
+            {% render_widget form.email %}
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+        {{ form.email.errors }}
+        <div class='prompt__group'>
+            {% render_widget form.password %}
+            <i class="fa fa-key" aria-hidden="true"></i>
+        </div>
+        {{ form.password.errors }}
+        <input type="submit" value="{% trans 'Login' %}">
+    </form>
   <div class='prompt__subtext'>
-    <p> <a href="#">Forgot your password?</a> </p>
+    <p><a href="{% url 'account_password_reset' %}">{% trans 'Forgot your password?' %}</a></p>
   </div>
   <div class='prompt__card-footer'>
-    <p>Don't have an account? <a href="#">Sign up now</a></p>
+    <p>{% trans "Don't have an account?" %} <a href="{% url 'account_signup' %}">{% trans 'Sign up now' %}</a></p>
   </div>
 {% endblock form_area %}
-
-
-{% block reference_form_area %}
-
-    <div class="row">
-        <div class="col-md-4">
-            <form method="POST" action="{% url "account_login" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
-                <legend>{% trans "Log in to an existing account" %}</legend>
-                {% csrf_token %}
-                {{ form.as_table }}
-                {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
-                <button type="submit" class="btn btn-primary">{% trans "Log in" %}</button>
-                <a href="{% url "account_password_reset" %}" class="btn btn-link">{% trans "Forgot your password?" %}</a>
-            </form>
-            {% if ACCOUNT_OPEN_SIGNUP %}
-                <p class="login-signup">
-                    <small>
-                        {% trans "Don't have an account?" %}  <strong><a href="{% urlnext 'account_signup' %}">{% trans "Sign up" %}</a></strong>
-                    </small>
-                </p>
-            {% endif %}
-        </div>
-        <div class="col-md-4">
-            <span>this is where the sidebar should go. create one or delete this text/container.</span>
-        </div>
-    </div>
-
-{% endblock reference_form_area %}
-
-{% comment %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#id_username').focus();
-        });
-    </script>
-{% endcomment %}

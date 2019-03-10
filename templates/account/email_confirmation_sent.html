@@ -5,16 +5,10 @@
 {% block form_title %}{% trans "Confirmation Email Sent" %}{% endblock form_title %}
 
 {% block form_area %}
-  <form action="" autocomplete="off">
-    <div class='prompt__group'>
-      <p>{% trans "An email has been sent to the provided address containing a link to confirm your account" }</p>
-    </div>
-    <input type="submit" value='Resend Email'>
-  </form>
+    <form method="post" action="#" autocomplete="off">
+        {% csrf_token %}
+        <div class='prompt__group'>
+            <p>{% trans "An email has been sent to the provided email address containing a link to confirm your account." %}</p>
+        </div>
+    </form>
 {% endblock form_area %}
-
-{% block reference_form_area %}
-    <h2>{% trans "Confirm your email address" %}</h2>
-    <p>{% blocktrans %}We have sent you an email to <b>{{ email }}</b> for verification. Follow the link provided to finalize the signup process.{% endblocktrans %}</p>
-    <p><a href="{{ success_url }}">{% trans "Go back" %}</a></p>
-{% endblock reference_form_area %}

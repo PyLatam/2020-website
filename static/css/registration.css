@@ -111,7 +111,7 @@
   padding:2px;
 }
 
-.prompt__card input[type='text'], .prompt__card input[type='password'] {
+.prompt__card input[type='email'], .prompt__card input[type='text'], .prompt__card input[type='password'] {
   border:0px;
   border-bottom:2px solid rgba(0,0,0,0.1);
   outline:none;
@@ -142,7 +142,7 @@
   color: #E8AC53;
 }
 
-.prompt__card input[type="text"]::-webkit-input-placeholder, .prompt__card input[type="password"]::-webkit-input-placeholder {
+.prompt__card input[type="email"]::-webkit-input-placeholder, .prompt__card input[type="text"]::-webkit-input-placeholder, .prompt__card input[type="password"]::-webkit-input-placeholder {
   color: rgba(0,0,0,0.6);
   font-size:16px;
   font-weight:bold;

@@ -56,6 +56,10 @@ MIDDLEWARE.insert(
 MIDDLEWARE.remove('cms.middleware.language.LanguageCookieMiddleware')
 
 ACCOUNT_EMAIL_UNIQUE = True
+ACCOUNT_LOGIN_REDIRECT_URL = 'account_dashboard'
+ACCOUNT_PASSWORD_CHANGE_REDIRECT_URL = 'account_dashboard'
 ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = True
+ACCOUNT_EMAIL_CONFIRMATION_AUTO_LOGIN = False
 ACCOUNT_USER_DISPLAY = lambda user: user.email
 AUTHENTICATION_BACKENDS.append('account.auth_backends.EmailAuthenticationBackend')
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

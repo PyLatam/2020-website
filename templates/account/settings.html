@@ -1,5 +1,4 @@
 {% extends 'account/base.html' %}
-
 {% load i18n %}
 
 {% block title %}{% trans "Account" %}{% endblock title %}
@@ -7,40 +6,28 @@
 {% block form_title %}{% trans "Account Settings" %}{% endblock form_title %}
 
 {% block form_area %}
-<form action="" autocomplete="off">
-  <div class="prompt__settings">
-    <div class="prompt__group">
-      <h4>First Name</h4>
-      <input type="text" placeholder='fName' value='John'>
-    </div>
-    <div class="prompt__group">
-      <h4>Last Name</h4>
-      <input type="text" placeholder='lName' value='Smith'>
-    </div>
-    <div class="prompt__group">
-      <h4>Email</h4>
-      <p>john.smith@example.com</p>
-    </div>
-    <div class="prompt__group">
-      <h4>Password</h4>
-      <p><a href="#">Change Your Password</a></p>
-    </div>
-    <p><a href="#" class='text-danger'>Delete Account</a></p>
-    <br>
-  </div>
-  <input type="submit" value='Save'> <!-- Enable on form changes -->
-</form>
-{% endblock form_area %}
-
-{% block reference_form_area %}
-    <div class="row">
-        <div class="col-md-5">
-            <form method="POST" action="{% url "account_settings" %}">
-                <legend>{% trans "Account" %}</legend>
-                {% csrf_token %}
-                {{ form.as_table }}
-                <button class="btn btn-primary" type="submit">{% trans "Save" %}</button>
-            </form>
+    <form method="post" action="{% url "account_settings" %}" autocomplete="off">
+        {% csrf_token %}
+        <div class="prompt__settings">
+            <div class="prompt__group">
+                <h4>{% trans 'First Name' %}</h4>
+                <input type="text" placeholder='fName' value='John'>
+            </div>
+            <div class="prompt__group">
+                <h4>{% trans 'Last Name' %}</h4>
+                <input type="text" placeholder='lName' value='Smith'>
+            </div>
+            <div class="prompt__group">
+                <h4>{% trans 'Email' %}</h4>
+                <p>{{ request.user.email }}</p>
+            </div>
+            <div class="prompt__group">
+                <h4>{% trans 'Password' %}</h4>
+                <p><a href="{% url 'account_password' %}">{% trans 'Change Your Password' %}</a></p>
+            </div>
+            <p><a href="{% url 'account_delete' %}" class='text-danger'>{% trans 'Delete Account' %}</a></p>
+            <br>
         </div>
-    </div>
-{% endblock reference_form_area %}
+        <input type="submit" value="{% trans 'Save' %}"> <!-- Enable on form changes -->
+    </form>
+{% endblock form_area %}
