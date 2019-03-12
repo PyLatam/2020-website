@@ -8,15 +8,18 @@
 {% block form_area %}
     <form method="post" action="{% url "account_settings" %}" autocomplete="off">
         {% csrf_token %}
+        {{ form.non_field_errors }}
         <div class="prompt__settings">
             <div class="prompt__group">
                 <h4>{% trans 'First Name' %}</h4>
                 <input type="text" placeholder='fName' value='John'>
             </div>
+            {{ form.first_name.errors }}
             <div class="prompt__group">
                 <h4>{% trans 'Last Name' %}</h4>
                 <input type="text" placeholder='lName' value='Smith'>
             </div>
+            {{ form.first_name.errors }}
             <div class="prompt__group">
                 <h4>{% trans 'Email' %}</h4>
                 <p>{{ request.user.email }}</p>

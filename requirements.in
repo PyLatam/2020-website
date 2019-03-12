@@ -9,6 +9,8 @@ https://control.divio.com/api/v1/apps/serve/djangocms-text-ckeditor/3.7.0/a61a9c
 https://control.divio.com/api/v1/apps/serve/djangocms-transfer/0.1.0/47947e77-05f3-4017-8849-800524296966/djangocms-transfer-0.1.0.tar.gz#egg=djangocms-transfer==0.1.0
 https://control.divio.com/api/v1/apps/serve/django-filer/1.4.4/efa7ef09-9f3d-4a82-9b6c-15b327e152d6/django-filer-1.4.4.tar.gz#egg=django-filer==1.4.4
 # </INSTALLED_ADDONS>
+attrs
 click==7.0
 jinja2==2.10
 django-user-accounts==2.1.0
+bs4
