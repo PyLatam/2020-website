@@ -1,3 +1,13 @@
+.errorlist {
+    padding: 0 10%;
+}
+
+.errorlist li {
+    list-style: none  !important;
+    font-size: 12px  !important;
+    color: #cd2424 !important;
+}
+
 .prompt__card{
   overflow:hidden;
   background:white;

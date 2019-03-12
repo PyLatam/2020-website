@@ -64,7 +64,6 @@ body{
   border-top:3px solid #16B0BE;
 }
 
-
 .dashboard__card--tall { grid-row: span 2; }
 .dashboard__card--wide { grid-column: span 2;}
 .dashboard__card--extra-wide { grid-column: span 2;}
@@ -159,6 +158,17 @@ body{
   );
 }
 
+.not-ready{
+  background: repeating-linear-gradient(
+    -45deg,
+    #f9f0f0,
+    #f9f0f0 10px,
+    #fffafa 10px,
+    #fffafa 20px
+  );
+  border-top:3px solid #ba1b1b !important;
+}
+
 .registration-status i {
   display:block;
   width:80px;
@@ -169,6 +179,14 @@ body{
   -webkit-text-fill-color: transparent;
   opacity:0.7;
 }
+.not-ready i {
+  background: linear-gradient(45deg, #f24a4a 50%, #f2794c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity:0.7;
+
+}
+
 
 
 
@@ -199,6 +217,15 @@ body{
   justify-content:space-between;
   align-items:center;
   margin:32px auto;
+}
+
+.ticket-details__space-between a {
+    color: #3172a4;
+    padding: 0;
+    background: none;
+    -webkit-text-fill-color: #3172a4;
+    text-decoration: underline;
+    font-size: 19px;
 }
 
 .ticket-details h3{
