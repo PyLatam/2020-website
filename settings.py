@@ -17,6 +17,9 @@ INSTALLED_ADDONS = [
 import aldryn_addons.settings
 aldryn_addons.settings.load(locals())
 
+USE_TZ = True
+TIME_ZONE = 'America/New_York'
+
 CMS_TEMPLATES = (
     ('home.html', 'Home'),
     ('category.html', 'Category'),
@@ -44,10 +47,8 @@ INSTALLED_APPS.extend([
     'django.contrib.flatpages',
     'flatpages_extended',
     'account',
-    'form_helpers',
+    'core',
 ])
-
-
 
 MIDDLEWARE.insert(
     MIDDLEWARE.index('django.middleware.locale.LocaleMiddleware') + 1,

@@ -1,103 +1,105 @@
 {% extends "base.html" %}
-{% load cms_tags i18n static %}
+{% load cms_tags core_tags i18n static %}
 
-{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}" />{% endblock css %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}"/>
+{% endblock css %}
 
 {% block content %}
-<div id="dashboard__container">
-    <div class="dashboard__header">
-        <h1>{% trans 'Dashboard' %}</h1>
-    </div>
-    <div class="dashboard">
-        <div class="dashboard__card registration-status">
-            <h2>{% trans 'REGISTRATION STATUS' %}</h2>
-            <i class="fa fa-check" aria-hidden="true"></i>
-            {% blocktrans %}
-            <p><strong>Ready for PyCon Latam 2019</strong></p>
-            <p>You've registered and paid for this year's attendance.</p>
-            <p><small>Get ready to pack your bags!</small></p>
-            {% endblocktrans %}
+    <div id="dashboard__container">
+        <div class="dashboard__header">
+            <h1>{% trans 'Dashboard' %}</h1>
         </div>
-        <div class="dashboard__card dashboard__card--wide ticket-details">
-            <h2>{% trans 'TICKET DETAILS' %}</h2>
-            <div class="ticket-details__space-between">
-                <div>
-                    {% if request.user.get_full_name %}
-                        <h3>{{ request.user.get_full_name }}</h3>
-                    {% else %}
-                        <a href="{% url 'account_settings' %}">Add name</a>
-                    {% endif %}
-                    <p><small>smith.john@example.com</small></p>
-                </div>
-                <img src="{% static 'img/pylatamheader.svg' %}" alt="pylatam">
+        <div class="dashboard">
+            {% get_user_conference_registration as registration %}
+            <div class="dashboard__card registration-status{% if not registration.finished %} not-ready{% endif %}">
+                <h2>{% trans 'REGISTRATION STATUS' %}</h2>
+                {% if registration.finished %}
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    {% blocktrans %}
+                        <p><strong>Ready for PyCon Latam 2019</strong></p>
+                        <p>You've registered and paid for this year's attendance.</p>
+                        <p>
+                            <small>Get ready to pack your bags!</small>
+                        </p>
+                    {% endblocktrans %}
+                {% else %}
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <p><strong>{% trans 'Your Pycon Latam 2019 registration is missing:' %}</strong></p>
+                    <ul>
+                        {% for missing in registration.missing %}
+                            <li>{{ missing }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
             </div>
-            <h4>{% trans 'Conference' %}</h4>
-            <p>PyCon Latam 2019</p>
-            <div class="ticket-details__space-between">
-                <div>
-                  <h4>Ref</h4>
-                  <p>R37G12</p>
+            <div class="dashboard__card dashboard__card--wide ticket-details">
+                <h2>{% trans 'TICKET DETAILS' %}</h2>
+                <div class="ticket-details__space-between">
+                    <div>
+                        {% if request.user.get_full_name %}
+                            <h3>{{ request.user.get_full_name }}</h3>
+                        {% else %}
+                            <a href="{% url 'account_settings' %}">{% trans 'Add name' %}</a>
+                        {% endif %}
+                        <p>
+                            <small>{{ request.user.email }}</small>
+                        </p>
+                    </div>
+                    <img src="{% static 'img/pylatamheader.svg' %}" alt="pylatam">
                 </div>
-                <div>
-                  <h4>{% trans 'Start Date' %}</h4>
-                  <p>August 29<sup>th</sup>, 2019</p>
-                </div>
-                <div>
-                  <h4>{% trans 'End Date' %}</h4>
-                  <p>August 31<sup>st</sup>, 2019</p>
+                <h4>{% trans 'Conference' %}</h4>
+                <p>PyCon Latam 2019</p>
+                <div class="ticket-details__space-between">
+                    <div>
+                        <h4>{% trans 'Reservation #' %}</h4>
+                        {% if registration.code %}
+                            <p>{{ code }}</p>
+                        {% else %}
+                            <a href="#pending">{% trans 'Book your room' %}</a>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <h4>{% trans 'Start Date' %}</h4>
+                        <p>August 29<sup>th</sup>, 2019</p>
+                    </div>
+                    <div>
+                        <h4>{% trans 'End Date' %}</h4>
+                        <p>August 31<sup>st</sup>, 2019</p>
+                    </div>
                 </div>
             </div>
+            <div id='what-can-i-do' class="dashboard__card dashboard__card--wide">
+                <h2>{% trans 'WHAT CAN I DO?' %}</h2>
+                <button><a href="{% url 'account_settings' %}">{% trans 'Account Settings' %}</a></button>
+                <button><a href="">{% trans 'View Conference Schedule' %}</a></button>
+                <button><a href="{% page_url 'hotel' LANGUAGE_CODE %}">{% trans 'View Hotel Information' %}</a></button>
+            </div>
+            <div class="dashboard__card">
+                <h2>{% trans 'DAYS REMAINING' %}</h2>
+                {% get_days_left as days_left %}
+                <p class="dashboard__days-left"><span id="dashboard__days-left">{{ days_left }}</span>
+                    {% blocktrans count days_left=days_left  %}
+                        <small> day left</small>
+                        {% plural %}
+                        <small> days left</small>
+                    {% endblocktrans %}
+                </p>
+                <p>{% trans "PyCon Latam 2019 just can't come any faster!" %}</p>
+            </div>
         </div>
-        <div id='what-can-i-do' class="dashboard__card dashboard__card--wide">
-            <h2>{% trans 'WHAT CAN I DO?' %}</h2>
-            <button><a href="">Make Changes to Registration</a></button>
-            <button><a href="{% url 'account_settings' %}">Edit Account Settings</a></button>
-            <button><a href="">View Conference Schedule</a></button>
-            <button><a href="">View Hotel Information</a></button>
+        <div class="dashboard__sponsors">
+            <h2>{% trans 'Thank You to Our Sponsors' %}</h2>
+            {% if request.user.is_staff %}
+                <div class="sponsors__deck">
+                    <img src="http://logok.org/wp-content/uploads/2014/05/Google-logo-grey.png" alt="">
+                    <img src="https://www.logolynx.com/images/logolynx/24/24a7e6699de87bc01ba2b69743231f00.png" alt="">
+                    <img src="https://webitmd.com/wp-content/uploads/2017/03/partner-logos-grey-mailchimp-1.png" alt="">
+                    <img src="https://logos-download.com/wp-content/uploads/2016/06/Nintendo_logo_gray.png" alt="">
+                    <img src="https://airthings.com/wp-content/uploads/2016/10/Airthings_Logo_Horisontal_Grey_Web-2.png" alt="">
+                    <img src="https://webitmd.com/wp-content/uploads/2016/03/partner-logos-grey-squarespace.png" alt="">
+                </div>
+            {% endif %}
         </div>
-        <div class="dashboard__card">
-          <h2>{% trans 'DAYS REMAINING' %}</h2>
-          <p class="dashboard__days-left"><span id="dashboard__days-left">176</span><small> days left</small></p>
-          <p>{% trans "PyCon Latam 2019 just can't come any faster!" %}</p>
-        </div>
-
-    <!--<div class="dashboard__card">
-      <h2>PLACEHOLDER CARD</h2>
-    </div>-->
-    <!--<div class="dashboard__card dashboard__card--wide">
-      <h2>YOUR SPONSORSHIP</h2>
-      <p>Suspendisse vestibulum sit amet diam nec vehicula. Proin ut tortor non risus tempor scelerisque. Duis accumsan facilisis odio, id efficitur elit ornare in. </p>
-      <button><a href="">Modify Sponsor Settings</a></button>
-    </div>-->
-    <!--<div class="dashboard__card">
-      <h2>AD SPACE</h2>
-      <center><img src="https://via.placeholder.com/200" alt=""></center>
-    </div> -->
-  </div>
-  <div class="dashboard__sponsors">
-    <h2>Thank You to Our Sponsors</h2>
-    <center><small style="opacity:0.4;">Just placeholder examples</small></center>
-    <div class="sponsors__deck">
-      <img src="http://logok.org/wp-content/uploads/2014/05/Google-logo-grey.png" alt="">
-      <img src="https://www.logolynx.com/images/logolynx/24/24a7e6699de87bc01ba2b69743231f00.png" alt="">
-      <img src="https://webitmd.com/wp-content/uploads/2017/03/partner-logos-grey-mailchimp-1.png" alt="">
-      <img src="https://logos-download.com/wp-content/uploads/2016/06/Nintendo_logo_gray.png" alt="">
-      <img src="https://airthings.com/wp-content/uploads/2016/10/Airthings_Logo_Horisontal_Grey_Web-2.png" alt="">
-      <img src="https://webitmd.com/wp-content/uploads/2016/03/partner-logos-grey-squarespace.png" alt="">
     </div>
-  </div>
-</div>
-
-<!-- TODO: Move this script to footer -->
-<script>
-  const daysToPylatam = () => {
-    let oneDay = 24*60*60*1000;
-    let today = new Date();
-    let pylatamDate = new Date(today.getFullYear(),7,29);
-    return Math.round(Math.abs((pylatamDate.getTime() - today.getTime())/(oneDay)));
-  }
-  document.getElementById("dashboard__days-left").innerHTML = daysToPylatam();
-</script>
-
-
 {% endblock content %}
