@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from django import template
 from django.utils import timezone
@@ -6,7 +6,8 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import override
 
-from .. import helpers
+from .. import constants
+from ..models import ConferenceRegistration
 
 
 register = template.Library()
@@ -38,6 +39,20 @@ def render_widget(field, placeholder='', input_classes=''):
 
 
 @register.simple_tag(takes_context=True)
-def get_user_conference_registration(context):
+def get_conference_registration(context):
     user = context['request'].user
-    return helpers.get_conference_registration(user)
+
+    if user.is_authenticated:
+        registration = ConferenceRegistration.get_for_user(user)
+    else:
+        registration = None
+
+    if not registration:
+        registration = {
+            'ready': False,
+            'missing': [
+                constants.RESERVATION_REQUIRED,
+                constants.FULL_NAME_REQUIRED,
+            ],
+        }
+    return registration

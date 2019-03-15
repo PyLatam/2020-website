@@ -24,6 +24,10 @@
             <i class="fa fa-key" aria-hidden="true"></i>
         </div>
         {{ form.password_confirm.errors }}
+        <div class='prompt__group'>
+            {% render_widget form.captcha %}
+        </div>
+        {{ form.captcha.errors }}
         <input type="submit" value="{% trans 'Create an account' %}">
     </form>
   <div class='prompt__subtext'>

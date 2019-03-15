@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from getenv import env
 
 INSTALLED_ADDONS = [
     # <INSTALLED_ADDONS>  # Warning: text inside the INSTALLED_ADDONS tags is auto-generated. Manual changes will be overwritten.
@@ -43,9 +44,7 @@ ENABLE_SYNCING = False
 STATIC_ROOT = '/static'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 INSTALLED_APPS.extend([
-    # add your project specific apps here
-    'django.contrib.flatpages',
-    'flatpages_extended',
+    # Third party
     'account',
     'core',
 ])
@@ -56,11 +55,31 @@ MIDDLEWARE.insert(
 )
 MIDDLEWARE.remove('cms.middleware.language.LanguageCookieMiddleware')
 
+# Captcha
+if env('RECAPTCHA_PUBLIC_KEY') and env('RECAPTCHA_PRIVATE_KEY'):
+    RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
+    RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
+else:
+    # Use the test keys and be quiet about it
+    SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+
+# Accounts
+LOGIN_URL = 'account_login'
+ACCOUNT_LANGUAGES = (('es', 'Spanish'), ('en', 'English'))
 ACCOUNT_EMAIL_UNIQUE = True
 ACCOUNT_LOGIN_REDIRECT_URL = 'account_dashboard'
+ACCOUNT_SETTINGS_REDIRECT_URL = 'account_dashboard'
 ACCOUNT_PASSWORD_CHANGE_REDIRECT_URL = 'account_dashboard'
 ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = True
 ACCOUNT_EMAIL_CONFIRMATION_AUTO_LOGIN = False
 ACCOUNT_USER_DISPLAY = lambda user: user.email
 AUTHENTICATION_BACKENDS.append('account.auth_backends.EmailAuthenticationBackend')
+
+
+def ACCOUNT_DELETION_MARK_CALLBACK(account_deletion):
+    # Fixes https://github.com/pinax/django-user-accounts/issues/241
+    from account.hooks import hookset
+    hookset.account_delete_expunge(account_deletion)
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

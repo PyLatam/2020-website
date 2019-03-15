@@ -11,10 +11,10 @@
             <h1>{% trans 'Dashboard' %}</h1>
         </div>
         <div class="dashboard">
-            {% get_user_conference_registration as registration %}
-            <div class="dashboard__card registration-status{% if not registration.finished %} not-ready{% endif %}">
+            {% get_conference_registration as registration %}
+            <div class="dashboard__card registration-status{% if not registration.ready %} not-ready{% endif %}">
                 <h2>{% trans 'REGISTRATION STATUS' %}</h2>
-                {% if registration.finished %}
+                {% if registration.ready %}
                     <i class="fa fa-check" aria-hidden="true"></i>
                     {% blocktrans %}
                         <p><strong>Ready for PyCon Latam 2019</strong></p>
@@ -37,36 +37,11 @@
                 <h2>{% trans 'TICKET DETAILS' %}</h2>
                 <div class="ticket-details__space-between">
                     <div>
-                        {% if request.user.get_full_name %}
-                            <h3>{{ request.user.get_full_name }}</h3>
-                        {% else %}
-                            <a href="{% url 'account_settings' %}">{% trans 'Add name' %}</a>
-                        {% endif %}
                         <p>
-                            <small>{{ request.user.email }}</small>
+                            Work in progress
                         </p>
                     </div>
                     <img src="{% static 'img/pylatamheader.svg' %}" alt="pylatam">
-                </div>
-                <h4>{% trans 'Conference' %}</h4>
-                <p>PyCon Latam 2019</p>
-                <div class="ticket-details__space-between">
-                    <div>
-                        <h4>{% trans 'Reservation #' %}</h4>
-                        {% if registration.code %}
-                            <p>{{ code }}</p>
-                        {% else %}
-                            <a href="#pending">{% trans 'Book your room' %}</a>
-                        {% endif %}
-                    </div>
-                    <div>
-                        <h4>{% trans 'Start Date' %}</h4>
-                        <p>August 29<sup>th</sup>, 2019</p>
-                    </div>
-                    <div>
-                        <h4>{% trans 'End Date' %}</h4>
-                        <p>August 31<sup>st</sup>, 2019</p>
-                    </div>
                 </div>
             </div>
             <div id='what-can-i-do' class="dashboard__card dashboard__card--wide">

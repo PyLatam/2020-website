@@ -1,5 +1,5 @@
 {% extends 'account/base.html' %}
-{% load i18n %}
+{% load core_tags i18n %}
 
 {% block title %}{% trans "Account" %}{% endblock title %}
 
@@ -12,14 +12,14 @@
         <div class="prompt__settings">
             <div class="prompt__group">
                 <h4>{% trans 'First Name' %}</h4>
-                <input type="text" placeholder='fName' value='John'>
+                {% render_widget form.first_name %}
             </div>
             {{ form.first_name.errors }}
             <div class="prompt__group">
                 <h4>{% trans 'Last Name' %}</h4>
-                <input type="text" placeholder='lName' value='Smith'>
+                {% render_widget form.last_name %}
             </div>
-            {{ form.first_name.errors }}
+            {{ form.last_name.errors }}
             <div class="prompt__group">
                 <h4>{% trans 'Email' %}</h4>
                 <p>{{ request.user.email }}</p>

@@ -29,6 +29,11 @@ RUN pip-reqs compile && \
         --requirement requirements.urls
 # </PYTHON>
 
+# This app is automatically installed by the aldryn-django-cms package.
+# There are legacy reasons for this but in this case we cna just remove it.
+# Can't leave it in because both this and django-recaptcha have a captcha package :/
+RUN pip uninstall --yes django-simple-captcha && pip install django-recaptcha==2.0.2
+
 # <SOURCE>
 COPY . /app
 # </SOURCE>
