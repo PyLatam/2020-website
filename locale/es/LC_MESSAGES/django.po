@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-17 02:41+0000\n"
+"POT-Creation-Date: 2019-03-15 22:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,131 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/account_extensions/forms.py:13
+msgid "reservation email"
+msgstr ""
+
+#: src/account_extensions/forms.py:14
+msgid "reservation #"
+msgstr ""
+
+#: src/account_extensions/forms.py:28
+msgid "You've already registered"
+msgstr ""
+
+#: src/account_extensions/forms.py:37
+msgid "Unable to find matching reservation"
+msgstr ""
+
+#: src/account_extensions/forms.py:41
+msgid "The reservation is not active"
+msgstr ""
+
+#: src/account_extensions/forms.py:56
+msgid "The reservation is fully booked and no longer has vacancies."
+msgstr ""
+
+#: src/account_extensions/forms.py:82
+msgid "first name"
+msgstr ""
+
+#: src/account_extensions/forms.py:83
+msgid "last name"
+msgstr ""
+
+#: src/core/constants.py:4
+msgid "Your name"
+msgstr ""
+
+#: src/core/constants.py:5
+msgid "Hotel confirmation"
+msgstr ""
+
+#: templates/account/dashboard.html:11 templates/base.html:56
+msgid "Dashboard"
+msgstr ""
+
+#: templates/account/dashboard.html:16
+msgid "REGISTRATION STATUS"
+msgstr ""
+
+#: templates/account/dashboard.html:19
+msgid ""
+"\n"
+"                        <p><strong>Ready for PyCon Latam 2019</strong></p>\n"
+"                        <p>You've registered and paid for this year's "
+"attendance.</p>\n"
+"                        <p>\n"
+"                            <small>Get ready to pack your bags!</small>\n"
+"                        </p>\n"
+"                    "
+msgstr ""
+
+#: templates/account/dashboard.html:28
+msgid "Your Pycon Latam 2019 registration is missing:"
+msgstr ""
+
+#: templates/account/dashboard.html:37
+msgid "TICKET DETAILS"
+msgstr ""
+
+#: templates/account/dashboard.html:48
+msgid "WHAT CAN I DO?"
+msgstr ""
+
+#: templates/account/dashboard.html:49 templates/account/settings.html:6
+msgid "Account Settings"
+msgstr ""
+
+#: templates/account/dashboard.html:50
+msgid "View Conference Schedule"
+msgstr ""
+
+#: templates/account/dashboard.html:51
+msgid "View Hotel Information"
+msgstr ""
+
+#: templates/account/dashboard.html:54
+msgid "DAYS REMAINING"
+msgstr ""
+
+#: templates/account/dashboard.html:57
+msgid ""
+"\n"
+"                        <small> day left</small>\n"
+"                        "
+msgid_plural ""
+"\n"
+"                        <small> days left</small>\n"
+"                    "
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/account/dashboard.html:63
+msgid "PyCon Latam 2019 just can't come any faster!"
+msgstr ""
+
+#: templates/account/dashboard.html:67
+msgid "Thank You to Our Sponsors"
+msgstr ""
+
+#: templates/account/delete.html:4 templates/account/delete.html:6
+#: templates/account/settings.html:31
+msgid "Delete Account"
+msgstr ""
+
+#: templates/account/delete.html:12
+#, python-format
+msgid ""
+"If you go ahead and delete your account, your information will be\n"
+"                <b>expunged within %(ACCOUNT_DELETION_EXPUNGE_HOURS)s hours</"
+"b>."
+msgstr ""
+
+#: templates/account/delete.html:15
+msgid "Delete My Account"
+msgstr ""
 
 #: templates/account/email/email_confirmation_message.txt:1
 #, python-format
@@ -60,166 +185,198 @@ msgstr ""
 msgid "[%(site_name)s] Password reset"
 msgstr ""
 
-#: templates/account/email_confirm.html:5
-#: templates/account/email_confirm.html:11
+#: templates/account/email_confirm.html:4
 msgid "Confirm Email"
 msgstr ""
 
-#: templates/account/email_confirm.html:14
+#: templates/account/email_confirm.html:6
+msgid "Email Confirmation"
+msgstr ""
+
+#: templates/account/email_confirm.html:12
 #, python-format
 msgid "Confirm email address <b>%(email)s</b>?"
 msgstr ""
 
-#: templates/account/email_confirm.html:15
+#: templates/account/email_confirm.html:14
 msgid "Confirm"
 msgstr ""
 
 #: templates/account/email_confirmation_sent.html:3
-#: templates/account/email_confirmation_sent.html:6
 #, fuzzy
 #| msgid "email address"
 msgid "Confirm your email address"
 msgstr "dirección de correo"
 
-#: templates/account/email_confirmation_sent.html:7
-#, python-format
+#: templates/account/email_confirmation_sent.html:5
+#, fuzzy
+#| msgid "email address"
+msgid "Confirmation Email Sent"
+msgstr "dirección de correo"
+
+#: templates/account/email_confirmation_sent.html:11
 msgid ""
-"We have sent you an email to <b>%(email)s</b> for verification. Follow the "
-"link provided to finalize the signup process."
+"An email has been sent to the provided email address containing a link to "
+"confirm your account."
 msgstr ""
 
-#: templates/account/email_confirmation_sent.html:8
-msgid "Go back"
-msgstr ""
-
-#: templates/account/email_confirmed.html:4
-#: templates/account/email_confirmed.html:7
-msgid "Email confirmed"
-msgstr ""
-
-#: templates/account/email_confirmed.html:8
-#, python-format
-msgid "You have confirmed <b>%(email)s</b>"
-msgstr ""
-
-#: templates/account/login.html:6 templates/account/login.html:39
-#: templates/account/signup.html:22
+#: templates/account/login.html:4
 msgid "Log in"
 msgstr ""
 
-#: templates/account/login.html:10 templates/account/login.html:33
+#: templates/account/login.html:6
 msgid "Log in to an existing account"
 msgstr ""
 
-#: templates/account/login.html:11
-msgid "Enter email"
+#: templates/account/login.html:25 templates/base.html:59
+msgid "Login"
 msgstr ""
 
-#: templates/account/login.html:11
-msgid "We'll never share your email with anyone else."
-msgstr ""
-
-#: templates/account/login.html:40
+#: templates/account/login.html:28
 msgid "Forgot your password?"
 msgstr ""
 
-#: templates/account/login.html:45
+#: templates/account/login.html:31
 msgid "Don't have an account?"
 msgstr ""
 
-#: templates/account/login.html:45 templates/account/signup.html:6
-#: templates/account/signup.html:12 templates/account/signup.html:18
-msgid "Sign up"
-msgstr ""
-
-#: templates/account/logout.html:4 templates/account/logout.html:10
-#: templates/account/logout.html:14
-msgid "Log out"
-msgstr ""
-
-#: templates/account/logout.html:13
-msgid "Are you sure you want to log out?"
+#: templates/account/login.html:31
+msgid "Sign up now"
 msgstr ""
 
 #: templates/account/password_change.html:4
-#: templates/account/password_change.html:10
 msgid "Change password"
 msgstr ""
 
-#: templates/account/password_change.html:14
-#: templates/account/password_reset_token.html:15
-#: templates/account/settings.html:13
+#: templates/account/password_change.html:6 templates/account/settings.html:29
+msgid "Change Your Password"
+msgstr ""
+
+#: templates/account/password_change.html:27
+#: templates/account/settings.html:34
 msgid "Save"
 msgstr ""
 
 #: templates/account/password_reset.html:4
-#: templates/account/password_reset.html:12
 msgid "Password reset"
 msgstr ""
 
-#: templates/account/password_reset.html:13
-msgid ""
-"Forgotten your password? Enter your email address below, and we'll send you "
-"an email allowing you to reset it."
+#: templates/account/password_reset.html:6
+msgid "Enter the email associated with your account"
 msgstr ""
 
 #: templates/account/password_reset.html:19
-msgid "Reset my password"
+msgid "Reset Password"
 msgstr ""
 
 #: templates/account/password_reset_sent.html:4
-#: templates/account/password_reset_sent.html:7
 msgid "Password reset sent"
 msgstr ""
 
-#: templates/account/password_reset_sent.html:9
-msgid "We have sent you an email."
+#: templates/account/password_reset_sent.html:6
+msgid "Password Reset Email Sent"
 msgstr ""
 
 #: templates/account/password_reset_sent.html:17
-msgid "Resend"
+msgid ""
+"An email has been sent to the provided address containing a link to reset "
+"your password."
+msgstr ""
+
+#: templates/account/password_reset_sent.html:19
+msgid "Resend Email"
 msgstr ""
 
 #: templates/account/password_reset_sent.html:22
-msgid "We have resent the password email."
+msgid "We have resent the password reset email."
 msgstr ""
 
-#: templates/account/password_reset_token.html:5
-#: templates/account/password_reset_token.html:11
+#: templates/account/password_reset_token.html:4
+#: templates/account/password_reset_token.html:6
 msgid "Set your new password"
 msgstr ""
 
+#: templates/account/password_reset_token.html:22
+msgid "Change Password"
+msgstr ""
+
 #: templates/account/password_reset_token_fail.html:4
-#: templates/account/password_reset_token_fail.html:7
 msgid "Bad token"
 msgstr ""
 
-#: templates/account/password_reset_token_fail.html:9
+#: templates/account/password_reset_token_fail.html:6
+msgid "Bad Token"
+msgstr ""
+
+#: templates/account/password_reset_token_fail.html:12
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(url)s\">new password reset</a>."
+"used.  Please\n"
+"                request a <a href=\"%(reset_url)s\">new password reset</a>."
 msgstr ""
 
-#: templates/account/settings.html:4 templates/account/settings.html:10
+#: templates/account/settings.html:4
 msgid "Account"
 msgstr ""
 
-#: templates/account/signup.html:22
+#: templates/account/settings.html:14
+msgid "First Name"
+msgstr ""
+
+#: templates/account/settings.html:19
+msgid "Last Name"
+msgstr ""
+
+#: templates/account/settings.html:24
+msgid "Email"
+msgstr ""
+
+#: templates/account/settings.html:28
+msgid "Password"
+msgstr ""
+
+#: templates/account/signup.html:4
+msgid "Sign up"
+msgstr ""
+
+#: templates/account/signup.html:6 templates/base.html:60
+msgid "Sign Up"
+msgstr ""
+
+#: templates/account/signup.html:31
+msgid "Create an account"
+msgstr ""
+
+#: templates/account/signup.html:34
+msgid ""
+"By clicking 'Create an account' you agree to <a href=\"#\">this legal thing</"
+"a>"
+msgstr ""
+
+#: templates/account/signup.html:37
 msgid "Already have an account?"
 msgstr ""
 
-#: templates/base.html:70
+#: templates/account/signup.html:37
+msgid "Login now"
+msgstr ""
+
+#: templates/base.html:57
+msgid "Logout"
+msgstr ""
+
+#: templates/base.html:105
 msgid "Stay Connected"
 msgstr "Manténgase Informado"
 
-#: templates/base.html:79
+#: templates/base.html:114
 msgid ""
 "commits unyieldingly to the rights of all individuals to mutual respect and "
 "acceptance of others, without biases based on differences of any kind."
 msgstr ""
-"se compromete a respetar los derechos de todos los individuos, a partir de la "
-"tolerancia mutua y la aceptación de los demás sin distinción alguna."
+"se compromete a respetar los derechos de todos los individuos, a partir de "
+"la tolerancia mutua y la aceptación de los demás sin distinción alguna."
 
 #: templates/cms/plugins/widgets/ckeditor.html:25
 #: templates/cms/plugins/widgets/ckeditor.html:28

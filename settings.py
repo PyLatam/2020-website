@@ -80,6 +80,3 @@ def ACCOUNT_DELETION_MARK_CALLBACK(account_deletion):
     # Fixes https://github.com/pinax/django-user-accounts/issues/241
     from account.hooks import hookset
     hookset.account_delete_expunge(account_deletion)
-
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
