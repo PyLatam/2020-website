@@ -65,6 +65,7 @@ else:
 
 # Accounts
 LOGIN_URL = 'account_login'
+DEFAULT_HTTP_PROTOCOL = 'https'
 ACCOUNT_LANGUAGES = (('es', 'Spanish'), ('en', 'English'))
 ACCOUNT_EMAIL_UNIQUE = True
 ACCOUNT_LOGIN_REDIRECT_URL = 'account_dashboard'
