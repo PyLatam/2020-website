@@ -2,6 +2,7 @@ from django import forms
 from django.utils.translation import ugettext, ugettext_lazy as _
 
 from captcha.fields import ReCaptchaField
+from captcha.widgets import ReCaptchaV3
 
 import account.forms
 
@@ -68,7 +69,7 @@ class RegistrationForm(forms.Form):
 
 class SignupForm(account.forms.SignupForm):
     username = None
-    captcha = ReCaptchaField()
+    captcha = ReCaptchaField(widget=ReCaptchaV3)
 
     def __init__(self, *args, **kwargs):
         super(SignupForm, self).__init__(*args, **kwargs)
