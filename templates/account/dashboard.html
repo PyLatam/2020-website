@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load cms_tags core_tags i18n static %}
+{% load cms_tags core_tags i18n static sekizai_tags %}
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}"/>
@@ -34,15 +34,81 @@
                 {% endif %}
             </div>
             <div class="dashboard__card dashboard__card--wide ticket-details">
-                <h2>{% trans 'TICKET DETAILS' %}</h2>
-                <div class="ticket-details__space-between">
-                    <div>
-                        <p>
-                            Work in progress
-                        </p>
+                <!-- this is the new code for funcitonality of purchasing and confirming ticket -->
+                <div id='sliding-form-window'>
+                  <h3 class='sliding-form-window__label'>TICKET STATUS</h3>
+                  <div id='sliding-form'>
+                    <div class='sliding-form__1'>
+                      <h3>Ticket not yet confirmed</h3>
+                      <button onclick='slideTo("3A")'><a>GET YOUR TICKET NOW</a></button>
+                      <br>
+                      <p><small>Got your ticket already? <a href="javascript:;" onclick='slideTo("2A")'>Confirm Your booking</a></small></p>
                     </div>
-                    <img src="{% static 'img/pylatamheader.svg' %}" alt="pylatam">
+                    <div class='sliding-form__2A'>
+                      <h3>Please enter your confirmation number below</h3>
+
+                      <div class='horizontal-flex--reverse'>
+                        <input type="text" name='firstName' placeholder='First Name'>
+                        <i class="fa fa-address-book" aria-hidden="true"></i>
+                      </div>
+                      <div class='horizontal-flex--reverse'>
+                        <input type="text" name='lastName' placeholder='Last Name'>
+                        <i class="fa fa-address-book" aria-hidden="true"></i>
+                      </div>
+                      <div class='horizontal-flex--reverse'>
+                        <input type="text" name='confirmNumber' placeholder='Confirmation Number'>
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                      </div>
+
+                      <button><a href="javascript:;" onclick='slideTo("2B")'>Confirm Booking</a></button>
+                    </div>
+                    <div class='sliding-form__2B'>
+                      <h3>Congratulations</h3>
+                      <p>You've successfully confirmed your booking for PyLatam</p>
+                    </div>
+                    <div class='sliding-form__3A'>
+                      <h3>Booking Details</h3>
+                      <div class='horizontal-flex--space-around'>
+                        <div>
+                          <h4>Start Date</h4>
+                          <select name="startDate" id="start-date-field">
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                          </select>
+                        </div>
+                        <div>
+                          <h4>End Date</h4>
+                          <select name="endDate" id="end-date-field">
+                            <option value="Sunday">Sunday</option>
+                            <option value="Monday">Monday</option>
+                          </select>
+                        </div>
+                        <div>
+                          <h4>Number of Guests</h4>
+                          <select name="numberOfGuests" id="number-of-guests-field">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                          </select>
+                        </div>
+                      </div>
+                      <br>
+                      <button><a href="javascript:;" onclick='slideTo("3B")'>Search for Rooms</a></button>
+                    </div>
+                    <div class='sliding-form__3B'>
+                      <h3>Let's Go!</h3>
+                      <p>You'll be redirected to Friendly Vallarta's website. PyLatam is all-inclusive and paying for a hotel room takes care of your ticket as well! Please place your booking with them, then come back to this dashboard to add your confirmation number.</p>
+                      <br>
+                      <button><a id='custom-link-button' target='_blank' href='#' onclick='getCustomLink()'>TO FRIENDLY VALLARTA</a></button>
+                      <br>
+                      <p><small><a href='#' onclick='slideTo("2A")'>Confirm Your Booking</a></small></p>
+                    </div>
+                  </div>
                 </div>
+                <!-- END this is the new code for funcitonality of purchasing and confirming ticket -->
+
             </div>
             <div id='what-can-i-do' class="dashboard__card dashboard__card--wide">
                 <h2>{% trans 'WHAT CAN I DO?' %}</h2>
@@ -77,4 +143,80 @@
             {% endif %}
         </div>
     </div>
+
+    {% addtoblock "js" [strip] %}
+      <script>
+        slideTo = (newScreen) => {
+          const slidingForm = document.getElementById("sliding-form");
+          slidingForm.style.opacity = '0';
+          setTimeout(function(){
+            switch(newScreen){
+            case "1":
+              slidingForm.style.top = '0px';
+              slidingForm.style.left = '0px';
+              break;
+            case "2A":
+              slidingForm.style.top = '0px';
+              slidingForm.style.left = '-100%';
+              break;
+            case "2B":
+              slidingForm.style.top = '0px';
+              slidingForm.style.left = '-200%';
+              break;
+            case "3A":
+              slidingForm.style.top = '-100%';
+              slidingForm.style.left = '0px';
+              break;
+            case "3B":
+              slidingForm.style.top = '-100%';
+              slidingForm.style.left = '-100%';
+              break;
+          }
+          setTimeout(function(){slidingForm.style.opacity = '1';},150)
+        }, 200);
+        }
+
+        getCustomLink = () => {
+          const button = document.getElementById("custom-link-button");
+
+          const startDate = () => {
+            const startDateField = document.getElementById("start-date-field");
+            const selected = startDateField.options[startDateField.selectedIndex].value;
+
+            if (selected == 'Wednesday') {
+              return '20190828';
+            } else if (selected == 'Thursday') {
+              return '20190829';
+            } else if (selected == 'Friday') {
+              return '20190830';
+            }
+          };
+
+          const endDate = () => {
+            const endDateField = document.getElementById("end-date-field");
+            const selected = endDateField.options[endDateField.selectedIndex].value;
+
+            if (selected == 'Sunday') {
+              return '20190901';
+            } else if (selected == 'Monday') {
+              return '20190902';
+            }
+          };
+
+          const guestsCount = () => {
+            const endDateField = document.getElementById("number-of-guests-field");
+            return endDateField.options[endDateField.selectedIndex].value;
+          }
+
+
+          const accessCode = 'PYCONLAT19';
+
+          const friendlyVallarta_URL = 'https://secure.internetpower.com.mx/portals/FriendlyEng/hotel/hoteldescription.aspx?PropertyNumber=3275&Provider=0&Rooms=1&AccessCode=' + accessCode + '&Currency=USD&CheckIn=' + startDate() + '&CheckOut=' + endDate() + '&Adults=' + guestsCount() + '&Children=0&Ages=&Contract=&Juniors=0';
+
+          button.href = friendlyVallarta_URL;
+
+        }
+      </script>
+      <!-- this is a JS TEST FOR TREVOR -->
+    {% endaddtoblock %}
 {% endblock content %}

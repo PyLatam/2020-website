@@ -273,6 +273,136 @@ body{
   max-width:160px;
 }
 
+/*
+  TICKET DETAILS
+*/
+#sliding-form-window{
+  min-height:350px;
+  height:100%;
+  min-width:300px;
+  width:100%;
+  overflow:hidden;
+  position:relative;
+}
+
+.sliding-form-window__label{
+  position:absolute;
+  top:0px;
+  left:0px;
+  z-index:99;
+  margin:16px;
+}
+
+#sliding-form{
+  position:absolute;
+  top:0px;
+  left:0px;
+  transition:0.2s all;
+  display:flex;
+  flex-wrap:wrap;
+  box-sizing:border-box;
+  width:300%;
+  height:200%;
+}
+
+#sliding-form > div {
+  height:50%;
+  width:33.3333%;
+  padding:8px;
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  color:rgba(0,0,0,0.9);
+}
+
+#sliding-form p {
+  max-width:600px;
+}
+
+#sliding-form input[type="radio"] {
+  display:none;
+}
+
+#sliding-form .radio-group{
+  margin-bottom:8px;
+}
+
+#sliding-form .radio-group label{
+  box-sizing:border-box;
+  border:1px solid rgba(0,0,0,0.02);
+  border-radius:8px;
+  cursor:pointer;
+  display:block;
+  padding:4px 12px;
+  font-size:14px;
+}
+
+#sliding-form .radio-group label:hover{
+  background:#FFF3E0;
+  border-color:#FFF3E0;
+}
+
+
+#sliding-form .radio-group input[type=radio]:checked ~ label{
+  background:#FFE0B2;
+}
+
+#sliding-form .radio-group input[type=radio]:checked ~ label:hover{
+  border-color:#FFE0B2;
+}
+
+#sliding-form .radio-group label small{
+  opacity:0.3;
+}
+
+#sliding-form input[type='text']{
+  border:0px;
+  border-bottom:2px solid rgba(0,0,0,0.1);
+  outline:none;
+  padding:8px 0px;
+  font-weight:bold;
+  font-family:inherit;
+  font-size:16px;
+  letter-spacing:0.4px;
+  -webkit-font-smoothing: antialiased;
+  width:100%;
+  max-width:240px;
+  margin-bottom:12px;
+}
+
+#sliding-form input[type='text']:focus {
+  border-bottom:2px solid #E8AC53;
+}
+
+#sliding-form input[type='text']:focus+i{
+  color: #E8AC53;
+}
+
+#sliding-form input[type="text"]::-webkit-input-placeholder{
+  color: rgba(0,0,0,0.6);
+  font-size:16px;
+  font-weight:bold;
+  font-family:inherit;
+  letter-spacing:0.4px;
+  -webkit-font-smoothing: antialiased;
+}
+
+#sliding-form i{
+  display:none; /* TODO: FIX THE SCRUNCHING */
+  color: rgba(0,0,0,0.6);
+  transition:0.2s;
+  font-size:18px;
+  margin-right:8px;
+  padding:2px;
+  margin-bottom:12px;
+}
+
+/*
+  END TICKET DETAILS
+*/
+
 @media only screen and (max-width: 600px){
   .dashboard{ grid-auto-flow:row; }
   .dashboard__card--tall { grid-row: span 1; }
