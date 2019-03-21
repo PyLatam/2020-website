@@ -28,7 +28,7 @@ def register(request):
     if form.is_valid():
         form.save()
         return JsonResponse({'success': True, 'errors': []})
-    return JsonResponse({'success': False, 'errors': form.get_json_data()})
+    return JsonResponse({'success': False, 'errors': form.errors.get_json_data()})
 
 
 class LoginView(views.LoginView):
