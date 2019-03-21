@@ -357,7 +357,7 @@ body{
   opacity:0.3;
 }
 
-#sliding-form input[type='text']{
+#sliding-form input[type='text'], #sliding-form input[type='email']{
   border:0px;
   border-bottom:2px solid rgba(0,0,0,0.1);
   outline:none;
@@ -372,15 +372,15 @@ body{
   margin-bottom:12px;
 }
 
-#sliding-form input[type='text']:focus {
+#sliding-form input[type='text']:focus, #sliding-form input[type='email']:focus{
   border-bottom:2px solid #E8AC53;
 }
 
-#sliding-form input[type='text']:focus+i{
+#sliding-form input[type='text']:focus+i, #sliding-form input[type='email']:focus+i{
   color: #E8AC53;
 }
 
-#sliding-form input[type="text"]::-webkit-input-placeholder{
+#sliding-form input[type="text"]::-webkit-input-placeholder,#sliding-form input[type='email']::-webkit-input-placeholder{
   color: rgba(0,0,0,0.6);
   font-size:16px;
   font-weight:bold;
@@ -397,6 +397,20 @@ body{
   margin-right:8px;
   padding:2px;
   margin-bottom:12px;
+}
+
+#sliding-form .form-validation__failed {
+  border-bottom:2px solid #FF5252 !important;
+}
+
+.errorlist {
+    padding: 0 10%;
+}
+
+.errorlist li {
+    list-style: none  !important;
+    font-size: 12px  !important;
+    color: #cd2424 !important;
 }
 
 /*
