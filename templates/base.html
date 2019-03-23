@@ -6,10 +6,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131160725-1"></script>
         <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'UA-131160725-1');
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'UA-131160725-1');
         </script>
     {% endif %}
     <title>{% block title %}{% page_attribute "page_title" %}{% endblock title %}</title>
@@ -20,133 +24,140 @@
     <meta property="og:title" content="{% page_attribute "page_title" %}">
     <meta property="og:description" content="PyCon Latam 2019">
     <meta name="description" content="PyCon Latam 2019">
-    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/pylatamheader.png' %}">
+    <meta property="og:image"
+          content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/pylatamheader.png' %}">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@pylatam">
     <meta name="twitter:creator" content="@pylatam">
     {% render_block "css" %}
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
     <link rel="stylesheet" href="https://use.typekit.net/rns7ahv.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% block css %}{% endblock css %}
     {% include 'includes/favicon.html' %}
 </head>
 <body>
-  {% cms_toolbar %}
-  {% if request.current_page  %}
-      {% if LANGUAGE_CODE == 'en' %}
-          {% page_url request.current_page|default_if_none:'home' 'es' as language_switcher_url %}
-      {% else %}
-          {% page_url request.current_page|default_if_none:'home' 'en' as language_switcher_url %}
-      {% endif %}
-  {% else %}
-      {% if LANGUAGE_CODE == 'en' %}
+{% cms_toolbar %}
+{% if request.current_page %}
+    {% if LANGUAGE_CODE == 'en' %}
+        {% page_url request.current_page|default_if_none:'home' 'es' as language_switcher_url %}
+    {% else %}
+        {% page_url request.current_page|default_if_none:'home' 'en' as language_switcher_url %}
+    {% endif %}
+{% else %}
+    {% if LANGUAGE_CODE == 'en' %}
         {% get_current_url 'es' as language_switcher_url %}
-      {% else %}
+    {% else %}
         {% get_current_url 'en' as language_switcher_url %}
-      {% endif %}
-  {% endif %}
+    {% endif %}
+{% endif %}
 
-  <!-- Placeholder user bar -->
-  <div class='user_bar'>
-      {% if request.user.is_authenticated %}
-          <a href="{% url 'account_settings' %}">{{ request.user.email }}</a> |
-          <a href="{% url 'account_dashboard' %}">{% trans 'Dashboard' %}</a> |
-          <a href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
-      {% else %}
-          <a href="{% url 'account_login' %}">{% trans 'Login' %}</a> |
-          <a href="{% url 'account_signup' %}">{% trans 'Sign Up' %}</a>
-      {% endif %}
-  </div>
+<!-- Placeholder user bar -->
+<div class='user_bar'>
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'account_settings' %}">{{ request.user.email }}</a> |
+        <a href="{% url 'account_dashboard' %}">{% trans 'Dashboard' %}</a> |
+        <a href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
+    {% else %}
+        <a href="{% url 'account_login' %}">{% trans 'Login' %}</a> |
+        <a href="{% url 'account_signup' %}">{% trans 'Sign Up' %}</a>
+    {% endif %}
+</div>
 
-  <header>
+<header>
     <nav class="navbar navbar-expand-lg navbar-light">
-      {% if not request.current_page.is_home %}
-        <a class='navbar-brand' href='{% page_url "home" %}'><img src="{% static 'img/pylatamheader.svg' %}"/></a>
-      {% endif %}
+        {% if not request.current_page.is_home %}
+            <a class='navbar-brand' href='{% page_url "home" %}'><img src="{% static 'img/pylatamheader.svg' %}"/></a>
+        {% endif %}
 
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="navbar-collapse collapse" id="navbarNav" style="">
-        <ul class="navbar-nav navbar-right">
-          {% show_menu 0 2 2 2 'includes/menu/navigation.html' %}
-          <li class="translation"><input {% if LANGUAGE_CODE == 'en' %}checked {% endif %}id="lang" type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
-        </ul>
-      </div>
+        <div class="navbar-collapse collapse" id="navbarNav" style="">
+            <ul class="navbar-nav navbar-right">
+                {% show_menu 0 2 2 2 'includes/menu/navigation.html' %}
+                <li class="translation"><input {% if LANGUAGE_CODE == 'en' %}checked {% endif %}id="lang"
+                                               type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
+            </ul>
+        </div>
 
     </nav>
 
 
     <!-- {\% import menu tag \%} -->
-  </header>
-  <main>
-      {% comment %}
+</header>
+<main>
+    {% comment %}
       <div class="alert alert-success" role="alert"> This is a success alert—check it out! </div>
       <div class="alert alert-danger" role="alert"> This is a danger alert—check it out! </div>
       {% endcomment %}
-      {% if messages %}
-          <ul class="messages">
-              {% for message in messages %}
-                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-              {% endfor %}
-          </ul>
-      {% endif %}
-    {% block content %}{% endblock content %}
-  </main>
-
-  <footer>
-    <div class='footer__body'>
-      <div class='footer__social-media'>
-        <h3>{% trans "Stay Connected" %}</h3>
-        <ul>
-          <li><a href='https://www.facebook.com/PyLatam/' target="_blank"><i class="fa fa-facebook color--facebook" aria-hidden="true"></i></a></li>
-          <li><a href='https://twitter.com/PyLatam' target="_blank"><i class="fa fa-twitter color--twitter" aria-hidden="true"></i></a></li>
-          {# <li><a href=''><i class="fa fa-linkedin color--linkedin" aria-hidden="true"></i></a></li> #}
-          {# <li><a href=''><i class="fa fa-instagram color--instagram" aria-hidden="true"></i></a></li> #}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
         </ul>
-      </div>
-      <div class='footer__more-info'>
-        <p><strong>Pycon Latam</strong> {% trans "commits unyieldingly to the rights of all individuals to mutual respect and acceptance of others, without biases based on differences of any kind." %}</p>
-      </div>
+    {% endif %}
+    {% block content %}{% endblock content %}
+</main>
+
+<footer>
+    <div class='footer__body'>
+        <div class='footer__social-media'>
+            <h3>{% trans "Stay Connected" %}</h3>
+            <ul>
+                <li><a href='https://www.facebook.com/PyLatam/' target="_blank"><i
+                        class="fa fa-facebook color--facebook" aria-hidden="true"></i></a></li>
+                <li><a href='https://twitter.com/PyLatam' target="_blank"><i class="fa fa-twitter color--twitter"
+                                                                             aria-hidden="true"></i></a></li>
+                {# <li><a href=''><i class="fa fa-linkedin color--linkedin" aria-hidden="true"></i></a></li> #}
+                {# <li><a href=''><i class="fa fa-instagram color--instagram" aria-hidden="true"></i></a></li> #}
+            </ul>
+        </div>
+        <div class='footer__more-info'>
+            <p><strong>Pycon
+                Latam</strong> {% trans "commits unyieldingly to the rights of all individuals to mutual respect and acceptance of others, without biases based on differences of any kind." %}
+            </p>
+        </div>
     </div>
     <div class='footer__nav-bar'>
-      <ul>
-        <li><a href="{% page_url 'home' LANGUAGE_CODE %}">{% page_attribute menu_title 'home' %}</a></li>
-        <li><a href="{% page_url 'hotel' LANGUAGE_CODE %}">{% page_attribute menu_title 'hotel' %}</a></li>
-        <li><a href="{% page_url 'speaking' LANGUAGE_CODE %}">{% page_attribute menu_title 'speaking' %}</a></li>
-        <li><a href="{% page_url 'coc' LANGUAGE_CODE %}">{% page_attribute menu_title 'coc' %}</a></li>
-      </ul>
-      <span>&copy;2019 Pycon Latam. All rights reserved.</span>
+        <ul>
+            <li><a href="{% page_url 'home' LANGUAGE_CODE %}">{% page_attribute menu_title 'home' %}</a></li>
+            <li><a href="{% page_url 'hotel' LANGUAGE_CODE %}">{% page_attribute menu_title 'hotel' %}</a></li>
+            <li><a href="{% page_url 'speaking' LANGUAGE_CODE %}">{% page_attribute menu_title 'speaking' %}</a></li>
+            <li><a href="{% page_url 'coc' LANGUAGE_CODE %}">{% page_attribute menu_title 'coc' %}</a></li>
+        </ul>
+        <span>&copy;2019 Pycon Latam. All rights reserved.</span>
     </div>
-  </footer>
+</footer>
 
-  {% render_block "js" %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <script>
-      $('#lang').change(
-          function(){
+{% render_block "js" %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script>
+    $('#lang').change(
+        function () {
             animationsTest(function () {
-              window.location.replace("{{ language_switcher_url }}");
+                window.location.replace("{{ language_switcher_url }}");
             });
-          });
+        });
 
-        function animationsTest (callback) {
-          // Test if ANY/ALL page animations are currently active
+    function animationsTest(callback) {
+        // Test if ANY/ALL page animations are currently active
 
-          var testAnimationInterval = setInterval(function () {
-            if (! $.timers.length) { // any page animations finished
-              clearInterval(testAnimationInterval);
-              callback();
+        var testAnimationInterval = setInterval(function () {
+            if (!$.timers.length) { // any page animations finished
+                clearInterval(testAnimationInterval);
+                callback();
             }
-          }, 25);
-        };
-    </script>
-    {% block js %}{% endblock js %}
+        }, 25);
+    };
+</script>
+{% block js %}{% endblock js %}
 </body>
 </html>
