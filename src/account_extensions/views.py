@@ -1,5 +1,6 @@
 import uuid
 
+from django.conf import settings
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
@@ -17,7 +18,8 @@ from . import forms
 @never_cache
 @login_required
 def dashboard(request):
-    return render(request, 'account/dashboard.html')
+    context = {'reservations_url': settings.HOTEL_RESERVATIONS_URL}
+    return render(request, 'account/dashboard.html', context)
 
 
 @require_POST

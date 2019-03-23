@@ -11,8 +11,8 @@ from core.helpers import get_reservation
 
 
 class RegistrationForm(forms.Form):
-    email = forms.EmailField(label=_('reservation email'))
-    reservation_number = forms.IntegerField(label=_('reservation #'), min_value=1)
+    email = forms.EmailField(label=_('Reservation E-Mail'))
+    reservation_number = forms.IntegerField(label=_('Reservation Number'), min_value=1)
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user')

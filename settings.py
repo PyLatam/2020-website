@@ -19,6 +19,7 @@ import aldryn_addons.settings
 aldryn_addons.settings.load(locals())
 
 USE_TZ = True
+USE_L10N = True
 TIME_ZONE = 'America/New_York'
 
 CMS_TEMPLATES = (
@@ -84,3 +85,6 @@ def ACCOUNT_DELETION_MARK_CALLBACK(account_deletion):
 
 # Email
 DEFAULT_FROM_EMAIL = 'PyLatam noreply@pylatam.org'
+
+# Reservations
+HOTEL_RESERVATIONS_URL = 'https://secure.internetpower.com.mx/portals/FriendlyEng/hotel/hoteldescription.aspx'

@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 
 from django import template
 from django.utils import timezone
@@ -36,6 +36,21 @@ def render_widget(field, placeholder='', input_classes=''):
     if input_classes:
         attrs['classes'] = input_classes
     return mark_safe(field.as_widget(attrs=attrs))
+
+
+@register.simple_tag()
+def get_conference_dates():
+    checkin_dates = (
+        ('20190828', date(year=2019, month=8, day=28)),
+        ('20190829', date(year=2019, month=8, day=29)),
+        ('20190830', date(year=2019, month=8, day=30)),
+    )
+    checkout_dates = (
+        ('20190901', date(year=2019, month=9, day=1)),
+        ('20190902', date(year=2019, month=9, day=2)),
+        ('20190903', date(year=2019, month=9, day=3)),
+    )
+    return {'checkin': checkin_dates, 'checkout': checkout_dates}
 
 
 @register.simple_tag(takes_context=True)

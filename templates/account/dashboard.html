@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load cms_tags core_tags i18n static sekizai_tags %}
+{% load cms_tags core_tags i18n l10n static sekizai_tags %}
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}"/>
@@ -34,108 +34,152 @@
                 {% endif %}
             </div>
             <div class="dashboard__card dashboard__card--wide ticket-details">
-                <!-- this is the new code for funcitonality of purchasing and confirming ticket -->
-                <div id='sliding-form-window'>
-                  <h3 class='sliding-form-window__label'>TICKET STATUS</h3>
-                  <div id='sliding-form'>
-                    <div class='sliding-form__1'>
-                      <h3>Ticket not yet confirmed</h3>
-                      <button onclick='slideTo("3A")'><a>GET YOUR TICKET NOW</a></button>
-                      <br>
-                      <p><small>Got your ticket already? <a href="javascript:;" onclick='slideTo("2A")'>Confirm Your booking</a></small></p>
-                    </div>
-                    <div class='sliding-form__2A'>
-
-                      <ul id='confirmation__errors' class="errorlist nonfield"></ul>
-
-
-                      <h3>Please enter your confirmation number below</h3>
-                      <div class='horizontal-flex--reverse'>
-                        <input type="email" name='confirmEmail' placeholder='E-Mail Address' id='confirmation__email'>
-                        <i class="fa fa-address-book" aria-hidden="true"></i>
-                      </div>
-                      <div class='horizontal-flex--reverse'>
-                        <input type="text" name='confirmNumber' placeholder='Confirmation Number' id='confirmation__number'>
-                        <i class="fa fa-address-card" aria-hidden="true"></i>
-                      </div>
-
-                      <button><a href="javascript:;" onclick='validateConfirmationForm()'>Confirm Booking</a></button>
-                    </div>
-                    <div class='sliding-form__2B'>
-                      <h3>Thank you for submitting your booking confirmation!</h3>
-                      <p>Refresh the page to update this module.</p>
-                      <button onClick="window.location.reload()"><a>Refresh Page</a></button>
-                    </div>
-                    <div class='sliding-form__3A'>
-                      <h3>Booking Details</h3>
-                      <div class='horizontal-flex--space-around'>
-
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Arrival</label>
-                          </div>
-                          <select name="startDate" class="custom-select" id="start-date-field">
-                            <option selected="">Choose...</option>
-                            <option value="Wednesday">Wed, Aug 28</option>
-                            <option value="Thursday">Thu, Aug 29</option>
-                            <option value="Friday">Fri, Aug 30</option>
-                          </select>
+                {% if registration.reservation %}
+                    <h2>{% trans 'TICKET' %}</h2>
+                    <div class="ticket-details__space-between">
+                        <div>
+                            {% if request.user.get_full_name %}
+                                <h3>{{ request.user.get_full_name }}</h3>
+                            {% else %}
+                                <a href="{% url 'account_settings' %}">{% trans 'Add name' %}</a>
+                            {% endif %}
+                            <p>
+                                <small>{{ request.user.email }}</small>
+                            </p>
                         </div>
-
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Departure</label>
-                          </div>
-                          <select name="startDate" class="custom-select" name="endDate" id="end-date-field">
-                            <option selected="">Choose...</option>
-                            <option value="Sunday">Sun, Sep 1</option>
-                            <option value="Monday">Mond, Sep 2</option>
-                          </select>
-                        </div>
-
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Number of Guests</label>
-                          </div>
-                          <select name="startDate" class="custom-select" name="numberOfGuests" id="number-of-guests-field">
-                            <option selected="">Choose...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                          </select>
-                        </div>
-
-                      </div>
-                      <br>
-                      <button><a href="javascript:;" onclick='slideTo("3B")'>Search for Rooms</a></button>
+                        <img src="{% static 'img/pylatamheader.svg' %}" alt="pylatam">
                     </div>
-                    <div class='sliding-form__3B'>
-                      <h3>Let's Go!</h3>
-                      <p>You'll be redirected to Friendly Vallarta's website. PyLatam is all-inclusive and paying for a hotel room takes care of your ticket as well! Please place your booking with them, then come back to this dashboard to add your confirmation number.</p>
-                      <br>
-                      <button><a id='custom-link-button' target='_blank' href='#' onclick='getCustomLink()'>TO FRIENDLY VALLARTA</a></button>
-                      <br>
-                      <p><small><a href='#' onclick='slideTo("2A")'>Confirm Your Booking</a></small></p>
+                    <h4>{% trans 'Conference' %}</h4>
+                    <p>PyCon Latam 2019</p>
+                    <div class="ticket-details__space-between">
+                        <div>
+                            <h4>{% trans 'Reservation #' %}</h4>
+                            <p>{{ registration.reservation.number }}</p>
+                        </div>
+                        <div>
+                            <h4>{% trans 'Check In' %}</h4>
+                            <p>{{ registration.reservation.checkin }}</p>
+                        </div>
+                        <div>
+                            <h4>{% trans 'Check Out' %}</h4>
+                            <p>{{ registration.reservation.checkout }}</p>
+                        </div>
                     </div>
-                  </div>
-                </div>
-                <!-- END this is the new code for funcitonality of purchasing and confirming ticket -->
+                {% else %}
+                    <div id='sliding-form-window'>
+                        <h3 class='sliding-form-window__label'>{% trans 'TICKET' %}</h3>
+                        <div id='sliding-form'>
+                            {% csrf_token %}
+                            {% get_conference_dates as dates %}
+                            <div class='sliding-form__1'>
+                                <h3>{% trans 'Ticket not yet confirmed' %}</h3>
+                                <button onclick='slideTo("3A")'>
+                                    <a>{% trans 'GET YOUR TICKET NOW' %}</a>
+                                </button>
+                                <br>
+                                <p>
+                                    <small>{% trans 'Got your ticket already?' %} <a href="#" onclick='slideTo("2A")'>{% trans 'Confirm Your booking' %}</a></small>
+                                </p>
+                            </div>
+                            <div class='sliding-form__2A'>
+                                <ul id='confirmation__errors' class="errorlist nonfield"></ul>
+                                <h3>{% trans 'Please enter your confirmation number below' %}</h3>
+                                <div class='horizontal-flex--reverse'>
+                                    <input type="email" name='confirmEmail' placeholder="{% trans 'Reservation E-Mail' %}" id='confirmation__email'>
+                                    <i class="fa fa-address-book" aria-hidden="true"></i>
+                                </div>
+                                <div class='horizontal-flex--reverse'>
+                                    <input type="text" name='confirmNumber' placeholder="{% trans 'Reservation Number' %}" id='confirmation__number'>
+                                    <i class="fa fa-address-card" aria-hidden="true"></i>
+                                </div>
+                                <button>
+                                    <a href="#" onclick="submitConfirmationForm()">{% trans 'Confirm Booking' %}</a>
+                                </button>
+                            </div>
+                            <div class='sliding-form__2B'>
+                                <h3>{% trans 'Thank you for submitting your booking confirmation!' %}</h3>
+                                <p>{% trans 'Refresh the page to see your ticket details.' %}</p>
+                                <button onClick="window.location.reload()"><a>{% trans 'Refresh Page' %}</a></button>
+                            </div>
+                            <div class='sliding-form__3A'>
+                                <h3>{% trans 'Booking Details' %}</h3>
+                                <div class='horizontal-flex--space-around'>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">{% trans 'Arrival' %}</label>
+                                        </div>
+                                        <select name="startDate" class="custom-select" id="start-date-field">
+                                            <option selected="">{% trans 'Choose...' %}</option>
+                                            {% for option in dates.checkin %}
+                                                <option value="{{ option.0 }}">{{ option.1 }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
 
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">{% trans 'Departure' %}</label>
+                                        </div>
+                                        <select name="startDate" class="custom-select" name="endDate"
+                                                id="end-date-field">
+                                            <option selected="">{% trans 'Choose...' %}</option>
+                                            {% for option in dates.checkout %}
+                                                <option value="{{ option.0 }}">{{ option.1 }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">{% trans 'Number of Guests' %}</label>
+                                        </div>
+                                        <select name="startDate" class="custom-select" name="numberOfGuests"
+                                                id="number-of-guests-field">
+                                            <option selected="">{% trans 'Choose...' %}</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <button>
+                                    <a href="#" onclick='slideTo("3B")'>{% trans 'Search for Rooms' %}</a>
+                                </button>
+                            </div>
+                            <div class='sliding-form__3B'>
+                                <h3>{% trans "Let's Go!" %}</h3>
+                                <p>{% blocktrans %}You'll be redirected to Friendly Vallarta's website. PyCon Latam is all-inclusive and
+                                    paying for a hotel room takes care of your ticket as well! Please place your booking
+                                    with them, then come back to this dashboard to add your confirmation number.{% endblocktrans %}</p>
+                                <br>
+                                <button><a id='custom-link-button' target='_blank' href='#' onclick='getCustomLink()'>
+                                    {% trans 'TO FRIENDLY VALLARTA' %}</a></button>
+                                <br>
+                                <p>
+                                    <small>
+                                        <a href='#' onclick='slideTo("2A")'>{% trans 'Confirm Your Booking' %}</a>
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
             <div id='what-can-i-do' class="dashboard__card dashboard__card--wide">
                 <h2>{% trans 'WHAT CAN I DO?' %}</h2>
                 <button><a href="{% url 'account_settings' %}">{% trans 'Account Settings' %}</a></button>
-                <button><a href="">{% trans 'View Conference Schedule' %}</a></button>
+                <button><a href="#">{% trans 'View Conference Schedule' %}</a></button>
                 <button><a href="{% page_url 'hotel' LANGUAGE_CODE %}">{% trans 'View Hotel Information' %}</a></button>
             </div>
             <div class="dashboard__card">
                 <h2>{% trans 'DAYS REMAINING' %}</h2>
                 {% get_days_left as days_left %}
                 <p class="dashboard__days-left"><span id="dashboard__days-left">{{ days_left }}</span>
-                    {% blocktrans count days_left=days_left  %}
+                    {% blocktrans count days_left=days_left %}
                         <small> day left</small>
-                        {% plural %}
+                    {% plural %}
                         <small> days left</small>
                     {% endblocktrans %}
                 </p>
@@ -150,216 +194,140 @@
                     <img src="https://www.logolynx.com/images/logolynx/24/24a7e6699de87bc01ba2b69743231f00.png" alt="">
                     <img src="https://webitmd.com/wp-content/uploads/2017/03/partner-logos-grey-mailchimp-1.png" alt="">
                     <img src="https://logos-download.com/wp-content/uploads/2016/06/Nintendo_logo_gray.png" alt="">
-                    <img src="https://airthings.com/wp-content/uploads/2016/10/Airthings_Logo_Horisontal_Grey_Web-2.png" alt="">
+                    <img src="https://airthings.com/wp-content/uploads/2016/10/Airthings_Logo_Horisontal_Grey_Web-2.png"
+                         alt="">
                     <img src="https://webitmd.com/wp-content/uploads/2016/03/partner-logos-grey-squarespace.png" alt="">
                 </div>
             {% endif %}
         </div>
     </div>
+{% endblock content %}
 
-    {% addtoblock "js" [strip] %}
-    {% csrf_token %}
+{% block js %}
     <script type="text/javascript">
-    // using jQuery
+        // using jQuery
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log(typeof $);
+            window.csrftoken = $("[name=csrfmiddlewaretoken]").val();
 
-    document.addEventListener("DOMContentLoaded", function(){
-      console.log(typeof $)
-      window.csrftoken = $("[name=csrfmiddlewaretoken]").val();
+            function csrfSafeMethod(method) {
+                // these HTTP methods do not require CSRF protection
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
 
-
-      function csrfSafeMethod(method) {
-      // these HTTP methods do not require CSRF protection
-         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-      }
-      $.ajaxSetup({
-          beforeSend: function(xhr, settings) {
-              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                  xhr.setRequestHeader("X-CSRFToken", csrftoken);
-              }
-          }
-      });
-    });
-
-
+            $.ajaxSetup({
+                beforeSend: function (xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+            });
+        });
     </script>
-
-      <script>
+    <script type="text/javascript">
         const slideTo = (newScreen) => {
-          const slidingForm = document.getElementById("sliding-form");
-          slidingForm.style.opacity = '0';
-          setTimeout(function(){
-            switch(newScreen){
-            case "1":
-              slidingForm.style.top = '0px';
-              slidingForm.style.left = '0px';
-              break;
-            case "2A":
-              slidingForm.style.top = '0px';
-              slidingForm.style.left = '-100%';
-              break;
-            case "2B":
-              slidingForm.style.top = '0px';
-              slidingForm.style.left = '-200%';
-              break;
-            case "3A":
-              slidingForm.style.top = '-100%';
-              slidingForm.style.left = '0px';
-              break;
-            case "3B":
-              slidingForm.style.top = '-100%';
-              slidingForm.style.left = '-100%';
-              break;
-          }
-          setTimeout(function(){slidingForm.style.opacity = '1';},150)
-        }, 200);
-        }
+            const slidingForm = document.getElementById("sliding-form");
+            slidingForm.style.opacity = '0';
+            setTimeout(function () {
+                switch (newScreen) {
+                    case "1":
+                        slidingForm.style.top = '0px';
+                        slidingForm.style.left = '0px';
+                        break;
+                    case "2A":
+                        slidingForm.style.top = '0px';
+                        slidingForm.style.left = '-100%';
+                        break;
+                    case "2B":
+                        slidingForm.style.top = '0px';
+                        slidingForm.style.left = '-200%';
+                        break;
+                    case "3A":
+                        slidingForm.style.top = '-100%';
+                        slidingForm.style.left = '0px';
+                        break;
+                    case "3B":
+                        slidingForm.style.top = '-100%';
+                        slidingForm.style.left = '-100%';
+                        break;
+                }
+                setTimeout(function () {
+                    slidingForm.style.opacity = '1';
+                }, 150)
+            }, 200);
+        };
 
         const getCustomLink = () => {
-          const button = document.getElementById("custom-link-button");
+            var url;
+            var startDate;
+            var endDate;
+            var guestsCount;
+            const accessCode = 'PYCONLAT19';
+            startDate = $('#start-date-field').val();
+            endDate = $('#end-date-field').val();
+            guestsCount = $('#number-of-guests-field').val();
+            url = '{{ reservations_url }}?PropertyNumber=3275&Provider=0&Rooms=1&AccessCode=' + accessCode + '&Currency=USD&CheckIn=' + startDate + '&CheckOut=' + endDate + '&Adults=' + guestsCount + '&Children=0&Ages=&Contract=&Juniors=0';
+            $('#custom-link-button').attr('href', url);
+        };
 
-          const startDate = () => {
-            const startDateField = document.getElementById("start-date-field");
-            const selected = startDateField.options[startDateField.selectedIndex].value;
-
-            if (selected == 'Wednesday') {
-              return '20190828';
-            } else if (selected == 'Thursday') {
-              return '20190829';
-            } else if (selected == 'Friday') {
-              return '20190830';
-            }
-          };
-
-          const endDate = () => {
-            const endDateField = document.getElementById("end-date-field");
-            const selected = endDateField.options[endDateField.selectedIndex].value;
-
-            if (selected == 'Sunday') {
-              return '20190901';
-            } else if (selected == 'Monday') {
-              return '20190902';
-            }
-          };
-
-          const guestsCount = () => {
-            const endDateField = document.getElementById("number-of-guests-field");
-            return endDateField.options[endDateField.selectedIndex].value;
-          }
-
-
-          const accessCode = 'PYCONLAT19';
-
-          const friendlyVallarta_URL = 'https://secure.internetpower.com.mx/portals/FriendlyEng/hotel/hoteldescription.aspx?PropertyNumber=3275&Provider=0&Rooms=1&AccessCode=' + accessCode + '&Currency=USD&CheckIn=' + startDate() + '&CheckOut=' + endDate() + '&Adults=' + guestsCount() + '&Children=0&Ages=&Contract=&Juniors=0';
-
-          button.href = friendlyVallarta_URL;
-
-        }
-
-        const validateConfirmationForm = () => {
-          if (validateConfirmationFields()) {
-            console.log('Form passed validation');
-            submitConfirmationForm();
-          } else {
-            console.log('Form failed validation.')
-          }
-        }
-
-        const validateConfirmationFields = () => {
-          const email = document.getElementById("confirmation__email");
-          const number = document.getElementById("confirmation__number");
-          const errorsField = document.getElementById("confirmation__errors");
-          let errors = [];
-
-          const isEmpty = (element) => {
-            if (element.value == ''){
-              element.classList.add('form-validation__failed');
-              return true;
-            } else {
-              element.classList.remove('form-validation__failed');
-              return false;
-            }
-          }
-
-          if(isEmpty(email)){
-            errors.push('The email field is empty.');
-          } else {
-            const validEmailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if( ! validEmailRegex.test(email.value) ){
-              errors.push('The email is invalid.');
-              email.classList.add('form-validation__failed');
-            } else {
-              email.classList.remove('form-validation__failed');
-            }
-          }
-
-          if(isEmpty(number)){
-            errors.push('The confirmation number field is empty.');
-          }
-
-          if(errors.length == 0){
-            errorsField.innerHTML = '';
-            return true;
-          } else {
-            updateConfirmationErrors(errors);
-            return false;
-          }
-
-        }
-
-        const updateConfirmationErrors = (arr) => {
-          errors = arr;
-          errorsField = document.getElementById("confirmation__errors");
-          errorsHTML = '';
-          errors.forEach( function(error) {
-            errorsHTML = errorsHTML + "<li>" + error + "</li>";
-          });
-          errorsField.innerHTML = errorsHTML;
-        }
+        const setConfirmationErrors = (arr) => {
+            errors = arr;
+            errorsField = document.getElementById("confirmation__errors");
+            errorsHTML = '';
+            errors.forEach(function (error) {
+                errorsHTML = errorsHTML + "<li>" + error + "</li>";
+            });
+            errorsField.innerHTML = errorsHTML;
+        };
 
         const submitConfirmationForm = () => {
+            console.log("This is an AJAX call to confirm the following details:");
 
-          console.log("This is an AJAX call to confirm the following details:");
+            const email = document.getElementById("confirmation__email").value;
+            console.log("E-Mail: " + email);
 
-          const email = document.getElementById("confirmation__email").value;
-          console.log("E-Mail: " + email);
+            const number = document.getElementById("confirmation__number").value;
+            console.log("Confirmation Number: " + number);
 
-          const number = document.getElementById("confirmation__number").value;
-          console.log("Confirmation Number: " + number);
+            $.ajax({
+                type: "POST",
+                url: "{% url 'account_register' %}",
+                data: {
+                    email: email,
+                    reservation_number: number,
+                },
+                dataType: 'json'
+            }).done(function (data) {
+                console.log('The AJAX call was successful.');
 
-          $.ajax({
-            type:"POST",
-            url:"/account/register/" ,
-            data:{
-              email:email,
-              reservation_number:number,
-            },
-            dataType: 'json'
-          }).done(function(data){
-            console.log('The AJAX call was successful.');
+                const registrationValid = (data) => {
+                    console.log('Registration was successful');
+                    console.log(data);
+                    slideTo("2B");
+                };
 
-            const registrationValid = (data) => {
-              console.log('Registration was successful');
-              console.log(data)
-              slideTo("2B");
-            }
+                const registrationInvalid = (data) => {
+                    let errors = [];
+                    if (data.errors.email){
+                        errors.push(data.errors.email[0].message);
+                    }
+                    if (data.errors.reservation_number){
+                        errors.push(data.errors.reservation_number[0].message);
+                    }
+                    if (data.errors.__all__){
+                        errors.push(data.errors.__all__[0].message);
+                    }
+                    console.log("Registration was invalid");
+                    setConfirmationErrors(errors);
+                };
 
-            const registrationInvalid = (data) => {
-              const errorMessage = data.errors.__all__[0].message;
-              console.log("Registration was invalid");
-              console.log(errorMessage);
-              updateConfirmationErrors([errorMessage]);
-            }
+                data.success ? registrationValid(data) : registrationInvalid(data);
 
-            data.success ? registrationValid(data) : registrationInvalid(data);
-
-          }).fail(function(jdXHR, textStatus, errorThrown){
-            console.log('The AJAX call failed.');
-            console.log(textStatus + ': '+ errorThrown);
-          })
+            }).fail(function (jdXHR, textStatus, errorThrown) {
+                console.log('The AJAX call failed.');
+                console.log(textStatus + ': ' + errorThrown);
+            })
         }
+    </script>
 
-
-
-      </script>
-    {% endaddtoblock %}
-{% endblock content %}
+{% endblock js %}
