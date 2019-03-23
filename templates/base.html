@@ -1,19 +1,29 @@
-{% load cms_tags i18n menu_tags sekizai_tags static %}
+{% load cms_tags core_tags i18n menu_tags sekizai_tags static %}
 <!doctype html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131160725-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-131160725-1');
-    </script>
+    {% if not debug and not request.user.is_authenticated %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131160725-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-131160725-1');
+        </script>
+    {% endif %}
     <title>{% block title %}{% page_attribute "page_title" %}{% endblock title %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{% page_attribute "page_title" %}">
+    <meta property="og:description" content="PyCon Latam 2019">
+    <meta name="description" content="PyCon Latam 2019">
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/pylatamheader.png' %}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@pylatam">
+    <meta name="twitter:creator" content="@pylatam">
     {% render_block "css" %}
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
@@ -33,9 +43,9 @@
       {% endif %}
   {% else %}
       {% if LANGUAGE_CODE == 'en' %}
-          {% page_url 'home' 'es' as language_switcher_url %}
+        {% get_current_url 'es' as language_switcher_url %}
       {% else %}
-          {% page_url 'home' 'en' as language_switcher_url %}
+        {% get_current_url 'en' as language_switcher_url %}
       {% endif %}
   {% endif %}
 
@@ -93,14 +103,14 @@
       <div class='footer__social-media'>
         <h3>{% trans "Stay Connected" %}</h3>
         <ul>
-          <li><a href='https://www.facebook.com/PyLatam/'><i class="fa fa-facebook color--facebook" aria-hidden="true"></i></a></li>
-          <li><a href='https://twitter.com/PyLatam'><i class="fa fa-twitter color--twitter" aria-hidden="true"></i></a></li>
+          <li><a href='https://www.facebook.com/PyLatam/' target="_blank"><i class="fa fa-facebook color--facebook" aria-hidden="true"></i></a></li>
+          <li><a href='https://twitter.com/PyLatam' target="_blank"><i class="fa fa-twitter color--twitter" aria-hidden="true"></i></a></li>
           {# <li><a href=''><i class="fa fa-linkedin color--linkedin" aria-hidden="true"></i></a></li> #}
           {# <li><a href=''><i class="fa fa-instagram color--instagram" aria-hidden="true"></i></a></li> #}
         </ul>
       </div>
       <div class='footer__more-info'>
-        <p><strong>Pycon Latam</strong> commits unyieldingly to the rights of all individuals to mutual respect and acceptance of others without biases based on differences of any kind.</p>
+        <p><strong>Pycon Latam</strong> {% trans "commits unyieldingly to the rights of all individuals to mutual respect and acceptance of others, without biases based on differences of any kind." %}</p>
       </div>
     </div>
     <div class='footer__nav-bar'>
