@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-15 22:23+0000\n"
+"POT-Creation-Date: 2019-03-23 18:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,35 +18,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/account_extensions/forms.py:13
-msgid "reservation email"
+#: src/account_extensions/forms.py:14 templates/account/dashboard.html:88
+msgid "Reservation E-Mail"
 msgstr ""
 
-#: src/account_extensions/forms.py:14
-msgid "reservation #"
+#: src/account_extensions/forms.py:15 templates/account/dashboard.html:92
+msgid "Reservation Number"
 msgstr ""
 
-#: src/account_extensions/forms.py:28
+#: src/account_extensions/forms.py:29
 msgid "You've already registered"
 msgstr ""
 
-#: src/account_extensions/forms.py:37
+#: src/account_extensions/forms.py:38
 msgid "Unable to find matching reservation"
 msgstr ""
 
-#: src/account_extensions/forms.py:41
+#: src/account_extensions/forms.py:42
 msgid "The reservation is not active"
 msgstr ""
 
-#: src/account_extensions/forms.py:56
+#: src/account_extensions/forms.py:57
 msgid "The reservation is fully booked and no longer has vacancies."
 msgstr ""
 
-#: src/account_extensions/forms.py:82
+#: src/account_extensions/forms.py:83
 msgid "first name"
 msgstr ""
 
-#: src/account_extensions/forms.py:83
+#: src/account_extensions/forms.py:84
 msgid "last name"
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr ""
 msgid "Hotel confirmation"
 msgstr ""
 
-#: templates/account/dashboard.html:11 templates/base.html:56
+#: templates/account/dashboard.html:11 templates/base.html:61
 msgid "Dashboard"
 msgstr ""
 
@@ -82,35 +82,138 @@ msgstr ""
 msgid "Your Pycon Latam 2019 registration is missing:"
 msgstr ""
 
-#: templates/account/dashboard.html:37
-msgid "TICKET DETAILS"
+#: templates/account/dashboard.html:38 templates/account/dashboard.html:70
+msgid "TICKET"
 msgstr ""
 
-#: templates/account/dashboard.html:48
+#: templates/account/dashboard.html:44
+msgid "Add name"
+msgstr ""
+
+#: templates/account/dashboard.html:52
+msgid "Conference"
+msgstr ""
+
+#: templates/account/dashboard.html:56
+msgid "Reservation #"
+msgstr ""
+
+#: templates/account/dashboard.html:60
+msgid "Check In"
+msgstr ""
+
+#: templates/account/dashboard.html:64
+msgid "Check Out"
+msgstr ""
+
+#: templates/account/dashboard.html:75
+msgid "Ticket not yet confirmed"
+msgstr ""
+
+#: templates/account/dashboard.html:77
+msgid "GET YOUR TICKET NOW"
+msgstr ""
+
+#: templates/account/dashboard.html:81
+msgid "Got your ticket already?"
+msgstr ""
+
+#: templates/account/dashboard.html:81
+msgid "Confirm Your booking"
+msgstr ""
+
+#: templates/account/dashboard.html:86
+msgid "Please enter your confirmation number below"
+msgstr ""
+
+#: templates/account/dashboard.html:96
+msgid "Confirm Booking"
+msgstr ""
+
+#: templates/account/dashboard.html:100
+msgid "Thank you for submitting your booking confirmation!"
+msgstr ""
+
+#: templates/account/dashboard.html:101
+msgid "Refresh the page to see your ticket details."
+msgstr ""
+
+#: templates/account/dashboard.html:102
+msgid "Refresh Page"
+msgstr ""
+
+#: templates/account/dashboard.html:105
+msgid "Booking Details"
+msgstr ""
+
+#: templates/account/dashboard.html:109
+msgid "Arrival"
+msgstr ""
+
+#: templates/account/dashboard.html:112 templates/account/dashboard.html:125
+#: templates/account/dashboard.html:138
+msgid "Choose..."
+msgstr ""
+
+#: templates/account/dashboard.html:121
+msgid "Departure"
+msgstr ""
+
+#: templates/account/dashboard.html:134
+msgid "Number of Guests"
+msgstr ""
+
+#: templates/account/dashboard.html:148
+msgid "Search for Rooms"
+msgstr ""
+
+#: templates/account/dashboard.html:152
+msgid "Let's Go!"
+msgstr ""
+
+#: templates/account/dashboard.html:153
+msgid ""
+"You'll be redirected to Friendly Vallarta's website. PyCon Latam is all-"
+"inclusive and\n"
+"                                    paying for a hotel room takes care of "
+"your ticket as well! Please place your booking\n"
+"                                    with them, then come back to this "
+"dashboard to add your confirmation number."
+msgstr ""
+
+#: templates/account/dashboard.html:158
+msgid "TO FRIENDLY VALLARTA"
+msgstr ""
+
+#: templates/account/dashboard.html:162
+msgid "Confirm Your Booking"
+msgstr ""
+
+#: templates/account/dashboard.html:171
 msgid "WHAT CAN I DO?"
 msgstr ""
 
-#: templates/account/dashboard.html:49 templates/account/settings.html:6
+#: templates/account/dashboard.html:172 templates/account/settings.html:6
 msgid "Account Settings"
 msgstr ""
 
-#: templates/account/dashboard.html:50
+#: templates/account/dashboard.html:173
 msgid "View Conference Schedule"
 msgstr ""
 
-#: templates/account/dashboard.html:51
+#: templates/account/dashboard.html:174
 msgid "View Hotel Information"
 msgstr ""
 
-#: templates/account/dashboard.html:54
+#: templates/account/dashboard.html:177
 msgid "DAYS REMAINING"
 msgstr ""
 
-#: templates/account/dashboard.html:57
+#: templates/account/dashboard.html:180
 msgid ""
 "\n"
 "                        <small> day left</small>\n"
-"                        "
+"                    "
 msgid_plural ""
 "\n"
 "                        <small> days left</small>\n"
@@ -118,11 +221,11 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/account/dashboard.html:63
+#: templates/account/dashboard.html:186
 msgid "PyCon Latam 2019 just can't come any faster!"
 msgstr ""
 
-#: templates/account/dashboard.html:67
+#: templates/account/dashboard.html:190
 msgid "Thank You to Our Sponsors"
 msgstr ""
 
@@ -228,7 +331,7 @@ msgstr ""
 msgid "Log in to an existing account"
 msgstr ""
 
-#: templates/account/login.html:25 templates/base.html:59
+#: templates/account/login.html:25 templates/base.html:64
 msgid "Login"
 msgstr ""
 
@@ -340,7 +443,7 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
-#: templates/account/signup.html:6 templates/base.html:60
+#: templates/account/signup.html:6 templates/base.html:65
 msgid "Sign Up"
 msgstr ""
 
@@ -362,15 +465,15 @@ msgstr ""
 msgid "Login now"
 msgstr ""
 
-#: templates/base.html:57
+#: templates/base.html:62
 msgid "Logout"
 msgstr ""
 
-#: templates/base.html:105
+#: templates/base.html:112
 msgid "Stay Connected"
 msgstr "Manténgase Informado"
 
-#: templates/base.html:114
+#: templates/base.html:124
 msgid ""
 "commits unyieldingly to the rights of all individuals to mutual respect and "
 "acceptance of others, without biases based on differences of any kind."
