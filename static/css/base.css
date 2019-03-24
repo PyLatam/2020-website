@@ -329,4 +329,14 @@ footer p {
   }
 }
 
+ul.messages {
+    list-style: none;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.messages li {
+    text-align: center;
+}
+
 /* Footer CSS Ends */
