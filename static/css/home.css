@@ -92,6 +92,10 @@ h2 {
     margin-top: -5%;
 }
 
+#mc_embed_signup a {
+  text-decoration: none;
+}
+
 #sponsors {
     padding: 5% 0;
     background-color: rgb(212, 131, 54);
@@ -106,24 +110,6 @@ h2 {
     width: 100%;
 }
 
-#mce-EMAIL {
-    margin: 10px auto;
-    padding: 25px 10px;
-    border-radius: 10px;
-    border: 0;
-    height: 45px;
-    width: 60%;
-    text-align: center;
-    font-size: 2em;
-    color: rgba(0, 0, 0, 0.7);
-    box-sizing:content-box;
-    background-color: rgba(255,255,255,0.8);
-    box-shadow: inset 4px 3px 0 rgba(1,1,1,0.1);
-}
-
-#mce-EMAIL::placeholder{
-  color: rgba(0, 0, 0, 0.4);
-}
 
 .left-icon {
     float: left;
@@ -142,32 +128,48 @@ h2 {
     display: inline-flex;
     align-items: center;
 }
-.subscribe-button {
-    cursor:pointer;
-    border:none;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 18px 24px;
-    text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-weight: bold;
-    border-radius: 1em;
-    background: orange;
-    border-bottom: 4px solid darkorange;
-    outline:none;
+
+.cta-button{
+  display:block;
+  border: 0px;
+  background-color: #E6B520;
+  color: rgba(255,255,255,0.8);
+  border-radius: 4px;
+  padding:1vw 3vw;
+  margin:36px auto;
+  font-size:3vw;
+  transition:0.2s;
+  text-transform:uppercase;
+  font-weight:bolder;
+  letter-spacing:2px;
 }
 
-.subscribe-button:hover{
-  margin-top:2px;
-  border-bottom-width:2px;
+.cta-button:hover{
+  cursor:pointer;
+  border: 0px;
+  outline: none;
+  filter: brightness(110%);
+  transform:scale(1.1);
 }
 
-.subscribe-button:active{
-  margin-top: 2px;
-  border-bottom-width: 0px;
-  border-top: 2px solid rgba(255, 165, 0, .96);
+.cta-button:active{
+  outline:none;
+  border: 0px;
+  transform:scale(1.05);
 }
+
+.cta-button:focus{
+  border: 0px;
+  outline: none;
+}
+
+@media only screen and (max-width: 800px){
+  .cta-button{
+    font-size:24px;
+    padding:8px 24px;
+  }
+}
+
 
 .sponsor-logos img {
     padding: 10px;
@@ -240,16 +242,9 @@ h2 {
   #pycon .header{
     max-width: 90%;
   }
-  #mce-EMAIL {
-      width: 85%;
-  }
 }
 
 @media only screen and (max-width: 600px) {
-  #mc_embed_signup {
-      padding: 20% 0 5%;
-      margin-top: -10%;
-  }
   .section-header p {
     margin-top: 50px;
   }
@@ -260,9 +255,7 @@ h2 {
     padding:0;
     background:none;
   }
-  #mc_embed_signup {
-      padding: 30% 0 5%;
-  }
+
   .pycon-title {
       font-size: 2em;
 

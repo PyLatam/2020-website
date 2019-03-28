@@ -124,6 +124,21 @@
             </p>
         </div>
     </div>
+    <div class='footer__newsletter'>
+      <h3>{% trans "Newsletter" %}</h3>
+      <form action='https://pylatam.us19.list-manage.com/subscribe/post?u=6d2b6cf4a47f3089e707833e6&amp;id=4db5cc3f9f' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' class='validate' target='_blank' novalidate>
+          <div id='mc_embed_signup_scroll'>
+              <div id='mce-responses' class='clear'>
+                  <div class='response' id='mce-error-response' style='display:none'></div>
+                  <div class='response' id='mce-success-response' style='display:none'></div>
+              </div>
+              <input type='email' value='' placeholder='{% trans "email address" %}' name='{% trans "EMAIL" %}' class='required email' id='mce-EMAIL'>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style='position: absolute; left: -5000px;' aria-hidden='true'><input type='text' name='b_6d2b6cf4a47f3089e707833e6_4db5cc3f9f' tabindex='-1' value=''></div>
+              <input class='subscribe-button' type='submit' value='{% trans "SUBSCRIBE" %}'>
+          </div>
+      </form>
+    </div>
     <div class='footer__nav-bar'>
         <ul>
             <li><a href="{% page_url 'home' LANGUAGE_CODE %}">{% page_attribute menu_title 'home' %}</a></li>

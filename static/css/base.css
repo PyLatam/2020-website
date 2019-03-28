@@ -280,6 +280,50 @@ footer p {
   margin-bottom:48px;
 }
 
+
+.footer__newsletter{ /* Added Mar 27 */
+  display:block;
+  width:100%;
+  max-width:1200px;
+  padding:0px 16px;
+  padding-bottom: 24px;
+  margin:0 auto;
+}
+
+footer #mce-EMAIL {
+  padding:4px 8px;
+  font-size:18px;
+}
+
+footer .footer__newsletter{
+  display:block;
+  width:100%;
+  max-width:1200px;
+  padding:0px 16px;
+  padding-bottom: 24px;
+  margin:0 auto;
+}
+
+footer .subscribe-button{
+  border:1px solid white;
+  background:transparent;
+  color:white;
+  font-size:18px;
+  padding:4px 16px;
+}
+
+footer .subscribe-button:hover{
+  background:rgba(255,255,255,0.2);
+  cursor:pointer;
+}
+
+footer .subscribe-button:active{
+  outline:none;
+  background: rgba(255,255,255,0.5);
+}
+
+
+
 .footer__nav-bar{
   color:rgba(255,255,255,0.5);
   padding:8px 16px;

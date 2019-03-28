@@ -85,11 +85,13 @@
                                 <ul id='confirmation__errors' class="errorlist nonfield"></ul>
                                 <h3>{% trans 'Please enter your confirmation number below' %}</h3>
                                 <div class='horizontal-flex--reverse'>
-                                    <input type="email" name='confirmEmail' placeholder="{% trans 'Reservation E-Mail' %}" id='confirmation__email'>
+                                    <input type="email" name='confirmEmail'
+                                           placeholder="{% trans 'Reservation E-Mail' %}" id='confirmation__email'>
                                     <i class="fa fa-address-book" aria-hidden="true"></i>
                                 </div>
                                 <div class='horizontal-flex--reverse'>
-                                    <input type="text" name='confirmNumber' placeholder="{% trans 'Reservation Number' %}" id='confirmation__number'>
+                                    <input type="text" name='confirmNumber'
+                                           placeholder="{% trans 'Reservation Number' %}" id='confirmation__number'>
                                     <i class="fa fa-address-card" aria-hidden="true"></i>
                                 </div>
                                 <button>
@@ -102,40 +104,42 @@
                                 <button onClick="window.location.reload()"><a>{% trans 'Refresh Page' %}</a></button>
                             </div>
                             <div class='sliding-form__3A'>
+                                <ul id='booking-details__errors' class="errorlist nonfield">
+
+                                </ul>
                                 <h3>{% trans 'Booking Details' %}</h3>
                                 <div class='horizontal-flex--space-around'>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">{% trans 'Arrival' %}</label>
+                                            <label class="input-group-text"
+                                                   for="inputGroupSelect01">{% trans 'Arrival' %}</label>
                                         </div>
                                         <select name="startDate" class="custom-select" id="start-date-field">
-                                            <option selected="">{% trans 'Choose...' %}</option>
                                             {% for option in dates.checkin %}
-                                                <option value="{{ option.0 }}">{{ option.1 }}</option>
+                                                <option data-date="{{ option.1|date:'Y-m-d' }}" value="{{ option.0 }}">{{ option.1|date:'l j F' }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>
 
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">{% trans 'Departure' %}</label>
+                                            <label class="input-group-text"
+                                                   for="inputGroupSelect01">{% trans 'Departure' %}</label>
                                         </div>
-                                        <select name="startDate" class="custom-select" name="endDate"
-                                                id="end-date-field">
-                                            <option selected="">{% trans 'Choose...' %}</option>
+                                        <select name="endDate" class="custom-select" id="end-date-field">
                                             {% for option in dates.checkout %}
-                                                <option value="{{ option.0 }}">{{ option.1 }}</option>
+                                                <option data-date="{{ option.1|date:'Y-m-d' }}" value="{{ option.0 }}">{{ option.1|date:'l j F' }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>
 
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">{% trans 'Number of Guests' %}</label>
+                                            <label class="input-group-text"
+                                                   for="inputGroupSelect01">{% trans 'Number of Guests' %}</label>
                                         </div>
-                                        <select name="startDate" class="custom-select" name="numberOfGuests"
+                                        <select name="numberOfGuests" class="custom-select" name="numberOfGuests"
                                                 id="number-of-guests-field">
-                                            <option selected="">{% trans 'Choose...' %}</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -145,14 +149,16 @@
                                 </div>
                                 <br>
                                 <button>
-                                    <a href="#" onclick='slideTo("3B")'>{% trans 'Search for Rooms' %}</a>
+                                    <a href="#" onclick='validatePanel3A()'>{% trans 'Search for Rooms' %}</a>
                                 </button>
                             </div>
                             <div class='sliding-form__3B'>
                                 <h3>{% trans "Let's Go!" %}</h3>
-                                <p>{% blocktrans %}You'll be redirected to Friendly Vallarta's website. PyCon Latam is all-inclusive and
+                                <p>{% blocktrans %}You'll be redirected to Friendly Vallarta's website. PyCon Latam is
+                                    all-inclusive and
                                     paying for a hotel room takes care of your ticket as well! Please place your booking
-                                    with them, then come back to this dashboard to add your confirmation number.{% endblocktrans %}</p>
+                                    with them, then come back to this dashboard to add your confirmation
+                                    number.{% endblocktrans %}</p>
                                 <br>
                                 <button><a id='custom-link-button' target='_blank' href='#' onclick='getCustomLink()'>
                                     {% trans 'TO FRIENDLY VALLARTA' %}</a></button>
@@ -270,14 +276,48 @@
             $('#custom-link-button').attr('href', url);
         };
 
-        const setConfirmationErrors = (arr) => {
+        const setConfirmationErrors = (arr, list_id) => {
             errors = arr;
-            errorsField = document.getElementById("confirmation__errors");
+            errorsField = document.getElementById(list_id);
             errorsHTML = '';
             errors.forEach(function (error) {
                 errorsHTML = errorsHTML + "<li>" + error + "</li>";
             });
             errorsField.innerHTML = errorsHTML;
+        };
+
+        const validatePanel3A = () => {
+            let errors = [];
+            var startDate = $('#start-date-field').find('option:selected').data('date');
+            var endDate = $('#end-date-field').find('option:selected').data('date');
+            var guestCount = $('#number-of-guests-field').val();
+            const errorField = document.getElementById('booking-details__errors');
+
+            if (startDate.length === 0){
+                errors.push('{% trans "Arrival date is required" %}');
+            }
+
+            if (endDate.length === 0){
+                errors.push('{% trans "End date is required" %}');
+            }
+
+            if (guestCount.length === 0){
+                errors.push('{% trans "Guest count is required" %}');
+            }
+
+            if (errors.length === 0){
+                var diff = new Date(Date.parse(endDate) - Date.parse(startDate));
+                var days = diff/1000/60/60/24;
+
+                if (days >= 3){
+                    errorField.innerHTML = '';
+                    slideTo('3B');
+                }
+                else{
+                    errors.push('{% trans "There is a minimum requirement of three or more nights" %}');
+                }
+            }
+            setConfirmationErrors(errors, 'booking-details__errors')
         };
 
         const submitConfirmationForm = () => {
@@ -308,17 +348,17 @@
 
                 const registrationInvalid = (data) => {
                     let errors = [];
-                    if (data.errors.email){
+                    if (data.errors.email) {
                         errors.push(data.errors.email[0].message);
                     }
-                    if (data.errors.reservation_number){
+                    if (data.errors.reservation_number) {
                         errors.push(data.errors.reservation_number[0].message);
                     }
-                    if (data.errors.__all__){
+                    if (data.errors.__all__) {
                         errors.push(data.errors.__all__[0].message);
                     }
                     console.log("Registration was invalid");
-                    setConfirmationErrors(errors);
+                    setConfirmationErrors(errors, 'confirmation__errors');
                 };
 
                 data.success ? registrationValid(data) : registrationInvalid(data);
