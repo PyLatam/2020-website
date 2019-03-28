@@ -20,51 +20,51 @@ msgstr ""
 
 #: src/account_extensions/forms.py:14 templates/account/dashboard.html:88
 msgid "Reservation E-Mail"
-msgstr ""
+msgstr "Correo electrónico de la reservación"
 
 #: src/account_extensions/forms.py:15 templates/account/dashboard.html:92
 msgid "Reservation Number"
-msgstr ""
+msgstr "Número de Reservación"
 
 #: src/account_extensions/forms.py:29
 msgid "You've already registered"
-msgstr ""
+msgstr "Ya te has registrado"
 
 #: src/account_extensions/forms.py:38
 msgid "Unable to find matching reservation"
-msgstr ""
+msgstr "No se puede encontrar la reservación correspondiente"
 
 #: src/account_extensions/forms.py:42
 msgid "The reservation is not active"
-msgstr ""
+msgstr "La reservación no esta activada."
 
 #: src/account_extensions/forms.py:57
 msgid "The reservation is fully booked and no longer has vacancies."
-msgstr ""
+msgstr "La reservación esta completa y no hay vacantes."
 
 #: src/account_extensions/forms.py:83
 msgid "first name"
-msgstr ""
+msgstr "nombre"
 
 #: src/account_extensions/forms.py:84
 msgid "last name"
-msgstr ""
+msgstr "apellidos"
 
 #: src/core/constants.py:4
 msgid "Your name"
-msgstr ""
+msgstr "Tu nombre"
 
 #: src/core/constants.py:5
 msgid "Hotel confirmation"
-msgstr ""
+msgstr "Confirmación de Hotel"
 
 #: templates/account/dashboard.html:11 templates/base.html:61
 msgid "Dashboard"
-msgstr ""
+msgstr "Tablero"
 
 #: templates/account/dashboard.html:16
 msgid "REGISTRATION STATUS"
-msgstr ""
+msgstr "ESTADO DE REGISTRO"
 
 #: templates/account/dashboard.html:19
 msgid ""
@@ -76,100 +76,107 @@ msgid ""
 "                            <small>Get ready to pack your bags!</small>\n"
 "                        </p>\n"
 "                    "
-msgstr ""
+msgstr
+"\n"
+"                        <p><strong>¿Estás listo para PyCon Latam 2019?</strong></p>\n"
+"                        <p>Tu registro ha sido pagado para la asistencia de este año</p>\n"
+"                        <p>\n"
+"                            <small>¡Prepara las maletas!</small>\n"
+"                        </p>\n"
+"                    "
 
 #: templates/account/dashboard.html:28
 msgid "Your Pycon Latam 2019 registration is missing:"
-msgstr ""
+msgstr "Falta tu registro para PyCon Latam 2019:"
 
 #: templates/account/dashboard.html:38 templates/account/dashboard.html:70
 msgid "TICKET"
-msgstr ""
+msgstr "BOLETO"
 
 #: templates/account/dashboard.html:44
 msgid "Add name"
-msgstr ""
+msgstr "Agrega nombre"
 
 #: templates/account/dashboard.html:52
 msgid "Conference"
-msgstr ""
+msgstr "Conferencia"
 
 #: templates/account/dashboard.html:56
 msgid "Reservation #"
-msgstr ""
+msgstr "# de Reservación"
 
 #: templates/account/dashboard.html:60
 msgid "Check In"
-msgstr ""
+msgstr "Check In"
 
 #: templates/account/dashboard.html:64
 msgid "Check Out"
-msgstr ""
+msgstr "Check Out"
 
 #: templates/account/dashboard.html:75
 msgid "Ticket not yet confirmed"
-msgstr ""
+msgstr "El boleto no ha sido confirmado"
 
 #: templates/account/dashboard.html:77
 msgid "GET YOUR TICKET NOW"
-msgstr ""
+msgstr "OBTEN TU BOLETO AHORA"
 
 #: templates/account/dashboard.html:81
 msgid "Got your ticket already?"
-msgstr ""
+msgstr "¿Ya tienes tu boleto?"
 
 #: templates/account/dashboard.html:81
 msgid "Confirm Your booking"
-msgstr ""
+msgstr "Confirma tu reservación"
 
 #: templates/account/dashboard.html:86
 msgid "Please enter your confirmation number below"
-msgstr ""
+msgstr "Por favor, ingresa tu número de confirmación"
 
 #: templates/account/dashboard.html:96
 msgid "Confirm Booking"
-msgstr ""
+msgstr "Confirma Reservación"
 
 #: templates/account/dashboard.html:100
 msgid "Thank you for submitting your booking confirmation!"
-msgstr ""
+msgstr "¡Gracias por enviar su confirmación de reserva!"
 
 #: templates/account/dashboard.html:101
 msgid "Refresh the page to see your ticket details."
-msgstr ""
+msgstr "Actualiza la página para ver los detalles de tu boleto"
 
 #: templates/account/dashboard.html:102
 msgid "Refresh Page"
-msgstr ""
+msgstr "Actualizar página"
 
 #: templates/account/dashboard.html:105
 msgid "Booking Details"
-msgstr ""
+msgstr "Detalles de Reservación"
 
 #: templates/account/dashboard.html:109
 msgid "Arrival"
-msgstr ""
+msgstr "Llegada"
 
 #: templates/account/dashboard.html:112 templates/account/dashboard.html:125
 #: templates/account/dashboard.html:138
 msgid "Choose..."
-msgstr ""
+msgstr "Escoge..."
 
 #: templates/account/dashboard.html:121
 msgid "Departure"
-msgstr ""
+msgstr "Salida"
 
 #: templates/account/dashboard.html:134
 msgid "Number of Guests"
-msgstr ""
+msgstr "Número de invitados"
 
 #: templates/account/dashboard.html:148
 msgid "Search for Rooms"
-msgstr ""
+msgstr "Buscar habitaciones"
 
 #: templates/account/dashboard.html:152
 msgid "Let's Go!"
-msgstr ""
+msgstr "¡Vámonos!"
 
 #: templates/account/dashboard.html:153
 msgid ""
@@ -180,34 +187,37 @@ msgid ""
 "                                    with them, then come back to this "
 "dashboard to add your confirmation number."
 msgstr ""
+"Serás redireccionado al sitio web de Friendly Vallarta. La conferencia PyCon Latam esta\n"
+"incluida al pagar por tu habitación. Por favor reserva tu habitación con ellos y después\n "
+"regresa a este tablero para agregar tu número de confirmación."
 
 #: templates/account/dashboard.html:158
 msgid "TO FRIENDLY VALLARTA"
-msgstr ""
+msgstr "A FRIENDLY VALLARTA"
 
 #: templates/account/dashboard.html:162
 msgid "Confirm Your Booking"
-msgstr ""
+msgstr "Confirma tu Reservación"
 
 #: templates/account/dashboard.html:171
 msgid "WHAT CAN I DO?"
-msgstr ""
+msgstr "¿QUÉ PUEDO HACER?"
 
 #: templates/account/dashboard.html:172 templates/account/settings.html:6
 msgid "Account Settings"
-msgstr ""
+msgstr "Configuración de Cuenta"
 
 #: templates/account/dashboard.html:173
 msgid "View Conference Schedule"
-msgstr ""
+msgstr "Ver el calendario de conferencias"
 
 #: templates/account/dashboard.html:174
 msgid "View Hotel Information"
-msgstr ""
+msgstr "Ver información de Hotel"
 
 #: templates/account/dashboard.html:177
 msgid "DAYS REMAINING"
-msgstr ""
+mgstr "DÍAS RESTANTES"
 
 #: templates/account/dashboard.html:180
 msgid ""
@@ -219,20 +229,26 @@ msgid_plural ""
 "                        <small> days left</small>\n"
 "                    "
 msgstr[0] ""
+"\n"
+"                        <small> día restante </small>\n"
+"                    "
 msgstr[1] ""
+"\n"
+"                        <small> días restantes</small>\n"
+"                    "
 
 #: templates/account/dashboard.html:186
 msgid "PyCon Latam 2019 just can't come any faster!"
-msgstr ""
+msgstr "¡PyCon Latam 2019 no puede venir mas rápido!"
 
 #: templates/account/dashboard.html:190
 msgid "Thank You to Our Sponsors"
-msgstr ""
+msgstr "Gracias a nuestros patrocinadores"
 
 #: templates/account/delete.html:4 templates/account/delete.html:6
 #: templates/account/settings.html:31
 msgid "Delete Account"
-msgstr ""
+msgstr "Borrar Cuenta"
 
 #: templates/account/delete.html:12
 #, python-format
@@ -241,10 +257,13 @@ msgid ""
 "                <b>expunged within %(ACCOUNT_DELETION_EXPUNGE_HOURS)s hours</"
 "b>."
 msgstr ""
+"Si decides proceder y borrar tu cuenta, tu información será \n"
+"                <b>borrada dentro de %(ACCOUNT_DELETION_EXPUNGE_HOURS)s horas</"
+"b>."
 
 #: templates/account/delete.html:15
 msgid "Delete My Account"
-msgstr ""
+msgstr "Borrar Mi Cuenta"
 
 #: templates/account/email/email_confirmation_message.txt:1
 #, python-format
@@ -255,11 +274,16 @@ msgid ""
 "\n"
 "If you did not sign up for this site, you can ignore this message.\n"
 msgstr ""
+"Un usuario ha creado una cuenta en el sitio %(site_name) usando este correo electrónico.\n"
+"\n"
+"Para confirmar este correo electrónico, ve a %(activate_url)s\n"
+"\n"
+"Si tu no te registraste en este sitio, puedes ignorar este mensaje.\n"
 
 #: templates/account/email/email_confirmation_subject.txt:1
 #, python-format
 msgid "Confirm email address for %(site_name)s"
-msgstr ""
+msgstr "Confirma el correo electrónico para %(site_name)s"
 
 #: templates/account/email/password_change.txt:1
 #, python-format
@@ -267,10 +291,12 @@ msgid ""
 "This is the email notification to confirm your password has been changed on "
 "%(now)s."
 msgstr ""
+"Esta es un notificación de correo electrónico para confirmar que tu contraseña ha sido cambiada en "
+"%(now)s."
 
 #: templates/account/email/password_change_subject.txt:1
 msgid "Change password email notification"
-msgstr ""
+msgstr "Cambio de contraseña de tu correo electrónico"
 
 #: templates/account/email/password_reset.txt:1
 #, python-format
@@ -282,134 +308,144 @@ msgid ""
 "\n"
 "%(password_reset_url)s\n"
 msgstr ""
+"Usted esta recibiendo este correo porque usted o alguien ha solicitado una "
+"contraseña para su cuenta de usuario en el sitio web %(site_name)s.\n"
+"Si usted no ha solicitado restablecer su contraseña puede ignorar este mensaje. Haga click en "
+"el enlace debajo para restablecer su contraseña.\n"
+"\n"
+"%(password_reset_url)s\n"
 
 #: templates/account/email/password_reset_subject.txt:1
 #, python-format
 msgid "[%(site_name)s] Password reset"
-msgstr ""
+msgstr "[%(site_name)s] Restablecer Constraseña"
 
 #: templates/account/email_confirm.html:4
 msgid "Confirm Email"
-msgstr ""
+msgstr "Confirma tu correo electrónico"
 
 #: templates/account/email_confirm.html:6
 msgid "Email Confirmation"
-msgstr ""
+msgstr "Confirmación de Correo electrónico"
 
 #: templates/account/email_confirm.html:12
 #, python-format
 msgid "Confirm email address <b>%(email)s</b>?"
-msgstr ""
+msgstr "Confirma el correo electrónico <b>%(email)s</b>"
 
 #: templates/account/email_confirm.html:14
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: templates/account/email_confirmation_sent.html:3
 #, fuzzy
 #| msgid "email address"
 msgid "Confirm your email address"
-msgstr "dirección de correo"
+msgstr "Confirmar tu correo electrónico"
 
 #: templates/account/email_confirmation_sent.html:5
 #, fuzzy
 #| msgid "email address"
 msgid "Confirmation Email Sent"
-msgstr "dirección de correo"
+msgstr "Confirmación de correo electrónico enviado"
 
 #: templates/account/email_confirmation_sent.html:11
 msgid ""
 "An email has been sent to the provided email address containing a link to "
 "confirm your account."
 msgstr ""
+"Se ha enviando un mensaje al correo electrónico proporcionado con un enlace para "
+"confirmar tu cuenta."
 
 #: templates/account/login.html:4
 msgid "Log in"
-msgstr ""
+msgstr "Iniciar sesión"
 
 #: templates/account/login.html:6
 msgid "Log in to an existing account"
-msgstr ""
+msgstr "Iniciar sesión en una cuenta existente"
 
 #: templates/account/login.html:25 templates/base.html:64
 msgid "Login"
-msgstr ""
+msgstr "Iniciar Sesión"
 
 #: templates/account/login.html:28
 msgid "Forgot your password?"
-msgstr ""
+msgstr "¿Olvidaste tu contraseña?"
 
 #: templates/account/login.html:31
 msgid "Don't have an account?"
-msgstr ""
+msgstr "¿Aún no tienes cuenta?"
 
 #: templates/account/login.html:31
 msgid "Sign up now"
-msgstr ""
+msgstr "Registrate ahora"
 
 #: templates/account/password_change.html:4
 msgid "Change password"
-msgstr ""
+msgstr "Cambiar contraseña"
 
 #: templates/account/password_change.html:6 templates/account/settings.html:29
 msgid "Change Your Password"
-msgstr ""
+msgstr "Cambia tu contraseña"
 
 #: templates/account/password_change.html:27
 #: templates/account/settings.html:34
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: templates/account/password_reset.html:4
 msgid "Password reset"
-msgstr ""
+msgstr "Restablecer contraseña"
 
 #: templates/account/password_reset.html:6
 msgid "Enter the email associated with your account"
-msgstr ""
+msgstr "Ingrese el correo electrónico asociado a su cuenta"
 
 #: templates/account/password_reset.html:19
 msgid "Reset Password"
-msgstr ""
+msgstr "Restablecer la contraseña"
 
 #: templates/account/password_reset_sent.html:4
 msgid "Password reset sent"
-msgstr ""
+msgstr "Reinicio de contraseña enviado"
 
 #: templates/account/password_reset_sent.html:6
 msgid "Password Reset Email Sent"
-msgstr ""
+msgstr "Reinicio de Contraseña enviado por correo electrónico"
 
 #: templates/account/password_reset_sent.html:17
 msgid ""
 "An email has been sent to the provided address containing a link to reset "
 "your password."
 msgstr ""
+"Un correo electrónico ha sido enviado con un enlace para restablecer "
+"su contraseña."
 
 #: templates/account/password_reset_sent.html:19
 msgid "Resend Email"
-msgstr ""
+msgstr "Reenviar correo electrónico"
 
 #: templates/account/password_reset_sent.html:22
 msgid "We have resent the password reset email."
-msgstr ""
+msgstr "Hemos reenviado un correo electrónico para restablecer su contraseña"
 
 #: templates/account/password_reset_token.html:4
 #: templates/account/password_reset_token.html:6
 msgid "Set your new password"
-msgstr ""
+msgstr "Ingresa tu nueva contraseña"
 
 #: templates/account/password_reset_token.html:22
 msgid "Change Password"
-msgstr ""
+msgstr "Cambiar contraseña"
 
 #: templates/account/password_reset_token_fail.html:4
 msgid "Bad token"
-msgstr ""
+msgstr "Token equivocado"
 
 #: templates/account/password_reset_token_fail.html:6
 msgid "Bad Token"
-msgstr ""
+msgstr "Token equivocado"
 
 #: templates/account/password_reset_token_fail.html:12
 #, python-format
@@ -418,56 +454,61 @@ msgid ""
 "used.  Please\n"
 "                request a <a href=\"%(reset_url)s\">new password reset</a>."
 msgstr ""
+"El enlace para restablecer la contraseña es inválido. Es posible que ya haya "
+"sido utilizado. Por favor \n"
+"                solicita un nuevo enlace para <a href=\"%(reset_url)s\">restablecer la contraseña</a>."
 
 #: templates/account/settings.html:4
 msgid "Account"
-msgstr ""
+msgstr "Cuenta"
 
 #: templates/account/settings.html:14
 msgid "First Name"
-msgstr ""
+msgstr "Nombre"
 
 #: templates/account/settings.html:19
 msgid "Last Name"
-msgstr ""
+msgstr "Apellidos"
 
 #: templates/account/settings.html:24
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 #: templates/account/settings.html:28
 msgid "Password"
-msgstr ""
+msgstr "Constraseña"
 
 #: templates/account/signup.html:4
 msgid "Sign up"
-msgstr ""
+msgstr "Regístrate"
 
 #: templates/account/signup.html:6 templates/base.html:65
-msgid "Sign Up"
-msgstr ""
+msgid "Sign up"
+msgstr "Regístrate"
 
 #: templates/account/signup.html:31
 msgid "Create an account"
-msgstr ""
+msgstr "Crear una cuenta"
 
 #: templates/account/signup.html:34
 msgid ""
 "By clicking 'Create an account' you agree to <a href=\"#\">this legal thing</"
 "a>"
 msgstr ""
+"Al hacer click en 'Crear una cuenta' estas de acuerdo con <a href=\"#\">nuestras politicas</"
+"a>"
 
 #: templates/account/signup.html:37
 msgid "Already have an account?"
-msgstr ""
+msgstr "¿Ya tienes una cuenta?"
 
 #: templates/account/signup.html:37
 msgid "Login now"
-msgstr ""
+msgstr "Inicia sesión ahora"
 
 #: templates/base.html:62
 msgid "Logout"
-msgstr ""
+msgstr "Cerra Sesión"
 
 #: templates/base.html:112
 msgid "Stay Connected"
@@ -484,33 +525,33 @@ msgstr ""
 #: templates/cms/plugins/widgets/ckeditor.html:25
 #: templates/cms/plugins/widgets/ckeditor.html:28
 msgid "CMS Plugins"
-msgstr ""
+msgstr "CMS Plugins"
 
 #: templates/cms/plugins/widgets/ckeditor.html:26
 msgid "Add CMS Plugin"
-msgstr ""
+msgstr "Agrega Plugin CMS"
 
 #: templates/cms/plugins/widgets/ckeditor.html:27
 msgid "Edit CMS Plugin"
-msgstr ""
+msgstr "Edita Plugin CMS"
 
 #: templates/cms/plugins/widgets/ckeditor.html:33
 msgid "Standard Plugins"
-msgstr ""
+msgstr "Standard Plugins"
 
 #: templates/djangocms_transfer/import_plugins.html:5
 msgid "Import plugins"
-msgstr ""
+msgstr "Importar plugins"
 
 #: templates/djangocms_transfer/import_plugins.html:8
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Por favor corrige el error."
+msgstr[1] "Por favor corrige los errores."
 
 #: templates/djangocms_transfer/import_plugins.html:31
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 #: templates/home.html:9
 msgid "AUGUST"
@@ -539,11 +580,11 @@ msgstr "SUSCRIBIRSE"
 
 #: templates/home.html:36
 msgid "email address"
-msgstr "dirección de correo"
+msgstr "dirección de correo electrónico"
 
 #: templates/home.html:36
 msgid "EMAIL"
-msgstr "EMAIL"
+msgstr "CORREO ELECTRÓNICO"
 
 #: templates/home.html:46
 msgid "SPONSORS"
