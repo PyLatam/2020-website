@@ -40,4 +40,8 @@ class Migration(migrations.Migration):
             name='reservation',
             field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='registrations', to='core.Reservation'),
         ),
+        migrations.AlterModelOptions(
+            name='conferenceregistration',
+            options={'verbose_name': 'Registration', 'verbose_name_plural': 'Registrations'},
+        ),
     ]

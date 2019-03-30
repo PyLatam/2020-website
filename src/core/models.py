@@ -44,8 +44,12 @@ class ConferenceRegistration(models.Model):
         editable=False,
     )
 
+    class Meta:
+        verbose_name = 'Registration'
+        verbose_name_plural = 'Registrations'
+
     def __str__(self):
-        return self.reservation.email
+        return str(self.pk)
 
     @classmethod
     def get_for_user(cls, user):
