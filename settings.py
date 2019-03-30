@@ -87,4 +87,7 @@ def ACCOUNT_DELETION_MARK_CALLBACK(account_deletion):
 DEFAULT_FROM_EMAIL = 'PyLatam noreply@pylatam.org'
 
 # Reservations
-HOTEL_RESERVATIONS_URL = 'https://secure.internetpower.com.mx/portals/FriendlyEng/hotel/hoteldescription.aspx'
+HOTEL_RESERVATIONS_URLS = {
+    'es': 'https://secure.internetpower.com.mx/portals/Friendly/hotel/hoteldescription.aspx',
+    'en': 'https://secure.internetpower.com.mx/portals/FriendlyEng/hotel/hoteldescription.aspx',
+}

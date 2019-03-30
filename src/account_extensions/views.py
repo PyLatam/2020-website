@@ -5,6 +5,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.utils.translation import get_language_from_request
 from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_POST
 
@@ -18,7 +19,8 @@ from . import forms
 @never_cache
 @login_required
 def dashboard(request):
-    context = {'reservations_url': settings.HOTEL_RESERVATIONS_URL}
+    language = get_language_from_request(request, check_path=True)
+    context = {'reservations_url': settings.HOTEL_RESERVATIONS_URLS[language]}
     return render(request, 'account/dashboard.html', context)
 
 
