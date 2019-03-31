@@ -89,11 +89,13 @@
                                            placeholder="{% trans 'Reservation E-Mail' %}" id='confirmation__email'>
                                     <i class="fa fa-address-book" aria-hidden="true"></i>
                                 </div>
+                                <ul id='email_confirmation__errors' class="errorlist nonfield"></ul>
                                 <div class='horizontal-flex--reverse'>
                                     <input type="text" name='confirmNumber'
                                            placeholder="{% trans 'Reservation Number' %}" id='confirmation__number'>
                                     <i class="fa fa-address-card" aria-hidden="true"></i>
                                 </div>
+                                <ul id='number_confirmation__errors' class="errorlist nonfield"></ul>
                                 <button>
                                     <a href="#" onclick="submitConfirmationForm()">{% trans 'Confirm Booking' %}</a>
                                 </button>
@@ -347,18 +349,19 @@
                 };
 
                 const registrationInvalid = (data) => {
-                    let errors = [];
+                    var error;
                     if (data.errors.email) {
-                        errors.push(data.errors.email[0].message);
+                        error = data.errors.email[0].message;
+                        setConfirmationErrors([error], 'email_confirmation__errors');
                     }
                     if (data.errors.reservation_number) {
-                        errors.push(data.errors.reservation_number[0].message);
+                        error = data.errors.reservation_number[0].message;
+                        setConfirmationErrors([error], 'number_confirmation__errors');
                     }
                     if (data.errors.__all__) {
-                        errors.push(data.errors.__all__[0].message);
+                        error = data.errors.__all__[0].message;
+                        setConfirmationErrors([error], 'confirmation__errors');
                     }
-                    console.log("Registration was invalid");
-                    setConfirmationErrors(errors, 'confirmation__errors');
                 };
 
                 data.success ? registrationValid(data) : registrationInvalid(data);
