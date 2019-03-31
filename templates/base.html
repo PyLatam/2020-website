@@ -104,7 +104,7 @@
     {% endif %}
     {% block content %}{% endblock content %}
 </main>
-
+{% block footer %}
 <footer>
     <div class='footer__body'>
         <div class='footer__social-media'>
@@ -149,6 +149,7 @@
         <span>&copy;2019 Pycon Latam. {% trans "All rights reserved." %}</span>
     </div>
 </footer>
+{% endblock footer %}
 
 {% render_block "js" %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
