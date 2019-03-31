@@ -172,7 +172,7 @@ input[type='submit']{
   font-weight:bold;
   padding:12px 16px;
   width:100%;
-  max-width:160px;
+  /*max-width:160px;*/
   box-sizing:border-box;
   margin:0 auto;
   transition:0.2s;
