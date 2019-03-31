@@ -178,7 +178,7 @@
             <div id='what-can-i-do' class="dashboard__card dashboard__card--wide">
                 <h2>{% trans 'WHAT CAN I DO?' %}</h2>
                 <button><a href="{% url 'account_settings' %}">{% trans 'Account Settings' %}</a></button>
-                <button><a href="#">{% trans 'View Conference Schedule' %}</a></button>
+                <button><a href="#" class="btn disabled" aria-disabled="true">{% trans 'View Conference Schedule' %}</a></button>
                 <button><a href="{% page_url 'hotel' LANGUAGE_CODE %}">{% trans 'View Hotel Information' %}</a></button>
             </div>
             <div class="dashboard__card">

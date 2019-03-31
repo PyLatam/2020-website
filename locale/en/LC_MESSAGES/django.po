@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-31 16:17+0000\n"
+"POT-Creation-Date: 2019-03-31 22:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Reservation E-Mail"
 msgstr ""
 
-#: src/account_extensions/forms.py:15 templates/account/dashboard.html:94
+#: src/account_extensions/forms.py:15 templates/account/dashboard.html:95
 msgid "Reservation Number"
 msgstr ""
 
@@ -126,47 +126,47 @@ msgstr ""
 msgid "Please enter your confirmation number below"
 msgstr ""
 
-#: templates/account/dashboard.html:98
+#: templates/account/dashboard.html:100
 msgid "Confirm Booking"
 msgstr ""
 
-#: templates/account/dashboard.html:102
+#: templates/account/dashboard.html:104
 msgid "Thank you for submitting your booking confirmation!"
 msgstr ""
 
-#: templates/account/dashboard.html:103
+#: templates/account/dashboard.html:105
 msgid "Refresh the page to see your ticket details."
 msgstr ""
 
-#: templates/account/dashboard.html:104
+#: templates/account/dashboard.html:106
 msgid "Refresh Page"
 msgstr ""
 
-#: templates/account/dashboard.html:110
+#: templates/account/dashboard.html:112
 msgid "Booking Details"
 msgstr ""
 
-#: templates/account/dashboard.html:115
+#: templates/account/dashboard.html:117
 msgid "Arrival"
 msgstr ""
 
-#: templates/account/dashboard.html:127
+#: templates/account/dashboard.html:129
 msgid "Departure"
 msgstr ""
 
-#: templates/account/dashboard.html:139
+#: templates/account/dashboard.html:141
 msgid "Number of Guests"
 msgstr ""
 
-#: templates/account/dashboard.html:152
+#: templates/account/dashboard.html:154
 msgid "Search for Rooms"
 msgstr ""
 
-#: templates/account/dashboard.html:156
+#: templates/account/dashboard.html:158
 msgid "Let's Go!"
 msgstr ""
 
-#: templates/account/dashboard.html:157
+#: templates/account/dashboard.html:159
 msgid ""
 "You'll be redirected to Friendly Vallarta's website. PyCon Latam is\n"
 "                                    all-inclusive and\n"
@@ -177,35 +177,35 @@ msgid ""
 "                                    number."
 msgstr ""
 
-#: templates/account/dashboard.html:164
+#: templates/account/dashboard.html:166
 msgid "TO FRIENDLY VALLARTA"
 msgstr ""
 
-#: templates/account/dashboard.html:168
+#: templates/account/dashboard.html:170
 msgid "Confirm Your Booking"
 msgstr ""
 
-#: templates/account/dashboard.html:177
+#: templates/account/dashboard.html:179
 msgid "WHAT CAN I DO?"
 msgstr ""
 
-#: templates/account/dashboard.html:178 templates/account/settings.html:6
+#: templates/account/dashboard.html:180 templates/account/settings.html:6
 msgid "Account Settings"
 msgstr ""
 
-#: templates/account/dashboard.html:179
+#: templates/account/dashboard.html:181
 msgid "View Conference Schedule"
 msgstr ""
 
-#: templates/account/dashboard.html:180
+#: templates/account/dashboard.html:182
 msgid "View Hotel Information"
 msgstr ""
 
-#: templates/account/dashboard.html:183
+#: templates/account/dashboard.html:185
 msgid "DAYS REMAINING"
 msgstr ""
 
-#: templates/account/dashboard.html:186
+#: templates/account/dashboard.html:188
 msgid ""
 "\n"
 "                        <small> day left</small>\n"
@@ -217,27 +217,27 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/account/dashboard.html:192
+#: templates/account/dashboard.html:194
 msgid "PyCon Latam 2019 just can't come any faster!"
 msgstr ""
 
-#: templates/account/dashboard.html:196
+#: templates/account/dashboard.html:198
 msgid "Thank You to Our Sponsors"
 msgstr ""
 
-#: templates/account/dashboard.html:297
+#: templates/account/dashboard.html:299
 msgid "Arrival date is required"
 msgstr ""
 
-#: templates/account/dashboard.html:301
+#: templates/account/dashboard.html:303
 msgid "End date is required"
 msgstr ""
 
-#: templates/account/dashboard.html:305
+#: templates/account/dashboard.html:307
 msgid "Guest count is required"
 msgstr ""
 
-#: templates/account/dashboard.html:317
+#: templates/account/dashboard.html:319
 msgid "There is a minimum requirement of three or more nights"
 msgstr ""
 
@@ -456,17 +456,18 @@ msgstr ""
 msgid "Create an account"
 msgstr ""
 
-#: templates/account/signup.html:34
+#: templates/account/signup.html:35
+#, python-format
 msgid ""
-"By clicking 'Create an account' you agree to <a href=\"#\">this legal thing</"
-"a>"
+"By clicking 'Create an account' you agree to\n"
+"            <a href=\"%(terms_url)s\">our terms & conditions</a>"
 msgstr ""
 
-#: templates/account/signup.html:37
+#: templates/account/signup.html:39
 msgid "Already have an account?"
 msgstr ""
 
-#: templates/account/signup.html:37
+#: templates/account/signup.html:39
 msgid "Login now"
 msgstr ""
 

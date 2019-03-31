@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-31 16:17+0000\n"
+"POT-Creation-Date: 2019-03-31 22:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Reservation E-Mail"
 msgstr "Correo electrónico de la reservación"
 
-#: src/account_extensions/forms.py:15 templates/account/dashboard.html:94
+#: src/account_extensions/forms.py:15 templates/account/dashboard.html:95
 msgid "Reservation Number"
 msgstr "Número de Reservación"
 
@@ -135,47 +135,47 @@ msgstr "Confirma tu reservación"
 msgid "Please enter your confirmation number below"
 msgstr "Por favor, ingresa tu número de confirmación"
 
-#: templates/account/dashboard.html:98
+#: templates/account/dashboard.html:100
 msgid "Confirm Booking"
 msgstr "Confirma Reservación"
 
-#: templates/account/dashboard.html:102
+#: templates/account/dashboard.html:104
 msgid "Thank you for submitting your booking confirmation!"
 msgstr "¡Gracias por enviar su confirmación de reserva!"
 
-#: templates/account/dashboard.html:103
+#: templates/account/dashboard.html:105
 msgid "Refresh the page to see your ticket details."
 msgstr "Actualiza la página para ver los detalles de tu boleto"
 
-#: templates/account/dashboard.html:104
+#: templates/account/dashboard.html:106
 msgid "Refresh Page"
 msgstr "Actualizar página"
 
-#: templates/account/dashboard.html:110
+#: templates/account/dashboard.html:112
 msgid "Booking Details"
 msgstr "Detalles de Reservación"
 
-#: templates/account/dashboard.html:115
+#: templates/account/dashboard.html:117
 msgid "Arrival"
 msgstr "Llegada"
 
-#: templates/account/dashboard.html:127
+#: templates/account/dashboard.html:129
 msgid "Departure"
 msgstr "Salida"
 
-#: templates/account/dashboard.html:139
+#: templates/account/dashboard.html:141
 msgid "Number of Guests"
 msgstr "Número de invitados"
 
-#: templates/account/dashboard.html:152
+#: templates/account/dashboard.html:154
 msgid "Search for Rooms"
 msgstr "Buscar habitaciones"
 
-#: templates/account/dashboard.html:156
+#: templates/account/dashboard.html:158
 msgid "Let's Go!"
 msgstr "¡Vámonos!"
 
-#: templates/account/dashboard.html:157
+#: templates/account/dashboard.html:159
 msgid ""
 "You'll be redirected to Friendly Vallarta's website. PyCon Latam is\n"
 "                                    all-inclusive and\n"
@@ -191,35 +191,35 @@ msgstr ""
 "ellos y después\n"
 " regresa a este tablero para agregar tu número de confirmación."
 
-#: templates/account/dashboard.html:164
+#: templates/account/dashboard.html:166
 msgid "TO FRIENDLY VALLARTA"
 msgstr "A FRIENDLY VALLARTA"
 
-#: templates/account/dashboard.html:168
+#: templates/account/dashboard.html:170
 msgid "Confirm Your Booking"
 msgstr "Confirma tu Reservación"
 
-#: templates/account/dashboard.html:177
+#: templates/account/dashboard.html:179
 msgid "WHAT CAN I DO?"
 msgstr "¿QUÉ PUEDO HACER?"
 
-#: templates/account/dashboard.html:178 templates/account/settings.html:6
+#: templates/account/dashboard.html:180 templates/account/settings.html:6
 msgid "Account Settings"
 msgstr "Configuración de Cuenta"
 
-#: templates/account/dashboard.html:179
+#: templates/account/dashboard.html:181
 msgid "View Conference Schedule"
 msgstr "Ver el calendario de conferencias"
 
-#: templates/account/dashboard.html:180
+#: templates/account/dashboard.html:182
 msgid "View Hotel Information"
 msgstr "Ver información de Hotel"
 
-#: templates/account/dashboard.html:183
+#: templates/account/dashboard.html:185
 msgid "DAYS REMAINING"
 msgstr "DÍAS RESTANTES"
 
-#: templates/account/dashboard.html:186
+#: templates/account/dashboard.html:188
 msgid ""
 "\n"
 "                        <small> day left</small>\n"
@@ -237,27 +237,27 @@ msgstr[1] ""
 "                        <small> días restantes</small>\n"
 "                    "
 
-#: templates/account/dashboard.html:192
+#: templates/account/dashboard.html:194
 msgid "PyCon Latam 2019 just can't come any faster!"
 msgstr "¡PyCon Latam 2019 no puede venir mas rápido!"
 
-#: templates/account/dashboard.html:196
+#: templates/account/dashboard.html:198
 msgid "Thank You to Our Sponsors"
 msgstr "Gracias a nuestros patrocinadores"
 
-#: templates/account/dashboard.html:297
+#: templates/account/dashboard.html:299
 msgid "Arrival date is required"
 msgstr ""
 
-#: templates/account/dashboard.html:301
+#: templates/account/dashboard.html:303
 msgid "End date is required"
 msgstr ""
 
-#: templates/account/dashboard.html:305
+#: templates/account/dashboard.html:307
 msgid "Guest count is required"
 msgstr ""
 
-#: templates/account/dashboard.html:317
+#: templates/account/dashboard.html:319
 msgid "There is a minimum requirement of three or more nights"
 msgstr ""
 
@@ -355,14 +355,10 @@ msgid "Confirm"
 msgstr "Confirmar"
 
 #: templates/account/email_confirmation_sent.html:3
-#, fuzzy
-#| msgid "email address"
 msgid "Confirm your email address"
-msgstr "Confirmar tu correo electrónico"
+msgstr "Confirma tu correo electrónico"
 
 #: templates/account/email_confirmation_sent.html:5
-#, fuzzy
-#| msgid "email address"
 msgid "Confirmation Email Sent"
 msgstr "Confirmación de correo electrónico enviado"
 
@@ -505,19 +501,19 @@ msgstr "Regístrate"
 msgid "Create an account"
 msgstr "Crear una cuenta"
 
-#: templates/account/signup.html:34
+#: templates/account/signup.html:35
+#, python-format
 msgid ""
-"By clicking 'Create an account' you agree to <a href=\"#\">this legal thing</"
-"a>"
+"By clicking 'Create an account' you agree to\n"
+"            <a href=\"%(terms_url)s\">our terms & conditions</a>"
 msgstr ""
-"Al hacer click en 'Crear una cuenta' estas de acuerdo con <a href=\"#"
-"\">nuestras politicas</a>"
+"Al hacer click en 'Crear una cuenta' estas de acuerdo con <a href=\"%(terms_url)s\">nuestras politicas</a>"
 
-#: templates/account/signup.html:37
+#: templates/account/signup.html:39
 msgid "Already have an account?"
 msgstr "¿Ya tienes una cuenta?"
 
-#: templates/account/signup.html:37
+#: templates/account/signup.html:39
 msgid "Login now"
 msgstr "Inicia sesión ahora"
 
