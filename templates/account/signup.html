@@ -33,7 +33,7 @@
     <div class='prompt__subtext'>
         {% page_url 'terms' LANGUAGE_CODE as terms_url %}
         <p>{% blocktrans %}By clicking 'Create an account' you agree to
-            <a href="{{ terms_url }}">our terms & conditions</a>{% endblocktrans %}</p>
+            <a href="{{ terms_url }}" target="_blank">our terms & conditions</a>{% endblocktrans %}</p>
     </div>
     <div class='prompt__card-footer'>
         <p>{% trans 'Already have an account?' %} <a href="{% url 'account_login' %}">{% trans 'Login now' %}</a></p>
