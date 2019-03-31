@@ -608,11 +608,11 @@ msgstr "Esta conferencia de 3 días comienza el 29 de Agosto y termina el 31."
 
 #: templates/home.html:27
 msgid "Let's get started!"
-msgstr ""
+msgstr "¡Comencemos!"
 
 #: templates/home.html:28
 msgid "Get Your Tickets Now"
-msgstr ""
+msgstr "Compre sus boletos ahora"
 
 #: templates/home.html:34
 msgid "SPONSORS"
