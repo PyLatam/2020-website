@@ -65,9 +65,8 @@ def get_conference_registration(context):
     if not registration:
         registration = {
             'ready': False,
-            'missing': [
-                constants.RESERVATION_REQUIRED,
-                constants.FULL_NAME_REQUIRED,
-            ],
+            'missing': [constants.RESERVATION_REQUIRED],
         }
+        if not user.get_full_name():
+            registration['missing'].append(constants.FULL_NAME_REQUIRED)
     return registration
