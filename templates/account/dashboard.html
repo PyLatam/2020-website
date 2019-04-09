@@ -270,11 +270,13 @@
             var startDate;
             var endDate;
             var guestsCount;
+            var currency;
             const accessCode = 'PYCONLAT19';
             startDate = $('#start-date-field').val();
             endDate = $('#end-date-field').val();
             guestsCount = $('#number-of-guests-field').val();
-            url = '{{ reservations_url }}?PropertyNumber=3275&Provider=0&Rooms=1&AccessCode=' + accessCode + '&Currency=USD&CheckIn=' + startDate + '&CheckOut=' + endDate + '&Adults=' + guestsCount + '&Children=0&Ages=&Contract=&Juniors=0';
+            currency = {% if LANGUAGE_CODE == 'en' %}'USD'{% else %}'MXN'{% endif %};
+            url = '{{ reservations_url }}?PropertyNumber=3275&Provider=0&Rooms=1&AccessCode=' + accessCode + '&Currency=' + currency + '&CheckIn=' + startDate + '&CheckOut=' + endDate + '&Adults=' + guestsCount + '&Children=0&Ages=&Contract=&Juniors=0';
             $('#custom-link-button').attr('href', url);
         };
 
