@@ -3,6 +3,12 @@
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}"/>
+    <style>
+    {# define the background image as an in-line style to make use of the static tag #}
+    .ticket-details {
+      background-image: url('{% static "img/Border001.png" %}');
+    }
+    </style>
 {% endblock css %}
 
 {% block content %}
@@ -96,14 +102,20 @@
                                     <i class="fa fa-address-card" aria-hidden="true"></i>
                                 </div>
                                 <ul id='number_confirmation__errors' class="errorlist nonfield"></ul>
-                                <button>
-                                    <a href="#" onclick="submitConfirmationForm()">{% trans 'Confirm Booking' %}</a>
+                                <button onclick="submitConfirmationForm()">
+                                  <a href="#">
+                                    {% trans 'Confirm Booking' %}
+                                  </a>
                                 </button>
                             </div>
                             <div class='sliding-form__2B'>
                                 <h3>{% trans 'Thank you for submitting your booking confirmation!' %}</h3>
                                 <p>{% trans 'Refresh the page to see your ticket details.' %}</p>
-                                <button onClick="window.location.reload()"><a>{% trans 'Refresh Page' %}</a></button>
+                                <button onclick="window.location.reload()">
+                                  <a href="#">
+                                    {% trans 'Refresh Page' %}
+                                  </a>
+                                </button>
                             </div>
                             <div class='sliding-form__3A'>
                                 <ul id='booking-details__errors' class="errorlist nonfield">
@@ -150,8 +162,10 @@
                                     </div>
                                 </div>
                                 <br>
-                                <button>
-                                    <a href="#" onclick='validatePanel3A()'>{% trans 'Search for Rooms' %}</a>
+                                <button onclick='validatePanel3A()'>
+                                    <a href="#">
+                                        {% trans 'Search for Rooms' %}
+                                    </a>
                                 </button>
                             </div>
                             <div class='sliding-form__3B'>
@@ -162,8 +176,11 @@
                                     with them, then come back to this dashboard to add your confirmation
                                     number.{% endblocktrans %}</p>
                                 <br>
-                                <button><a id='custom-link-button' target='_blank' href='#' onclick='getCustomLink()'>
-                                    {% trans 'TO FRIENDLY VALLARTA' %}</a></button>
+                                <button onclick='goToHotel()'>
+                                    <a href="#">
+                                        {% trans 'TO FRIENDLY VALLARTA' %}
+                                    </a>
+                                </button>
                                 <br>
                                 <p>
                                     <small>
@@ -177,9 +194,21 @@
             </div>
             <div id='what-can-i-do' class="dashboard__card dashboard__card--wide">
                 <h2>{% trans 'WHAT CAN I DO?' %}</h2>
-                <button><a href="{% url 'account_settings' %}">{% trans 'Account Settings' %}</a></button>
-                <button><a href="#" class="btn disabled" aria-disabled="true">{% trans 'View Conference Schedule' %}</a></button>
-                <button><a href="{% page_url 'hotel' LANGUAGE_CODE %}">{% trans 'View Hotel Information' %}</a></button>
+                <button onclick="navigateTo('{% url 'account_settings' %}')">
+                    <a href="#">
+                      {% trans 'Account Settings' %}
+                    </a>
+                </button>
+                <button>
+                    <a href="#" class="btn disabled" aria-disabled="true">
+                        {% trans 'View Conference Schedule' %}
+                    </a>
+                </button>
+                <button onclick="navigateTo('{% page_url 'hotel' LANGUAGE_CODE %}')">
+                    <a href="#">
+                        {% trans 'View Hotel Information' %}
+                    </a>
+                </button>
             </div>
             <div class="dashboard__card">
                 <h2>{% trans 'DAYS REMAINING' %}</h2>
@@ -277,8 +306,27 @@
             guestsCount = $('#number-of-guests-field').val();
             currency = {% if LANGUAGE_CODE == 'en' %}'USD'{% else %}'MXN'{% endif %};
             url = '{{ reservations_url }}?PropertyNumber=3275&Provider=0&Rooms=1&AccessCode=' + accessCode + '&Currency=' + currency + '&CheckIn=' + startDate + '&CheckOut=' + endDate + '&Adults=' + guestsCount + '&Children=0&Ages=&Contract=&Juniors=0';
-            $('#custom-link-button').attr('href', url);
+            return url;
         };
+
+        const goToHotel = () => {
+            var customLink = getCustomLink();
+            window.open(customLink, '_blank');
+        };
+
+        /**
+            Workaround function, used to simulate the behavior of a.href
+            in buttons.
+
+            The workaround was implemented, because the style relied a lot
+            on the combination of button/a, and firefox do not pass the
+            click event into the `a` element. Basically can't click links
+            inside buttons.
+        */
+        const navigateTo = (url) => {
+            document.location.href = url;
+        };
+
 
         const setConfirmationErrors = (arr, list_id) => {
             errors = arr;
