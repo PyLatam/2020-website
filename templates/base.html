@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
-    {% if not debug and not request.user.is_authenticated %}
+    {% if not debug and not request.user.is_staff %}
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -57,7 +57,7 @@
     {% include 'includes/favicon.html' %}
 </head>
 <body>
-{% if not debug and not request.user.is_authenticated %}
+{% if not debug and not request.user.is_staff %}
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54898D6"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
