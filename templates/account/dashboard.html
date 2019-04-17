@@ -262,6 +262,7 @@
         });
     </script>
     <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
         const slideTo = (newScreen) => {
             const slidingForm = document.getElementById("sliding-form");
             slidingForm.style.opacity = '0';
@@ -396,6 +397,9 @@
                     console.log('Registration was successful');
                     console.log(data);
                     slideTo("2B");
+                    window.dataLayer.push({
+                        'event': 'confirmationSubmit'
+                    });
                 };
 
                 const registrationInvalid = (data) => {
