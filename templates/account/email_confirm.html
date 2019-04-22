@@ -1,6 +1,13 @@
 {% extends 'account/base.html' %}
 {% load i18n %}
 
+{% if not debug and not request.user.is_staff %}
+    {% block google_meta %}
+        <script>
+          gtag('event', 'conversion', {'send_to': 'AW-751328710/JoMLCM31lJoBEMa7oeYC'});
+        </script>
+    {% endblock google_meta %}
+{% endif %}
 {% block title %}{% trans "Confirm Email" %}{% endblock title %}
 
 {% block form_title %}{% trans "Email Confirmation" %}{% endblock form_title %}

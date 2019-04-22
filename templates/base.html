@@ -21,6 +21,7 @@
 
             gtag('js', new Date());
             gtag('config', 'UA-131160725-1');
+            gtag('config', 'AW-751328710');
         </script>
 
         {% comment %}
@@ -34,6 +35,7 @@
         </script>
         {% endcomment %}
     {% endif %}
+    {% block google_meta %}{% endblock google_meta %}
     <title>{% block title %}{% page_attribute "page_title" %}{% endblock title %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
