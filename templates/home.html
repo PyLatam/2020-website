@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load cms_tags i18n static %}
+{% load cms_tags i18n sponsors_tags static thumbnail %}
 
 {% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />{% endblock css %}
 
@@ -38,7 +38,10 @@
           and get to connect with a wide array of Python programmers.{% endblocktrans %}
       </p>
       <div class='sponsor-logos'>
-          {# <img src="{% static 'img/Logo_Wizeline.png' %}" alt='WizeLine Logo' /> #}
+          {% get_sponsors as sponsors %}
+          {% for sponsor in sponsors %}
+              <img src="{% thumbnail sponsor.logo 200x150 crop %}" alt='{{ sponsor.name }}' />
+          {% endfor %}
       </div>
     </section>
 {% endblock content %}

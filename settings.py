@@ -48,6 +48,7 @@ INSTALLED_APPS.extend([
     # Third party
     'account',
     'core',
+    'sponsors',
 ])
 
 MIDDLEWARE.insert(
