@@ -40,7 +40,9 @@
       <div class='sponsor-logos'>
           {% get_sponsors as sponsors %}
           {% for sponsor in sponsors %}
-              <img src="{% thumbnail sponsor.logo 250x90 %}" alt='{{ sponsor.name }}' />
+              <a href="{{ sponsor.website }}">
+                <img src="{% thumbnail sponsor.logo 250x90 %}" alt='{{ sponsor.name }}' />
+              </a>
           {% endfor %}
       </div>
     </section>
