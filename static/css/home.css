@@ -46,12 +46,51 @@ h2 {
 
 }
 
-.section-header p {
+#keynote-speakers {
+    background-image: url("../img/Wave3.svg"), url("../img/Wave2.svg"), url("../img/Wave1.svg");
+    background-size: cover;
+    background-position: center top;
+    padding: 17% 0 5%;
+    margin-top: -5%;
+    color:white;
+}
+
+#keynote-speakers .carousel-item img{
+  margin:16px;
+  max-width: 200px;
+  max-height: 200px;
+  border:2px white solid;
+}
+
+#keynote-speakers h2::before, #keynote-speakers h2::after{
+  content:none;
+}
+
+#keynote-speakers h4{
+  font-weight:800;
+  letter-spacing: 3px;
+}
+
+#keynote-speakers p{
+  font-size: 1.3em;
+  line-height: 2em;
+  padding:0px 4vw;
+  max-width:800px;
+  margin:0 auto;
+}
+
+#keynote-speakers .carousel-item a{
+  text-decoration: none;
+}
+
+.section-header p{
     padding: 5% 10%;
     color: white;
     font-size: 1.3em;
     line-height: 2em;
 }
+
+
 
 .sponsors-title {
     padding: 0 30px 10px 30px;
@@ -85,11 +124,8 @@ h2 {
 }
 
 #mc_embed_signup {
-    background-image: url("../img/Wave1.svg"), url("../img/Wave2.svg"), url("../img/Wave3.svg");
-    background-size: cover;
-    background-position: center top;
-    padding: 15% 0 5%;
-    margin-top: -5%;
+    padding:5% 0px;
+    background-color: rgb(22, 176, 190);
 }
 
 #mc_embed_signup a {
@@ -129,22 +165,31 @@ h2 {
     align-items: center;
 }
 
-.cta-button{
+.cta-button, .speaker-button{
   display:block;
   border: 0px;
-  background-color: #E6B520;
   color: rgba(255,255,255,0.8);
   border-radius: 4px;
   padding:1vw 3vw;
-  margin:36px auto;
-  font-size:3vw;
   transition:0.2s;
   text-transform:uppercase;
   font-weight:bolder;
   letter-spacing:2px;
 }
 
-.cta-button:hover{
+
+.cta-button {
+  font-size:3vw;
+  margin:36px auto;
+  background-color: #E6B520;
+}
+
+.speaker-button {
+  background-color: rgb(22, 176, 190);
+  margin: 16px auto;
+}
+
+.cta-button:hover, .speaker-button:hover{
   cursor:pointer;
   border: 0px;
   outline: none;
@@ -152,13 +197,13 @@ h2 {
   transform:scale(1.1);
 }
 
-.cta-button:active{
+.cta-button:active, .speaker-button:active{
   outline:none;
   border: 0px;
   transform:scale(1.05);
 }
 
-.cta-button:focus{
+.cta-button:focus, .speaker-button:focus{
   border: 0px;
   outline: none;
 }
@@ -247,6 +292,9 @@ h2 {
 @media only screen and (max-width: 600px) {
   .section-header p {
     margin-top: 50px;
+  }
+  #keynote-speakers{
+    padding-top:100px;
   }
 }
 
