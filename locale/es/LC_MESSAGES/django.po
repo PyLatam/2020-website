@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-31 23:19+0000\n"
+"POT-Creation-Date: 2019-05-04 23:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/account_extensions/forms.py:14 templates/account/dashboard.html:89
+#: src/account_extensions/forms.py:14 templates/account/dashboard.html:95
 msgid "Reservation E-Mail"
 msgstr "Correo electrónico de la reservación"
 
-#: src/account_extensions/forms.py:15 templates/account/dashboard.html:95
+#: src/account_extensions/forms.py:15 templates/account/dashboard.html:101
 msgid "Reservation Number"
 msgstr "Número de Reservación"
 
@@ -58,15 +58,15 @@ msgstr "Tu nombre"
 msgid "Hotel confirmation"
 msgstr "Confirmación de Hotel"
 
-#: templates/account/dashboard.html:11 templates/base.html:61
+#: templates/account/dashboard.html:17 templates/base.html:88
 msgid "Dashboard"
 msgstr "Tablero"
 
-#: templates/account/dashboard.html:16
+#: templates/account/dashboard.html:22
 msgid "REGISTRATION STATUS"
 msgstr "ESTADO DE REGISTRO"
 
-#: templates/account/dashboard.html:19
+#: templates/account/dashboard.html:25
 msgid ""
 "\n"
 "                        <p><strong>Ready for PyCon Latam 2019</strong></p>\n"
@@ -87,95 +87,95 @@ msgstr ""
 "                        </p>\n"
 "                    "
 
-#: templates/account/dashboard.html:28
+#: templates/account/dashboard.html:34
 msgid "Your Pycon Latam 2019 registration is missing:"
 msgstr "Falta tu registro para PyCon Latam 2019:"
 
-#: templates/account/dashboard.html:38 templates/account/dashboard.html:70
+#: templates/account/dashboard.html:44 templates/account/dashboard.html:76
 msgid "TICKET"
 msgstr "BOLETO"
 
-#: templates/account/dashboard.html:44
+#: templates/account/dashboard.html:50
 msgid "Add name"
 msgstr "Agrega nombre"
 
-#: templates/account/dashboard.html:52
+#: templates/account/dashboard.html:58
 msgid "Conference"
 msgstr "Conferencia"
 
-#: templates/account/dashboard.html:56
+#: templates/account/dashboard.html:62
 msgid "Reservation #"
 msgstr "# de Reservación"
 
-#: templates/account/dashboard.html:60
+#: templates/account/dashboard.html:66
 msgid "Check In"
 msgstr "Check In"
 
-#: templates/account/dashboard.html:64
+#: templates/account/dashboard.html:70
 msgid "Check Out"
 msgstr "Check Out"
 
-#: templates/account/dashboard.html:75
+#: templates/account/dashboard.html:81
 msgid "Ticket not yet confirmed"
 msgstr "El boleto no ha sido confirmado"
 
-#: templates/account/dashboard.html:77
+#: templates/account/dashboard.html:83
 msgid "GET YOUR TICKET NOW"
 msgstr "OBTEN TU BOLETO AHORA"
 
-#: templates/account/dashboard.html:81
+#: templates/account/dashboard.html:87
 msgid "Got your ticket already?"
 msgstr "¿Ya tienes tu boleto?"
 
-#: templates/account/dashboard.html:81
+#: templates/account/dashboard.html:87
 msgid "Confirm Your booking"
 msgstr "Confirma tu reservación"
 
-#: templates/account/dashboard.html:86
+#: templates/account/dashboard.html:92
 msgid "Please enter your confirmation number below"
 msgstr "Por favor, ingresa tu número de confirmación"
 
-#: templates/account/dashboard.html:100
+#: templates/account/dashboard.html:107
 msgid "Confirm Booking"
 msgstr "Confirma Reservación"
 
-#: templates/account/dashboard.html:104
+#: templates/account/dashboard.html:112
 msgid "Thank you for submitting your booking confirmation!"
 msgstr "¡Gracias por enviar su confirmación de reserva!"
 
-#: templates/account/dashboard.html:105
+#: templates/account/dashboard.html:113
 msgid "Refresh the page to see your ticket details."
 msgstr "Actualiza la página para ver los detalles de tu boleto"
 
-#: templates/account/dashboard.html:106
+#: templates/account/dashboard.html:116
 msgid "Refresh Page"
 msgstr "Actualizar página"
 
-#: templates/account/dashboard.html:112
+#: templates/account/dashboard.html:124
 msgid "Booking Details"
 msgstr "Detalles de Reservación"
 
-#: templates/account/dashboard.html:117
+#: templates/account/dashboard.html:129
 msgid "Arrival"
 msgstr "Llegada"
 
-#: templates/account/dashboard.html:129
+#: templates/account/dashboard.html:141
 msgid "Departure"
 msgstr "Salida"
 
-#: templates/account/dashboard.html:141
+#: templates/account/dashboard.html:153
 msgid "Number of Guests"
 msgstr "Número de invitados"
 
-#: templates/account/dashboard.html:154
+#: templates/account/dashboard.html:167
 msgid "Search for Rooms"
 msgstr "Buscar habitaciones"
 
-#: templates/account/dashboard.html:158
+#: templates/account/dashboard.html:172
 msgid "Let's Go!"
 msgstr "¡Vámonos!"
 
-#: templates/account/dashboard.html:159
+#: templates/account/dashboard.html:173
 msgid ""
 "You'll be redirected to Friendly Vallarta's website. PyCon Latam is\n"
 "                                    all-inclusive and\n"
@@ -191,35 +191,35 @@ msgstr ""
 "ellos y después\n"
 " regresa a este tablero para agregar tu número de confirmación."
 
-#: templates/account/dashboard.html:166
+#: templates/account/dashboard.html:181
 msgid "TO FRIENDLY VALLARTA"
 msgstr "A FRIENDLY VALLARTA"
 
-#: templates/account/dashboard.html:170
+#: templates/account/dashboard.html:187
 msgid "Confirm Your Booking"
 msgstr "Confirma tu Reservación"
 
-#: templates/account/dashboard.html:179
+#: templates/account/dashboard.html:196
 msgid "WHAT CAN I DO?"
 msgstr "¿QUÉ PUEDO HACER?"
 
-#: templates/account/dashboard.html:180 templates/account/settings.html:6
+#: templates/account/dashboard.html:199 templates/account/settings.html:6
 msgid "Account Settings"
 msgstr "Configuración de Cuenta"
 
-#: templates/account/dashboard.html:181
+#: templates/account/dashboard.html:204
 msgid "View Conference Schedule"
 msgstr "Ver el calendario de conferencias"
 
-#: templates/account/dashboard.html:182
+#: templates/account/dashboard.html:209
 msgid "View Hotel Information"
 msgstr "Ver información de Hotel"
 
-#: templates/account/dashboard.html:185
+#: templates/account/dashboard.html:214
 msgid "DAYS REMAINING"
 msgstr "DÍAS RESTANTES"
 
-#: templates/account/dashboard.html:188
+#: templates/account/dashboard.html:217
 msgid ""
 "\n"
 "                        <small> day left</small>\n"
@@ -237,27 +237,27 @@ msgstr[1] ""
 "                        <small> días restantes</small>\n"
 "                    "
 
-#: templates/account/dashboard.html:194
+#: templates/account/dashboard.html:223
 msgid "PyCon Latam 2019 just can't come any faster!"
 msgstr "¡PyCon Latam 2019 no puede venir mas rápido!"
 
-#: templates/account/dashboard.html:198
+#: templates/account/dashboard.html:227
 msgid "Thank You to Our Sponsors"
 msgstr "Gracias a nuestros patrocinadores"
 
-#: templates/account/dashboard.html:299
+#: templates/account/dashboard.html:350
 msgid "Arrival date is required"
 msgstr ""
 
-#: templates/account/dashboard.html:303
+#: templates/account/dashboard.html:354
 msgid "End date is required"
 msgstr ""
 
-#: templates/account/dashboard.html:307
+#: templates/account/dashboard.html:358
 msgid "Guest count is required"
 msgstr ""
 
-#: templates/account/dashboard.html:319
+#: templates/account/dashboard.html:370
 msgid "There is a minimum requirement of three or more nights"
 msgstr ""
 
@@ -337,20 +337,20 @@ msgstr ""
 msgid "[%(site_name)s] Password reset"
 msgstr "[%(site_name)s] Restablecer Constraseña"
 
-#: templates/account/email_confirm.html:4
+#: templates/account/email_confirm.html:11
 msgid "Confirm Email"
 msgstr "Confirma tu correo electrónico"
 
-#: templates/account/email_confirm.html:6
+#: templates/account/email_confirm.html:13
 msgid "Email Confirmation"
 msgstr "Confirmación de Correo electrónico"
 
-#: templates/account/email_confirm.html:12
+#: templates/account/email_confirm.html:19
 #, python-format
 msgid "Confirm email address <b>%(email)s</b>?"
 msgstr "Confirma el correo electrónico <b>%(email)s</b>"
 
-#: templates/account/email_confirm.html:14
+#: templates/account/email_confirm.html:21
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -378,7 +378,7 @@ msgstr "Iniciar sesión"
 msgid "Log in to an existing account"
 msgstr "Iniciar sesión en una cuenta existente"
 
-#: templates/account/login.html:25 templates/base.html:64
+#: templates/account/login.html:25 templates/base.html:91
 msgid "Login"
 msgstr "Iniciar Sesión"
 
@@ -493,7 +493,7 @@ msgid "Password"
 msgstr "Constraseña"
 
 #: templates/account/signup.html:4 templates/account/signup.html:6
-#: templates/base.html:65
+#: templates/base.html:92
 msgid "Sign Up"
 msgstr "Regístrate"
 
@@ -519,15 +519,15 @@ msgstr "¿Ya tienes una cuenta?"
 msgid "Login now"
 msgstr "Inicia sesión ahora"
 
-#: templates/base.html:62
+#: templates/base.html:89
 msgid "Logout"
 msgstr "Cerra Sesión"
 
-#: templates/base.html:112
+#: templates/base.html:139
 msgid "Stay Connected"
 msgstr "Manténgase Informado"
 
-#: templates/base.html:124
+#: templates/base.html:151
 msgid ""
 "commits unyieldingly to the rights of all individuals to mutual respect and "
 "acceptance of others, without biases based on differences of any kind."
@@ -535,23 +535,23 @@ msgstr ""
 "se compromete a respetar los derechos de todos los individuos, a partir de "
 "la tolerancia mutua y la aceptación de los demás sin distinción alguna."
 
-#: templates/base.html:129
+#: templates/base.html:156
 msgid "Newsletter"
 msgstr ""
 
-#: templates/base.html:136
+#: templates/base.html:163
 msgid "email address"
 msgstr "dirección de correo electrónico"
 
-#: templates/base.html:136
+#: templates/base.html:163
 msgid "EMAIL"
 msgstr "CORREO ELECTRÓNICO"
 
-#: templates/base.html:139
+#: templates/base.html:166
 msgid "SUBSCRIBE"
 msgstr "SUSCRIBIRSE"
 
-#: templates/base.html:150
+#: templates/base.html:177
 msgid "All rights reserved."
 msgstr "Todos los derechos reservados."
 
@@ -586,44 +586,61 @@ msgstr[1] "Por favor corrige los errores."
 msgid "Import"
 msgstr "Importar"
 
-#: templates/home.html:9
+#: templates/home.html:10
 msgid "AUGUST"
 msgstr "AGOSTO"
 
-#: templates/home.html:18
+#: templates/home.html:16
+msgid "Keynote Speakers"
+msgstr ""
+
+#: templates/home.html:22
+msgid ""
+"Manuel traveled throughout South America as part of the \"Argentina in Python"
+"\" community project. He has since been named Python Ambassador by the "
+"Python Software Foundation."
+msgstr ""
+"Manuel traveled throughout South America as part of the \"Argentina in Python"
+"\" community project. He has since being named Python Ambassador by the Python Software Foundation."
+
+#: templates/home.html:24
+msgid "About Manuel"
+msgstr "Acerca de Manuel"
+
+#: templates/home.html:46
+msgid "Let's get started!"
+msgstr "¡Comencemos!"
+
+#: templates/home.html:48
+msgid "Get Your Tickets Now"
+msgstr "Compre sus boletos ahora"
+
+#: templates/home.html:52
 msgid ""
 " PyCon Latam is a flavor of the PyCon conference that aims to bring "
 "together\n"
-"            python developers from all latin american countries, and serve "
-"as a platform for\n"
-"            them to interface with the python community at large."
+"                    python developers from all latin american countries, and "
+"serve as a platform for\n"
+"                    them to interface with the python community at large."
 msgstr ""
 " PyCon Latam es una versión de la conferencia PyCon que tiene como objetivo "
 "reunir a los desarrolladores de python de todos los países latinoamericanos, "
 "y servir como una plataforma para que interactúen con la comunidad de python "
 "en general."
 
-#: templates/home.html:23
+#: templates/home.html:57
 msgid "This 3 day conference starts on August 29th and ends on the 31st."
 msgstr "Esta conferencia de 3 días comienza el 29 de Agosto y termina el 31."
 
-#: templates/home.html:27
-msgid "Let's get started!"
-msgstr "¡Comencemos!"
-
-#: templates/home.html:28
-msgid "Get Your Tickets Now"
-msgstr "Compre sus boletos ahora"
-
-#: templates/home.html:34
+#: templates/home.html:65
 msgid "SPONSORS"
 msgstr "PATROCINADORES"
 
-#: templates/home.html:37
+#: templates/home.html:68
 msgid ""
 "The companies and organizations who sponsor PyCon Latam make the conference "
 "possible,\n"
-"          and get to connect with a wide array of Python programmers."
+"                and get to connect with a wide array of Python programmers."
 msgstr ""
 "Las empresas y organizaciones que patrocinan PyCon Latam hacen posible la "
 "conferencia y se conectan con una amplia gama de programadores de Python."
