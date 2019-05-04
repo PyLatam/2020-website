@@ -592,7 +592,7 @@ msgstr "AGOSTO"
 
 #: templates/home.html:16
 msgid "Keynote Speakers"
-msgstr ""
+msgstr "Ponentes Principales"
 
 #: templates/home.html:22
 msgid ""
@@ -600,8 +600,8 @@ msgid ""
 "\" community project. He has since been named Python Ambassador by the "
 "Python Software Foundation."
 msgstr ""
-"Manuel traveled throughout South America as part of the \"Argentina in Python"
-"\" community project. He has since being named Python Ambassador by the Python Software Foundation."
+"Manuel viajó por toda Sudamérica como parte del proyecto comunitario \"Argentina en Python"
+"\". Desde entonces ha sido nombrado embajador de Python por la Fundación Python Software"
 
 #: templates/home.html:24
 msgid "About Manuel"
