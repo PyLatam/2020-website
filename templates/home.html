@@ -1,51 +1,41 @@
 {% extends 'base.html' %}
 {% load cms_tags i18n sponsors_tags static thumbnail %}
 
-{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />{% endblock css %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>{% endblock css %}
 
 {% block content %}
     <section id='pycon'>
-      <h1><img class='header' src="{% static 'img/pylatamheader.svg' %}" alt='PyCon LATAM' /></h1>
-      <time class='pycon-title' datetime='2019-08-29 09:00'>{% trans "AUGUST" %} 29, 2019<time>
-      <a href='{% page_url "travel" %}'>PUERTO VALLARTA, MÉXICO</a>
-      <a class='scroll-down glyphicon glyphicon-menu-down' href='#mc_embed_signup' data-offset='-45'></a>
+        <h1><img class='header' src="{% static 'img/pylatamheader.svg' %}" alt='PyCon LATAM'/></h1>
+        <time class='pycon-title' datetime='2019-08-29 09:00'>{% trans "AUGUST" %} 29, 2019
+            <time>
+                <a href='{% page_url "travel" %}'>PUERTO VALLARTA, MÉXICO</a>
+                <a class='scroll-down glyphicon glyphicon-menu-down' href='#mc_embed_signup' data-offset='-45'></a>
     </section>
-
-
     <section id='keynote-speakers'>
-      <h2>Keynote Speakers</h2>
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src='https://daisybeattyphotography.com/wp-content/uploads/2015/09/18-1790-post/kid-headshots-nyc-child-model-alexandra-lenarchyk-by-daisy-beatty-1024x1024(pp_w768_h768).jpg'>
-            <h4>Emiliana Barrios</h4>
-            <p>This is some copy text used to placehold where what would be two to three sentences about the keynote speaker. Instead, enjoy this text for the time being.</p>
-            <a href="#"><button type="button" class='speaker-button'>About Emiliana</button></a>
-          </div>
-
-          <div class="carousel-item">
-            <img src='https://via.placeholder.com/150'>
-            <h4>Josefina Ruiz</h4>
-            <p>This is some copy text used to placehold where what would be two to three sentences about the keynote speaker. Instead, enjoy this text for the time being.</p>
-            <a href="#"><button type="button" class='speaker-button'>About Josefina</button></a>
-          </div>
-
-          <div class="carousel-item">
-            <img src='https://via.placeholder.com/150'>
-            <h4>Cristino Maroto</h4>
-            <p>This is some copy text used to placehold where what would be two to three sentences about the keynote speaker. Instead, enjoy this text for the time being.</p>
-            <a href="#"><button type="button" class='speaker-button'>About Cristino</button></a>
-          </div>
+        <h2>{% trans 'Keynote Speakers' %}</h2>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'img/keynotes/manuel.png' %}">
+                    <h4>Manuel Kaufmann</h4>
+                    <p>{% trans "Manuel traveled around South America as part of a community project known as Argentina in Python. He's since been named Python Ambassador by the Python Software Foundation." %}</p>
+                    <a href="{% page_url 'keynote-speakers' %}#manuel">
+                        <button type="button" class='speaker-button'>{% trans 'About Manuel' %}</button>
+                    </a>
+                </div>
+            </div>
+            {% comment %}
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">{% trans 'Previous' %}</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">{% trans 'Next' %}</span>
+            </a>
+            {% endcomment %}
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
     </section>
 
     <!-- Begin Mailchimp Signup Form -->
@@ -53,14 +43,16 @@
         <div class='section-header'>
 
             <h2>{% trans "Let's get started!" %}</h2>
-            <a href="{% page_url 'tickets' LANGUAGE_CODE %}"><button type="button" class='cta-button'>{% trans "Get Your Tickets Now" %}</button></a>
+            <a href="{% page_url 'tickets' LANGUAGE_CODE %}">
+                <button type="button" class='cta-button'>{% trans "Get Your Tickets Now" %}</button>
+            </a>
 
             <p>
-            {% blocktrans %} PyCon Latam is a flavor of the PyCon conference that aims to bring together
-            python developers from all latin american countries, and serve as a platform for
-            them to interface with the python community at large.{% endblocktrans %}
+                {% blocktrans %} PyCon Latam is a flavor of the PyCon conference that aims to bring together
+                    python developers from all latin american countries, and serve as a platform for
+                    them to interface with the python community at large.{% endblocktrans %}
 
-            <span style="color:yellow;">
+                <span style="color:yellow;">
             {% blocktrans %}This 3 day conference starts on August 29th and ends on the 31st.{% endblocktrans %}
             </span>
             </p>
@@ -69,19 +61,19 @@
     <!--End mc_embed_signup-->
 
     <section id='sponsors'>
-      <h2>{% trans "SPONSORS" %}</h2>
-      <img class='divider' src="{% static 'img/rombo-line.png' %}"/>
-      <p class='sponsor-text'>
-          {% blocktrans %}The companies and organizations who sponsor PyCon Latam make the conference possible,
-          and get to connect with a wide array of Python programmers.{% endblocktrans %}
-      </p>
-      <div class='sponsor-logos'>
-          {% get_sponsors as sponsors %}
-          {% for sponsor in sponsors %}
-              <a href="{{ sponsor.website }}" target="_blank">
-                <img src="{% thumbnail sponsor.logo 250x90 %}" alt='{{ sponsor.name }}' />
-              </a>
-          {% endfor %}
-      </div>
+        <h2>{% trans "SPONSORS" %}</h2>
+        <img class='divider' src="{% static 'img/rombo-line.png' %}"/>
+        <p class='sponsor-text'>
+            {% blocktrans %}The companies and organizations who sponsor PyCon Latam make the conference possible,
+                and get to connect with a wide array of Python programmers.{% endblocktrans %}
+        </p>
+        <div class='sponsor-logos'>
+            {% get_sponsors as sponsors %}
+            {% for sponsor in sponsors %}
+                <a href="{{ sponsor.website }}" target="_blank">
+                    <img src="{% thumbnail sponsor.logo 250x90 %}" alt='{{ sponsor.name }}'/>
+                </a>
+            {% endfor %}
+        </div>
     </section>
 {% endblock content %}
