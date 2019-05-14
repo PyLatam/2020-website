@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-04 23:43+0000\n"
+"POT-Creation-Date: 2019-05-14 01:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -596,26 +596,49 @@ msgstr "Ponentes Principales"
 
 #: templates/home.html:22
 msgid ""
+"Political scientist turned coder, Lorena Mesa is a data engineer on GitHub's "
+"software intelligence systems team, Director on the Python Software "
+"Foundation, and PyLadies Chicago co-organizer."
+msgstr ""
+"Politóloga convertida en programadora, Lorena Mesa es ingeniera de datos en "
+"el equipo de sistemas de inteligencia de software de GitHub, Directora en la "
+"Python Software Foundation, y co-organizadora de PyLadies Chicago."
+
+#: templates/home.html:24
+msgid "About Lorena"
+msgstr "Acerca de Lorena"
+
+#: templates/home.html:30
+msgid ""
 "Manuel traveled throughout South America as part of the \"Argentina in Python"
 "\" community project. He has since been named Python Ambassador by the "
 "Python Software Foundation."
 msgstr ""
-"Manuel viajó por toda Sudamérica como parte del proyecto comunitario \"Argentina en Python"
-"\". Desde entonces ha sido nombrado embajador de Python por la Fundación Python Software"
+"Manuel viajó por toda Sudamérica como parte del proyecto comunitario "
+"\"Argentina en Python\". Desde entonces ha sido nombrado embajador de Python "
+"por la Fundación Python Software."
 
-#: templates/home.html:24
+#: templates/home.html:32
 msgid "About Manuel"
 msgstr "Acerca de Manuel"
 
-#: templates/home.html:46
+#: templates/home.html:38
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/home.html:42
+msgid "Next"
+msgstr "Siguiente"
+
+#: templates/home.html:51
 msgid "Let's get started!"
 msgstr "¡Comencemos!"
 
-#: templates/home.html:48
+#: templates/home.html:53
 msgid "Get Your Tickets Now"
 msgstr "Compre sus boletos ahora"
 
-#: templates/home.html:52
+#: templates/home.html:57
 msgid ""
 " PyCon Latam is a flavor of the PyCon conference that aims to bring "
 "together\n"
@@ -628,15 +651,15 @@ msgstr ""
 "y servir como una plataforma para que interactúen con la comunidad de python "
 "en general."
 
-#: templates/home.html:57
+#: templates/home.html:62
 msgid "This 3 day conference starts on August 29th and ends on the 31st."
 msgstr "Esta conferencia de 3 días comienza el 29 de Agosto y termina el 31."
 
-#: templates/home.html:65
+#: templates/home.html:70
 msgid "SPONSORS"
 msgstr "PATROCINADORES"
 
-#: templates/home.html:68
+#: templates/home.html:73
 msgid ""
 "The companies and organizations who sponsor PyCon Latam make the conference "
 "possible,\n"
