@@ -48,6 +48,7 @@ INSTALLED_APPS.extend([
     # Third party
     'account',
     'core',
+    'job_ads',
     'sponsors',
 ])
 

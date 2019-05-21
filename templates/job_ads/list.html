@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load cms_tags core_tags i18n l10n static sekizai_tags %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}"/>
+    <style>
+        {# define the background image as an in-line style to make use of the static tag #}
+        .ticket-details {
+            background-image: url('{% static "img/Border001.png" %}');
+        }
+    </style>
+{% endblock css %}
+
+{% block content %}
+    <div id="dashboard__container">
+        <div class="dashboard__header">
+            <h1>{% trans 'Dashboard' %}</h1>
+        </div>
+        <div class="dashboard">
+            <div class='dashboard__card dashboard__job-listing--alt'>
+                <h2>JOB LISTING</h2>
+                <div class='card__row'>
+                    <img src="https://cdn.mos.cms.futurecdn.net/6rC7i9xDYn6Y6EXcF9snEQ-320-80.jpg" alt="">
+                    <div>
+                        <h3>Stadia Entertainment</h3>
+                        <h4>Network Ninja</h4>
+                    </div>
+                </div>
+                <p>Horsehead offer. Quarterly sales are at an all-time low we don't want to boil the ocean move the
+                    needle, yet after I ran into Helen at a restaurant, I realized she was just office pretty, so hard
+                    stop.</p>
+                <button><a href="">Apply Now</a></button>
+            </div>
+            <div class='dashboard__card dashboard__job-listing--alt'>
+                <h2>JOB LISTING</h2>
+                <div class='card__row'>
+                    <img src="https://cdn.mos.cms.futurecdn.net/6rC7i9xDYn6Y6EXcF9snEQ-320-80.jpg" alt="">
+                    <div>
+                        <h3>Stadia Entertainment</h3>
+                        <h4>Network Ninja</h4>
+                    </div>
+                </div>
+                <p>Horsehead offer. Quarterly sales are at an all-time low we don't want to boil the ocean move the
+                    needle, yet after I ran into Helen at a restaurant, I realized she was just office pretty, so hard
+                    stop.</p>
+                <button><a href="">Apply Now</a></button>
+            </div>
+            <div class='dashboard__card dashboard__job-listing--alt'>
+                <h2>JOB LISTING</h2>
+                <div class='card__row'>
+                    <img src="https://cdn.mos.cms.futurecdn.net/6rC7i9xDYn6Y6EXcF9snEQ-320-80.jpg" alt="">
+                    <div>
+                        <h3>Stadia Entertainment</h3>
+                        <h4>Network Ninja</h4>
+                    </div>
+                </div>
+                <p>Horsehead offer. Quarterly sales are at an all-time low we don't want to boil the ocean move the
+                    needle, yet after I ran into Helen at a restaurant, I realized she was just office pretty, so hard
+                    stop.</p>
+                <button><a href="">Apply Now</a></button>
+            </div>
+            <div class='dashboard__card dashboard__job-listing--alt'>
+                <h2>JOB LISTING</h2>
+                <div class='card__row'>
+                    <img src="https://cdn.mos.cms.futurecdn.net/6rC7i9xDYn6Y6EXcF9snEQ-320-80.jpg" alt="">
+                    <div>
+                        <h3>Stadia Entertainment</h3>
+                        <h4>Network Ninja</h4>
+                    </div>
+                </div>
+                <p>Horsehead offer. Quarterly sales are at an all-time low we don't want to boil the ocean move the
+                    needle, yet after I ran into Helen at a restaurant, I realized she was just office pretty, so hard
+                    stop.</p>
+                <button><a href="">Apply Now</a></button>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
