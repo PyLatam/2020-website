@@ -47,6 +47,7 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesSto
 INSTALLED_APPS.extend([
     # Third party
     'account',
+    'account_extensions',
     'core',
     'sponsors',
 ])
