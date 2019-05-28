@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-21 14:43+0000\n"
+"POT-Creation-Date: 2019-05-28 17:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -576,22 +576,32 @@ msgid "About Manuel"
 msgstr ""
 
 #: templates/home.html:38
+msgid ""
+"Tania is a developer advocate at Microsoft with a focus on Data science and "
+"all things scientific computing an open source."
+msgstr ""
+
+#: templates/home.html:40
+msgid "About Tania"
+msgstr ""
+
+#: templates/home.html:46
 msgid "Previous"
 msgstr ""
 
-#: templates/home.html:42
+#: templates/home.html:50
 msgid "Next"
 msgstr ""
 
-#: templates/home.html:51
+#: templates/home.html:59
 msgid "Let's get started!"
 msgstr ""
 
-#: templates/home.html:53
+#: templates/home.html:61
 msgid "Get Your Tickets Now"
 msgstr ""
 
-#: templates/home.html:57
+#: templates/home.html:65
 msgid ""
 " PyCon Latam is a flavor of the PyCon conference that aims to bring "
 "together\n"
@@ -600,15 +610,15 @@ msgid ""
 "                    them to interface with the python community at large."
 msgstr ""
 
-#: templates/home.html:62
+#: templates/home.html:70
 msgid "This 3 day conference starts on August 29th and ends on the 31st."
 msgstr ""
 
-#: templates/home.html:70
+#: templates/home.html:78
 msgid "SPONSORS"
 msgstr ""
 
-#: templates/home.html:73
+#: templates/home.html:81
 msgid ""
 "The companies and organizations who sponsor PyCon Latam make the conference "
 "possible,\n"

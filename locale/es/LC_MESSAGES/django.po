@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-21 14:43+0000\n"
+"POT-Creation-Date: 2019-05-28 17:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -631,22 +631,35 @@ msgid "About Manuel"
 msgstr "Acerca de Manuel"
 
 #: templates/home.html:38
+msgid ""
+"Tania is a developer advocate at Microsoft with a focus on Data science and "
+"all things scientific computing an open source."
+msgstr ""
+"Tania es una developer advocate en Microsoft con un enfoque en la ciencia de datos y todo lo relacionado con la informática científica de código abierto. También es trustee de la RSE del Reino Unido y de la asociación Python del Reino Unido y fundadora y organizadora de PyLadies NorthWest UK."
+
+#: templates/home.html:40
+#, fuzzy
+#| msgid "About Lorena"
+msgid "About Tania"
+msgstr "Acerca de Lorena"
+
+#: templates/home.html:46
 msgid "Previous"
 msgstr "Anterior"
 
-#: templates/home.html:42
+#: templates/home.html:50
 msgid "Next"
 msgstr "Siguiente"
 
-#: templates/home.html:51
+#: templates/home.html:59
 msgid "Let's get started!"
 msgstr "¡Comencemos!"
 
-#: templates/home.html:53
+#: templates/home.html:61
 msgid "Get Your Tickets Now"
 msgstr "Compre sus boletos ahora"
 
-#: templates/home.html:57
+#: templates/home.html:65
 msgid ""
 " PyCon Latam is a flavor of the PyCon conference that aims to bring "
 "together\n"
@@ -659,15 +672,15 @@ msgstr ""
 "y servir como una plataforma para que interactúen con la comunidad de python "
 "en general."
 
-#: templates/home.html:62
+#: templates/home.html:70
 msgid "This 3 day conference starts on August 29th and ends on the 31st."
 msgstr "Esta conferencia de 3 días comienza el 29 de Agosto y termina el 31."
 
-#: templates/home.html:70
+#: templates/home.html:78
 msgid "SPONSORS"
 msgstr "PATROCINADORES"
 
-#: templates/home.html:73
+#: templates/home.html:81
 msgid ""
 "The companies and organizations who sponsor PyCon Latam make the conference "
 "possible,\n"
