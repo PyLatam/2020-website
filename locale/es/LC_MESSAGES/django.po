@@ -635,7 +635,7 @@ msgid ""
 "Tania is a developer advocate at Microsoft with a focus on Data science and "
 "all things scientific computing an open source."
 msgstr ""
-"Tania es una developer advocate en Microsoft con un enfoque en la ciencia de datos y todo lo relacionado con la informática científica de código abierto. También es trustee de la RSE del Reino Unido y de la asociación Python del Reino Unido y fundadora y organizadora de PyLadies NorthWest UK."
+"Tania es una developer advocate en Microsoft con un enfoque en la ciencia de datos y todo lo relacionado con la informática científica de código abierto."
 
 #: templates/home.html:40
 #, fuzzy
