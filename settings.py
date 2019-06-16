@@ -53,6 +53,10 @@ INSTALLED_APPS.extend([
     'sponsors',
 ])
 
+DJANGOCMS_FILE_TEMPLATES = [
+    ('button', 'With button'),
+]
+
 MIDDLEWARE.insert(
     MIDDLEWARE.index('django.middleware.locale.LocaleMiddleware') + 1,
     'cms_extensions.middleware.LanguageCookieMiddleware',
