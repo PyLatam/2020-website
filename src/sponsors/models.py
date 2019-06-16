@@ -14,6 +14,10 @@ class Sponsor(models.Model):
         on_delete=models.PROTECT,
         limit_choices_to={'is_staff': True},
     )
+    position = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        ordering = ('position',)
 
     def __str__(self):
         return self.name
