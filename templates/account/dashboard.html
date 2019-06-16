@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load cms_tags core_tags i18n l10n static sekizai_tags %}
+{% load cms_tags core_tags i18n l10n static sekizai_tags sponsors_tags thumbnail %}
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}"/>
@@ -224,18 +224,12 @@
             </div>
         </div>
         <div class="dashboard__sponsors">
-            <h2>{% trans 'Thank You to Our Sponsors' %}</h2>
-            {% if request.user.is_staff %}
-                <div class="sponsors__deck">
-                    <img src="http://logok.org/wp-content/uploads/2014/05/Google-logo-grey.png" alt="">
-                    <img src="https://www.logolynx.com/images/logolynx/24/24a7e6699de87bc01ba2b69743231f00.png" alt="">
-                    <img src="https://webitmd.com/wp-content/uploads/2017/03/partner-logos-grey-mailchimp-1.png" alt="">
-                    <img src="https://logos-download.com/wp-content/uploads/2016/06/Nintendo_logo_gray.png" alt="">
-                    <img src="https://airthings.com/wp-content/uploads/2016/10/Airthings_Logo_Horisontal_Grey_Web-2.png"
-                         alt="">
-                    <img src="https://webitmd.com/wp-content/uploads/2016/03/partner-logos-grey-squarespace.png" alt="">
-                </div>
-            {% endif %}
+            {% get_sponsors as sponsors %}
+            {% for sponsor in sponsors %}
+                <a href="{{ sponsor.website }}" target="_blank">
+                    <img src="{% thumbnail sponsor.logo 250x90 %}" alt='{{ sponsor.name }}'/>
+                </a>
+            {% endfor %}
         </div>
     </div>
 {% endblock content %}
