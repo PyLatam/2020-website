@@ -5,5 +5,5 @@ from .models import Sponsor
 
 @admin.register(Sponsor)
 class SponsorAdmin(admin.ModelAdmin):
-    list_display = ['name']
-    fields = ['name', 'website', 'contact', 'logo', 'is_active']
+    list_display = ['name', 'position']
+    fields = ['position', 'name', 'website', 'contact', 'logo', 'is_active']
