@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-28 17:55+0000\n"
+"POT-Creation-Date: 2019-06-17 16:48-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -222,22 +222,22 @@ msgid "PyCon Latam 2019 just can't come any faster!"
 msgstr ""
 
 #: templates/account/dashboard.html:227
-msgid "Thank You to Our Sponsors"
+msgid "Our Sponsors"
 msgstr ""
 
-#: templates/account/dashboard.html:350
+#: templates/account/dashboard.html:345
 msgid "Arrival date is required"
 msgstr ""
 
-#: templates/account/dashboard.html:354
+#: templates/account/dashboard.html:349
 msgid "End date is required"
 msgstr ""
 
-#: templates/account/dashboard.html:358
+#: templates/account/dashboard.html:353
 msgid "Guest count is required"
 msgstr ""
 
-#: templates/account/dashboard.html:370
+#: templates/account/dashboard.html:365
 msgid "There is a minimum requirement of three or more nights"
 msgstr ""
 
@@ -363,8 +363,7 @@ msgstr ""
 msgid "Change Your Password"
 msgstr ""
 
-#: templates/account/password_change.html:27
-#: templates/account/settings.html:34
+#: templates/account/password_change.html:27 templates/account/settings.html:34
 msgid "Save"
 msgstr ""
 
@@ -529,6 +528,11 @@ msgstr ""
 
 #: templates/cms/plugins/widgets/ckeditor.html:33
 msgid "Standard Plugins"
+msgstr ""
+
+#: templates/djangocms_file/button/folder.html:14
+#: templates/djangocms_file/default/folder.html:14
+msgid "No files were found in the specified folder."
 msgstr ""
 
 #: templates/djangocms_transfer/import_plugins.html:5

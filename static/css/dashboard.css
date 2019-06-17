@@ -27,6 +27,7 @@ body{
 .dashboard__sponsors{
   width:100%;
   margin:0 auto;
+  background-color: #D48335 !important;
 }
 
 .dashboard__sponsors h2{
@@ -35,8 +36,9 @@ body{
   padding-bottom:12px;
   margin:0 auto;
   margin-bottom: 12px;
-  border-bottom: 1px solid rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
   text-align:center;
+  -webkit-text-fill-color: #ffffff6b;
 }
 
 
@@ -256,7 +258,9 @@ body{
 .dashboard__sponsors h2{
   background: linear-gradient(45deg, #ccc, #777 );
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* -webkit-text-fill-color: transparent; */
+  -webkit-text-fill-color: #ffffff6b;
+  font-size: 20px;
 }
 
 .sponsors__deck {

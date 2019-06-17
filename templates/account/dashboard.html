@@ -224,6 +224,7 @@
             </div>
         </div>
         <div class="dashboard__sponsors">
+            <h2>{% trans "Our Sponsors" %}</h2>
             {% get_sponsors as sponsors %}
             {% for sponsor in sponsors %}
                 <a href="{{ sponsor.website }}" target="_blank">
