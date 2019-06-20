@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-17 16:48-0400\n"
+"POT-Creation-Date: 2019-06-20 18:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -590,22 +590,33 @@ msgid "About Tania"
 msgstr ""
 
 #: templates/home.html:46
+msgid ""
+"Álvaro Justen (aka Turicas) is a software developer and teacher. Creator and "
+"maintainer of the portal of accessible open data Brasil.IO., Alvaro develops "
+"in Python since 2005."
+msgstr ""
+
+#: templates/home.html:48
+msgid "About Álvaro"
+msgstr ""
+
+#: templates/home.html:54
 msgid "Previous"
 msgstr ""
 
-#: templates/home.html:50
+#: templates/home.html:58
 msgid "Next"
 msgstr ""
 
-#: templates/home.html:59
+#: templates/home.html:67
 msgid "Let's get started!"
 msgstr ""
 
-#: templates/home.html:61
+#: templates/home.html:69
 msgid "Get Your Tickets Now"
 msgstr ""
 
-#: templates/home.html:65
+#: templates/home.html:73
 msgid ""
 " PyCon Latam is a flavor of the PyCon conference that aims to bring "
 "together\n"
@@ -614,15 +625,15 @@ msgid ""
 "                    them to interface with the python community at large."
 msgstr ""
 
-#: templates/home.html:70
+#: templates/home.html:78
 msgid "This 3 day conference starts on August 29th and ends on the 31st."
 msgstr ""
 
-#: templates/home.html:78
+#: templates/home.html:86
 msgid "SPONSORS"
 msgstr ""
 
-#: templates/home.html:81
+#: templates/home.html:89
 msgid ""
 "The companies and organizations who sponsor PyCon Latam make the conference "
 "possible,\n"
