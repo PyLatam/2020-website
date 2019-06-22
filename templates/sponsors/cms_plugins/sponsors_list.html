@@ -1,0 +1,8 @@
+{% load thumbnail %}
+
+<h3>{{ instance.get_level_display }}</h3>
+{% for sponsor in sponsors %}
+    <a href="{{ sponsor.website }}" target="_blank">
+        <img src="{% thumbnail sponsor.logo 250x90 %}" alt="{{ sponsor.name }}" />
+    </a>
+{% endfor %}
