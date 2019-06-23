@@ -5,4 +5,6 @@
     <a href="{{ sponsor.website }}" target="_blank">
         <img src="{% thumbnail sponsor.logo 250x90 %}" alt="{{ sponsor.name }}" />
     </a>
+{% empty %}
+    <span>Currently there are no {{ instance.get_level_display|lower }} sponsors</span>
 {% endfor %}
