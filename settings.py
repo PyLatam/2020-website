@@ -50,6 +50,7 @@ INSTALLED_APPS.extend([
     'account',
     'account_extensions',
     'core',
+    'schedule',
     'sponsors',
 ])
 
@@ -98,3 +99,8 @@ HOTEL_RESERVATIONS_URLS = {
     'es': 'https://secure.internetpower.com.mx/portals/Friendly/hotel/hoteldescription.aspx',
     'en': 'https://secure.internetpower.com.mx/portals/FriendlyEng/hotel/hoteldescription.aspx',
 }
+
+TALK_LANGUAGES = (
+    ('en', 'English'),
+    ('es', 'Spanish'),
+)

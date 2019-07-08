@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for datetime, slots in schedule %}
+        <p>{{ datetime|date }}</p>
+        {% for slot in slots %}
+            <p>{{ slot.start_time }} - {{ slot.end_time }}</p>
+            {% for entry in slot.get_entries %}
+                <p>{{ entry.title }}</p>
+                <p>{{ entry.room }}</p>
+                {% if entry.speaker %}
+                    {# Dealing with a talk #}
+                    <p>{{ entry.speaker.name }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+{% endblock content %}
