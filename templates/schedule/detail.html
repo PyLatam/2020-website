@@ -1,1 +1,30 @@
 {% extends 'base.html' %}
+{% load cms_tags static %}
+
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}" />{% endblock css %}
+
+
+{% block content %}
+<main>
+  <section>
+  </section>
+  <section>
+    <h1 style="font-size:22pt; margin-bottom: 3vw;">{{ object.title }}</h1>
+    <aside>
+      <h3 style="font-size:17pt;"><img style="border-radius:50%; height: 100px;" src="https://file1.grazia.fr/var/grazia/storage/images/1/2/5/3/8/12538579/gal-gadot-jennifer-garner-johnny-depp-actu-des-people-bref_square500x500.jpg" class="circle_clip">
+        <br />by {{ object.speaker }}</h3>
+      <p>{{ object.speaker.website }}</p>
+      <p><b>Room:</b> {{ object.get_room_display }}
+        <br /><b>Level:</b> {{ object.get_audience_level_display }}
+        <br /><b>Time:</b> {{ object.time_slot.start }}
+        <br /><b>Duration:</b> {{ object.time_slot.duration }}</p>
+    </aside>
+    <h2 style="text-align:left; font-size:15pt;">Abstract</h2>
+    <p>{{ object.abstract }}</p>
+  </section>
+  <section>
+    <h2>Description</h2>
+    <p>{{ object.description }}</p>
+  </section>
+</main>
+{% endblock content %}

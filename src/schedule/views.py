@@ -5,7 +5,7 @@ from .models import Talk, TimeSlot
 
 
 def landing(request):
-    dates = TimeSlot.objects.values_list('start__date', flat=True).distinct()
+    dates = TimeSlot.objects.dates('start__date', 'day')
     schedule = [
         (date, TimeSlot.objects.filter(start__date=date)) for date in dates
     ]

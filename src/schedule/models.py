@@ -12,16 +12,17 @@ from account.models import Account
 
 AUDIENCE_CHOICES = (
     ('all', 'All'),
-    ('beginner', 'Beginner'),
-    ('intermediate', 'Intermediate'),
+    ('beginners', 'Beginner'),
+    ('medium', 'Intermediate'),
 )
 
 
 ROOM_CHOICES = (
     # Talk rooms
-    ('room_en', 'Nautilus'),
-    ('room_es', 'Estrella de mar'),
+    ('roomOne', 'Nautilus'),
+    ('roomTwo', 'Estrella de mar'),
     # Lunch rooms
+    ('roomThree', 'Lunch Room'),
     # Breakfast rooms
 )
 

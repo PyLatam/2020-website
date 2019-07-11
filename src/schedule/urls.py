@@ -1,10 +1,9 @@
-from django.views.generic.detail import DetailView
-from django.urls import path
+from django.urls import path, re_path
 
 from . import views
 
 
 urlpatterns = [
     path("", views.landing, name="landing_page"),
-    path("<uuid:slug>/", DetailView.as_view(), name="talk_view"),
+    path("<slug:slug>/", views.TalkDetail.as_view(), name="talk_view"),
 ]
