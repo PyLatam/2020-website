@@ -8,6 +8,11 @@ from .models import ConferenceRegistration, Reservation
 class ConferenceRegistrationAdmin(admin.ModelAdmin):
     list_display = ['account_name', 'account_email']
     list_filter = ['is_sponsor', 'is_grant_recipient']
+    search_fields = [
+        'account__user__first_name',
+        'account__user__last_name',
+        'account__user__email',
+    ]
 
     def account_name(self, obj):
         return obj.account.user.get_full_name()
