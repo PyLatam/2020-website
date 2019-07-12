@@ -15,8 +15,8 @@ class SpeakerAdmin(admin.ModelAdmin):
 
 @admin.register(Talk)
 class TalkAdmin(admin.ModelAdmin):
-    list_filter = ['room']
-    list_display = ['speaker', 'title', 'room']
+    list_filter = ['room', 'language']
+    list_display = ['speaker', 'title', 'room', 'language']
 
 
 @admin.register(TimeSlot)
