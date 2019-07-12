@@ -1,188 +1,171 @@
 {% extends 'base.html' %}
-{% load cms_tags static %}
+{% load cms_tags i18n static %}
+
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'schedule/css/schedule.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'schedule/css/schedule.css' %}"/>
 {% endblock css %}
 
 {% block content %}
-
-<!-- FILTER BLOCK -->
-
-<h1 style="text-align:center;"> {% page_attribute "page_title" %} </h1>
-
-
-<div id='schedule-filter-container' class='schedule-filter__container schedule-filter__dont-stick'>
-  <div class='schedule-filter__only-on-show'>
-    <h3>Filter Schedule by</h3>
-    <div class='schedule-filter__options'>
-      <!-- START First Dropdown 01 -->
-      <!-- <div class='schedule-filter__dropdown'>
-        <li>Experience</li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="experience-beginner" name="experience" value="all">
-          <label for="experience-beginner"><span class='icon' style='color:#33CC99;'>&#9679</span>No Experience</label>
-        </li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="experience-medium" name="experience" value="beginners">
-          <label for="experience-medium"><span class='icon' style='color:#FFCC66;'>&#9679</span>Beginner</label>
-        </li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="experience-advanced" name="experience" value="medium">
-          <label for="experience-advanced"><span class='icon' style='color:#FF3366;'>&#9679</span>Medium</label>
-        </li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="experience-all" name="experience" value="all" checked>
-          <label for="experience-all">Show All</label>
-        </li>
-      </div> -->
-      <!-- END Dropdown 01-->
-      <!-- START Dropdown 02 -->
-      <!-- <div class='schedule-filter__dropdown'>
-        <li>Your Interest</li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="interest-interested" name="interest" value="interested">
-          <label for="interest-interested"><i class="fa fa-star icon" aria-hidden="true" style='color:#EEFF41'></i>Interested</label>
-        </li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="interest-attending" name="interest" value="attending">
-          <label for="interest-attending"><i class="fa fa-check icon" aria-hidden="true" style='color:#00E676;'></i>Attending</label>
-        </li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="interest-all" name="interest" value="all" checked>
-          <label for="interest-all">Show All</label>
-        </li>
-        <li>
-      </div> -->
-      <!-- END Dropdown 02-->
-      <!-- START Dropdown 03 -->
-      <div class='schedule-filter__dropdown'>
-        <li>Location</li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="location-room-one" name="location" value="roomOne">
-          <label for="location-room-one">Nautilus</label>
-        </li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="location-room-two" name="location" value="roomTwo">
-          <label for="location-room-two">Estrella del Mar</label>
-        </li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="location-all" name="location" value="all" checked>
-          <label for="location-all">Show All</label>
-        </li>
-      </div>
-      <!-- END Dropdown 03-->
-      <!-- START Dropdown 04 -->
-      <div class='schedule-filter__dropdown'>
-        <li>Date</li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="date-thursday" name="date" value="082919">
-          <label for="date-thursday">Thu, Aug 29</label>
-        </li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="date-friday" name="date" value="083019">
-          <label for="date-friday">Fri, Aug 30</label>
-        </li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="date-saturday" name="date" value="083119">
-          <label for="date-saturday">Sat, Aug 31</label>
-        </li>
-        <li>
-          <input onclick='updateFilter(this)' type="checkbox" id="date-all" name="date" value="all" checked>
-          <label for="date-all">Show All</label>
-        </li>
-      </div>
-      <!-- END Dropdown 04-->
+    <!-- FILTER BLOCK -->
+    <h1 style="text-align:center;">{% page_attribute "page_title" %}</h1>
+    <div id='schedule-filter-container' class='schedule-filter__container schedule-filter__dont-stick'>
+        <div class='schedule-filter__only-on-show'>
+            <h3>{% trans 'Filter Schedule by' %}</h3>
+            <div class='schedule-filter__options'>
+                <!-- START First Dropdown 01 -->
+                <!-- <div class='schedule-filter__dropdown'>
+                  <li>Experience</li>
+                  <li>
+                    <input onclick='updateFilter(this)' type="checkbox" id="experience-beginner" name="experience" value="all">
+                    <label for="experience-beginner"><span class='icon' style='color:#33CC99;'>&#9679</span>No Experience</label>
+                  </li>
+                  <li>
+                    <input onclick='updateFilter(this)' type="checkbox" id="experience-medium" name="experience" value="beginners">
+                    <label for="experience-medium"><span class='icon' style='color:#FFCC66;'>&#9679</span>Beginner</label>
+                  </li>
+                  <li>
+                    <input onclick='updateFilter(this)' type="checkbox" id="experience-advanced" name="experience" value="medium">
+                    <label for="experience-advanced"><span class='icon' style='color:#FF3366;'>&#9679</span>Medium</label>
+                  </li>
+                  <li>
+                    <input onclick='updateFilter(this)' type="checkbox" id="experience-all" name="experience" value="all" checked>
+                    <label for="experience-all">Show All</label>
+                  </li>
+                </div> -->
+                <!-- END Dropdown 01-->
+                <!-- START Dropdown 02 -->
+                <!-- <div class='schedule-filter__dropdown'>
+                  <li>Your Interest</li>
+                  <li>
+                    <input onclick='updateFilter(this)' type="checkbox" id="interest-interested" name="interest" value="interested">
+                    <label for="interest-interested"><i class="fa fa-star icon" aria-hidden="true" style='color:#EEFF41'></i>Interested</label>
+                  </li>
+                  <li>
+                    <input onclick='updateFilter(this)' type="checkbox" id="interest-attending" name="interest" value="attending">
+                    <label for="interest-attending"><i class="fa fa-check icon" aria-hidden="true" style='color:#00E676;'></i>Attending</label>
+                  </li>
+                  <li>
+                    <input onclick='updateFilter(this)' type="checkbox" id="interest-all" name="interest" value="all" checked>
+                    <label for="interest-all">Show All</label>
+                  </li>
+                  <li>
+                </div> -->
+                <div class='schedule-filter__dropdown'>
+                    <li>{% trans 'Location' %}</li>
+                    <li>
+                        <input onclick='updateFilter(this)' type="checkbox" id="location-room-one" name="location" value="roomOne">
+                        <label for="location-room-one">Nautilus</label>
+                    </li>
+                    <li>
+                        <input onclick='updateFilter(this)' type="checkbox" id="location-room-two" name="location" value="roomTwo">
+                        <label for="location-room-two">Estrella del Mar</label>
+                    </li>
+                    <li>
+                        <input onclick='updateFilter(this)' type="checkbox" id="location-all" name="location" value="all" checked>
+                        <label for="location-all">Show All</label>
+                    </li>
+                </div>
+                <div class='schedule-filter__dropdown'>
+                    <li>{% trans 'Date' %}</li>
+                    <li>
+                        <input onclick='updateFilter(this)' type="checkbox" id="date-thursday" name="date"
+                               value="082919">
+                        <label for="date-thursday">Thu, Aug 29</label>
+                    </li>
+                    <li>
+                        <input onclick='updateFilter(this)' type="checkbox" id="date-friday" name="date" value="083019">
+                        <label for="date-friday">Fri, Aug 30</label>
+                    </li>
+                    <li>
+                        <input onclick='updateFilter(this)' type="checkbox" id="date-saturday" name="date"
+                               value="083119">
+                        <label for="date-saturday">Sat, Aug 31</label>
+                    </li>
+                    <li>
+                        <input onclick='updateFilter(this)' type="checkbox" id="date-all" name="date" value="all"
+                               checked>
+                        <label for="date-all">Show All</label>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <button id='schedule-filter-toggle' disabled><i class="fa fa-filter"></i> <span id='schedule-filter-toggle-tag' style='display:none;'>Filters</span></button>
     </div>
-  </div>
 
+    <!-- FILTER -->
 
-  <button id='schedule-filter-toggle' disabled><i class="fa fa-filter"></i> <span id='schedule-filter-toggle-tag' style='display:none;'>Filters</span></button>
-</div>
-
-<!-- FILTER -->
-
-
-
-<!-- PAGE CONTENT -->
+    <!-- PAGE CONTENT -->
 
     {% for datetime, slots in schedule %}
-    <div class="single__day__block" data-date='{{ datetime|date:"mdy" }}'>
-        <div class="schedule__date">
-          <h2 class="time__block_date"><b>{{ datetime|date:"l, M d" }}</b> {{ datetime|date:"Y" }}</h2>
-        </div>
-        {% for slot in slots %}
-        {% if slot.events.exists or slot.talks.exists %}
-        <div class="time__block {% if slot.events.exists %}lunch{% endif %}"> <!-- Date Block -->
-            <div class="talk__time">
-              <h3>{{ slot.start_time }}</h3>
-              <p> until {{ slot.end_time }}<p>
+        <div class="single__day__block" data-date='{{ datetime|date:"mdy" }}'>
+            <div class="schedule__date">
+                <h2 class="time__block_date"><b>{{ datetime|date:"l, M d" }}</b> {{ datetime|date:"Y" }}</h2>
             </div>
-            {% for entry in slot.get_entries %}
+            {% for slot in slots %}
+                {% if slot.events.exists or slot.talks.exists %}
+                    <div class="time__block {% if slot.events.exists %}lunch{% endif %}"> <!-- Date Block -->
+                        <div class="talk__time">
+                            <h3>{{ slot.start_time }}</h3>
+                            <p> until {{ slot.end_time }}<p>
+                        </div>
+                        {% for entry in slot.get_entries %}
+                            {% if entry.audience_level %}
+                                <!--<a >-->
+                                <a href='{{ entry.slug }}' class="talk__card" data-location='{{ entry.room }}'
+                                        {% if entry.audience_level %} data-experience='{{ entry.audience_level }}'{% endif %}>
+                                    <span class="level__{{ entry.audience_level }}">&#9679</span>
+                                    <h4>{{ entry.title }}</h4>
+                                    <p>by {{ entry.speaker }} @ <b class="talk__card_blue">{{ entry.get_room_display }}</b></p>
+                                    <div>
+                                        <img src="https://file1.grazia.fr/var/grazia/storage/images/1/2/5/3/8/12538579/gal-gadot-jennifer-garner-johnny-depp-actu-des-people-bref_square500x500.jpg"
+                                             class="circle_clip">
+                                    </div>
+                                </a>
+                                <!--</a>-->
+                            {% else %}
+                                <div class="lunch__info lunch--blue" data-location='{{ entry.room }}'>
+                                    <h3>{{ entry.title }}</h3>
+                                    <p>{% blocktrans with room=entry.room %}Enjoy at <b class="talk__card_blue">{{ room }}</b>{% endblocktrans %}</p>
+                                </div>
+                            {% endif %}
 
-            {% if entry.audience_level %}
-            <!--<a >-->
-              <a href='{{ entry.slug }}' class="talk__card" data-location='{{ entry.room }}'
-              {% if entry.audience_level %}
-                data-experience='{{ entry.audience_level }}'
-              {% endif %}>
-                <span class="level__{{ entry.audience_level }}">&#9679</span>
-                <h4>{{ entry.title }}</h4>
-                <p>by {{ entry.speaker }} @ <b class="talk__card_blue">{{ entry.get_room_display }}</b></p>
-                <div>
-                  <img src="https://file1.grazia.fr/var/grazia/storage/images/1/2/5/3/8/12538579/gal-gadot-jennifer-garner-johnny-depp-actu-des-people-bref_square500x500.jpg" class="circle_clip">
-                  <!-- <div class="talk__card_check">
-                  </div>
-                  <i class="fa fa-check" aria-hidden="true"></i> -->
-
-                </div>
-              </a>
-            <!--</a>-->
-
-
-            {% else %}
-            <div class="lunch__info lunch--blue" data-location='{{ entry.room }}'>
-              <h3>{{ entry.title }}</h3>
-              <p>Enjoy at <b class="talk__card_blue">{{ entry.room }}</b></p>
-            </div>
-            {% endif %}
-
+                        {% endfor %}
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
-    </div>
     {% endfor %}
 
 
 {% endblock content %}
 
 {% block js %}
-<script>
-  let STATE = {
-      date: {
-          '082919': true,  //Will affect [data-date = 'thursday']
-          '083019': true,
-          '083119': true,
-          modifier: ['display', 'none']
-      },
-      location: {
-          roomOne: true, //Will affect [data-location = 'roomOne']
-          roomTwo: true,
-          modifier: ['opacity', '0.2']
-      },
-      experience: {
-          beginners: true, //Will affect [data-experience = 'beginner']
-          medium: true,
-          noexp: true,
-          modifier: ['opacity', '0.2']
-      },
-      interest: {
-          interested: true, //Will affect [data-interest = 'interested']
-          attending: true,
-          modifier: ['opacity', '0.2']
-      }
-  }
-</script>
-<script src="{% static 'schedule/js/schedule.js' %}"></script>
+    <script>
+        let STATE = {
+            date: {
+                '082919': true,  //Will affect [data-date = 'thursday']
+                '083019': true,
+                '083119': true,
+                modifier: ['display', 'none']
+            },
+            location: {
+                roomOne: true, //Will affect [data-location = 'roomOne']
+                roomTwo: true,
+                modifier: ['opacity', '0.2']
+            },
+            experience: {
+                beginners: true, //Will affect [data-experience = 'beginner']
+                medium: true,
+                noexp: true,
+                modifier: ['opacity', '0.2']
+            },
+            interest: {
+                interested: true, //Will affect [data-interest = 'interested']
+                attending: true,
+                modifier: ['opacity', '0.2']
+            }
+        }
+    </script>
+    <script src="{% static 'schedule/js/schedule.js' %}"></script>
 {% endblock js %}
