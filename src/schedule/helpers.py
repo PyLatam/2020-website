@@ -15,9 +15,15 @@ def import_from_json(data):
         if raw_proposal['state'] != 'accepted':
             continue
 
+        if raw_proposal['confirmed'] != True:
+            continue
+
         speaker = Speaker.objects.get_or_create(
+            bio=raw_proposal['bio'],
             name=raw_proposal['name'],
             email=raw_proposal['email'],
+            website=raw_proposal['url'],
+            twitter=raw_proposal['twitter'],
         )[0]
 
         talk_title = raw_proposal['title']
