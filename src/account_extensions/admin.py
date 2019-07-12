@@ -6,6 +6,7 @@ from account.models import Account
 
 class AccountAdmin(BaseAccountAdmin):
     list_display = ['username', 'user_email', 'user_date_joined']
+    search_fields = ['user__first_name', 'user__last_name', 'user__email']
     ordering = ('-user__date_joined',)
 
     def username(self, obj):
