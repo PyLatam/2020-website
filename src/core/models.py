@@ -35,6 +35,8 @@ class ConferenceRegistration(models.Model):
     )
     reservation = models.ForeignKey(
         Reservation,
+        blank=True,
+        null=True,
         on_delete=models.PROTECT,
         related_name='registrations',
     )
@@ -43,6 +45,8 @@ class ConferenceRegistration(models.Model):
         auto_now_add=True,
         editable=False,
     )
+    is_sponsor = models.BooleanField(default=False)
+    is_grant_recipient = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = 'Registration'

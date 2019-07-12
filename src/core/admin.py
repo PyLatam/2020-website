@@ -4,6 +4,18 @@ from django.db.models import Count
 from .models import ConferenceRegistration, Reservation
 
 
+@admin.register(ConferenceRegistration)
+class ConferenceRegistrationAdmin(admin.ModelAdmin):
+    list_display = ['account_name', 'account_email']
+    list_filter = ['is_sponsor', 'is_grant_recipient']
+
+    def account_name(self, obj):
+        return obj.account.user.get_full_name()
+
+    def account_email(self, obj):
+        return obj.account.user.email
+
+
 class RegistrationInline(admin.StackedInline):
     model = ConferenceRegistration
     fields = ['account_name', 'account_email']

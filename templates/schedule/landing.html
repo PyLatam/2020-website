@@ -54,11 +54,11 @@
                 <div class='schedule-filter__dropdown'>
                     <li>{% trans 'Location' %}</li>
                     <li>
-                        <input onclick='updateFilter(this)' type="checkbox" id="location-room-one" name="location" value="roomOne">
+                        <input onclick='updateFilter(this)' type="checkbox" id="location-room-one" name="location" value="room_en">
                         <label for="location-room-one">Nautilus</label>
                     </li>
                     <li>
-                        <input onclick='updateFilter(this)' type="checkbox" id="location-room-two" name="location" value="roomTwo">
+                        <input onclick='updateFilter(this)' type="checkbox" id="location-room-two" name="location" value="room_es">
                         <label for="location-room-two">Estrella del Mar</label>
                     </li>
                     <li>
@@ -150,8 +150,8 @@
                 modifier: ['display', 'none']
             },
             location: {
-                roomOne: true, //Will affect [data-location = 'roomOne']
-                roomTwo: true,
+                room_en: true, //Will affect [data-location = 'room_en']
+                room_es: true,
                 modifier: ['opacity', '0.2']
             },
             experience: {

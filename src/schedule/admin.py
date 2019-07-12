@@ -16,9 +16,9 @@ class SpeakerAdmin(admin.ModelAdmin):
 @admin.register(Talk)
 class TalkAdmin(admin.ModelAdmin):
     list_filter = ['room']
-    list_display = ['title', 'room']
+    list_display = ['speaker', 'title', 'room']
 
 
 @admin.register(TimeSlot)
 class TimeSlotAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['start_date', 'start_time', 'end_time', 'duration']

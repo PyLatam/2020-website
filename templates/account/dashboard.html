@@ -40,7 +40,7 @@
                 {% endif %}
             </div>
             <div class="dashboard__card dashboard__card--wide ticket-details">
-                {% if registration.reservation %}
+                {% if registration %}
                     <h2>{% trans 'TICKET' %}</h2>
                     <div class="ticket-details__space-between">
                         <div>
@@ -57,20 +57,22 @@
                     </div>
                     <h4>{% trans 'Conference' %}</h4>
                     <p>PyCon Latam 2019</p>
-                    <div class="ticket-details__space-between">
-                        <div>
-                            <h4>{% trans 'Reservation #' %}</h4>
-                            <p>{{ registration.reservation.number }}</p>
+                    {% if registration.reservation %}
+                        <div class="ticket-details__space-between">
+                            <div>
+                                <h4>{% trans 'Reservation #' %}</h4>
+                                <p>{{ registration.reservation.number }}</p>
+                            </div>
+                            <div>
+                                <h4>{% trans 'Check In' %}</h4>
+                                <p>{{ registration.reservation.checkin }}</p>
+                            </div>
+                            <div>
+                                <h4>{% trans 'Check Out' %}</h4>
+                                <p>{{ registration.reservation.checkout }}</p>
+                            </div>
                         </div>
-                        <div>
-                            <h4>{% trans 'Check In' %}</h4>
-                            <p>{{ registration.reservation.checkin }}</p>
-                        </div>
-                        <div>
-                            <h4>{% trans 'Check Out' %}</h4>
-                            <p>{{ registration.reservation.checkout }}</p>
-                        </div>
-                    </div>
+                    {% endif %}
                 {% else %}
                     <div id='sliding-form-window'>
                         <h3 class='sliding-form-window__label'>{% trans 'TICKET' %}</h3>

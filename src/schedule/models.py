@@ -19,8 +19,8 @@ AUDIENCE_CHOICES = (
 
 ROOM_CHOICES = (
     # Talk rooms
-    ('roomOne', 'Nautilus'),
-    ('roomTwo', 'Estrella de mar'),
+    ('room_en', 'Nautilus'),
+    ('room_es', 'Estrella de mar'),
     # Lunch rooms
     ('roomThree', 'Lunch Room'),
     # Breakfast rooms
@@ -36,6 +36,10 @@ class TimeSlot(models.Model):
 
     def __str__(self):
         return f'{self.start.day}: {self.start.time()} - {self.end_time}'
+
+    @cached_property
+    def start_date(self):
+        return self.start.date()
 
     @cached_property
     def start_time(self):
