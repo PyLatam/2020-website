@@ -13,6 +13,7 @@ class ConferenceRegistrationAdmin(admin.ModelAdmin):
         'account__user__last_name',
         'account__user__email',
     ]
+    raw_id_fields = ['account']
 
     def account_name(self, obj):
         return obj.account.user.get_full_name()
