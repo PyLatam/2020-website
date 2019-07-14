@@ -22,7 +22,7 @@ aldryn_addons.settings.load(locals())
 
 USE_TZ = True
 USE_L10N = True
-TIME_ZONE = 'America/New_York'
+TIME_ZONE = 'America/Mexico_City'
 
 CMS_TEMPLATES = (
     ('home.html', 'Home'),
