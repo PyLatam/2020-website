@@ -2,6 +2,7 @@ from datetime import timedelta
 
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 from django.utils.functional import cached_property
 from django.urls import reverse
 
@@ -39,15 +40,16 @@ class TimeSlot(models.Model):
 
     @cached_property
     def start_date(self):
-        return self.start.date()
+        return timezone.localtime(self.start).date()
 
     @cached_property
     def start_time(self):
-        return self.start.time()
+        return timezone.localtime(self.start).time()
 
     @cached_property
     def end_time(self):
-        return (self.start + timedelta(minutes=self.duration)).time()
+        start = timezone.localtime(self.start)
+        return (start + timedelta(minutes=self.duration)).time()
 
     def get_entries(self):
         if self.events.exists():
