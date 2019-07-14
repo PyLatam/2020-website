@@ -5,7 +5,7 @@ from .models import Event, Speaker, Talk, TimeSlot
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['title', 'room', 'time_slot']
 
 
 @admin.register(Speaker)

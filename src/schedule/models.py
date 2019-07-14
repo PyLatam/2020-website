@@ -36,7 +36,7 @@ class TimeSlot(models.Model):
         ordering = ('start',)
 
     def __str__(self):
-        return f'{self.start.day}: {self.start.time()} - {self.end_time}'
+        return f'{self.start_date.day}: {self.start_time} - {self.end_time}'
 
     @cached_property
     def start_date(self):
