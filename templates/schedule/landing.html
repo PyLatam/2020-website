@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load cms_tags i18n static %}
+{% load cms_tags i18n static thumbnail %}
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}"/>
@@ -69,8 +69,7 @@
                 <div class='schedule-filter__dropdown'>
                     <li>{% trans 'Date' %}</li>
                     <li>
-                        <input onclick='updateFilter(this)' type="checkbox" id="date-thursday" name="date"
-                               value="082919">
+                        <input onclick='updateFilter(this)' type="checkbox" id="date-thursday" name="date" value="082919">
                         <label for="date-thursday">Thu, Aug 29</label>
                     </li>
                     <li>
@@ -78,13 +77,11 @@
                         <label for="date-friday">Fri, Aug 30</label>
                     </li>
                     <li>
-                        <input onclick='updateFilter(this)' type="checkbox" id="date-saturday" name="date"
-                               value="083119">
+                        <input onclick='updateFilter(this)' type="checkbox" id="date-saturday" name="date" value="083119">
                         <label for="date-saturday">Sat, Aug 31</label>
                     </li>
                     <li>
-                        <input onclick='updateFilter(this)' type="checkbox" id="date-all" name="date" value="all"
-                               checked>
+                        <input onclick='updateFilter(this)' type="checkbox" id="date-all" name="date" value="all" checked>
                         <label for="date-all">Show All</label>
                     </li>
                 </div>
@@ -103,37 +100,39 @@
                 <h2 class="time__block_date"><b>{{ datetime|date:"l, M d" }}</b> {{ datetime|date:"Y" }}</h2>
             </div>
             {% for slot in slots %}
-                {% if slot.events.exists or slot.talks.exists %}
-                    <div class="time__block {% if slot.events.exists %}lunch{% endif %}"> <!-- Date Block -->
-                        <div class="talk__time">
-                            <h3>{{ slot.start_time }}</h3>
-                            <p> until {{ slot.end_time }}<p>
-                        </div>
-                        {% for entry in slot.get_entries %}
-                            {% if entry.audience_level %}
-                                <!--<a >-->
-                                <a href='{{ entry.slug }}' class="talk__card" data-location='{{ entry.room }}'
-                                        {% if entry.audience_level %} data-experience='{{ entry.audience_level }}'{% endif %}>
-                                    <span class="level__{{ entry.audience_level }}">&#9679</span>
-                                    <h4>{{ entry.title }}</h4>
-                                    <p>by {{ entry.speaker }} @ <b class="talk__card_blue">{{ entry.get_room_display }}</b></p>
-                                    <div>
-                                        <img src="{{ entry.speaker.picture.url }}">
+                {% with entries=slot.get_entries|make_list %}
+                    {% if entries %}
+                        <div class="time__block {% if not entries.audience_level %}lunch{% endif %}"> <!-- Date Block -->
+                            <div class="talk__time">
+                                <h3>{{ slot.start_time }}</h3>
+                                <p> until {{ slot.end_time }}<p>
+                            </div>
+                            {% for entry in entries %}
+                                {% if entry.audience_level %}
+                                    <!--<a >-->
+                                    <a href='{{ entry.slug }}' class="talk__card" data-location='{{ entry.room }}'
+                                            {% if entry.audience_level %} data-experience='{{ entry.audience_level }}'{% endif %}>
+                                        <span class="level__{{ entry.audience_level }}">&#9679</span>
+                                        <h4>{{ entry.title }}</h4>
+                                        <p>by {{ entry.speaker }} @ <b class="talk__card_blue">{{ entry.get_room_display }}</b></p>
+                                        <div>
+                                            <img src="{% thumbnail entry.speaker.picture 400x400 %}">
+                                        </div>
+                                    </a>
+                                    <!--</a>-->
+                                {% elif entry.room %}
+                                    <div class="lunch__info lunch--blue" data-location='{{ entry.room }}'>
+                                        <h3>{{ entry.title }}</h3>
+                                        <p>{% blocktrans with room=entry.get_room_display %}Enjoy at <b class="talk__card_blue">{{ room }}</b>{% endblocktrans %}</p>
                                     </div>
-                                </a>
-                                <!--</a>-->
-                            {% elif entry.room %}
-                                <div class="lunch__info lunch--blue" data-location='{{ entry.room }}'>
-                                    <h3>{{ entry.title }}</h3>
-                                    <p>{% blocktrans with room=entry.get_room_display %}Enjoy at <b class="talk__card_blue">{{ room }}</b>{% endblocktrans %}</p>
-                                </div>
-                            {% else %}
-                                <div class="lunch__info lunch--blue"><h3>{{ entry.title }}</h3></div>
-                            {% endif %}
+                                {% else %}
+                                    <div class="lunch__info lunch--blue"><h3>{{ entry.title }}</h3></div>
+                                {% endif %}
 
-                        {% endfor %}
-                    </div>
-                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
             {% endfor %}
         </div>
     {% endfor %}
