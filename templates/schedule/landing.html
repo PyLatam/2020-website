@@ -118,8 +118,7 @@
                                     <h4>{{ entry.title }}</h4>
                                     <p>by {{ entry.speaker }} @ <b class="talk__card_blue">{{ entry.get_room_display }}</b></p>
                                     <div>
-                                        <img src="https://file1.grazia.fr/var/grazia/storage/images/1/2/5/3/8/12538579/gal-gadot-jennifer-garner-johnny-depp-actu-des-people-bref_square500x500.jpg"
-                                             class="circle_clip">
+                                        <img src="{{ entry.speaker.picture.url }}">
                                     </div>
                                 </a>
                                 <!--</a>-->
