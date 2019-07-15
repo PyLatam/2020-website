@@ -100,7 +100,7 @@
                 <h2 class="time__block_date"><b>{{ datetime|date:"l, M d" }}</b> {{ datetime|date:"Y" }}</h2>
             </div>
             {% for slot in slots %}
-                {% with entries=slot.get_entries|make_list %}
+                {% with entries=slot.get_entries %}
                     {% if entries %}
                         <div class="time__block {% if not entries.audience_level %}lunch{% endif %}"> <!-- Date Block -->
                             <div class="talk__time">
