@@ -123,11 +123,13 @@
                                     </div>
                                 </a>
                                 <!--</a>-->
-                            {% else %}
+                            {% elif entry.room %}
                                 <div class="lunch__info lunch--blue" data-location='{{ entry.room }}'>
                                     <h3>{{ entry.title }}</h3>
-                                    <p>{% blocktrans with room=entry.room %}Enjoy at <b class="talk__card_blue">{{ room }}</b>{% endblocktrans %}</p>
+                                    <p>{% blocktrans with room=entry.get_room_display %}Enjoy at <b class="talk__card_blue">{{ room }}</b>{% endblocktrans %}</p>
                                 </div>
+                            {% else %}
+                                <div class="lunch__info lunch--blue"><h3>{{ entry.title }}</h3></div>
                             {% endif %}
 
                         {% endfor %}

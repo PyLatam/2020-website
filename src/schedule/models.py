@@ -60,7 +60,11 @@ class TimeSlot(models.Model):
 
 class Event(models.Model):
     title = models.CharField(max_length=250)
-    room = models.CharField(max_length=30, choices=ROOM_CHOICES)
+    room = models.CharField(
+        max_length=30,
+        choices=ROOM_CHOICES,
+        blank=True,
+    )
     time_slot = models.ForeignKey(
         TimeSlot,
         on_delete=models.PROTECT,
