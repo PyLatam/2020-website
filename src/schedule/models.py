@@ -23,7 +23,8 @@ ROOM_CHOICES = (
     ('room_en', 'Nautilus'),
     ('room_es', 'Estrella de mar'),
     # Lunch rooms
-    ('roomThree', 'Lunch Room'),
+    ('el_palmar', 'El Palmar'),
+    ('villa_linda', 'Villa Linda'),
     # Breakfast rooms
 )
 
