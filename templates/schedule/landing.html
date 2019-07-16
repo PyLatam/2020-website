@@ -116,7 +116,7 @@
                                         <h4>{{ entry.title }}</h4>
                                         <p>by {{ entry.speaker }} @ <b class="talk__card_blue">{{ entry.get_room_display }}</b></p>
                                         <div>
-                                            <img src="{% thumbnail entry.speaker.picture 200x200 %}">
+                                            <img src="{{ entry.speaker.picture.url }}" class="circle_clip">
                                         </div>
                                     </a>
                                     <!--</a>-->
