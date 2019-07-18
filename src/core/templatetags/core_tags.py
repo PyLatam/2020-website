@@ -1,5 +1,8 @@
 from datetime import date, datetime
 
+import bleach
+import markdown2
+
 from django import template
 from django.utils import timezone
 from django.urls import reverse
@@ -11,6 +14,11 @@ from ..models import ConferenceRegistration
 
 
 register = template.Library()
+
+
+def set_target(attrs, new=False):
+    attrs[(None, 'target')] = '_blank'
+    return attrs
 
 
 @register.simple_tag(takes_context=True)
@@ -70,3 +78,13 @@ def get_conference_registration(context):
         if not user.get_full_name():
             registration['missing'].append(constants.FULL_NAME_REQUIRED)
     return registration
+
+
+@register.filter()
+def markdown(s):
+    if not s:
+        return ''
+    tags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'br', 'hr', 'pre']
+    raw = bleach.clean(markdown2.markdown(s), tags=bleach.ALLOWED_TAGS + tags)
+    raw = bleach.linkify(raw, callbacks=[set_target])
+    return mark_safe(raw)

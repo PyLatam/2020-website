@@ -4,6 +4,7 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from django.utils.functional import cached_property
+from django.utils.translation import get_language
 from django.urls import reverse
 
 from filer.fields.image import FilerImageField
@@ -113,7 +114,8 @@ class Talk(models.Model):
 class Speaker(models.Model):
     name = models.CharField(max_length=250)
     email = models.EmailField(unique=True)
-    bio = models.TextField(blank=True)
+    bio_es = models.TextField(blank=True)
+    bio_en = models.TextField(blank=True)
     twitter = models.CharField(max_length=20, blank=True)
     website = models.URLField(blank=True)
     account = models.ForeignKey(
@@ -130,3 +132,8 @@ class Speaker(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def bio(self):
+        language = get_language()
+        return getattr(self, 'bio_{}'.format(language))
