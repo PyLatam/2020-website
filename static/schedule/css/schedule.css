@@ -45,7 +45,7 @@
   color: #ccc;
 }
 
-talk__card.keynote {
+.talk__card.keynote {
     grid-column: 2 / talk_col_end;
 }
 

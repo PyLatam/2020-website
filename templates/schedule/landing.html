@@ -102,7 +102,7 @@
             {% for slot in slots %}
                 {% with entries=slot.get_entries %}
                     {% if entries %}
-                        <div class="time__block {% if not entries.0.audience_level %}lunch{% endif %}"> <!-- Date Block -->
+                        <div class="time__block {% if not entries.0.audience_level %}lunch{% elif entries.0.is_keynote %}keynote{% endif %}"> <!-- Date Block -->
                             <div class="talk__time">
                                 <h3>{{ slot.start_time }}</h3>
                                 <p> until {{ slot.end_time }}<p>
@@ -110,7 +110,7 @@
                             {% for entry in entries %}
                                 {% if entry.audience_level %}
                                     <!--<a >-->
-                                    <a href='{{ entry.slug }}' class="talk__card" data-location='{{ entry.room }}'
+                                    <a href='{{ entry.slug }}' class="talk__card{% if entry.is_keynote %} keynote{% endif %}" data-location='{{ entry.room }}'
                                             {% if entry.audience_level %} data-experience='{{ entry.audience_level }}'{% endif %}>
                                         <span class="level__{{ entry.audience_level }}">&#9679</span>
                                         <h4>{{ entry.title }}</h4>

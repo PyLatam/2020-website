@@ -103,6 +103,7 @@ class Talk(models.Model):
         on_delete=models.PROTECT,
         related_name='talks',
     )
+    is_keynote = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
