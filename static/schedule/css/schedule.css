@@ -31,6 +31,28 @@
   line-height:1.1em;
 }
 
+.talk__card.keynote > h4 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.keynote > talk__time > .p{
+  color: #ccc;
+}
+
+.keynote > talk__card > .p{
+  color: #ccc;
+}
+
+talk__card.keynote {
+    grid-column: 2 / talk_col_end;
+}
+
+.keynote > span.level__all {
+    display: none;
+}
+
 .level__advanced{
   color: #FF3366;
 }
@@ -269,13 +291,18 @@ h2.time__block_date > b{
   }
 
   .time__block:nth-child(odd){
-    background: #a0c9cd;
+    /*background: #a0c9cd;*/
     /* background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%), rgb(160,201,205); */
   }
 
   .time__block:last-child{
     border-radius: 0 0 17px 17px ;
   }
+
+.time__block.keynote {
+    background: #d68027;
+    color: white;
+}
 
 .lunch{
   background: #1E7982 !important;
