@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
-{% load cms_tags i18n static %}
+{% load cms_tags core_tags i18n static %}
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}"/>
 {% endblock css %}
-
 
 {% block content %}
     <main>
@@ -23,11 +22,11 @@
                     <br/><b>{% trans 'Duration:' %}</b> {{ object.time_slot.duration }}</p>
             </aside>
             <h2 style="text-align:left; font-size:15pt;">{% trans 'Abstract' %}</h2>
-            <p>{{ object.abstract }}</p>
+            <p>{{ object.abstract|markdown }}</p>
         </section>
         <section>
             <h2>{% trans 'Description' %}</h2>
-            <p>{{ object.description }}</p>
+            <p>{{ object.description|markdown }}</p>
         </section>
     </main>
 {% endblock content %}
