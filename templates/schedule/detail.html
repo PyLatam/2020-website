@@ -14,12 +14,20 @@
                 <h3 style="font-size:17pt;">
                     <img style="border-radius:50%; height: 100px;" src="{{ object.speaker.picture.url }}" class="circle_clip">
                     <br/>{% blocktrans with speaker=object.speaker %}by {{ speaker }}{% endblocktrans %}
+                    {% if object.speaker.website %}
+                        <br/><a href="{{ object.speaker.website }}" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a>
+                    {% endif %}
+                    {% if object.speaker.twitter %}
+                        <a href="{{ object.speaker.twitter }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    {% endif %}
                 </h3>
-                <p>{{ object.speaker.website }}</p>
+
                 <p><b>{% trans 'Room:' %}</b> {{ object.get_room_display }}
+                    <br/><b>{% trans 'Language:' %}</b> {{ object.get_language_display }}
                     <br/><b>{% trans 'Level:' %}</b> {{ object.get_audience_level_display }}
                     <br/><b>{% trans 'Time:' %}</b> {{ object.time_slot.start }}
                     <br/><b>{% trans 'Duration:' %}</b> {{ object.time_slot.duration }}</p>
+                <h4 style="padding:20px;"><a href="#bio">speaker bio</a></h4>
             </aside>
             <h2 style="text-align:left; font-size:15pt;">{% trans 'Abstract' %}</h2>
             <p>{{ object.abstract|markdown }}</p>
@@ -27,6 +35,12 @@
         <section>
             <h2>{% trans 'Description' %}</h2>
             <p>{{ object.description|markdown }}</p>
+        </section>
+        <section id="bio">
+            <aside style="max-width: 100%; width:100%;">
+            <h2>{% trans 'Speaker Bio' %}</h2>
+            <p>{{ object.speaker.bio|markdown }}</p>
+            </aside>
         </section>
     </main>
 {% endblock content %}
