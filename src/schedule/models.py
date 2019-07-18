@@ -56,7 +56,7 @@ class TimeSlot(models.Model):
         if self.events.exists():
             # TODO: Optimize
             return self.events.all()
-        return self.talks.all()
+        return self.talks.order_by('language')
 
 
 class Event(models.Model):

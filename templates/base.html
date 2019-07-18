@@ -66,7 +66,7 @@
     <!-- End Google Tag Manager (noscript) -->
 {% endif %}
 {% cms_toolbar %}
-{% if request.current_page %}
+{% if request.current_page and not request.current_page.application_urls %}
     {% if LANGUAGE_CODE == 'en' %}
         {% page_url request.current_page|default_if_none:'home' 'es' as language_switcher_url %}
     {% else %}
