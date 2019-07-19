@@ -87,7 +87,7 @@
                 </div>
             </div>
         </div>
-        <button id='schedule-filter-toggle' disabled><i class="fa fa-filter"></i> <span id='schedule-filter-toggle-tag' style='display:none;'>Filters</span></button>
+        <button id='schedule-filter-toggle' disabled><i class="fa fa-filter"></i> <span id='schedule-filter-toggle-tag' style='display:none;'>{% trans "Filters" %}</span></button>
     </div>
 
     <!-- FILTER -->
@@ -105,7 +105,7 @@
                         <div class="time__block {% if not entries.0.audience_level %}lunch{% elif entries.0.is_keynote %}keynote{% endif %}"> <!-- Date Block -->
                             <div class="talk__time">
                                 <h3>{{ slot.start_time }}</h3>
-                                <p> until {{ slot.end_time }}<p>
+                                <p> {% trans "until" %} {{ slot.end_time }}<p>
                             </div>
                             {% for entry in entries %}
                                 {% if entry.audience_level %}

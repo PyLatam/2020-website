@@ -19,7 +19,7 @@ def import_from_json(data):
             continue
 
         speaker = Speaker.objects.get_or_create(
-            bio=raw_proposal['bio'],
+            bio_en=raw_proposal['bio'],
             name=raw_proposal['name'],
             email=raw_proposal['email'],
             website=raw_proposal['url'],
