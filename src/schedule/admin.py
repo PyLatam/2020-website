@@ -32,7 +32,7 @@ class SpeakerAdmin(admin.ModelAdmin):
         lookup = (
             Account
             .objects
-            .annotate(full_name=Concat('first_name', Value(' '), 'last_name'))
+            .annotate(full_name=Concat('user__first_name', Value(' '), 'user__last_name'))
             .filter(full_name__iexact=obj.name)
         )
         return lookup.exists()
