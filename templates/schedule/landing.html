@@ -68,18 +68,12 @@
                 </div>
                 <div class='schedule-filter__dropdown'>
                     <li>{% trans 'Date' %}</li>
-                    <li>
-                        <input onclick='updateFilter(this)' type="checkbox" id="date-thursday" name="date" value="082919">
-                        <label for="date-thursday">Thu, Aug 29</label>
-                    </li>
-                    <li>
-                        <input onclick='updateFilter(this)' type="checkbox" id="date-friday" name="date" value="083019">
-                        <label for="date-friday">Fri, Aug 30</label>
-                    </li>
-                    <li>
-                        <input onclick='updateFilter(this)' type="checkbox" id="date-saturday" name="date" value="083119">
-                        <label for="date-saturday">Sat, Aug 31</label>
-                    </li>
+                    {% for datetime, slots in schedule %}
+                        <li>
+                            <input onclick='updateFilter(this)' type="checkbox" id="date-{{ datetime|date:'Y-m-d' }}" name="date" value="{{ datetime|date:'Y-m-d' }}">
+                            <label for="date-{{ datetime|date:'Y-m-d' }}">{{ datetime|date:"SHORT_DATE_FORMAT" }}</label>
+                        </li>
+                    {% endfor %}
                     <li>
                         <input onclick='updateFilter(this)' type="checkbox" id="date-all" name="date" value="all" checked>
                         <label for="date-all">{% trans 'Show All' %}</label>
@@ -95,9 +89,13 @@
     <!-- PAGE CONTENT -->
 
     {% for datetime, slots in schedule %}
-        <div class="single__day__block" data-date='{{ datetime|date:"mdy" }}'>
+        <div class="single__day__block" data-date='{{ datetime|date:"Y-m-d" }}'>
             <div class="schedule__date">
-                <h2 class="time__block_date"><b>{{ datetime|date:"l, M d" }}</b> {{ datetime|date:"Y" }}</h2>
+                {% if LANGUAGE_CODE == 'es' %}
+                    <h2 class="time__block_date"><b>{{ datetime|date:"l d, M" }}</b></h2>
+                {% else %}
+                    <h2 class="time__block_date"><b>{{ datetime|date:"l, M d" }}</b></h2>
+                {% endif %}
             </div>
             {% for slot in slots %}
                 {% with entries=slot.get_entries %}
@@ -144,9 +142,9 @@
     <script>
         let STATE = {
             date: {
-                '082919': true,  //Will affect [data-date = 'thursday']
-                '083019': true,
-                '083119': true,
+                '2019-08-29': true,  //Will affect [data-date = 'thursday']
+                '2019-08-30': true,
+                '2019-08-31': true,
                 modifier: ['display', 'none']
             },
             location: {
