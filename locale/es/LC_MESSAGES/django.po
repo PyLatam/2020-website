@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-19 23:57+0000\n"
+"POT-Creation-Date: 2019-07-20 14:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -667,10 +667,8 @@ msgstr ""
 "datos y todo lo relacionado con la informática científica de código abierto."
 
 #: templates/home.html:40
-#, fuzzy
-#| msgid "About Lorena"
 msgid "About Tania"
-msgstr "Acerca de Lorena"
+msgstr "Acerca de Tania"
 
 #: templates/home.html:46
 msgid ""
@@ -752,13 +750,14 @@ msgstr "Hora:"
 
 #: templates/schedule/detail.html:31 templates/schedule/detail.html:59
 msgid "Language:"
-msgstr "Lenguage:"
+msgstr "Idioma:"
 
 #: templates/schedule/detail.html:32
 msgid "Audience:"
 msgstr "Audiencia:"
 
-#: templates/schedule/detail.html:34 templates/schedule/detail.html:71
+#: templates/schedule/detail.html:34 templates/schedule/detail.html:60
+#: templates/schedule/detail.html:71
 msgid "Speaker Bio"
 msgstr "Biografía del ponente"
 
@@ -768,7 +767,7 @@ msgstr "Abstracto"
 
 #: templates/schedule/detail.html:66
 msgid "Description"
-msgstr "Descripcion"
+msgstr "Descripción"
 
 #: templates/schedule/landing.html:14
 msgid "Filter Schedule by"
@@ -776,7 +775,7 @@ msgstr "Filtrar Programación"
 
 #: templates/schedule/landing.html:55
 msgid "Location"
-msgstr ""
+msgstr "Sala"
 
 #: templates/schedule/landing.html:66 templates/schedule/landing.html:85
 msgid "Show All"
@@ -784,7 +783,7 @@ msgstr ""
 
 #: templates/schedule/landing.html:70
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #: templates/schedule/landing.html:90
 msgid "Filters"
