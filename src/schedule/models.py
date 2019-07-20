@@ -60,7 +60,8 @@ class TimeSlot(models.Model):
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=250)
+    title_es = models.CharField(max_length=250)
+    title_en = models.CharField(max_length=250)
     room = models.CharField(
         max_length=30,
         choices=ROOM_CHOICES,
@@ -77,6 +78,11 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def title(self):
+        language = get_language()
+        return getattr(self, 'title_{}'.format(language))
 
 
 class Talk(models.Model):
