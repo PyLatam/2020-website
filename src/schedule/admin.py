@@ -10,7 +10,8 @@ class EventAdmin(admin.ModelAdmin):
 
 @admin.register(Speaker)
 class SpeakerAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email']
+    list_display = ['name', 'email', 'account']
+    raw_id_fields = ['account']
 
 
 @admin.register(Talk)
