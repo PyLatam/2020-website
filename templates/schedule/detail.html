@@ -26,10 +26,10 @@
                     </h3>
 
                     <p><b>{% trans 'Room:' %}</b> {{ object.get_room_display }}
+                        <br/><b>{% trans 'Day:' %}</b> {{ object.time_slot.start_date }}
+                        <br/><b>{% trans 'Time:' %}</b> {{ object.time_slot.start_time }}
                         <br/><b>{% trans 'Language:' %}</b> {{ object.get_language_display }}
-                        <br/><b>{% trans 'Level:' %}</b> {{ object.get_audience_level_display }}
-                        <br/><b>{% trans 'Time:' %}</b> {{ object.time_slot.start }}
-                        <br/><b>{% trans 'Duration:' %}</b> {{ object.time_slot.duration }}</p>
+                        <br/><b>{% trans 'Audience:' %}</b> {{ object.get_audience_level_display }}
                 </aside>
                 <h2>{% trans 'Speaker Bio' %}</h2>
                 <p>{{ object.speaker.bio|markdown }}</p>
@@ -54,10 +54,9 @@
                     </h3>
 
                     <p><b>{% trans 'Room:' %}</b> {{ object.get_room_display }}
+                        <br/><b>{% trans 'Day:' %}</b> {{ object.time_slot.start_date }}
+                        <br/><b>{% trans 'Time:' %}</b> {{ object.time_slot.start_time }}
                         <br/><b>{% trans 'Language:' %}</b> {{ object.get_language_display }}
-                        <br/><b>{% trans 'Level:' %}</b> {{ object.get_audience_level_display }}
-                        <br/><b>{% trans 'Time:' %}</b> {{ object.time_slot.start }}
-                        <br/><b>{% trans 'Duration:' %}</b> {{ object.time_slot.duration }}</p>
                     <h4 style="padding:20px;"><a href="#bio">speaker bio</a></h4>
                 </aside>
                 <h2 style="text-align:left; font-size:15pt;">{% trans 'Abstract' %}</h2>

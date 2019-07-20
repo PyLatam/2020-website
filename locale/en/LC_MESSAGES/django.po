@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-20 18:43+0000\n"
+"POT-Creation-Date: 2019-07-19 23:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/account_extensions/forms.py:14 templates/account/dashboard.html:95
+#: src/account_extensions/forms.py:14 templates/account/dashboard.html:97
 msgid "Reservation E-Mail"
 msgstr ""
 
-#: src/account_extensions/forms.py:15 templates/account/dashboard.html:101
+#: src/account_extensions/forms.py:15 templates/account/dashboard.html:103
 msgid "Reservation Number"
 msgstr ""
 
@@ -58,6 +58,30 @@ msgstr ""
 msgid "Hotel confirmation"
 msgstr ""
 
+#: src/sponsors/models.py:13
+msgid "Basic"
+msgstr ""
+
+#: src/sponsors/models.py:14
+msgid "Bronze"
+msgstr ""
+
+#: src/sponsors/models.py:15
+msgid "Silver"
+msgstr ""
+
+#: src/sponsors/models.py:16
+msgid "Gold"
+msgstr ""
+
+#: src/sponsors/models.py:17
+msgid "Diamond"
+msgstr ""
+
+#: src/sponsors/models.py:18
+msgid "T-Shirt"
+msgstr ""
+
 #: templates/account/dashboard.html:17 templates/base.html:88
 msgid "Dashboard"
 msgstr ""
@@ -82,7 +106,7 @@ msgstr ""
 msgid "Your Pycon Latam 2019 registration is missing:"
 msgstr ""
 
-#: templates/account/dashboard.html:44 templates/account/dashboard.html:76
+#: templates/account/dashboard.html:44 templates/account/dashboard.html:78
 msgid "TICKET"
 msgstr ""
 
@@ -94,79 +118,79 @@ msgstr ""
 msgid "Conference"
 msgstr ""
 
-#: templates/account/dashboard.html:62
+#: templates/account/dashboard.html:63
 msgid "Reservation #"
 msgstr ""
 
-#: templates/account/dashboard.html:66
+#: templates/account/dashboard.html:67
 msgid "Check In"
 msgstr ""
 
-#: templates/account/dashboard.html:70
+#: templates/account/dashboard.html:71
 msgid "Check Out"
 msgstr ""
 
-#: templates/account/dashboard.html:81
+#: templates/account/dashboard.html:83
 msgid "Ticket not yet confirmed"
 msgstr ""
 
-#: templates/account/dashboard.html:83
+#: templates/account/dashboard.html:85
 msgid "GET YOUR TICKET NOW"
 msgstr ""
 
-#: templates/account/dashboard.html:87
+#: templates/account/dashboard.html:89
 msgid "Got your ticket already?"
 msgstr ""
 
-#: templates/account/dashboard.html:87
+#: templates/account/dashboard.html:89
 msgid "Confirm Your booking"
 msgstr ""
 
-#: templates/account/dashboard.html:92
+#: templates/account/dashboard.html:94
 msgid "Please enter your confirmation number below"
 msgstr ""
 
-#: templates/account/dashboard.html:107
+#: templates/account/dashboard.html:109
 msgid "Confirm Booking"
 msgstr ""
 
-#: templates/account/dashboard.html:112
+#: templates/account/dashboard.html:114
 msgid "Thank you for submitting your booking confirmation!"
 msgstr ""
 
-#: templates/account/dashboard.html:113
+#: templates/account/dashboard.html:115
 msgid "Refresh the page to see your ticket details."
 msgstr ""
 
-#: templates/account/dashboard.html:116
+#: templates/account/dashboard.html:118
 msgid "Refresh Page"
 msgstr ""
 
-#: templates/account/dashboard.html:124
+#: templates/account/dashboard.html:126
 msgid "Booking Details"
 msgstr ""
 
-#: templates/account/dashboard.html:129
+#: templates/account/dashboard.html:131
 msgid "Arrival"
 msgstr ""
 
-#: templates/account/dashboard.html:141
+#: templates/account/dashboard.html:143
 msgid "Departure"
 msgstr ""
 
-#: templates/account/dashboard.html:153
+#: templates/account/dashboard.html:155
 msgid "Number of Guests"
 msgstr ""
 
-#: templates/account/dashboard.html:167
+#: templates/account/dashboard.html:169
 msgid "Search for Rooms"
 msgstr ""
 
-#: templates/account/dashboard.html:172
+#: templates/account/dashboard.html:174
 msgid "Let's Go!"
 msgstr ""
 
-#: templates/account/dashboard.html:173
+#: templates/account/dashboard.html:175
 msgid ""
 "You'll be redirected to Friendly Vallarta's website. PyCon Latam is\n"
 "                                    all-inclusive and\n"
@@ -177,35 +201,35 @@ msgid ""
 "                                    number."
 msgstr ""
 
-#: templates/account/dashboard.html:181
+#: templates/account/dashboard.html:183
 msgid "TO FRIENDLY VALLARTA"
 msgstr ""
 
-#: templates/account/dashboard.html:187
+#: templates/account/dashboard.html:189
 msgid "Confirm Your Booking"
 msgstr ""
 
-#: templates/account/dashboard.html:196
+#: templates/account/dashboard.html:198
 msgid "WHAT CAN I DO?"
 msgstr ""
 
-#: templates/account/dashboard.html:199 templates/account/settings.html:6
+#: templates/account/dashboard.html:201 templates/account/settings.html:6
 msgid "Account Settings"
 msgstr ""
 
-#: templates/account/dashboard.html:204
+#: templates/account/dashboard.html:206
 msgid "View Conference Schedule"
 msgstr ""
 
-#: templates/account/dashboard.html:209
+#: templates/account/dashboard.html:211
 msgid "View Hotel Information"
 msgstr ""
 
-#: templates/account/dashboard.html:214
+#: templates/account/dashboard.html:216
 msgid "DAYS REMAINING"
 msgstr ""
 
-#: templates/account/dashboard.html:217
+#: templates/account/dashboard.html:219
 msgid ""
 "\n"
 "                        <small> day left</small>\n"
@@ -217,27 +241,27 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/account/dashboard.html:223
+#: templates/account/dashboard.html:225
 msgid "PyCon Latam 2019 just can't come any faster!"
 msgstr ""
 
-#: templates/account/dashboard.html:227
+#: templates/account/dashboard.html:229
 msgid "Our Sponsors"
 msgstr ""
 
-#: templates/account/dashboard.html:345
+#: templates/account/dashboard.html:347
 msgid "Arrival date is required"
 msgstr ""
 
-#: templates/account/dashboard.html:349
+#: templates/account/dashboard.html:351
 msgid "End date is required"
 msgstr ""
 
-#: templates/account/dashboard.html:353
+#: templates/account/dashboard.html:355
 msgid "Guest count is required"
 msgstr ""
 
-#: templates/account/dashboard.html:365
+#: templates/account/dashboard.html:367
 msgid "There is a minimum requirement of three or more nights"
 msgstr ""
 
@@ -638,4 +662,70 @@ msgid ""
 "The companies and organizations who sponsor PyCon Latam make the conference "
 "possible,\n"
 "                and get to connect with a wide array of Python programmers."
+msgstr ""
+
+#: templates/schedule/detail.html:19 templates/schedule/detail.html:47
+#, python-format
+msgid "by %(speaker)s"
+msgstr ""
+
+#: templates/schedule/detail.html:28 templates/schedule/detail.html:56
+msgid "Room:"
+msgstr ""
+
+#: templates/schedule/detail.html:29 templates/schedule/detail.html:57
+msgid "Day:"
+msgstr ""
+
+#: templates/schedule/detail.html:30 templates/schedule/detail.html:58
+msgid "Time:"
+msgstr ""
+
+#: templates/schedule/detail.html:31 templates/schedule/detail.html:59
+msgid "Language:"
+msgstr ""
+
+#: templates/schedule/detail.html:32
+msgid "Audience:"
+msgstr ""
+
+#: templates/schedule/detail.html:34 templates/schedule/detail.html:71
+msgid "Speaker Bio"
+msgstr ""
+
+#: templates/schedule/detail.html:62
+msgid "Abstract"
+msgstr ""
+
+#: templates/schedule/detail.html:66
+msgid "Description"
+msgstr ""
+
+#: templates/schedule/landing.html:14
+msgid "Filter Schedule by"
+msgstr ""
+
+#: templates/schedule/landing.html:55
+msgid "Location"
+msgstr ""
+
+#: templates/schedule/landing.html:66 templates/schedule/landing.html:85
+msgid "Show All"
+msgstr ""
+
+#: templates/schedule/landing.html:70
+msgid "Date"
+msgstr ""
+
+#: templates/schedule/landing.html:90
+msgid "Filters"
+msgstr ""
+
+#: templates/schedule/landing.html:108
+msgid "until"
+msgstr ""
+
+#: templates/schedule/landing.html:126
+#, python-format
+msgid "Enjoy at <b class=\"talk__card_blue\">%(room)s</b>"
 msgstr ""
