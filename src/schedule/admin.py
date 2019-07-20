@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.db.models import Value
+from django.db.models.functions import Concat
 
 from account.models import Account
 from core.models import ConferenceRegistration
@@ -16,10 +18,25 @@ class SpeakerAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'has_account', 'has_registration']
     raw_id_fields = ['account']
 
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        return queryset.annotate()
+
     def has_account(self, obj):
         if obj.account_id:
             return True
-        return Account.objects.filter(user__email=obj.email).exists()
+
+        if Account.objects.filter(user__email=obj.email).exists():
+            return True
+
+        lookup = (
+            Account
+            .objects
+            .annotate(full_name=Concat('first_name', Value(' '), 'last_name'))
+            .filter(full_name__iexact=obj.name)
+        )
+        return lookup.exists()
+    has_account.boolean = True
 
     def has_registration(self, obj):
         lookup = (
@@ -28,6 +45,7 @@ class SpeakerAdmin(admin.ModelAdmin):
             .filter(account__user__email=obj.email)
         )
         return lookup.exists()
+    has_registration.boolean = True
 
 
 @admin.register(Talk)
