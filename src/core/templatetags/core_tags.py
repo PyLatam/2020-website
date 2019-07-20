@@ -97,7 +97,7 @@ def markdown(s):
     raw = bleach.clean(
         markdown2.markdown(s),
         tags=bleach.ALLOWED_TAGS + tags,
-        attributes=['href', 'title', 'src']
+        attributes=['href', 'title', 'src', 'width']
     )
     raw = bleach.linkify(raw, callbacks=[ignore_py_files, set_target])
     return mark_safe(raw)
