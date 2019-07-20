@@ -103,5 +103,5 @@ HOTEL_RESERVATIONS_URLS = {
 
 TALK_LANGUAGES = (
     ('en', 'English'),
-    ('es', 'Spanish'),
+    ('es', 'Español'),
 )

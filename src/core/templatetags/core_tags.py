@@ -21,6 +21,15 @@ def set_target(attrs, new=False):
     return attrs
 
 
+def ignore_py_files(attrs, new=False):
+    link_text = attrs['_text']
+
+    if link_text.endswith('.py') and not link_text.startswith(('http:', 'https:')):
+        # This looks like a Python file, not a URL. Don't make a link.
+        return None
+    return attrs
+
+
 @register.simple_tag(takes_context=True)
 def get_current_url(context, language):
     match = context['request'].resolver_match
@@ -84,7 +93,11 @@ def get_conference_registration(context):
 def markdown(s):
     if not s:
         return ''
-    tags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'br', 'hr', 'pre']
-    raw = bleach.clean(markdown2.markdown(s), tags=bleach.ALLOWED_TAGS + tags)
-    raw = bleach.linkify(raw, callbacks=[set_target])
+    tags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'br', 'hr', 'pre', 'img']
+    raw = bleach.clean(
+        markdown2.markdown(s),
+        tags=bleach.ALLOWED_TAGS + tags,
+        attributes=['href', 'title', 'src']
+    )
+    raw = bleach.linkify(raw, callbacks=[ignore_py_files, set_target])
     return mark_safe(raw)
