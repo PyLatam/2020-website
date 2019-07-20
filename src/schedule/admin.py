@@ -1,5 +1,8 @@
 from django.contrib import admin
 
+from account.models import Account
+from core.models import ConferenceRegistration
+
 from .models import Event, Speaker, Talk, TimeSlot
 
 
@@ -10,8 +13,21 @@ class EventAdmin(admin.ModelAdmin):
 
 @admin.register(Speaker)
 class SpeakerAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'account']
+    list_display = ['name', 'email', 'has_account', 'has_registration']
     raw_id_fields = ['account']
+
+    def has_account(self, obj):
+        if obj.account_id:
+            return True
+        return Account.objects.filter(user__email=obj.email).exists()
+
+    def has_registration(self, obj):
+        lookup = (
+            ConferenceRegistration
+            .objects
+            .filter(account__user__email=obj.email)
+        )
+        return lookup.exists()
 
 
 @admin.register(Talk)
