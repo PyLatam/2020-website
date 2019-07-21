@@ -39,12 +39,10 @@ class SpeakerAdmin(admin.ModelAdmin):
     has_account.boolean = True
 
     def has_registration(self, obj):
-        lookup = (
-            ConferenceRegistration
-            .objects
-            .filter(account__user__email=obj.email)
-        )
-        return lookup.exists()
+        if obj.account:
+            lookup = ConferenceRegistration.objects.filter(account=obj.account)
+            return lookup.exists()
+        return False
     has_registration.boolean = True
 
 
