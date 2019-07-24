@@ -12,7 +12,7 @@ class SponsorsList(CMSPluginBase):
         context = super().render(context, instance, placeholder)
         context['sponsors'] = Sponsor.objects.filter(
             is_active=True,
-            level=instance.level,
+            tiers=instance.tier,
         )
         return context
 

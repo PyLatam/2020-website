@@ -1,10 +1,10 @@
 {% load thumbnail %}
 
-<h3>{{ instance.get_level_display }}</h3>
+<h3>{{ instance.tier.name }}</h3>
 {% for sponsor in sponsors %}
     <a href="{{ sponsor.website }}" target="_blank">
         <img src="{% thumbnail sponsor.logo 250x90 %}" alt="{{ sponsor.name }}" />
     </a>
 {% empty %}
-    <span>Currently there are no {{ instance.get_level_display|lower }} sponsors</span>
+    <span>Currently there are no {{ instance.tier.name|lower }} sponsors</span>
 {% endfor %}
