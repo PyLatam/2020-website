@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-20 14:38+0000\n"
+"POT-Creation-Date: 2019-08-04 00:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,6 +50,18 @@ msgstr "nombre"
 msgid "last name"
 msgstr "apellidos"
 
+#: src/account_extensions/forms.py:87
+msgid "Do you need a simultaneous interpretation receiver?"
+msgstr "¿Necesitas un transmisor de interpretación simulatanea?"
+
+#: src/account_extensions/forms.py:92
+msgid ""
+"Would you like to join a free sponsored presentation on Github's Learning "
+"Lab?"
+msgstr ""
+"¿Te gustaría asistir a una presentación gratuita acerca de el Github "
+"Learning Lab?"
+
 #: src/core/constants.py:4
 msgid "Your name"
 msgstr "Tu nombre"
@@ -57,6 +69,62 @@ msgstr "Tu nombre"
 #: src/core/constants.py:5
 msgid "Hotel confirmation"
 msgstr "Confirmación de Hotel"
+
+#: src/core/models.py:33
+msgid "Men's S"
+msgstr "Hombre S"
+
+#: src/core/models.py:34
+msgid "Men's M"
+msgstr "Hombre M"
+
+#: src/core/models.py:35
+msgid "Men's L"
+msgstr "Hombre L"
+
+#: src/core/models.py:36
+msgid "Men's XL"
+msgstr "Hombre XL"
+
+#: src/core/models.py:37
+msgid "Men's 2XL"
+msgstr "Hombre 2XL"
+
+#: src/core/models.py:38
+msgid "Men's 3XL"
+msgstr "Hombre 3XL"
+
+#: src/core/models.py:39
+msgid "Men's 4XL"
+msgstr "Hombre 4XL"
+
+#: src/core/models.py:40
+msgid "Women's S"
+msgstr "Mujer S"
+
+#: src/core/models.py:41
+msgid "Women's M"
+msgstr "Mujer M"
+
+#: src/core/models.py:42
+msgid "Women's L"
+msgstr "Mujer L"
+
+#: src/core/models.py:43
+msgid "Women's XL"
+msgstr "Mujer XL"
+
+#: src/core/models.py:44
+msgid "Women's 2XL"
+msgstr "Mujer 2XL"
+
+#: src/core/models.py:45
+msgid "Women's 3XL"
+msgstr "Mujer 3XL"
+
+#: src/core/models.py:46
+msgid "Women's 4XL"
+msgstr "Mujer 4XL"
 
 #: src/sponsors/models.py:13
 msgid "Basic"
@@ -286,7 +354,7 @@ msgid "There is a minimum requirement of three or more nights"
 msgstr ""
 
 #: templates/account/delete.html:4 templates/account/delete.html:6
-#: templates/account/settings.html:31
+#: templates/account/settings.html:46
 msgid "Delete Account"
 msgstr "Borrar Cuenta"
 
@@ -422,11 +490,11 @@ msgstr "Registrate ahora"
 msgid "Change password"
 msgstr "Cambiar contraseña"
 
-#: templates/account/password_change.html:6 templates/account/settings.html:29
+#: templates/account/password_change.html:6 templates/account/settings.html:44
 msgid "Change Your Password"
 msgstr "Cambia tu contraseña"
 
-#: templates/account/password_change.html:27 templates/account/settings.html:34
+#: templates/account/password_change.html:27 templates/account/settings.html:49
 msgid "Save"
 msgstr "Guardar"
 
@@ -508,10 +576,14 @@ msgid "Last Name"
 msgstr "Apellidos"
 
 #: templates/account/settings.html:24
+msgid "Shirt Size"
+msgstr "Talla de la playera"
+
+#: templates/account/settings.html:39
 msgid "Email"
 msgstr "Correo electrónico"
 
-#: templates/account/settings.html:28
+#: templates/account/settings.html:43
 msgid "Password"
 msgstr "Constraseña"
 
@@ -777,7 +849,7 @@ msgstr "Filtrar Programación"
 msgid "Location"
 msgstr "Sala"
 
-#: templates/schedule/landing.html:66 templates/schedule/landing.html:85
+#: templates/schedule/landing.html:66 templates/schedule/landing.html:79
 msgid "Show All"
 msgstr ""
 
@@ -785,18 +857,21 @@ msgstr ""
 msgid "Date"
 msgstr "Fecha"
 
-#: templates/schedule/landing.html:90
+#: templates/schedule/landing.html:84
 msgid "Filters"
 msgstr "Filtros"
 
-#: templates/schedule/landing.html:108
+#: templates/schedule/landing.html:106
 msgid "until"
 msgstr "hasta"
 
-#: templates/schedule/landing.html:126
+#: templates/schedule/landing.html:124
 #, python-format
 msgid "Enjoy at <b class=\"talk__card_blue\">%(room)s</b>"
-msgstr ""
+msgstr "En <b class=\"talk__card_blue\">%(room)s</b>"
+
+#~ msgid "Translation Device"
+#~ msgstr "Equipo para interpretacion simulatane"
 
 #~ msgid "Choose..."
 #~ msgstr "Escoge..."

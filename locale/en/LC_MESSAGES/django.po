@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-20 14:38+0000\n"
+"POT-Creation-Date: 2019-08-04 00:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,12 +50,78 @@ msgstr ""
 msgid "last name"
 msgstr ""
 
+#: src/account_extensions/forms.py:87
+msgid "Do you need a simultaneous interpretation receiver?"
+msgstr ""
+
+#: src/account_extensions/forms.py:92
+msgid ""
+"Would you like to join a free sponsored presentation on Github's Learning "
+"Lab?"
+msgstr ""
+
 #: src/core/constants.py:4
 msgid "Your name"
 msgstr ""
 
 #: src/core/constants.py:5
 msgid "Hotel confirmation"
+msgstr ""
+
+#: src/core/models.py:33
+msgid "Men's S"
+msgstr ""
+
+#: src/core/models.py:34
+msgid "Men's M"
+msgstr ""
+
+#: src/core/models.py:35
+msgid "Men's L"
+msgstr ""
+
+#: src/core/models.py:36
+msgid "Men's XL"
+msgstr ""
+
+#: src/core/models.py:37
+msgid "Men's 2XL"
+msgstr ""
+
+#: src/core/models.py:38
+msgid "Men's 3XL"
+msgstr ""
+
+#: src/core/models.py:39
+msgid "Men's 4XL"
+msgstr ""
+
+#: src/core/models.py:40
+msgid "Women's S"
+msgstr ""
+
+#: src/core/models.py:41
+msgid "Women's M"
+msgstr ""
+
+#: src/core/models.py:42
+msgid "Women's L"
+msgstr ""
+
+#: src/core/models.py:43
+msgid "Women's XL"
+msgstr ""
+
+#: src/core/models.py:44
+msgid "Women's 2XL"
+msgstr ""
+
+#: src/core/models.py:45
+msgid "Women's 3XL"
+msgstr ""
+
+#: src/core/models.py:46
+msgid "Women's 4XL"
 msgstr ""
 
 #: src/sponsors/models.py:13
@@ -266,7 +332,7 @@ msgid "There is a minimum requirement of three or more nights"
 msgstr ""
 
 #: templates/account/delete.html:4 templates/account/delete.html:6
-#: templates/account/settings.html:31
+#: templates/account/settings.html:46
 msgid "Delete Account"
 msgstr ""
 
@@ -383,11 +449,11 @@ msgstr ""
 msgid "Change password"
 msgstr ""
 
-#: templates/account/password_change.html:6 templates/account/settings.html:29
+#: templates/account/password_change.html:6 templates/account/settings.html:44
 msgid "Change Your Password"
 msgstr ""
 
-#: templates/account/password_change.html:27 templates/account/settings.html:34
+#: templates/account/password_change.html:27 templates/account/settings.html:49
 msgid "Save"
 msgstr ""
 
@@ -463,10 +529,14 @@ msgid "Last Name"
 msgstr ""
 
 #: templates/account/settings.html:24
+msgid "Shirt Size"
+msgstr ""
+
+#: templates/account/settings.html:39
 msgid "Email"
 msgstr ""
 
-#: templates/account/settings.html:28
+#: templates/account/settings.html:43
 msgid "Password"
 msgstr ""
 
@@ -710,7 +780,7 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: templates/schedule/landing.html:66 templates/schedule/landing.html:85
+#: templates/schedule/landing.html:66 templates/schedule/landing.html:79
 msgid "Show All"
 msgstr ""
 
@@ -718,15 +788,15 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: templates/schedule/landing.html:90
+#: templates/schedule/landing.html:84
 msgid "Filters"
 msgstr ""
 
-#: templates/schedule/landing.html:108
+#: templates/schedule/landing.html:106
 msgid "until"
 msgstr ""
 
-#: templates/schedule/landing.html:126
+#: templates/schedule/landing.html:124
 #, python-format
 msgid "Enjoy at <b class=\"talk__card_blue\">%(room)s</b>"
 msgstr ""
