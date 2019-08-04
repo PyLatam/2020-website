@@ -82,3 +82,20 @@ class SettingsForm(account.forms.SettingsForm):
     language = None
     first_name = forms.CharField(max_length=250, label=_('first name'))
     last_name = forms.CharField(max_length=250, label=_('last name'))
+    shirt_size = ConferenceRegistration._meta.get_field('shirt_size').formfield()
+    needs_translation_device = forms.BooleanField(
+        label=_('Do you need a simultaneous interpretation receiver?'),
+        required=False,
+    )
+    joining_sponsor_presentation = forms.BooleanField(
+        label=_(
+            "Would you like to join a free "
+            "sponsored presentation on Github's Learning Lab?",
+        ),
+        required=False,
+    )
+
+    class Meta:
+        widgets = {
+            'shirt_size': forms.Select(attrs={'class': 'custom-select'}),
+        }

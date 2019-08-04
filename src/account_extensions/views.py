@@ -13,6 +13,8 @@ from account import views
 from account import forms as account_forms
 from account.compat import is_authenticated
 
+from core.models import ConferenceRegistration
+
 from . import forms
 
 
@@ -59,9 +61,20 @@ class SettingsView(views.SettingsView):
     form_class = forms.SettingsForm
 
     def get_initial(self):
+        user = self.request.user
         initial = super().get_initial()
-        initial['first_name'] = self.request.user.first_name
-        initial['last_name'] = self.request.user.last_name
+        initial['first_name'] = user.first_name
+        initial['last_name'] = user.last_name
+
+        if user.account:
+            registration = ConferenceRegistration.get_for_user(user)
+        else:
+            registration = None
+
+        if registration:
+            initial['shirt_size'] = registration.shirt_size
+            initial['needs_translation_device'] = registration.needs_translation_device
+            initial['joining_sponsor_presentation'] = registration.joining_sponsor_presentation
         return initial
 
     def update_settings(self, form):
@@ -72,3 +85,11 @@ class SettingsView(views.SettingsView):
         user.first_name = form.cleaned_data['first_name']
         user.last_name = form.cleaned_data['last_name']
         user.save(update_fields=('first_name', 'last_name'))
+
+        if user.account:
+            lookup = ConferenceRegistration.objects.filter(account=user.account)
+            lookup.update(
+                shirt_size=form.cleaned_data.get('shirt_size'),
+                needs_translation_device=form.cleaned_data.get('needs_translation_device'),
+                joining_sponsor_presentation=form.cleaned_data.get('joining_sponsor_presentation'),
+            )

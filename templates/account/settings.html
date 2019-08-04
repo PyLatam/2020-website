@@ -20,6 +20,21 @@
                 {% render_widget form.last_name %}
             </div>
             {{ form.last_name.errors }}
+            <div class="prompt__group shirt">
+                <h4>{% trans 'Shirt Size' %}</h4>
+                {% render_widget form.shirt_size input_classes='custom-select' %}
+            </div>
+            {{ form.shirt_size.errors }}
+            <div class="prompt__group">
+                <h4>{{ form.needs_translation_device.label }}</h4>
+                {% render_widget form.needs_translation_device input_classes='custom-checkbox' %}
+            </div>
+            {{ form.needs_translation_device.errors }}
+            <div class="prompt__group shirt">
+                <h4>{{ form.joining_sponsor_presentation.label }}<i class="fa fa-github" aria-hidden="true" style="color:#000;"></i></h4>
+                {% render_widget form.joining_sponsor_presentation input_classes='custom-checkbox' %}
+            </div>
+            {{ form.joining_sponsor_presentation.errors }}
             <div class="prompt__group">
                 <h4>{% trans 'Email' %}</h4>
                 <p>{{ request.user.email }}</p>

@@ -51,7 +51,7 @@ def render_widget(field, placeholder='', input_classes=''):
     attrs = {'placeholder': placeholder or field.label}
 
     if input_classes:
-        attrs['classes'] = input_classes
+        attrs['class'] = input_classes
     return mark_safe(field.as_widget(attrs=attrs))
 
 

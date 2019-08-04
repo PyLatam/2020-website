@@ -200,6 +200,10 @@ input[type='submit']{
   opacity:0.4;
 }
 
+.prompt__group.shirt {
+    max-width: 200px;
+    margin: 0 auto 36px auto;
+}
 
 /* Ignore Below */
 
