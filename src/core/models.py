@@ -46,6 +46,13 @@ class ConferenceRegistration(models.Model):
         ("Women-4XL", _("Women's 4XL")),
     )
 
+    RESERVATION_TYPES = (
+        ('default', 'Default'),
+        ('sponsor', 'Sponsor'),
+        ('grant-recipient', 'Grant Recipient'),
+        ('internal', 'Internal'),
+    )
+
     account = models.OneToOneField(
         Account,
         on_delete=models.CASCADE,
@@ -63,13 +70,16 @@ class ConferenceRegistration(models.Model):
         auto_now_add=True,
         editable=False,
     )
-    is_sponsor = models.BooleanField(default=False)
-    is_grant_recipient = models.BooleanField(default=False)
     shirt_size = models.CharField(
         max_length=30,
         choices=SHIRT_SIZES,
         blank=True,
         default='',
+    )
+    reservation_type = models.CharField(
+        max_length=30,
+        choices=RESERVATION_TYPES,
+        default='default',
     )
     needs_translation_device = models.NullBooleanField(default=None)
     joining_sponsor_presentation = models.NullBooleanField(default=None)

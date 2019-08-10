@@ -7,7 +7,7 @@ from .models import ConferenceRegistration, Reservation
 @admin.register(ConferenceRegistration)
 class ConferenceRegistrationAdmin(admin.ModelAdmin):
     list_display = ['account_name', 'account_email']
-    list_filter = ['is_sponsor', 'is_grant_recipient']
+    list_filter = ['reservation_type']
     search_fields = [
         'account__user__first_name',
         'account__user__last_name',
