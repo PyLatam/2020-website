@@ -51,6 +51,7 @@ INSTALLED_APPS.extend([
     'account',
     'account_extensions',
     'core',
+    'leads',
     'schedule',
     'sponsors',
 ])

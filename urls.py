@@ -14,6 +14,7 @@ urlpatterns = [
          name='django.contrib.sitemaps.views.sitemap'),
     path('acerca-de/precios/', RedirectView.as_view(url='/precios/', permanent=True)),
     path('en/about/pricing/', RedirectView.as_view(url='/en/pricing/', permanent=True)),
+    path('leads/', include('leads.urls')),
 ]
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
