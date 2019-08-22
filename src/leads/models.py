@@ -6,7 +6,7 @@ from core.fields import UUIDPrimaryKey
 
 
 def profile_picture_path(instance, filename):
-    return f'qr-codes/{instance.pk}.jpeg'
+    return f'qr-codes/{instance.pk}.png'
 
 
 class LeadCode(models.Model):

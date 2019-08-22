@@ -6,8 +6,23 @@ from .models import LeadCode, LeadGroup
 
 @admin.register(LeadCode)
 class LeadCodeAdmin(admin.ModelAdmin):
-    fields = ['account', 'code_image_display']
+    fields = ['account', 'account_name', 'account_email', 'code_image_display']
     readonly_fields = fields
+    list_display = ['account', 'account_name', 'account_email']
+    search_fields = [
+        'account__user__first_name',
+        'account__user__last_name',
+        'account__user__email',
+    ]
+
+    def has_add_permission(self, request):
+        return False
+
+    def account_name(self, obj):
+        return obj.account.user.get_full_name()
+
+    def account_email(self, obj):
+        return obj.account.user.email
 
     def code_image_display(self, obj):
         if not obj.code_image:
@@ -18,3 +33,4 @@ class LeadCodeAdmin(admin.ModelAdmin):
 @admin.register(LeadGroup)
 class LeadGroupAdmin(admin.ModelAdmin):
     list_display = ['name']
+    filter_horizontal = ['admins', 'leads']
