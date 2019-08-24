@@ -1,7 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 
 from account.models import Account
 
@@ -19,5 +18,5 @@ def register_lead(request, username):
             registration__isnull=False,
         )
         group.leads.add(account)
-        return HttpResponse(status=201)
+        return render(request, 'leads/success.html')
     raise PermissionDenied

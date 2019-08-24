@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.db import models
 
 from account.models import Account
@@ -21,12 +20,14 @@ class LeadCode(models.Model):
 class LeadGroup(models.Model):
     name = models.CharField(max_length=120, unique=True)
     admins = models.ManyToManyField(
-        settings.AUTH_USER_MODEL,
-        related_name='leading',
+        Account,
+        related_name='+',
+        limit_choices_to={'registration__isnull': False},
     )
     leads = models.ManyToManyField(
         Account,
         blank=True,
+        related_name='+',
         limit_choices_to={'registration__isnull': False},
     )
 
@@ -35,4 +36,4 @@ class LeadGroup(models.Model):
 
     @classmethod
     def get_for_user(cls, user):
-        return cls.objects.filter(admins=user).last()
+        return cls.objects.filter(admins=user.account).last()

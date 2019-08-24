@@ -38,9 +38,6 @@ class LeadGroupAdmin(admin.ModelAdmin):
     def formfield_for_manytomany(self, db_field, request, **kwargs):
         formfield = super().formfield_for_manytomany(db_field, request, **kwargs)
 
-        if db_field.name == 'admins':
-            formfield.label_from_instance = lambda user: user.email
-
-        if db_field.name == 'leads':
+        if db_field.name in {'admins', 'leads'}:
             formfield.label_from_instance = lambda account: account.user.email
         return formfield
