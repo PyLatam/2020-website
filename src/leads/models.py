@@ -20,8 +20,15 @@ class LeadCode(models.Model):
 
 class LeadGroup(models.Model):
     name = models.CharField(max_length=120, unique=True)
-    admins = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='leading')
-    leads = models.ManyToManyField(Account, blank=True)
+    admins = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name='leading',
+    )
+    leads = models.ManyToManyField(
+        Account,
+        blank=True,
+        limit_choices_to={'registration__isnull': False},
+    )
 
     def __str__(self):
         return self.name
