@@ -78,6 +78,7 @@ else:
 LOGIN_URL = 'account_login'
 DEFAULT_HTTP_PROTOCOL = 'https'
 ACCOUNT_LANGUAGES = (('es', 'Spanish'), ('en', 'English'))
+ACCOUNT_OPEN_SIGNUP = env('ACCOUNT_OPEN_SIGNUP', default=True)
 ACCOUNT_EMAIL_UNIQUE = True
 ACCOUNT_LOGIN_REDIRECT_URL = 'account_dashboard'
 ACCOUNT_SETTINGS_REDIRECT_URL = 'account_settings'
