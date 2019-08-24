@@ -1,0 +1,13 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Success" %}{% endblock title %}
+{% block form_title %}{% trans "Success" %}{% endblock form_title %}
+{% block form_area %}
+    <form method="post" action="#" autocomplete="off">
+        {% csrf_token %}
+        <div class='prompt__group'>
+            <p>{% trans "Lead has been successfully registered" %}</p>
+        </div>
+    </form>
+{% endblock form_area %}
