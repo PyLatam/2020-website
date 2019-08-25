@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-04 00:01+0000\n"
+"POT-Creation-Date: 2019-08-25 17:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -614,6 +614,19 @@ msgstr "¿Ya tienes una cuenta?"
 msgid "Login now"
 msgstr "Inicia sesión ahora"
 
+#: templates/account/signup_closed.html:3
+#: templates/account/signup_closed.html:5
+msgid "Sign Up Closed"
+msgstr "Inscripción cerrada"
+
+#: templates/account/signup_closed.html:10
+msgid ""
+"Thank you for your interest. Sign ups for this year's PyCon Latam are "
+"officially closed."
+msgstr ""
+"Gracias por su interés. Las inscripciones para PyCon Latam de este año están "
+"oficialmente cerradas."
+
 #: templates/base.html:89
 msgid "Logout"
 msgstr "Cerra Sesión"
@@ -801,6 +814,14 @@ msgid ""
 msgstr ""
 "Las empresas y organizaciones que patrocinan PyCon Latam hacen posible la "
 "conferencia y se conectan con una amplia gama de programadores de Python."
+
+#: templates/leads/success.html:4 templates/leads/success.html:5
+msgid "Success"
+msgstr ""
+
+#: templates/leads/success.html:10
+msgid "Lead has been successfully registered"
+msgstr ""
 
 #: templates/schedule/detail.html:19 templates/schedule/detail.html:47
 #, fuzzy, python-format
