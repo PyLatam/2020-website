@@ -1,1 +1,13 @@
 {% extends 'account/base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Sign Up Closed" %}{% endblock title %}
+
+{% block form_title %}{% trans "Sign Up Closed" %}{% endblock form_title %}
+
+{% block form_area %}
+    <form method="post" action="#" autocomplete="off">
+        <div class='prompt__group'>
+          <p>{% trans "Thank you for your interest. Sign ups for this year's PyCon Latam are officially closed." %}</p>
+        </div>
+  </form>
+{% endblock %}
