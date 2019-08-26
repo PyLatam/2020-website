@@ -11,7 +11,7 @@ from .models import LeadCode
 
 def get_user_qr_code(user):
     domain = Site.objects.get_current().domain
-    lead_url = domain + reverse('register_lead', args=[user.username])
+    lead_url = 'https://' + domain + reverse('register_lead', args=[user.username])
     lead_code = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
