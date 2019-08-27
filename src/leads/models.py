@@ -8,6 +8,21 @@ def profile_picture_path(instance, filename):
     return f'qr-codes/{instance.pk}.png'
 
 
+class Lead(models.Model):
+    account = models.ForeignKey(
+        Account,
+        on_delete=models.PROTECT,
+        related_name="+",
+        limit_choices_to={'registration__isnull': False},
+    )
+    group = models.ForeignKey(
+        "LeadGroup",
+        on_delete=models.PROTECT,
+        related_name="+",
+    )
+    created_on = models.DateTimeField(auto_created=True)
+
+
 class LeadCode(models.Model):
     id = UUIDPrimaryKey()
     account = models.OneToOneField(Account, on_delete=models.CASCADE)
@@ -27,8 +42,8 @@ class LeadGroup(models.Model):
     leads = models.ManyToManyField(
         Account,
         blank=True,
+        through=Lead,
         related_name='+',
-        limit_choices_to={'registration__isnull': False},
     )
 
     def __str__(self):
