@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Lead',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_on', models.DateTimeField(auto_created=True)),
+                ('created_on', models.DateTimeField(auto_now_add=True)),
                 ('account', models.ForeignKey(limit_choices_to={'registration__isnull': False}, on_delete=django.db.models.deletion.PROTECT, related_name='+', to='account.Account')),
             ],
         ),

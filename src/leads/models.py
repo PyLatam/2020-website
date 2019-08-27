@@ -20,7 +20,7 @@ class Lead(models.Model):
         on_delete=models.PROTECT,
         related_name="+",
     )
-    created_on = models.DateTimeField(auto_created=True)
+    created_on = models.DateTimeField(auto_now_add=True)
 
 
 class LeadCode(models.Model):
