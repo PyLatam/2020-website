@@ -7,11 +7,13 @@
     <form method="post" action="#" autocomplete="off">
         {% csrf_token %}
         <div class='prompt__group'>
-            {% if is_new %}
-                <p>Lead has been successfully registered</p>
-            {% else %}
-                <p>Lead was already registered on {{ lead.created_on }}</p>
-            {% endif %}
+            {% language 'en' %}
+                {% if is_new %}
+                    <p>Lead has been successfully registered</p>
+                {% else %}
+                    <p>Lead was already registered on {{ lead.created_on }}</p>
+                {% endif %}
+            {% endlanguage %}
         </div>
     </form>
 {% endblock form_area %}
