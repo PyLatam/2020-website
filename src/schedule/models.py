@@ -21,8 +21,9 @@ AUDIENCE_CHOICES = (
 
 ROOM_CHOICES = (
     # Talk rooms
-    ('room_en', 'Concha Nacar 1'),
-    ('room_es', 'Concha Nacar 2'),
+    ('coral', 'Coral'),
+    ('room_en', 'Nautilus'),
+    ('room_es', 'Concha Nacar'),
     # Lunch & breakfast rooms
     ('lunch', 'El Palmar & Villa Linda'),
     ('breakfast', 'El Palmar & Villa Linda'),
