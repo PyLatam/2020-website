@@ -28,6 +28,9 @@ def set_user_qr_code(user):
     qr_code = get_user_qr_code(user)
     qr_code.save(buffer, format='PNG')
     lead = LeadCode.objects.get_or_create(account=user.account)[0]
+
+    if lead.code_image:
+        lead.code_image.delete(save=False)
     lead.code_image = SimpleUploadedFile(name='qrcode.png', content=buffer.getvalue())
     lead.save(update_fields=('code_image',))
     return lead
