@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-25 17:25+0000\n"
+"POT-Creation-Date: 2019-08-30 04:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -671,6 +671,14 @@ msgstr "Desarrollado con"
 msgid "powered by"
 msgstr "Impulsado por"
 
+#: templates/base.html:180
+msgid "Web development by"
+msgstr "Desarrollo de web por"
+
+#: templates/base.html:181
+msgid "Homepage UI design"
+msgstr "Diseño UI de pagina principal por"
+
 #: templates/cms/plugins/widgets/ckeditor.html:25
 #: templates/cms/plugins/widgets/ckeditor.html:28
 msgid "CMS Plugins"
@@ -814,14 +822,6 @@ msgid ""
 msgstr ""
 "Las empresas y organizaciones que patrocinan PyCon Latam hacen posible la "
 "conferencia y se conectan con una amplia gama de programadores de Python."
-
-#: templates/leads/success.html:4 templates/leads/success.html:5
-msgid "Success"
-msgstr ""
-
-#: templates/leads/success.html:10
-msgid "Lead has been successfully registered"
-msgstr ""
 
 #: templates/schedule/detail.html:19 templates/schedule/detail.html:47
 #, fuzzy, python-format

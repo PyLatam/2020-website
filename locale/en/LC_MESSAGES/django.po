@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-25 17:25+0000\n"
+"POT-Creation-Date: 2019-08-30 04:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -618,6 +618,14 @@ msgstr ""
 msgid "powered by"
 msgstr ""
 
+#: templates/base.html:180
+msgid "Web development by"
+msgstr ""
+
+#: templates/base.html:181
+msgid "Homepage UI design"
+msgstr ""
+
 #: templates/cms/plugins/widgets/ckeditor.html:25
 #: templates/cms/plugins/widgets/ckeditor.html:28
 msgid "CMS Plugins"
@@ -743,14 +751,6 @@ msgid ""
 "The companies and organizations who sponsor PyCon Latam make the conference "
 "possible,\n"
 "                and get to connect with a wide array of Python programmers."
-msgstr ""
-
-#: templates/leads/success.html:4 templates/leads/success.html:5
-msgid "Success"
-msgstr ""
-
-#: templates/leads/success.html:10
-msgid "Lead has been successfully registered"
 msgstr ""
 
 #: templates/schedule/detail.html:19 templates/schedule/detail.html:47

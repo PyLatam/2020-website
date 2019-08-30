@@ -45,9 +45,9 @@
   color: #ccc;
 }
 
-.talk__card.keynote {
+/* .talk__card.keynote {
     grid-column: 2 / talk_col_end;
-}
+} */
 
 .keynote > span.level__all {
     display: none;
@@ -168,6 +168,7 @@
     .talk__card:last-child:after{
     display:none;
   }
+
 }
 
 /* ------------------- */
@@ -388,6 +389,10 @@ h2.time__block_date > b{
     grid-column-gap: 3vw;
   }
 
+  .talk__card.keynote {
+      grid-column: 2 / talk_col_end;
+  }
+
 
 
 
@@ -436,7 +441,7 @@ background: linear-gradient(180deg, rgba(202,246,247,.5) 0%, rgba(255,255,255,1)
     grid-column: 3;
   }
   .lunch__info{
-  grid-row: 2;
+  /* grid-row: 2; */
   grid-column: 1;
   padding-left: 25px;
   }
