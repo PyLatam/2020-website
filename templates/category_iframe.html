@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load cms_tags static %}
+
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}" />{% endblock css %}
+
+{% block content %}
+    {% placeholder herounit %}
+
+    <style>
+        iframe#pylatam_iframe {
+            width: 100%;
+        }
+    </style>
+    <iframe src="/resumen" scrolling="no"
+        id="pylatam_iframe" 
+        style="border: none;">
+    </iframe>
+    <script type="text/javascript">
+        function resizeIframeHeight() {
+            f = document.getElementById('pylatam_iframe');
+            f.height = f.contentWindow.document.body.scrollHeight
+            console.log(f);
+        };
+
+        window.onload = function(){
+            resizeIframeHeight();
+            console.log("document is loadEDEDED");
+        }
+
+        window.addEventListener("resize", resizeIframeHeight);
+    </script>
+
+{% endblock content %}
