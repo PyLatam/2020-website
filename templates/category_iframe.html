@@ -11,7 +11,8 @@
             width: 100%;
         }
     </style>
-    <iframe src="/resumen" scrolling="no"
+    <iframe src="{% page_url 'resumen'%}"
+        scrolling="no"
         id="pylatam_iframe" 
         style="border: none;">
     </iframe>
@@ -23,9 +24,9 @@
         };
 
         window.onload = function(){
-            resizeIframeHeight();
-            console.log("document is loadEDEDED");
-        }
+        resizeIframeHeight();
+        console.log("document is loadEDEDED");
+            }
 
         window.addEventListener("resize", resizeIframeHeight);
     </script>
