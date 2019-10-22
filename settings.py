@@ -10,6 +10,7 @@ INSTALLED_ADDONS = [
     'djangocms-file',
     'djangocms-link',
     'djangocms-picture',
+    'djangocms-snippet',
     'djangocms-style',
     'djangocms-text-ckeditor',
     'djangocms-transfer',
