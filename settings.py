@@ -28,6 +28,8 @@ TIME_ZONE = 'America/Mexico_City'
 CMS_TEMPLATES = (
     ('home.html', 'Home'),
     ('category.html', 'Category'),
+    ('category_iframe.html', 'iFrame'),
+    ('index_iframe_template.html', 'resumen_template'),
 )
 CMS_LANGUAGES = {
     'default': {
