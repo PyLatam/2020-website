@@ -6,81 +6,12 @@
 
 {% block content %}
     <section id='pycon'>
-        <h1><img class='header' src="{% static 'img/pylatamheader.svg' %}" alt='PyCon LATAM'/></h1>
-        <time class='pycon-title' datetime='2019-08-29 09:00'>{% trans "AUGUST" %} 29, 2019
+        <h1><img class='header' src="{% static 'img/Pythonlatam_brandletraspng.png' %}" alt='PyCon LATAM'/></h1>
+        <time class='pycon-title' datetime='2020-08-29 09:00'>{% trans "AUGUST" %} 29, 2020
             <time>
-                <a href='{% page_url "travel" %}'>PUERTO VALLARTA, MÉXICO</a>
+                <a href='{% page_url "travel" %}'>PURTO VALLARTA, MÉXICO</a>
                 <a class='scroll-down glyphicon glyphicon-menu-down' href='#mc_embed_signup' data-offset='-45'></a>
     </section>
-    <section id='keynote-speakers'>
-        <h2>{% trans 'Keynote Speakers' %}</h2>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{% static 'img/keynotes/lorena.png' %}">
-                    <h4>Lorena Mesa</h4>
-                    <p>{% trans "Political scientist turned coder, Lorena Mesa is a data engineer on GitHub's software intelligence systems team, Director on the Python Software Foundation, and PyLadies Chicago co-organizer." %}</p>
-                    <a href="{% page_url 'keynote-speakers' %}#lorena">
-                        <button type="button" class='speaker-button'>{% trans 'About Lorena' %}</button>
-                    </a>
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/keynotes/manuel.png' %}">
-                    <h4>Manuel Kaufmann</h4>
-                    <p>{% trans 'Manuel traveled throughout South America as part of the "Argentina in Python" community project. He has since been named Python Ambassador by the Python Software Foundation.' %}</p>
-                    <a href="{% page_url 'keynote-speakers' %}#manuel">
-                        <button type="button" class='speaker-button'>{% trans 'About Manuel' %}</button>
-                    </a>
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/keynotes/tania.jpg' %}">
-                    <h4>Tania Allard</h4>
-                    <p>{% trans 'Tania is a developer advocate at Microsoft with a focus on Data science and all things scientific computing an open source.' %}</p>
-                    <a href="{% page_url 'keynote-speakers' %}#tania">
-                        <button type="button" class='speaker-button'>{% trans 'About Tania' %}</button>
-                    </a>
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/keynotes/alvaro.jpg' %}">
-                    <h4>Álvaro Justen</h4>
-                    <p>{% trans 'Álvaro Justen (aka Turicas) is a software developer and teacher. Creator and maintainer of the portal of accessible open data Brasil.IO., Alvaro develops in Python since 2005.' %}</p>
-                    <a href="{% page_url 'keynote-speakers' %}#alvaro">
-                        <button type="button" class='speaker-button'>{% trans 'About Álvaro' %}</button>
-                    </a>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">{% trans 'Previous' %}</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">{% trans 'Next' %}</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Begin Mailchimp Signup Form -->
-    <section id='mc_embed_signup'>
-        <div class='section-header'>
-
-            <h2>{% trans "Let's get started!" %}</h2>
-            <a href="{% page_url 'tickets' LANGUAGE_CODE %}">
-                <button type="button" class='cta-button'>{% trans "Get Your Tickets Now" %}</button>
-            </a>
-
-            <p>
-                {% blocktrans %} PyCon Latam is a flavor of the PyCon conference that aims to bring together
-                    python developers from all latin american countries, and serve as a platform for
-                    them to interface with the python community at large.{% endblocktrans %}
-
-                <span style="color:yellow;">
-            {% blocktrans %}This 3 day conference starts on August 29th and ends on the 31st.{% endblocktrans %}
-            </span>
-            </p>
-        </div>
-    </section>
-    <!--End mc_embed_signup-->
 
     <section id='sponsors'>
         <h2>{% trans "SPONSORS" %}</h2>
