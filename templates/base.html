@@ -1,209 +1,482 @@
 {% load cms_tags core_tags i18n menu_tags sekizai_tags static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
-    {% if not debug and not request.user.is_staff %}
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-54898D6');</script>
-        <!-- End Google Tag Manager -->
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131160725-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-            gtag('config', 'UA-131160725-1');
-            gtag('config', 'AW-751328710');
-        </script>
-
-        {% comment %}
-        <!-- Google AdSense -->
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-4093219097078356",
-                enable_page_level_ads: true
-            });
-        </script>
-        {% endcomment %}
-    {% endif %}
-    {% block google_meta %}{% endblock google_meta %}
-    <title>{% block title %}{% page_attribute "page_title" %}{% endblock title %}</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:title" content="{% page_attribute "page_title" %}">
-    <meta property="og:description" content="PyCon Latam 2020">
-    <meta name="description" content="PyCon Latam 2020">
-    <meta property="og:image"
-          content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/Pythonlatam_brandletraspng.png' %}">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@pylatam">
-    <meta name="twitter:creator" content="@pylatam">
-    {% render_block "css" %}
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
-    <link rel="stylesheet" href="https://use.typekit.net/rns7ahv.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    {% block css %}{% endblock css %}
-    {% include 'includes/favicon.html' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% page_attribute "page_title" %}{% endblock title %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'build/tailwind.css' %}">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer></script>
 </head>
-<body>
-{% if not debug and not request.user.is_staff %}
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54898D6"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-{% endif %}
-{% cms_toolbar %}
-{% if request.current_page and not request.current_page.application_urls %}
-    {% if LANGUAGE_CODE == 'en' %}
-        {% page_url request.current_page|default_if_none:'home' 'es' as language_switcher_url %}
-    {% else %}
-        {% page_url request.current_page|default_if_none:'home' 'en' as language_switcher_url %}
-    {% endif %}
-{% else %}
-    {% if LANGUAGE_CODE == 'en' %}
-        {% get_current_url 'es' as language_switcher_url %}
-    {% else %}
-        {% get_current_url 'en' as language_switcher_url %}
-    {% endif %}
-{% endif %}
-
-<!-- Placeholder user bar -->
-<div class='user_bar'>
-    {% if request.user.is_authenticated %}
-        <a href="{% url 'account_settings' %}">{{ request.user.email }}</a> |
-        <a href="{% url 'account_dashboard' %}">{% trans 'Dashboard' %}</a> |
-        <a href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
-    {% else %}
-        <a href="{% url 'account_login' %}">{% trans 'Login' %}</a> |
-        <a href="{% url 'account_signup' %}">{% trans 'Sign Up' %}</a>
-    {% endif %}
-</div>
-
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        {% if not request.current_page.is_home %}
-            <a class='navbar-brand' href='{% page_url "home" %}'><img src="{% static 'img/pylatamheader.svg' %}"/></a>
-        {% endif %}
-
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="navbar-collapse collapse" id="navbarNav" style="">
-            <ul class="navbar-nav navbar-right">
-                {% show_menu 0 2 2 2 'includes/menu/navigation.html' %}
-                <li class="translation"><input {% if LANGUAGE_CODE == 'en' %}checked {% endif %}id="lang"
-                                               type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
-            </ul>
+<body class="bg-gray-100">
+<!-- Hero -->
+<div class="relative bg-white overflow-hidden">
+  <div class="hidden lg:block lg:absolute lg:inset-0">
+    <!-- TODO: Generar con XD? -->
+    <svg class="absolute top-0 left-1/2 transform translate-x-64 -translate-y-8" width="640" height="784" fill="none" viewBox="0 0 640 784">
+      <defs>
+        <pattern id="svg-pattern-snakes-desktop" x="118" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+          <-! TODO: Aquí embeber las serpientes arriba a la derecha en svg (desktop) -->
+        </pattern>
+      </defs>
+      <rect y="72" width="640" height="640" class="text-gray-50" fill="currentColor" />
+      <rect x="118" width="404" height="784" fill="url(#svg-pattern-snakes-desktop)" />
+    </svg>
+  </div>
+  <div x-data="{ open: false }" class="relative pt-6 pb-16 md:pb-20 lg:pb-24 xl:pb-32">
+    <nav class="relative max-w-screen-xl mx-auto flex items-center justify-between px-4 sm:px-6">
+      <div class="flex items-center flex-1">
+        <div class="flex items-center justify-between w-full md:w-auto">
+          <a href="#">
+            <img class="h-8 w-auto sm:h-10" src="{% static 'img/logos/pycon-latam-logo.svg' %}" alt="" />
+          </a>
+          <div class="-mr-2 flex items-center md:hidden">
+            <button @click="open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
+        <div class="hidden md:block md:ml-10">
+          <a href="#" class="font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Acerca de</a>
+          <a href="#" class="ml-10 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Lugar</a>
+          <a href="#" class="ml-10 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Horario</a>
+          <a href="#" class="ml-10 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Patrocionios</a>
+          <a href="#" class="ml-10 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Exponer</a>
+          <a href="#" class="ml-10 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Boletos</a>
+          <a href="#" class="ml-10 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Resumen del evento</a>
 
+        </div>
+      </div>
+      <div class="hidden md:block text-right">
+        <span class="inline-flex rounded-md shadow-md">
+          <span class="inline-flex rounded-md shadow-xs">
+            <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-blue-800 bg-white hover:bg-gray-50 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+              Log in
+            </a>
+          </span>
+        </span>
+      </div>
     </nav>
 
-
-    <!-- {\% import menu tag \%} -->
-</header>
-<main>
-    {% comment %}
-      <div class="alert alert-success" role="alert"> This is a success alert—check it out! </div>
-      <div class="alert alert-danger" role="alert"> This is a danger alert—check it out! </div>
-      {% endcomment %}
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li class="alert alert-{{ message.tags }}">{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-    {% block content %}{% endblock content %}
-</main>
-{% block footer %}
-<footer>
-    <div class='footer__body'>
-        <div class='footer__social-media'>
-            <h3>{% trans "Stay Connected" %}</h3>
-            <ul>
-                <li><a href='https://www.facebook.com/PyLatam/' target="_blank"><i
-                        class="fa fa-facebook color--facebook" aria-hidden="true"></i></a></li>
-                <li><a href='https://twitter.com/PyLatam' target="_blank"><i class="fa fa-twitter color--twitter"
-                                                                             aria-hidden="true"></i></a></li>
-                {# <li><a href=''><i class="fa fa-linkedin color--linkedin" aria-hidden="true"></i></a></li> #}
-                {# <li><a href=''><i class="fa fa-instagram color--instagram" aria-hidden="true"></i></a></li> #}
-            </ul>
-        </div>
-        <div class='footer__more-info'>
-            <p><strong>Pycon
-                Latam</strong> {% trans "commits unyieldingly to the rights of all individuals to mutual respect and acceptance of others, without biases based on differences of any kind." %}
-            </p>
-        </div>
-    </div>
-    <div class='footer__newsletter'>
-      <h3>{% trans "Newsletter" %}</h3>
-      <form action='https://pylatam.us19.list-manage.com/subscribe/post?u=6d2b6cf4a47f3089e707833e6&amp;id=4db5cc3f9f' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' class='validate' target='_blank' novalidate>
-          <div id='mc_embed_signup_scroll'>
-              <div id='mce-responses' class='clear'>
-                  <div class='response' id='mce-error-response' style='display:none'></div>
-                  <div class='response' id='mce-success-response' style='display:none'></div>
-              </div>
-              <input type='email' value='' placeholder='{% trans "email address" %}' name='{% trans "EMAIL" %}' class='required email' id='mce-EMAIL'>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style='position: absolute; left: -5000px;' aria-hidden='true'><input type='text' name='b_6d2b6cf4a47f3089e707833e6_4db5cc3f9f' tabindex='-1' value=''></div>
-              <input class='subscribe-button' type='submit' value='{% trans "SUBSCRIBE" %}'>
+    <div :class="{'block': open, 'hidden': !open}" class="absolute top-0 inset-x-0 p-2 hidden md:hidden">
+      <div x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="rounded-lg shadow-md transition transform origin-top-right">
+        <div class="rounded-lg bg-white shadow-xs overflow-hidden">
+          <div class="px-5 pt-4 flex items-center justify-between">
+            <div>
+              <img class="h-8 w-auto" src="{% static 'img/logos/pycon-latam-logo.svg" alt="" />
+            </div>
+            <div class="-mr-2">
+              <button @click="open = false" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
           </div>
-      </form>
+          <div class="px-2 pt-2 pb-3">
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Acerca de</a>
+            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Lugar</a>
+            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Horario</a>
+            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Patrocinios</a>
+            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Exponer</a>
+            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Boletos</a>
+            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Resumen</a>
+          </div>
+          <div>
+            <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700 focus:outline-none focus:bg-gray-100 focus:text-indigo-700 transition duration-150 ease-in-out">
+              Log in
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class='footer__nav-bar'>
-        <ul>
-            <li><a href="{% page_url 'home' LANGUAGE_CODE %}">{% page_attribute menu_title 'home' %}</a></li>
-            <li><a href="{% page_url 'hotel' LANGUAGE_CODE %}">{% page_attribute menu_title 'hotel' %}</a></li>
-            <li><a href="{% page_url 'speaking' LANGUAGE_CODE %}">{% page_attribute menu_title 'speaking' %}</a></li>
-            <li><a href="{% page_url 'coc' LANGUAGE_CODE %}">{% page_attribute menu_title 'coc' %}</a></li>
-        </ul>
-        <span>&copy;2020 Pycon Latam. {% trans "All rights reserved." %}</span>
+
+    <div class="mt-8 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-20 xl:mt-24">
+      <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+        <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+          <div class="text-sm font-semibold uppercase tracking-wide text-gray-500 sm:text-base lg:text-sm xl:text-base">
+            Agosto 2020
+          </div>
+          <h2 class="mt-1 text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
+            PyCon Latam
+            <br class="hidden md:inline" />
+            <span class="text-blue-800">Puerto Vallarta</span>
+          </h2>
+          <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad non deserunt sunt.
+          </p>
+          <div class="mt-5 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+            <p class="text-base font-medium text-gray-900">
+              Suscríbete para mantenerte informado.
+            </p>
+            <form action="#" method="POST" class="mt-3 sm:flex">
+              <input aria-label="Email" class="appearance-none block w-full px-3 py-3 border border-gray-300 text-base leading-6 rounded-md placeholder-gray-500 shadow-sm focus:outline-none focus:placeholder-gray-400 focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out sm:flex-1" placeholder="Escribe tu correo electrónico" />
+              <button type="submit" class="mt-3 w-full px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-800 shadow-sm hover:bg-blue-700 focus:outline-none focus:shadow-outline active:bg-blue-900 transition duration-150 ease-in-out sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto">
+                Notificarme
+              </button>
+            </form>
+            <p class="mt-3 text-sm leading-5 text-gray-500">
+              Nos importa la protección de tus datos. Lee nuestro
+              <a href="#" class="font-medium text-gray-900 underline">Aviso de Privacidad</a>.
+            </p>
+          </div>
+        </div>
+        <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+          <svg class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 scale-75 origin-top sm:scale-100 lg:hidden" width="640" height="784" fill="none" viewBox="0 0 640 784">
+            <defs>
+              <pattern id="svg-pattern-snakes-mobile" x="118" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <!-- TODO: Embeber las serpientes -->
+              </pattern>
+            </defs>
+            <rect y="72" width="640" height="640" class="text-gray-50" fill="currentColor" />
+            <rect x="118" width="404" height="784" fill="url(#svg-pattern-snakes-mobile)" />
+          </svg>
+          <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+            <button class="relative block w-full rounded-lg overflow-hidden focus:outline-none focus:shadow-outline">
+              <img class="w-full" src="{% static 'img/logos/pycon-latam-logo-large.svg' %}" alt="Presentación Pycon Latam" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="built-with">{% trans 'Built with' %} <a href="https://www.djangoproject.com/" target="_blank">Django</a> &amp; {% trans 'powered by' %} <a href="https://www.divio.com/" target="_blank">Divio</a>
-    <br />{% trans 'Web development by' %} <a href="https://www.linkedin.com/in/garciapat/" target="_blank">Patricio Garcia</a> &amp; <a href="https://codepen.io/TrevorWelch/">Trevor Welch</a>
-    <br />{% trans 'Homepage UI design' %} <a href="https://www.wizeline.com/" target="_blank">Wizeline</a></div>
+  </div>
+</div>
+<!-- Features -->
+<div class="py-12 bg-white">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="p-6 bg-gray-100 rounded-lg shadow-lg">
+    <div class="lg:text-center">
+      <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+        La conferencia que no te quieres perder
+      </h3>
+      <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
+        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+      </p>
+    </div>
 
-</footer>
-{% endblock footer %}
+    <div class="mt-10">
+      <ul class="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
+        <li>
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-yellow-300 text-white">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                </svg>
+              </div>
+            </div>
+            <!-- TODO: Actualizar íconos -->
+            <div class="ml-4">
+              <h5 class="text-lg leading-6 font-medium text-gray-900">2 días de pláticas</h5>
+              <p class="mt-2 text-base leading-6 text-gray-500">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+              </p>
+            </div>
+          </div>
+        </li>
+        <li class="mt-10 md:mt-0">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-yellow-300 text-white">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+                </svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h5 class="text-lg leading-6 font-medium text-gray-900">2 Tracks de pláticas (Español e Inglés)</h5>
+              <p class="mt-2 text-base leading-6 text-gray-500">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+              </p>
+            </div>
+          </div>
+        </li>
+        <li class="mt-10 md:mt-0">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-yellow-300 text-white">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h5 class="text-lg leading-6 font-medium text-gray-900">4 Keynotes</h5>
+              <p class="mt-2 text-base leading-6 text-gray-500">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+              </p>
+            </div>
+          </div>
+        </li>
+        <li class="mt-10 md:mt-0">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-yellow-300 text-white">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h5 class="text-lg leading-6 font-medium text-gray-900">Hotel todo incluido</h5>
+              <p class="mt-2 text-base leading-6 text-gray-500">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- Prices -->
+<div class="bg-yellow-100">
+  <div class="pt-12 sm:pt-16 lg:pt-20">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10 lg:text-5xl lg:leading-none">
+          Friendly Vallarta All Inclusive <br>
+          Family Resort & Convention Center
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="mt-8 bg-white sm:mt-12">
+    <div class="relative">
+      <div class="absolute inset-0 h-1/2 bg-yellow-100"></div>
+      <div class="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+          <div class="bg-white px-6 py-8 lg:flex-shrink-1 lg:p-12">
+            <h3 class="text-2xl leading-8 font-extrabold text-gray-900 sm:text-3xl sm:leading-9">
+              Estancia todo incluido
+            </h3>
+            <p class="mt-6 text-base leading-6 text-gray-500">
+              Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis repellendus etur quidem assumenda.
+            </p>
+            <div class="mt-8">
+              <div class="flex items-center">
+                <h4 class="flex-shrink-0 pr-4 bg-white text-sm leading-5 tracking-wider font-semibold uppercase text-blue-800">
+                  ¿Qué está incluido?
+                </h4>
+                <div class="flex-1 border-t-2 border-gray-200"></div>
+              </div>
+              <ul class="mt-8 lg:grid lg:grid-cols-2 lg:col-gap-8 lg:row-gap-5">
+                <li class="flex items-start lg:col-span-1">
+                  <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-sm leading-5 text-gray-700">
+                    Característica 1
+                  </p>
+                </li>
+                <li class="mt-5 flex items-start lg:col-span-1 lg:mt-0">
+                  <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-sm leading-5 text-gray-700">
+                    Característica 2
+                  </p>
+                </li>
+                <li class="mt-5 flex items-start lg:col-span-1 lg:mt-0">
+                  <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-sm leading-5 text-gray-700">
+                    Característica 3
+                  </p>
+                </li>
+                <li class="mt-5 flex items-start lg:col-span-1 lg:mt-0">
+                  <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-sm leading-5 text-gray-700">
+                    Característica 4
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
+            <p class="text-lg leading-6 font-medium text-gray-900">
+              Acceso + Estancia
+            </p>
 
-{% render_block "js" %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-<script>
-    $('#lang').change(
-        function () {
-            animationsTest(function () {
-                window.location.replace("{{ language_switcher_url }}");
-            });
-        });
+            <div class="mt-4 flex items-center justify-center text-base leading-none font-normal text-gray-500">
+              <span>Individual</span><span class="ml-3 text-xl leading-7 font-medium text-gray-900">$3,500</span><span class="ml-3 text-sm leading-7 font-medium text-gray-500">
+                MXN</span><br>
+            </div>
+            <div class="mt-4 flex items-center justify-center text-base leading-none font-normal text-gray-500">
+              <span>Doble</span><span class="ml-3 text-xl leading-7 font-medium text-gray-900">$3,500</span><span class="ml-3 text-sm leading-7 font-medium text-gray-500">
+                MXN</span><br>
+            </div>
+            <div class="mt-4 flex items-center justify-center text-base leading-none font-normal text-gray-500">
+              <span>Triple</span><span class="ml-3 text-xl leading-7 font-medium text-gray-900">$3,500</span><span class="ml-3 text-sm leading-7 font-medium text-gray-500">
+                MXN</span><br>
+            </div>
+            <div class="mt-4 flex items-center justify-center text-base leading-none font-normal text-gray-500">
+              <span>Cuadruple</span><span class="ml-3 text-xl leading-7 font-medium text-gray-900">$3,500</span><span class="ml-3 text-sm leading-7 font-medium text-gray-500">
+                MXN</span><br>
+            </div>
 
-    function animationsTest(callback) {
-        // Test if ANY/ALL page animations are currently active
+            <p class="mt-4 text-sm leading-5">
+              <a href="#" class="font-medium text-gray-500 underline">
+                Ver detalles de reservación
+              </a>
+            </p>
+            <div class="mt-6">
+              <div class="rounded-md shadow">
+                <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-800 hover:bg-blue-700 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                  Reservar
+                </a>
+              </div>
+            </div>
+            <div class="mt-4 text-sm leading-5">
+              <a href="#" class="font-light text-gray-400">
+                * Tarifa por noche
+              </a> <br>
+              <a href="#" class="font-light text-gray-400">
+                ** Mínimo 3 noches
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Patreons -->
+<div class="bg-white">
+  <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center rounded-lg shadow-lg">
+      <div>
+        <div class="p-8">
+        <h2 class="text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
+          ¿Te gustaría ser nuestro patrocinador?
+        </h2>
+        <p class="mt-3 max-w-3xl text-lg leading-7 text-gray-500">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue.
+        </p>
+        <div class="mt-8 sm:flex">
+          <div class="rounded-md shadow">
+            <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-800 hover:bg-blue-700 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+              Ver Detalles
+            </a>
+          </div>
+          <div class="mt-3 sm:mt-0 sm:ml-3">
+            <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-blue-800 bg-blue-100 hover:text-blue-800 hover:bg-indigo-50 focus:outline-none focus:shadow-outline focus:border-blue-400 transition duration-150 ease-in-out">
+              Contáctanos
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="bg-blue-900 mt-8 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
+        <div class="col-span-1 flex justify-center py-8 px-8 bg-blue-800">
+          <img class="max-h-12" src="{% static 'img/logos/linode.png' %}" alt="Linode" />
+        </div>
+        <div class="col-span-1 flex justify-center py-8 px-8 bg-blue-800">
+          <img class="max-h-12" src="{% static 'img/logos/python-software-foundation.png' %}" alt="Python Software Foundation" />
+        </div>
+        <div class="col-span-1 flex justify-center py-8 px-8 bg-blue-800">
+          <img class="max-h-12" src="{% static 'img/logos/github.png' %}" alt="GitHub" />
+        </div>
+        <div class="col-span-1 flex justify-center py-8 px-8 bg-blue-800">
+          <img class="max-h-12" src="{% static 'img/logos/elastic.png' %}" alt="Elastic" />
+        </div>
+        <div class="col-span-1 flex justify-center py-8 px-8 bg-blue-800">
+          <img class="max-h-12" src="{% static 'img/logos/microsoft.png' %}" alt="Microsoft" />
+        </div>
+        <div class="col-span-1 flex justify-center py-8 px-8 bg-blue-800">
+          <img class="max-h-12" src="{% static 'img/logos/sherpany.png' %}" alt="Sherpany" />
+        </div>
+        <div class="col-span-1 flex justify-center py-8 px-8 bg-blue-800">
+          <img class="max-h-12" src="{% static 'img/logos/intel.png' %}" alt="Intel" />
+        </div>
+        <div class="col-span-1 flex justify-center py-8 px-8 bg-blue-800">
+          <img class="max-h-12" src="{% static 'img/logos/read-the-docs.png' %}" alt="Read the Docs" />
+        </div>
+        <div class="col-span-1 flex justify-center py-8 px-8 bg-blue-800">
+          <img class="max-h-12" src="{% static 'img/logos/ensitech.png' %}" alt="Ensitech" />
+        </div>
+        <div class="col-span-1 flex justify-center py-8 px-8 bg-blue-800">
+          <img class="max-h-12" src="{% static 'img/logos/paykii.png' %}" alt="Paykii" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<div class="bg-blue-900">
+  <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <div class="grid grid-cols-2 gap-8 xl:col-span-2">
+        <img class="h-24" src="{% static 'img/logos/pycon-latam-logo.svg' %}" alt="PyCon Latam" />
+        <p class="text-gray-400 text-base leading-6">
+          <span class="font-extrabold">Pycon Latam</span> se compromete a respetar los derechos de todos los individuos, a partir de la tolerancia mutua y la aceptación de los demás sin distinción alguna..
+        </p>
+      </div>
+      <div class="mt-8 xl:mt-0">
+        <h4 class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">
+          Suscríbete a nuestro boletín
+        </h4>
+        <p class="mt-4 text-gray-300 text-base leading-6">
+          Mantente actualizado del evento y las promociones.
+        </p>
+        <form class="mt-4 sm:flex sm:max-w-md">
+          <input aria-label="Email address" type="email" required class="appearance-none w-full px-5 py-3 border border-transparent text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 transition duration-150 ease-in-out" placeholder="Escribe tu correo electrónico" />
+          <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+            <button class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:bg-indigo-400 transition duration-150 ease-in-out">
+              Suscribirse
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="mt-8 border-t border-gray-400 pt-8 md:flex md:items-center md:justify-between">
+      <div class="flex md:order-2">
+        <a href="#" class="text-gray-400 hover:text-gray-300">
+          <span class="sr-only">Facebook</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+        <a href="#" class="ml-6 text-gray-400 hover:text-gray-300">
+          <span class="sr-only">Instagram</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+        <a href="#" class="ml-6 text-gray-400 hover:text-gray-300">
+          <span class="sr-only">Twitter</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+          </svg>
+        </a>
+        <a href="#" class="ml-6 text-gray-400 hover:text-gray-300">
+          <span class="sr-only">GitHub</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+      </div>
+      <p class="mt-8 text-base leading-6 text-gray-400 md:mt-0 md:order-1">
+        &copy; 2020 PyCon Latam, Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</div>
 
-        var testAnimationInterval = setInterval(function () {
-            if (!$.timers.length) { // any page animations finished
-                clearInterval(testAnimationInterval);
-                callback();
-            }
-        }, 25);
-    };
-</script>
-{% block js %}{% endblock js %}
 </body>
 </html>
