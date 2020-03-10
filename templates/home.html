@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load cms_tags i18n sponsors_tags static thumbnail %}
 
-{% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>{% endblock css %}
+{% comment %}
+TODO: Adaptar esto al nuevo template
+{% block css %} {% endblock css %}
 
 {% block content %}
     <section id='pycon'>
@@ -30,3 +31,4 @@
         </div>
     </section>
 {% endblock content %}
+{% endcomment %}
