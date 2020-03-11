@@ -37,18 +37,19 @@ TODO: Adaptar esto al nuevo template
 <div class="mt-8 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-20 xl:mt-24">
   <div class="lg:grid lg:grid-cols-12 lg:gap-8">
     <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-      <div class="text-sm font-semibold uppercase tracking-wide text-gray-500 sm:text-base lg:text-sm xl:text-base">
-        Agosto 2020
-      </div>
+      <time class="text-sm font-semibold uppercase tracking-wide text-gray-500 sm:text-base lg:text-sm xl:text-base" datetime="2020-08-29 09:00">
+        {% trans "AUGUST" %} 29, 2020
+      </time>
       <h2 class="mt-1 text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
         PyCon Latam
         <br class="hidden md:inline" />
-        <span class="text-blue-800">Puerto Vallarta</span>
+        <a href='{% page_url "travel" %}'><span class="text-blue-800">Puerto Vallarta</span></a> <!-- TODO: dejar este link? -->
       </h2>
       <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad non deserunt sunt.
+        {% blocktrans %}Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad non deserunt sunt.{% endblocktrans %}
       </p>
       <div class="mt-5 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+        <!-- TODO: Establecer el call to action, será suscribirse al newsletter? -->
         <p class="text-base font-medium text-gray-900">
           Suscríbete para mantenerte informado.
         </p>
@@ -88,10 +89,10 @@ TODO: Adaptar esto al nuevo template
     <div class="p-6 bg-gray-100 rounded-lg shadow-lg">
     <div class="lg:text-center">
       <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-        La conferencia que no te quieres perder
+        {% trans "La conferencia que no te quieres perder" %}
       </h3>
       <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
-        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+        {% blocktrans %}Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.{% endblocktrans %}
       </p>
     </div>
     <div class="mt-10">
@@ -109,7 +110,7 @@ TODO: Adaptar esto al nuevo template
             <div class="ml-4">
               <h5 class="text-lg leading-6 font-medium text-gray-900">2 días de pláticas</h5>
               <p class="mt-2 text-base leading-6 text-gray-500">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                {% blocktrans %}Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.{% endblocktrans %}
               </p>
             </div>
           </div>
@@ -293,33 +294,41 @@ TODO: Adaptar esto al nuevo template
     </div>
   </div>
 </div>
-<!-- Patreons -->
+<!-- Sponsors -->
 <div class="bg-white">
   <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-    <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center rounded-lg shadow-lg">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center rounded-lg shadow-lg overflow-hidden">
       <div>
         <div class="p-8">
         <h2 class="text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
           ¿Te gustaría ser nuestro patrocinador?
         </h2>
         <p class="mt-3 max-w-3xl text-lg leading-7 text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue.
+          {% blocktrans %}The companies and organizations who sponsor PyCon Latam make the conference possible, and get to connect with a wide array of Python programmers.{% endblocktrans %}
         </p>
         <div class="mt-8 sm:flex">
           <div class="rounded-md shadow">
             <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-800 hover:bg-blue-700 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-              Ver Detalles
+              {% trans "More Details" %}
             </a>
           </div>
           <div class="mt-3 sm:mt-0 sm:ml-3">
             <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-blue-800 bg-blue-100 hover:text-blue-800 hover:bg-indigo-50 focus:outline-none focus:shadow-outline focus:border-blue-400 transition duration-150 ease-in-out">
-              Contáctanos
+              {% trans "Contact Us" %}
             </a>
           </div>
         </div>
         </div>
       </div>
       <div class="bg-blue-900 mt-8 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
+      <!-- TODO: Revisar si están agregados los patrocinadores en la BD -->
+        {% get_sponsors as sponsors %}
+        {% for sponsor in sponsors %}
+            <a class="col-span-1 flex justify-center py-8 px-8 bg-blue-800" href="{{ sponsor.website }}" target="_blank">
+              <img class="max-h-12" src="{% thumbnail sponsor.logo 250x90 %}" alt="{{ sponsor.name }}" />
+            </a>
+        {% endfor %}
+        <!-- TODO: Eliminar esto ya teniendo los patrocinadores -->
         <div class="col-span-1 flex justify-center py-8 px-8 bg-blue-800">
           <img class="max-h-12" src="{% static 'img/logos/linode.png' %}" alt="Linode" />
         </div>
