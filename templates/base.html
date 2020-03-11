@@ -116,6 +116,7 @@ TODO: Mover esto a un bloque en el menú?
 {% endcomment %}
 
 {% if messages %}
+    <!-- TODO: Incluir un componente para mensajes de tailwind -->
     <ul class="messages">
         {% for message in messages %}
             <li class="alert alert-{{ message.tags }}">{{ message }}</li>
@@ -150,23 +151,30 @@ TODO: Mover esto a un bloque en el menú?
       <div class="grid grid-cols-2 gap-8 xl:col-span-2">
         <img class="h-24" src="{% static 'img/logos/pycon-latam-logo.svg' %}" alt="PyCon Latam" />
         <p class="text-gray-400 text-base leading-6">
-          <span class="font-extrabold">Pycon Latam</span> se compromete a respetar los derechos de todos los individuos, a partir de la tolerancia mutua y la aceptación de los demás sin distinción alguna..
+          <span class="font-extrabold">Pycon Latam</span> {% trans "commits unyieldingly to the rights of all individuals to mutual respect and acceptance of others, without biases based on differences of any kind." %}
         </p>
       </div>
       <div class="mt-8 xl:mt-0">
         <h4 class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">
-          Suscríbete a nuestro boletín
+          {% trans "Subscribe to our newsletter" %}
         </h4>
         <p class="mt-4 text-gray-300 text-base leading-6">
-          Mantente actualizado del evento y las promociones.
+          {% trans "The latest news, articles, and resources, sent to your inbox weekly." %}
         </p>
-        <form class="mt-4 sm:flex sm:max-w-md">
-          <input aria-label="Email address" type="email" required class="appearance-none w-full px-5 py-3 border border-transparent text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 transition duration-150 ease-in-out" placeholder="Escribe tu correo electrónico" />
+        <form class="mt-4 sm:flex sm:max-w-md validate" action='https://pylatam.us19.list-manage.com/subscribe/post?u=6d2b6cf4a47f3089e707833e6&amp;id=4db5cc3f9f' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' target='_blank' novalidate>
+          <div id='mce-responses'>
+            <div class='response' id='mce-error-response' style='display:none'></div>
+            <div class='response' id='mce-success-response' style='display:none'></div>
+          </div>
+          <input id='mce-EMAIL' aria-label="Email address" type="email" required class="appearance-none w-full px-5 py-3 border border-transparent text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 transition duration-150 ease-in-out" placeholder="{% trans "email address" %}" name="{% trans "EMAIL" %}"/>
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style='position: absolute; left: -5000px;' aria-hidden='true'><input type='text' name='b_6d2b6cf4a47f3089e707833e6_4db5cc3f9f' tabindex='-1' value=''></div>
           <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-            <button class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-700 hover:bg-blue-400 focus:outline-none focus:bg-indigo-400 transition duration-150 ease-in-out">
-              Suscribirse
+            <button type="submit" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-700 hover:bg-blue-400 focus:outline-none focus:bg-indigo-400 transition duration-150 ease-in-out">
+              {% trans "SUBSCRIBE" %}
             </button>
           </div>
+
         </form>
       </div>
     </div>
@@ -198,11 +206,44 @@ TODO: Mover esto a un bloque en el menú?
         </a>
       </div>
       <p class="mt-8 text-base leading-6 text-gray-400 md:mt-0 md:order-1">
-        &copy; 2020 PyCon Latam, Todos los derechos reservados.
+        &copy; 2020 PyCon Latam, {% trans "All rights reserved." %}
+      </p>
+    </div>
+    <div class="mt-8">
+      <p class="text-center text-base leading-6 text-gray-400">
+      {% trans 'Built with' %} <a class="text-gray-200 font-extrabold" href="https://www.djangoproject.com/" target="_blank">Django</a> &amp; {% trans 'powered by' %} <a class="text-gray-200 font-extrabold" href="https://www.divio.com/" target="_blank">Divio</a>
+      <br />{% trans 'Web development by' %} <a class="text-gray-200 font-extrabold" href="https://www.linkedin.com/in/garciapat/" target="_blank">Patricio Garcia</a> &amp; <a href="https://codepen.io/TrevorWelch/">Trevor Welch</a>
+      <br />{% trans 'Homepage UI design' %} <a class="text-gray-200 font-extrabold" href="https://www.wizeline.com/" target="_blank">Wizeline</a>
       </p>
     </div>
   </div>
 </footer>
 {% endblock footer %}
+{% render_block "js" %}
+<!-- TODO: Revisar si se utilizan estos scripts dentro del contenido de páginas
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script>
+    $('#lang').change(
+        function () {
+            animationsTest(function () {
+                window.location.replace("{{ language_switcher_url }}");
+            });
+        });
+
+    function animationsTest(callback) {
+        // Test if ANY/ALL page animations are currently active
+
+        var testAnimationInterval = setInterval(function () {
+            if (!$.timers.length) { // any page animations finished
+                clearInterval(testAnimationInterval);
+                callback();
+            }
+        }, 25);
+    };
+</script>
+-->
+{% block js %}{% endblock js %}
 </body>
 </html>
