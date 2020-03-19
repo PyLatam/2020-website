@@ -9,6 +9,11 @@ FROM divio/base:4.15-py3.6-slim-stretch
 # </DOCKER_FROM>
 
 # <NPM>
+# package.json is put into / so that mounting /app for local
+# development does not require re-running npm install
+ENV PATH=/node_modules/.bin:$PATH
+COPY package.json /
+RUN (cd / && npm install --production && rm -rf /tmp/*)
 # </NPM>
 
 # <BOWER>
