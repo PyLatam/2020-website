@@ -1,0 +1,98 @@
+{% load cms_tags core_tags i18n menu_tags sekizai_tags static %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
+    <link rel="stylesheet" href="https://use.typekit.net/rns7ahv.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+
+
+<main>
+    {% comment %}
+      <div class="alert alert-success" role="alert"> This is a success alert—check it out! </div>
+      <div class="alert alert-danger" role="alert"> This is a danger alert—check it out! </div>
+      {% endcomment %}
+
+</main>
+
+<footer>
+    <div class='footer__body'>
+        <div class='footer__social-media'>
+            <h3>{% trans "Stay Connected" %}</h3>
+            <ul>
+                <li><a href='https://www.facebook.com/PyLatam/' target="_blank"><i
+                        class="fa fa-facebook color--facebook" aria-hidden="true"></i></a></li>
+                <li><a href='https://twitter.com/PyLatam' target="_blank"><i class="fa fa-twitter color--twitter"
+                                                                             aria-hidden="true"></i></a></li>
+                {# <li><a href=''><i class="fa fa-linkedin color--linkedin" aria-hidden="true"></i></a></li> #}
+                {# <li><a href=''><i class="fa fa-instagram color--instagram" aria-hidden="true"></i></a></li> #}
+            </ul>
+        </div>
+        <div class='footer__more-info'>
+            <p><strong>Pycon
+                Latam</strong> {% trans "commits unyieldingly to the rights of all individuals to mutual respect and acceptance of others, without biases based on differences of any kind." %}
+            </p>
+        </div>
+    </div>
+    <div class='footer__newsletter'>
+      <h3>{% trans "Newsletter" %}</h3>
+      <form action='https://pylatam.us19.list-manage.com/subscribe/post?u=6d2b6cf4a47f3089e707833e6&amp;id=4db5cc3f9f' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' class='validate' target='_blank' novalidate>
+          <div id='mc_embed_signup_scroll'>
+              <div id='mce-responses' class='clear'>
+                  <div class='response' id='mce-error-response' style='display:none'></div>
+                  <div class='response' id='mce-success-response' style='display:none'></div>
+              </div>
+              <input type='email' value='' placeholder='{% trans "email address" %}' name='{% trans "EMAIL" %}' class='required email' id='mce-EMAIL'>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style='position: absolute; left: -5000px;' aria-hidden='true'><input type='text' name='b_6d2b6cf4a47f3089e707833e6_4db5cc3f9f' tabindex='-1' value=''></div>
+              <input class='subscribe-button' type='submit' value='{% trans "SUBSCRIBE" %}'>
+          </div>
+      </form>
+    </div>
+    <div class='footer__nav-bar'>
+        <ul>
+            <li><a href="{% page_url 'home' LANGUAGE_CODE %}">{% page_attribute menu_title 'home' %}</a></li>
+            <li><a href="{% page_url 'hotel' LANGUAGE_CODE %}">{% page_attribute menu_title 'hotel' %}</a></li>
+            <li><a href="{% page_url 'speaking' LANGUAGE_CODE %}">{% page_attribute menu_title 'speaking' %}</a></li>
+            <li><a href="{% page_url 'coc' LANGUAGE_CODE %}">{% page_attribute menu_title 'coc' %}</a></li>
+        </ul>
+        <span>&copy;2020 Pycon Latam. {% trans "All rights reserved." %}</span>
+    </div>
+    <div class="built-with">{% trans 'Built with' %} <a href="https://www.djangoproject.com/" target="_blank">Django</a> &amp; {% trans 'powered by' %} <a href="https://www.divio.com/" target="_blank">Divio</a>
+    <br />{% trans 'Web development by' %} <a href="https://www.linkedin.com/in/garciapat/" target="_blank">Patricio Garcia</a> &amp; <a href="https://codepen.io/TrevorWelch/">Trevor Welch</a>
+    <br />{% trans 'Homepage UI design' %} <a href="https://www.wizeline.com/" target="_blank">Wizeline</a></div>
+
+</footer>
+
+{% render_block "js" %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script>
+    $('#lang').change(
+        function () {
+            animationsTest(function () {
+                window.location.replace("{{ language_switcher_url }}");
+            });
+        });
+
+    function animationsTest(callback) {
+        // Test if ANY/ALL page animations are currently active
+
+        var testAnimationInterval = setInterval(function () {
+            if (!$.timers.length) { // any page animations finished
+                clearInterval(testAnimationInterval);
+                callback();
+            }
+        }, 25);
+    };
+</script>
+{% block js %}{% endblock js %}
+</body>
+</html>

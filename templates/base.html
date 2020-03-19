@@ -1,7 +1,26 @@
 {% load cms_tags core_tags i18n menu_tags sekizai_tags static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{% page_attribute "page_title" %}">
+    <meta property="og:description" content="PyCon Latam 2020">
+    <meta name="description" content="PyCon Latam 2020">
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/Pythonlatam_brandletraspng.png' %}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@pylatam">
+    <meta name="twitter:creator" content="@pylatam">
+    {% include 'includes/favicon.html' %}
+
+    {% render_block "css" %}
+    <link rel="stylesheet" type="text/css" href="{% static 'build/tailwind.css' %}">
+    {% block css %}{% endblock css %}
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer></script>
+
     {% if not debug and not request.user.is_staff %}
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -23,7 +42,6 @@
             gtag('config', 'UA-131160725-1');
             gtag('config', 'AW-751328710');
         </script>
-
         {% comment %}
         <!-- Google AdSense -->
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -37,28 +55,8 @@
     {% endif %}
     {% block google_meta %}{% endblock google_meta %}
     <title>{% block title %}{% page_attribute "page_title" %}{% endblock title %}</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:title" content="{% page_attribute "page_title" %}">
-    <meta property="og:description" content="PyCon Latam 2020">
-    <meta name="description" content="PyCon Latam 2020">
-    <meta property="og:image"
-          content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/Pythonlatam_brandletraspng.png' %}">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@pylatam">
-    <meta name="twitter:creator" content="@pylatam">
-    {% render_block "css" %}
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
-    <link rel="stylesheet" href="https://use.typekit.net/rns7ahv.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    {% block css %}{% endblock css %}
-    {% include 'includes/favicon.html' %}
 </head>
-<body>
+<body class="bg-gray-100">
 {% if not debug and not request.user.is_staff %}
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54898D6"
@@ -92,6 +90,8 @@
     {% endif %}
 </div>
 
+{% comment %}
+TODO: Mover esto a un bloque en el menú?
 <header>
     <nav class="navbar navbar-expand-lg navbar-light">
         {% if not request.current_page.is_home %}
@@ -110,78 +110,117 @@
                                                type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
             </ul>
         </div>
-
     </nav>
-
-
     <!-- {\% import menu tag \%} -->
 </header>
-<main>
-    {% comment %}
-      <div class="alert alert-success" role="alert"> This is a success alert—check it out! </div>
-      <div class="alert alert-danger" role="alert"> This is a danger alert—check it out! </div>
-      {% endcomment %}
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li class="alert alert-{{ message.tags }}">{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+{% endcomment %}
+
+{% if messages %}
+    <!-- TODO: Incluir un componente para mensajes de tailwind -->
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<main class="relative bg-white overflow-hidden">
+  <div class="hidden lg:block lg:absolute lg:inset-0">
+    <!-- Hero -->
+    <!-- TODO: Mostrar solo si es el home -->
+    <svg class="absolute top-0 left-1/2 transform translate-x-64 -translate-y-8" width="640" height="784" fill="none" viewBox="0 0 640 784">
+      <defs>
+        <pattern id="svg-pattern-snakes-desktop" x="118" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+          <-! TODO: Aquí embeber las serpientes arriba a la derecha en svg (desktop) -->
+        </pattern>
+      </defs>
+      <rect y="72" width="640" height="640" class="text-gray-50" fill="currentColor" />
+      <rect x="118" width="404" height="784" fill="url(#svg-pattern-snakes-desktop)" />
+    </svg>
+  </div>
+  <div x-data="{ open: false }" class="relative pt-6 pb-8 md:pb-12 lg:pb-16 xl:pb-24">
+    {% show_menu 0 2 2 2 'includes/menu/navigation.html' %}
     {% block content %}{% endblock content %}
+  </div>
 </main>
 {% block footer %}
-<footer>
-    <div class='footer__body'>
-        <div class='footer__social-media'>
-            <h3>{% trans "Stay Connected" %}</h3>
-            <ul>
-                <li><a href='https://www.facebook.com/PyLatam/' target="_blank"><i
-                        class="fa fa-facebook color--facebook" aria-hidden="true"></i></a></li>
-                <li><a href='https://twitter.com/PyLatam' target="_blank"><i class="fa fa-twitter color--twitter"
-                                                                             aria-hidden="true"></i></a></li>
-                {# <li><a href=''><i class="fa fa-linkedin color--linkedin" aria-hidden="true"></i></a></li> #}
-                {# <li><a href=''><i class="fa fa-instagram color--instagram" aria-hidden="true"></i></a></li> #}
-            </ul>
-        </div>
-        <div class='footer__more-info'>
-            <p><strong>Pycon
-                Latam</strong> {% trans "commits unyieldingly to the rights of all individuals to mutual respect and acceptance of others, without biases based on differences of any kind." %}
-            </p>
-        </div>
-    </div>
-    <div class='footer__newsletter'>
-      <h3>{% trans "Newsletter" %}</h3>
-      <form action='https://pylatam.us19.list-manage.com/subscribe/post?u=6d2b6cf4a47f3089e707833e6&amp;id=4db5cc3f9f' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' class='validate' target='_blank' novalidate>
-          <div id='mc_embed_signup_scroll'>
-              <div id='mce-responses' class='clear'>
-                  <div class='response' id='mce-error-response' style='display:none'></div>
-                  <div class='response' id='mce-success-response' style='display:none'></div>
-              </div>
-              <input type='email' value='' placeholder='{% trans "email address" %}' name='{% trans "EMAIL" %}' class='required email' id='mce-EMAIL'>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style='position: absolute; left: -5000px;' aria-hidden='true'><input type='text' name='b_6d2b6cf4a47f3089e707833e6_4db5cc3f9f' tabindex='-1' value=''></div>
-              <input class='subscribe-button' type='submit' value='{% trans "SUBSCRIBE" %}'>
+<footer class="bg-blue-900">
+  <!-- TODO: Traer el contenido anterior -->
+  <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <div class="grid grid-cols-2 gap-8 xl:col-span-2">
+        <img class="h-24" src="{% static 'img/logos/pycon-latam-logo.svg' %}" alt="PyCon Latam" />
+        <p class="text-gray-400 text-base leading-6">
+          <span class="font-extrabold">Pycon Latam</span> {% trans "commits unyieldingly to the rights of all individuals to mutual respect and acceptance of others, without biases based on differences of any kind." %}
+        </p>
+      </div>
+      <div class="mt-8 xl:mt-0">
+        <h4 class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">
+          {% trans "Subscribe to our newsletter" %}
+        </h4>
+        <p class="mt-4 text-gray-300 text-base leading-6">
+          {% trans "The latest news, articles, and resources, sent to your inbox weekly." %}
+        </p>
+        <form class="mt-4 sm:flex sm:max-w-md validate" action='https://pylatam.us19.list-manage.com/subscribe/post?u=6d2b6cf4a47f3089e707833e6&amp;id=4db5cc3f9f' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' target='_blank' novalidate>
+          <div id='mce-responses'>
+            <div class='response' id='mce-error-response' style='display:none'></div>
+            <div class='response' id='mce-success-response' style='display:none'></div>
           </div>
-      </form>
-    </div>
-    <div class='footer__nav-bar'>
-        <ul>
-            <li><a href="{% page_url 'home' LANGUAGE_CODE %}">{% page_attribute menu_title 'home' %}</a></li>
-            <li><a href="{% page_url 'hotel' LANGUAGE_CODE %}">{% page_attribute menu_title 'hotel' %}</a></li>
-            <li><a href="{% page_url 'speaking' LANGUAGE_CODE %}">{% page_attribute menu_title 'speaking' %}</a></li>
-            <li><a href="{% page_url 'coc' LANGUAGE_CODE %}">{% page_attribute menu_title 'coc' %}</a></li>
-        </ul>
-        <span>&copy;2020 Pycon Latam. {% trans "All rights reserved." %}</span>
-    </div>
-    <div class="built-with">{% trans 'Built with' %} <a href="https://www.djangoproject.com/" target="_blank">Django</a> &amp; {% trans 'powered by' %} <a href="https://www.divio.com/" target="_blank">Divio</a>
-    <br />{% trans 'Web development by' %} <a href="https://www.linkedin.com/in/garciapat/" target="_blank">Patricio Garcia</a> &amp; <a href="https://codepen.io/TrevorWelch/">Trevor Welch</a>
-    <br />{% trans 'Homepage UI design' %} <a href="https://www.wizeline.com/" target="_blank">Wizeline</a></div>
+          <input id='mce-EMAIL' aria-label="Email address" type="email" required class="appearance-none w-full px-5 py-3 border border-transparent text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 transition duration-150 ease-in-out" placeholder="{% trans "email address" %}" name="{% trans "EMAIL" %}"/>
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style='position: absolute; left: -5000px;' aria-hidden='true'><input type='text' name='b_6d2b6cf4a47f3089e707833e6_4db5cc3f9f' tabindex='-1' value=''></div>
+          <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+            <button type="submit" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-700 hover:bg-blue-400 focus:outline-none focus:bg-indigo-400 transition duration-150 ease-in-out">
+              {% trans "SUBSCRIBE" %}
+            </button>
+          </div>
 
+        </form>
+      </div>
+    </div>
+    <div class="mt-8 border-t border-gray-400 pt-8 md:flex md:items-center md:justify-between">
+      <div class="flex md:order-2">
+        <a href="#" class="text-gray-400 hover:text-gray-300">
+          <span class="sr-only">Facebook</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+        <a href="#" class="ml-6 text-gray-400 hover:text-gray-300">
+          <span class="sr-only">Instagram</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+        <a href="#" class="ml-6 text-gray-400 hover:text-gray-300">
+          <span class="sr-only">Twitter</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+          </svg>
+        </a>
+        <a href="#" class="ml-6 text-gray-400 hover:text-gray-300">
+          <span class="sr-only">GitHub</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+      </div>
+      <p class="mt-8 text-base leading-6 text-gray-400 md:mt-0 md:order-1">
+        &copy; 2020 PyCon Latam, {% trans "All rights reserved." %}
+      </p>
+    </div>
+    <div class="mt-8">
+      <p class="text-center text-base leading-6 text-gray-400">
+      {% trans 'Built with' %} <a class="text-gray-200 font-extrabold" href="https://www.djangoproject.com/" target="_blank">Django</a> &amp; {% trans 'powered by' %} <a class="text-gray-200 font-extrabold" href="https://www.divio.com/" target="_blank">Divio</a>
+      <br />{% trans 'Web development by' %} <a class="text-gray-200 font-extrabold" href="https://www.linkedin.com/in/garciapat/" target="_blank">Patricio Garcia</a> &amp; <a href="https://codepen.io/TrevorWelch/">Trevor Welch</a>
+      <br />{% trans 'Homepage UI design' %} <a class="text-gray-200 font-extrabold" href="https://www.wizeline.com/" target="_blank">Wizeline</a>
+      </p>
+    </div>
+  </div>
 </footer>
 {% endblock footer %}
-
 {% render_block "js" %}
+<!-- TODO: Revisar si se utilizan estos scripts dentro del contenido de páginas
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
@@ -204,6 +243,7 @@
         }, 25);
     };
 </script>
+-->
 {% block js %}{% endblock js %}
 </body>
 </html>
