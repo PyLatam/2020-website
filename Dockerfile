@@ -47,7 +47,7 @@ COPY . /app
 
 # <GULP>
 # </GULP>
-
+RUN npm run build
 RUN rm -rf /static/*
 
 # <STATIC>
