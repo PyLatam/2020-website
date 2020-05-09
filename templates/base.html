@@ -18,6 +18,8 @@
 
     {% render_block "css" %}
     <link rel="stylesheet" type="text/css" href="{% static 'build/tailwind.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
     {% block css %}{% endblock css %}
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer></script>
 
@@ -91,9 +93,8 @@
 </div>
 
 {% comment %}
-TODO: Mover esto a un bloque en el menú?
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
         {% if not request.current_page.is_home %}
             <a class='navbar-brand' href='{% page_url "home" %}'><img src="{% static 'img/pylatamheader.svg' %}"/></a>
         {% endif %}
@@ -107,14 +108,13 @@ TODO: Mover esto a un bloque en el menú?
             <ul class="navbar-nav navbar-right">
                 {% show_menu 0 2 2 2 'includes/menu/navigation.html' %}
                 <li class="translation"><input {% if LANGUAGE_CODE == 'en' %}checked {% endif %}id="lang"
-                                               type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
+                    type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
             </ul>
         </div>
     </nav>
     <!-- {\% import menu tag \%} -->
 </header>
 {% endcomment %}
-
 {% if messages %}
     <!-- TODO: Incluir un componente para mensajes de tailwind -->
     <ul class="messages">
@@ -220,6 +220,14 @@ TODO: Mover esto a un bloque en el menú?
 </footer>
 {% endblock footer %}
 {% render_block "js" %}
+<script>
+ function is_english() {
+     return (location.href.indexOf("/en") != -1);
+ }
+ function lang(language_switch_state) {
+     (language_switch_state) ? window.location.replace("{{ language_switcher_url }}") : window.location.href = "/";
+ }
+</script>
 <!-- TODO: Revisar si se utilizan estos scripts dentro del contenido de páginas
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
