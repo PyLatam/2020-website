@@ -53,7 +53,7 @@
       <li class="translation"><input {% if LANGUAGE_CODE == 'en' %}checked {% endif %}id="lang" type="checkbox" data-toggle="toggle" data-on="EN" data-off="ES"></li>
     </ul>
   -->
-  <span x-data="{ value: true, toggle() { this.value = !this.value } }" :class="{ 'bg-gray-200': !value, 'bg-blue-800': value }" class="relative inline-block flex-no-shrink h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline" role="checkbox" tabindex="0" @click="toggle()" @keydown.space.prevent="toggle()" :aria-checked="value.toString()">
+  <span x-data="{ value: is_english(), toggle() { this.value = !this.value; lang(this.value) } }" :class="{ 'bg-gray-200': !value, 'bg-blue-800': value }" class="relative inline-block flex-no-shrink h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline" role="checkbox" tabindex="0" @click="toggle()" @keydown.space.prevent="toggle()" :aria-checked="value.toString()">
     <span aria-hidden="true" :class="{ 'translate-x-5': value, 'translate-x-0': !value }" class="relative inline-block h-5 w-5 rounded-full bg-white shadow transform transition ease-in-out duration-200">
     <span :class="{ 'opacity-0 ease-out duration-100': value, 'opacity-100 ease-in duration-200': !value }" class="text-xs text-gray-400 absolute inset-0 h-full w-full flex items-center justify-center transition-opacity">
       ES
