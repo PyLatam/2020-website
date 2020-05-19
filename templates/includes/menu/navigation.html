@@ -1,8 +1,8 @@
-{% load static %}
+{% load static cms_tags %}
 <nav class="relative max-w-screen-xl mx-auto flex items-center justify-between px-4 sm:px-6">
   <div class="flex items-center flex-1">
     <div class="flex items-center justify-between w-full md:w-auto">
-      <a href="#">
+      <a href='{% page_url "home" %}'>
         <img class="h-8 w-auto sm:h-10" src="{% static 'img/logos/pycon-latam-logo.svg' %}" alt="" />
       </a>
       <div class="-mr-2 flex items-center md:hidden">
