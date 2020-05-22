@@ -128,29 +128,17 @@
   <div class="hidden lg:block lg:absolute lg:inset-0">
     <!-- Hero -->
     <!-- TODO: Mostrar solo si es el home -->
-    <svg class="absolute top-0 left-1/2 transform translate-x-64 -translate-y-8" width="640" height="784" fill="none" viewBox="0 0 640 784">
-      <defs>
-        <pattern id="svg-pattern-snakes-desktop" x="118" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-          <img class="h-24" src="{% static 'img/Serpiente3.svg' %}" style="position: absolute; bottom:0%; left:0%; height:20%; width: 20%;" alt="PyCon Latam" />
-        </pattern>
-      </defs>
-      <rect y="72" width="640" height="640" class="text-gray-50" fill="currentColor" />
-      <rect x="118" width="404" height="784" fill="url(#svg-pattern-snakes-desktop)" />
+    <svg class="absolute top-0 right-0" width="640" height="784" fill="none">
+      <image href="/static/img/Serpiente3.svg" x="-640" y="-180" transform="rotate(-180)"></image> 
     </svg>
   </div>
   <div x-data="{ open: false }" class="relative pt-6 pb-8 md:pb-12 lg:pb-16 xl:pb-24">
     {% show_menu 0 2 2 2 'includes/menu/navigation.html' %}
     {% block content %}{% endblock content %}
+    <svg class="absolute bottom-0 left-0" width="640" height="784" fill="none">
+      <image href="/static/img/Serpiente3.svg" y="605"></image> 
+    </svg>
   </div>
-  <svg class="absolute top-0 left-1/2 transform translate-x-64 -translate-y-8" width="640" height="784" fill="none" viewBox="0 0 640 784">
-    <defs>
-      <pattern id="svg-pattern-snakes-desktop" x="118" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-        <img class="h-24" src="{% static 'img/Serpiente3.svg' %}" style="position: absolute; bottom:0%; left:0%; height:20%; width: 20%;" alt="PyCon Latam" />
-      </pattern>
-    </defs>
-    <rect y="72" width="640" height="640" class="text-gray-50" fill="currentColor" />
-    <rect x="118" width="404" height="784" fill="url(#svg-pattern-snakes-desktop)" />
-  </svg>
 </main>
 {% block footer %}
 <footer class="bg-blue-900">
