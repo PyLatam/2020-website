@@ -222,7 +222,7 @@
      return (location.href.indexOf("/en") != -1);
  }
  function lang(language_switch_state) {
-     (language_switch_state) ? window.location.replace("{{ language_switcher_url }}") : window.location.href = "/";
+     (language_switch_state) ? window.location.replace("{{ language_switcher_url }}") : window.location.href = "{{ language_switcher_url }}";
  }
 </script>
 <!-- TODO: Revisar si se utilizan estos scripts dentro del contenido de páginas
