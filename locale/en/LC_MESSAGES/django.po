@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 04:38+0000\n"
+"POT-Creation-Date: 2020-05-27 03:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -580,49 +580,49 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: templates/base.html:139
-msgid "Stay Connected"
-msgstr ""
-
-#: templates/base.html:151
+#: templates/base.html:152
 msgid ""
 "commits unyieldingly to the rights of all individuals to mutual respect and "
 "acceptance of others, without biases based on differences of any kind."
 msgstr ""
 
-#: templates/base.html:156
-msgid "Newsletter"
+#: templates/base.html:157
+msgid "Subscribe to our newsletter"
 msgstr ""
 
-#: templates/base.html:163
+#: templates/base.html:160
+msgid "The latest news, articles, and resources, sent to your inbox weekly."
+msgstr ""
+
+#: templates/base.html:167
 msgid "email address"
 msgstr ""
 
-#: templates/base.html:163
+#: templates/base.html:167
 msgid "EMAIL"
 msgstr ""
 
-#: templates/base.html:166
+#: templates/base.html:172
 msgid "SUBSCRIBE"
 msgstr ""
 
-#: templates/base.html:177
+#: templates/base.html:207
 msgid "All rights reserved."
 msgstr ""
 
-#: templates/base.html:179
+#: templates/base.html:212
 msgid "Built with"
 msgstr ""
 
-#: templates/base.html:179
+#: templates/base.html:212
 msgid "powered by"
 msgstr ""
 
-#: templates/base.html:180
+#: templates/base.html:213
 msgid "Web development by"
 msgstr ""
 
-#: templates/base.html:181
+#: templates/base.html:214
 msgid "Homepage UI design"
 msgstr ""
 
@@ -662,95 +662,44 @@ msgstr[1] ""
 msgid "Import"
 msgstr ""
 
-#: templates/home.html:10
+#: templates/home.html:41
 msgid "AUGUST"
 msgstr ""
 
-#: templates/home.html:16
-msgid "Keynote Speakers"
-msgstr ""
-
-#: templates/home.html:22
+#: templates/home.html:49
 msgid ""
-"Political scientist turned coder, Lorena Mesa is a data engineer on GitHub's "
-"software intelligence systems team, Director on the Python Software "
-"Foundation, and PyLadies Chicago co-organizer."
-msgstr ""
-
-#: templates/home.html:24
-msgid "About Lorena"
-msgstr ""
-
-#: templates/home.html:30
-msgid ""
-"Manuel traveled throughout South America as part of the \"Argentina in Python"
-"\" community project. He has since been named Python Ambassador by the "
-"Python Software Foundation."
-msgstr ""
-
-#: templates/home.html:32
-msgid "About Manuel"
-msgstr ""
-
-#: templates/home.html:38
-msgid ""
-"Tania is a developer advocate at Microsoft with a focus on Data science and "
-"all things scientific computing an open source."
-msgstr ""
-
-#: templates/home.html:40
-msgid "About Tania"
-msgstr ""
-
-#: templates/home.html:46
-msgid ""
-"Álvaro Justen (aka Turicas) is a software developer and teacher. Creator and "
-"maintainer of the portal of accessible open data Brasil.IO., Alvaro develops "
-"in Python since 2005."
-msgstr ""
-
-#: templates/home.html:48
-msgid "About Álvaro"
-msgstr ""
-
-#: templates/home.html:54
-msgid "Previous"
-msgstr ""
-
-#: templates/home.html:58
-msgid "Next"
-msgstr ""
-
-#: templates/home.html:67
-msgid "Let's get started!"
+"Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem "
+"cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad "
+"non deserunt sunt."
 msgstr ""
 
 #: templates/home.html:69
-msgid "Get Your Tickets Now"
+msgid "PyCon Latam 2020 suspendido"
+msgstr ""
+
+#: templates/home.html:72
+msgid ""
+"Desde que inició la emergencia sanitaria COVID-19 el comité organizador ha "
+"monitoreado la situación mundial, en especial de Latinoamerica, para "
+"determinar si era necesario ajustar nuestros planes."
 msgstr ""
 
 #: templates/home.html:73
 msgid ""
-" PyCon Latam is a flavor of the PyCon conference that aims to bring "
-"together\n"
-"                    python developers from all latin american countries, and "
-"serve as a platform for\n"
-"                    them to interface with the python community at large."
+"Desafortunadamente la mayoría de los países involucrados en PyCon Latam "
+"enfrentan un reto grande por lo que hemos decidido priorizar la salud de "
+"nuestra comunidad y hemos suspendido la conferencia este 2020. Les "
+"agradecemos su comprensión y apoyo con esta difícil decisión."
 msgstr ""
 
-#: templates/home.html:78
-msgid "This 3 day conference starts on August 29th and ends on the 31st."
-msgstr ""
-
-#: templates/home.html:86
-msgid "SPONSORS"
-msgstr ""
-
-#: templates/home.html:89
+#: templates/home.html:74
 msgid ""
-"The companies and organizations who sponsor PyCon Latam make the conference "
-"possible,\n"
-"                and get to connect with a wide array of Python programmers."
+"Seguimos trabajando y por el momento llegamos a un acuerdo con la sede para "
+"asegurar Agosto 2021 como la nueva fecha para la conferencia."
+msgstr ""
+
+#: templates/home.html:75
+msgid "Esperamos verlos en 2021!"
 msgstr ""
 
 #: templates/schedule/detail.html:19 templates/schedule/detail.html:47

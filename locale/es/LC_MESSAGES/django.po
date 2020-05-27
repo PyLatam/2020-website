@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 04:38+0000\n"
+"POT-Creation-Date: 2020-05-27 03:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -631,11 +631,7 @@ msgstr ""
 msgid "Logout"
 msgstr "Cerra Sesión"
 
-#: templates/base.html:139
-msgid "Stay Connected"
-msgstr "Manténgase Informado"
-
-#: templates/base.html:151
+#: templates/base.html:152
 msgid ""
 "commits unyieldingly to the rights of all individuals to mutual respect and "
 "acceptance of others, without biases based on differences of any kind."
@@ -643,39 +639,44 @@ msgstr ""
 "se compromete a respetar los derechos de todos los individuos, a partir de "
 "la tolerancia mutua y la aceptación de los demás sin distinción alguna."
 
-#: templates/base.html:156
-msgid "Newsletter"
-msgstr ""
+#: templates/base.html:157
+msgid "Subscribe to our newsletter"
+msgstr "Suscríbete a nuestro boletín"
 
-#: templates/base.html:163
+#: templates/base.html:160
+msgid "The latest news, articles, and resources, sent to your inbox weekly."
+msgstr ""
+"Ùltimas noticias, artículos y recursos, semanalmente a su bandeja de entrada."
+
+#: templates/base.html:167
 msgid "email address"
 msgstr "dirección de correo electrónico"
 
-#: templates/base.html:163
+#: templates/base.html:167
 msgid "EMAIL"
 msgstr "CORREO ELECTRÓNICO"
 
-#: templates/base.html:166
+#: templates/base.html:172
 msgid "SUBSCRIBE"
 msgstr "SUSCRIBIRSE"
 
-#: templates/base.html:177
+#: templates/base.html:207
 msgid "All rights reserved."
 msgstr "Todos los derechos reservados."
 
-#: templates/base.html:179
+#: templates/base.html:212
 msgid "Built with"
 msgstr "Desarrollado con"
 
-#: templates/base.html:179
+#: templates/base.html:212
 msgid "powered by"
 msgstr "Impulsado por"
 
-#: templates/base.html:180
+#: templates/base.html:213
 msgid "Web development by"
 msgstr "Desarrollo de web por"
 
-#: templates/base.html:181
+#: templates/base.html:214
 msgid "Homepage UI design"
 msgstr "Diseño UI de pagina principal por"
 
@@ -715,113 +716,54 @@ msgstr[1] "Por favor corrige los errores."
 msgid "Import"
 msgstr "Importar"
 
-#: templates/home.html:10
+#: templates/home.html:41
 msgid "AUGUST"
 msgstr "AGOSTO"
 
-#: templates/home.html:16
-msgid "Keynote Speakers"
-msgstr "Ponentes Principales"
-
-#: templates/home.html:22
+#: templates/home.html:49
 msgid ""
-"Political scientist turned coder, Lorena Mesa is a data engineer on GitHub's "
-"software intelligence systems team, Director on the Python Software "
-"Foundation, and PyLadies Chicago co-organizer."
+"Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem "
+"cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad "
+"non deserunt sunt."
 msgstr ""
-"Politóloga convertida en programadora, Lorena Mesa es ingeniera de datos en "
-"el equipo de sistemas de inteligencia de software de GitHub, Directora en la "
-"Python Software Foundation, y co-organizadora de PyLadies Chicago."
-
-#: templates/home.html:24
-msgid "About Lorena"
-msgstr "Acerca de Lorena"
-
-#: templates/home.html:30
-msgid ""
-"Manuel traveled throughout South America as part of the \"Argentina in Python"
-"\" community project. He has since been named Python Ambassador by the "
-"Python Software Foundation."
-msgstr ""
-"Manuel viajó por toda Sudamérica como parte del proyecto comunitario "
-"\"Argentina en Python\". Desde entonces ha sido nombrado embajador de Python "
-"por la Fundación Python Software."
-
-#: templates/home.html:32
-msgid "About Manuel"
-msgstr "Acerca de Manuel"
-
-#: templates/home.html:38
-msgid ""
-"Tania is a developer advocate at Microsoft with a focus on Data science and "
-"all things scientific computing an open source."
-msgstr ""
-"Tania es una developer advocate en Microsoft con un enfoque en la ciencia de "
-"datos y todo lo relacionado con la informática científica de código abierto."
-
-#: templates/home.html:40
-msgid "About Tania"
-msgstr "Acerca de Tania"
-
-#: templates/home.html:46
-msgid ""
-"Álvaro Justen (aka Turicas) is a software developer and teacher. Creator and "
-"maintainer of the portal of accessible open data Brasil.IO., Alvaro develops "
-"in Python since 2005."
-msgstr ""
-"Álvaro Justen (aka Turicas) es desarrollador de software y profesor. "
-"Desarrollador Python desde 2005, es creador y mantenedor del portal de datos "
-"abiertos accesibles Brasil.IO."
-
-#: templates/home.html:48
-msgid "About Álvaro"
-msgstr "Acerca de Álvaro"
-
-#: templates/home.html:54
-msgid "Previous"
-msgstr "Anterior"
-
-#: templates/home.html:58
-msgid "Next"
-msgstr "Siguiente"
-
-#: templates/home.html:67
-msgid "Let's get started!"
-msgstr "¡Comencemos!"
 
 #: templates/home.html:69
-msgid "Get Your Tickets Now"
-msgstr "Compre sus boletos ahora"
+msgid "PyCon Latam 2020 suspendido"
+msgstr "PyCon Latam 2020 suspended"
+
+#: templates/home.html:72
+msgid ""
+"Desde que inició la emergencia sanitaria COVID-19 el comité organizador ha "
+"monitoreado la situación mundial, en especial de Latinoamerica, para "
+"determinar si era necesario ajustar nuestros planes."
+msgstr ""
+"Since the COVID-19 health emergency began, the organizing committee has "
+"monitored the world situation, especially in Latin America, to determine if "
+"it was necessary to adjust our plans."
 
 #: templates/home.html:73
 msgid ""
-" PyCon Latam is a flavor of the PyCon conference that aims to bring "
-"together\n"
-"                    python developers from all latin american countries, and "
-"serve as a platform for\n"
-"                    them to interface with the python community at large."
+"Desafortunadamente la mayoría de los países involucrados en PyCon Latam "
+"enfrentan un reto grande por lo que hemos decidido priorizar la salud de "
+"nuestra comunidad y hemos suspendido la conferencia este 2020. Les "
+"agradecemos su comprensión y apoyo con esta difícil decisión."
 msgstr ""
-" PyCon Latam es una versión de la conferencia PyCon que tiene como objetivo "
-"reunir a los desarrolladores de python de todos los países latinoamericanos, "
-"y servir como una plataforma para que interactúen con la comunidad de python "
-"en general."
+"Unfortunately, most of the countries involved in PyCon Latam face a great "
+"challenge, so we have decided to prioritize the health of our community and "
+"have suspended the conference this 2020. We thank you for your understanding "
+"and support with this difficult decision."
 
-#: templates/home.html:78
-msgid "This 3 day conference starts on August 29th and ends on the 31st."
-msgstr "Esta conferencia de 3 días comienza el 29 de Agosto y termina el 31."
-
-#: templates/home.html:86
-msgid "SPONSORS"
-msgstr "PATROCINADORES"
-
-#: templates/home.html:89
+#: templates/home.html:74
 msgid ""
-"The companies and organizations who sponsor PyCon Latam make the conference "
-"possible,\n"
-"                and get to connect with a wide array of Python programmers."
+"Seguimos trabajando y por el momento llegamos a un acuerdo con la sede para "
+"asegurar Agosto 2021 como la nueva fecha para la conferencia."
 msgstr ""
-"Las empresas y organizaciones que patrocinan PyCon Latam hacen posible la "
-"conferencia y se conectan con una amplia gama de programadores de Python."
+"We continue to work and for the moment we have reached an agreement with the "
+"headquarters to ensure August 2021 as the new date for the conference."
+
+#: templates/home.html:75
+msgid "Esperamos verlos en 2021!"
+msgstr "We hope to see you in 2021!"
 
 #: templates/schedule/detail.html:19 templates/schedule/detail.html:47
 #, fuzzy, python-format
@@ -890,6 +832,99 @@ msgstr "hasta"
 #, python-format
 msgid "Enjoy at <b class=\"talk__card_blue\">%(room)s</b>"
 msgstr "En <b class=\"talk__card_blue\">%(room)s</b>"
+
+#~ msgid "Stay Connected"
+#~ msgstr "Manténgase Informado"
+
+#~ msgid "Keynote Speakers"
+#~ msgstr "Ponentes Principales"
+
+#~ msgid ""
+#~ "Political scientist turned coder, Lorena Mesa is a data engineer on "
+#~ "GitHub's software intelligence systems team, Director on the Python "
+#~ "Software Foundation, and PyLadies Chicago co-organizer."
+#~ msgstr ""
+#~ "Politóloga convertida en programadora, Lorena Mesa es ingeniera de datos "
+#~ "en el equipo de sistemas de inteligencia de software de GitHub, Directora "
+#~ "en la Python Software Foundation, y co-organizadora de PyLadies Chicago."
+
+#~ msgid "About Lorena"
+#~ msgstr "Acerca de Lorena"
+
+#~ msgid ""
+#~ "Manuel traveled throughout South America as part of the \"Argentina in "
+#~ "Python\" community project. He has since been named Python Ambassador by "
+#~ "the Python Software Foundation."
+#~ msgstr ""
+#~ "Manuel viajó por toda Sudamérica como parte del proyecto comunitario "
+#~ "\"Argentina en Python\". Desde entonces ha sido nombrado embajador de "
+#~ "Python por la Fundación Python Software."
+
+#~ msgid "About Manuel"
+#~ msgstr "Acerca de Manuel"
+
+#~ msgid ""
+#~ "Tania is a developer advocate at Microsoft with a focus on Data science "
+#~ "and all things scientific computing an open source."
+#~ msgstr ""
+#~ "Tania es una developer advocate en Microsoft con un enfoque en la ciencia "
+#~ "de datos y todo lo relacionado con la informática científica de código "
+#~ "abierto."
+
+#~ msgid "About Tania"
+#~ msgstr "Acerca de Tania"
+
+#~ msgid ""
+#~ "Álvaro Justen (aka Turicas) is a software developer and teacher. Creator "
+#~ "and maintainer of the portal of accessible open data Brasil.IO., Alvaro "
+#~ "develops in Python since 2005."
+#~ msgstr ""
+#~ "Álvaro Justen (aka Turicas) es desarrollador de software y profesor. "
+#~ "Desarrollador Python desde 2005, es creador y mantenedor del portal de "
+#~ "datos abiertos accesibles Brasil.IO."
+
+#~ msgid "About Álvaro"
+#~ msgstr "Acerca de Álvaro"
+
+#~ msgid "Previous"
+#~ msgstr "Anterior"
+
+#~ msgid "Next"
+#~ msgstr "Siguiente"
+
+#~ msgid "Let's get started!"
+#~ msgstr "¡Comencemos!"
+
+#~ msgid "Get Your Tickets Now"
+#~ msgstr "Compre sus boletos ahora"
+
+#~ msgid ""
+#~ " PyCon Latam is a flavor of the PyCon conference that aims to bring "
+#~ "together\n"
+#~ "                    python developers from all latin american countries, "
+#~ "and serve as a platform for\n"
+#~ "                    them to interface with the python community at large."
+#~ msgstr ""
+#~ " PyCon Latam es una versión de la conferencia PyCon que tiene como "
+#~ "objetivo reunir a los desarrolladores de python de todos los países "
+#~ "latinoamericanos, y servir como una plataforma para que interactúen con "
+#~ "la comunidad de python en general."
+
+#~ msgid "This 3 day conference starts on August 29th and ends on the 31st."
+#~ msgstr ""
+#~ "Esta conferencia de 3 días comienza el 29 de Agosto y termina el 31."
+
+#~ msgid "SPONSORS"
+#~ msgstr "PATROCINADORES"
+
+#~ msgid ""
+#~ "The companies and organizations who sponsor PyCon Latam make the "
+#~ "conference possible,\n"
+#~ "                and get to connect with a wide array of Python "
+#~ "programmers."
+#~ msgstr ""
+#~ "Las empresas y organizaciones que patrocinan PyCon Latam hacen posible la "
+#~ "conferencia y se conectan con una amplia gama de programadores de Python."
 
 #~ msgid "Translation Device"
 #~ msgstr "Equipo para interpretacion simulatane"
