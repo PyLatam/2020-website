@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-27 03:27+0000\n"
+"POT-Creation-Date: 2020-05-30 01:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -668,38 +668,38 @@ msgstr ""
 
 #: templates/home.html:49
 msgid ""
-"Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem "
-"cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad "
-"non deserunt sunt."
+"PyCon Latam is a version of the PyCon conference that aims to bring together "
+"python developers from all Latin American countries, and serve as a platform "
+"for them to interact with the python community at large."
 msgstr ""
 
 #: templates/home.html:69
-msgid "PyCon Latam 2020 suspendido"
+msgid "PyCon Latam 2020 suspended"
 msgstr ""
 
 #: templates/home.html:72
 msgid ""
-"Desde que inició la emergencia sanitaria COVID-19 el comité organizador ha "
-"monitoreado la situación mundial, en especial de Latinoamerica, para "
-"determinar si era necesario ajustar nuestros planes."
+"Since the COVID-19 health emergency began, the organizing committee has "
+"monitored the world situation, especially in Latin America, to determine if "
+"it was necessary to adjust our plans."
 msgstr ""
 
 #: templates/home.html:73
 msgid ""
-"Desafortunadamente la mayoría de los países involucrados en PyCon Latam "
-"enfrentan un reto grande por lo que hemos decidido priorizar la salud de "
-"nuestra comunidad y hemos suspendido la conferencia este 2020. Les "
-"agradecemos su comprensión y apoyo con esta difícil decisión."
+"Unfortunately, most of the countries involved in PyCon Latam face a great "
+"challenge, so we have decided to prioritize the health of our community and "
+"have suspended the conference this 2020. We thank you for your understanding "
+"and support with this difficult decision."
 msgstr ""
 
 #: templates/home.html:74
 msgid ""
-"Seguimos trabajando y por el momento llegamos a un acuerdo con la sede para "
-"asegurar Agosto 2021 como la nueva fecha para la conferencia."
+"We continue to work and for the moment we have reached an agreement with the "
+"headquarters to ensure August 2021 as the new date for the conference."
 msgstr ""
 
 #: templates/home.html:75
-msgid "Esperamos verlos en 2021!"
+msgid "We hope to see you in 2021!"
 msgstr ""
 
 #: templates/schedule/detail.html:19 templates/schedule/detail.html:47
