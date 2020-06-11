@@ -8,7 +8,7 @@
 FROM divio/base:4.15-py3.6-slim-stretch
 # </DOCKER_FROM>
 RUN apt update && curl -sL https://deb.nodesource.com/setup_10.x| bash\
-          && apt-get install -y nodejs\
+          && apt-get install -y nodejs uwsgi-plugin-python\
           && rm -rf /var/lib/apt/lists/*
 # <NPM>
 # package.json is put into / so that mounting /app for local
