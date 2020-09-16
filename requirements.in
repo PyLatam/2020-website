@@ -12,15 +12,19 @@ https://control.divio.com/api/v1/apps/serve/djangocms-text-ckeditor/3.8.0/b89646
 https://control.divio.com/api/v1/apps/serve/djangocms-transfer/0.2.0/5ba90c5c-5737-4302-ba6e-fbe3acc55ea0/djangocms-transfer-0.2.0.tar.gz#egg=djangocms-transfer==0.2.0
 https://control.divio.com/api/v1/apps/serve/django-filer/1.6.0/ea2f6055-3bc9-4bf7-a341-e1901ac15269/django-filer-1.6.0.tar.gz#egg=django-filer==1.6.0
 # </INSTALLED_ADDONS>
-attrs
+attrs==19.3.0
 click==7.0
+django-classy-tags==1.0.0
+django-sekizai==1.1.0
+djangocms-attributes-field==1.2.0
+djangocms-icon==1.5.0
 jinja2==2.10
 django-user-accounts==2.1.0
-bs4
+bs4==0.0.1
 django-model-utils<=3.2.0
-bleach
-markdown2
-langdetect
+bleach==3.1.5
+markdown2==2.3.9
+langdetect==1.0.8
 qrcode<7
 django-storages==1.7.2
 psycopg2==2.7.7
