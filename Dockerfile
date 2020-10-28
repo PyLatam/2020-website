@@ -5,7 +5,7 @@
 # </WARNING>
 
 # <DOCKER_FROM>
-FROM divio/base:4.15-py3.6-slim-stretch
+FROM divio/base:4.18-py3.6-slim-stretch
 # </DOCKER_FROM>
 RUN apt update && curl -sL https://deb.nodesource.com/setup_10.x| bash\
           && apt-get install -y nodejs uwsgi-plugin-python\

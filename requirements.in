@@ -13,7 +13,11 @@ https://control.divio.com/api/v1/apps/serve/djangocms-transfer/0.2.0/5ba90c5c-57
 https://control.divio.com/api/v1/apps/serve/django-filer/1.6.0/ea2f6055-3bc9-4bf7-a341-e1901ac15269/django-filer-1.6.0.tar.gz#egg=django-filer==1.6.0
 # </INSTALLED_ADDONS>
 attrs==19.3.0
+beautifulsoup4==4.9.1
 click==7.0
+chardet==3.0.4
+django-appconf==1.0.4
+django-simple-captcha==0.5.10
 django-classy-tags==1.0.0
 django-sekizai==1.1.0
 djangocms-attributes-field==1.2.0
@@ -29,3 +33,11 @@ qrcode<7
 django-storages==1.7.2
 psycopg2==2.7.7
 django-select2==7.1.0
+uWSGI==2.0.19.1
+Unidecode==1.0.23
+setuptools==47.3.1
+lxml==4.5.2
+Pillow==7.2.0
+sentry-sdk==0.17.6
+six==1.15.0
+urllib3==1.25.10
