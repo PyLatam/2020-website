@@ -97,12 +97,18 @@ ul {
       rgba(22, 22, 22, 0.1) 0,
       rgba(22, 22, 22, 0.1) 80%,
       #161616 100%
+    ),linear-gradient(
+      to top,
+      rgba(22, 22, 22, 0.1) 0,
+      rgba(22, 22, 22, 0.1) 80%,
+      #161616 100%
     ),
+
     url("../img/pyconlatam/bg-masthead.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-size: cover;
+  background-size: contain;
 }
 .masthead h1 {
   font-family: "Varela Round";
