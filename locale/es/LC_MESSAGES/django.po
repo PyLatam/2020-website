@@ -723,9 +723,9 @@ msgstr "AGOSTO"
 #: templates/home.html:49
 msgid ""
 "PyCon Latam is a version of the PyCon conference that aims to bring together "
-"python developers from all Latin American countries, and serve as a platform "
-"for them to interact with the python community at large."
-msgstr "PyCon Latam es una versión de la conferencia PyCon que tiene como objetivo reunir a los desarrolladores de python de todos los países latinoamericanos, y servir como una plataforma para que interactúen con la comunidad de python en general."
+"Python developers from all Latin American countries, and serve as a platform "
+"for them to interact with the Python community at large."
+msgstr "PyCon Latam es una versión de la conferencia PyCon que tiene como objetivo reunir a los desarrolladores de Python de todos los países latinoamericanos, y servir como una plataforma para que interactúen con la comunidad de Python en general."
 
 #: templates/home.html:69
 msgid "PyCon Latam 2020 suspended"
